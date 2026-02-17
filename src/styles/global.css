@@ -1,1 +1,334 @@
-@import "tailwindcss";
+:root{
+  --primary: #8FC6E3;
+  --primary-strong: #6FAED1;
+  --primary-soft: #CFE9F6;
+  --dark: #0B1220;
+
+  --maxw: 1100px;
+}
+
+/* ============================= */
+/* BASE */
+/* ============================= */
+
+html, body{
+  margin: 0;
+  height: 100%;
+}
+
+body{
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #000;
+  color: white;
+}
+
+/* ============================= */
+/* NAVBAR (blended, subtle) */
+/* ============================= */
+
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+/* On scroll: very subtle dark glass (integrated with hero black) */
+.navbar.scrolled{
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  animation: navbarBounce 0.45s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* Align left edge with hero text: 6vw + container padding */
+.navbar-inner{
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: calc(6vw + 20px);
+  padding-right: 28px;
+}
+
+/* Left: Brand */
+.navbar-brand{
+  font-family: "Playfair Display", serif;
+  font-size: clamp(20px, 1.4vw, 24px);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* Center/right: nav links + icons */
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Links: same underline animation as your CTA */
+.navbar-links{
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-link{
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: rgba(255,255,255,0.82);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link::after{
+  content: "";
+  height: 2px;
+  width: 0px;
+  margin-left: 8px;
+  background: var(--primary);
+  transition: width 0.25s ease;
+  opacity: 0.95;
+}
+
+.nav-link:hover{
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after{
+  width: 18px;
+}
+
+/* Icons (logo only) */
+.nav-icons{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.icon-link svg{
+  width: 18px;
+  height: 18px;
+  fill: rgba(255,255,255,0.80);
+  transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.icon-link:hover{
+  transform: translateY(-1px);
+}
+
+.icon-link:hover svg{
+  fill: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px){
+  .navbar-inner{
+    padding-left: 20px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 640px){
+  .navbar-links{
+    display: none;
+  }
+}
+
+/* ============================= */
+/* NAVBAR BOUNCE */
+/* ============================= */
+
+@keyframes navbarBounce {
+  0% {
+    transform: scaleY(0.96);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero{
+  position: relative;
+  min-height: calc(100vh - 84px);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 84px;
+  overflow: hidden;
+}
+
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: url("/images/earth.webp") no-repeat center center;
+  background-size: cover;       /* touche tous les bords */
+  background-position: center bottom;  /* réactif */
+}
+
+.hero-bg::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url("/images/earth.webp") no-repeat center center;
+  background-size: contain;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin-left: 6vw;
+
+  margin-top: clamp(110px, 16vh, 200px);
+}
+
+.hero-kicker{
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+.hero-title{
+  font-size: clamp(50px, 5.2vw, 67px);
+  margin: 14px 0 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--primary);
+}
+
+.hero-lead{
+  margin-top: 20px;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+}
+
+/* ============================= */
+/* TEXT BUTTONS */
+/* ============================= */
+
+.link-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 34px;
+
+  font-size: 16px;        /* plus grand */
+  font-weight: 600;       /* un peu plus affirmé */
+  letter-spacing: 0.02em;
+
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.link-btn::after{
+  content: "";
+  height: 2px;            /* ligne plus visible */
+  width: 0px;
+  background: var(--primary);
+  transition: width 0.25s ease;
+}
+
+.link-btn:hover{
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.link-btn:hover::after{
+  width: 28px;            /* underline plus longue */
+}
+
+.link-btn:active{
+  transform: translateY(0px);
+}
+
+/* ============================= */
+/* HERO CAPTION */
+/* ============================= */
+
+.hero-caption{
+  position: absolute;
+  right: clamp(16px, 4vw, 40px);
+  bottom: clamp(16px, 4vh, 40px);
+  z-index: 3;
+
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-align: right;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  background: linear-gradient(
+    to left,
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.55)
+  );
+
+  backdrop-filter: blur(6px);
+  max-width: min(480px, 90%);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px){
+
+  .hero-content{
+    margin-top: clamp(60px, 15vh, 180px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+}

@@ -1,0 +1,32 @@
+---
+const nav = [
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Contact", href: "/#contact" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+    <a href="/" class="font-semibold tracking-tight">
+      Emma Vellard
+    </a>
+
+    <nav class="flex items-center gap-4 text-sm">
+      {nav.map((item) => (
+        <a class="text-slate-40000 hover:text-slate-950" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+      <a
+        class="ml-2 rounded-md border border-slate-300 px-3 py-1.5 text-slate-800 hover:bg-slate-50"
+        href="/Emma_Vellard_Resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Resume
+      </a>
+    </nav>
+  </div>
+</header>

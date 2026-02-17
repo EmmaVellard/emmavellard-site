@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Emma Vellard | Planetary Scientist">
+  <Navbar />
+
+  <main class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="container hero-content">
+      <p class="hero-kicker">I am a</p>
+
+      <h1 class="hero-title">
+        Planetary Scientist &
+        <br />
+        Space Systems Engineer.
+      </h1>
+
+      <p class="hero-lead">
+        I develop scientific and engineering approaches that advance
+        space exploration missions and multi-spacecraft analysis.
+      </p>
+
+      <a class="link-btn" href="/projects">View my projects</a>
+    </div>
+    <p class="hero-caption">
+      Earth image captured by YPSat during Ariane 6’s maiden flight.
+    </p>
+  </main>
+</BaseLayout>
