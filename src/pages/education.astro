@@ -1,15 +1,253 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContainerCard from "../components/ContainerCard.astro";
+import Navbar from "../components/NavBar.astro";
+import "../styles/education.css";
 ---
 
 <BaseLayout title="Education | Emma Vellard">
   <Navbar />
-  <main class="px-4">
-    <ContainerCard>
-      <h1 class="text-2xl font-semibold tracking-tight">Education</h1>
-      <p class="mt-4 text-slate-700">Content coming next.</p>
-    </ContainerCard>
+
+  <main class="page page-education">
+    <div class="edu-bg" aria-hidden="true"></div>
+
+    <section class="edu-shell">
+      <div class="container">
+        <header class="edu-head">
+          <h1 class="edu-title">Education</h1>
+          <p class="edu-sub"> 
+            Focused on planetary interiors, space systems engineering, and mission science integration.
+          </p>
+          </header>
+
+        <section class="edu-timeline" aria-label="Education timeline">
+
+          <article class="edu-item">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+              <span class="edu-line"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2026–2025</div>
+              <h2 class="edu-h2">
+                Space Systems Engineering TAS ASTRO, Advanced MSc
+              </h2>
+              <div class="edu-place">
+                <span class="highlight">ISAE-SUPAERO</span> · France
+              </div>
+              <p class="edu-text">
+                Advanced program focused on 
+                <span class="highlight">space systems engineering</span> 
+                and project management, combining technical training with real-world 
+                industry experience.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="edu-item">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+              <span class="edu-line"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2025</div>
+              <h2 class="edu-h2">
+                Space Studies Program
+              </h2>
+              <div class="edu-place">
+                <span class="highlight">International Space University</span> · South Korea
+              </div>
+              <p class="edu-text">
+                Intensive interdisciplinary program bridging engineering, 
+                space sciences, policy, and management with a strong focus 
+                on <span class="highlight">global collaboration</span>.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="edu-item">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+              <span class="edu-line"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2023–2022</div>
+              <h2 class="edu-h2">
+                Planetary Science & Space Exploration, MSc
+              </h2>
+              <div class="edu-place">
+                <span class="highlight">Université Paris-Saclay</span> · France
+              </div>
+              <p class="edu-text">
+                Graduate program centered on 
+                <span class="highlight">planetary science</span>, 
+                geophysics, and observational methods, combining theoretical foundations 
+                with research-oriented practice.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="edu-item">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+              <span class="edu-line"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2022–2021</div>
+              <h2 class="edu-h2">
+                Space Science & Technology, MSc
+              </h2>
+              <div class="edu-place">
+                <span class="highlight">Observatoire de Paris</span> · France
+              </div>
+              <p class="edu-text">
+                Advanced coursework in 
+                <span class="highlight">astrophysics</span>, 
+                instrumentation, and plasma physics, strengthening scientific and 
+                analytical foundations.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="edu-item">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+              <span class="edu-line"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2021–2019</div>
+              <h2 class="edu-h2">
+                Fundamental Physics, BSc
+              </h2>
+              <div class="edu-place">
+                Université Clermont Auvergne · France
+              </div>
+              <p class="edu-text">
+                Strong foundation in classical mechanics, thermodynamics, 
+                and electromagnetism with emphasis on analytical reasoning.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="edu-item edu-item-last">
+            <div class="edu-rail" aria-hidden="true">
+              <span class="edu-dot"></span>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-meta">2019–2018</div>
+              <h2 class="edu-h2">
+                Mathematics & Physics, BSc
+              </h2>
+              <div class="edu-place">
+                Lycée Blaise Pascal · France
+              </div>
+              <p class="edu-text">
+                Intensive training in mathematics and physics preparing for 
+                engineering school pathways.
+              </p>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- CERTIFICATES -->
+        <section class="edu-certs" aria-label="Certificates">
+          <header class="edu-head">
+            <h2 class="edu-title edu-title-sm">Certificates</h2>
+            <p class="edu-sub">Continuous learning through focused online certifications.</p>
+          </header>
+
+          <div class="cert-grid">
+            <!-- Coursera -->
+            <article class="cert-card">
+              <a
+                class="cert-card-link"
+                href="https://www.coursera.org/account/accomplishments/verify/UNL8VO4RBEH8"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="cert-head">
+                  <div>
+                    <div class="cert-title">Machine Learning Specialization</div>
+                    <div class="cert-org">Stanford University</div>
+                  </div>
+                  <span class="cert-badge">Coursera</span>
+                </div>
+
+                <div class="cert-meta">
+                  Core machine learning concepts with applied practice and model development.
+                </div>
+
+                <div class="cert-action">
+                  <span class="link-btn">View certificate</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- Coursera -->
+            <article class="cert-card">
+              <a
+                class="cert-card-link"
+                href="https://www.coursera.org/account/accomplishments/verify/J70EQ9XM9BIO?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="cert-head">
+                  <div>
+                    <div class="cert-title">Mathematics for Machine Learning</div>
+                    <div class="cert-org">Imperial College London</div>
+                  </div>
+                  <span class="cert-badge">Coursera</span>
+                </div>
+
+                <div class="cert-meta">
+                  Linear algebra foundations, PCA, and mathematical tools for ML workflows.
+                </div>
+
+                <div class="cert-action">
+                  <span class="link-btn">View certificate</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- Kaggle -->
+            <article class="cert-card">
+              <a
+                class="cert-card-link"
+                href="https://www.kaggle.com/learn/certification/emmavellard/intro-to-deep-learning"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="cert-head">
+                  <div>
+                    <div class="cert-title">Intro to Deep Learning</div>
+                    <div class="cert-org">Kaggle</div>
+                  </div>
+                  <span class="cert-badge">Kaggle</span>
+                </div>
+
+                <div class="cert-meta">
+                  Neural network basics with hands-on exercises and practical implementation.
+                </div>
+
+                <div class="cert-action">
+                  <span class="link-btn">View certificate</span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 </BaseLayout>

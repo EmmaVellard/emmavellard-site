@@ -1,60 +1,37 @@
 ---
-const pathname = Astro.url.pathname;
+const { pathname } = Astro.url;
 ---
 
-<header class="navbar">
+<header class="navbar" id="site-navbar">
   <div class="navbar-inner">
-
-    <!-- LEFT -->
     <a class="navbar-brand" href="/">Emma Vellard</a>
 
-    <!-- RIGHT -->
     <div class="navbar-right">
-
-      <nav class="navbar-links">
-
-        <a class={`nav-link ${pathname.startsWith("/about") ? "active" : ""}`} href="/about">
-          About
-        </a>
-
-        <a class={`nav-link ${pathname.startsWith("/projects") ? "active" : ""}`} href="/projects">
-          Projects
-        </a>
-
-        <a class={`nav-link ${pathname.startsWith("/experience") ? "active" : ""}`} href="/experience">
-          Experience
-        </a>
-
-        <a class={`nav-link ${pathname.startsWith("/education") ? "active" : ""}`} href="/education">
-          Education
-        </a>
-
-        <a class={`nav-link ${pathname.startsWith("/conferences") ? "active" : ""}`} href="/conferences">
-          Conferences
-        </a>
-
-        <a class={`nav-link ${pathname.startsWith("/contact") ? "active" : ""}`} href="/contact">
-          Contact
-        </a>
-
+      <nav class="navbar-links" aria-label="Main navigation">
+        <a class={`nav-link ${pathname === "/about" ? "active" : ""}`} href="/about">About</a>
+        <a class={`nav-link ${pathname === "/projects" ? "active" : ""}`} href="/projects">Projects</a>
+        <a class={`nav-link ${pathname === "/experience" ? "active" : ""}`} href="/experience">Experience</a>
+        <a class={`nav-link ${pathname === "/education" ? "active" : ""}`} href="/education">Education</a>
+        <a class={`nav-link ${pathname === "/conferences" ? "active" : ""}`} href="/conferences">Conferences</a>
+        <a class={`nav-link ${pathname === "/contact" ? "active" : ""}`} href="/contact">Contact</a>
       </nav>
 
       <div class="nav-icons" aria-label="Social links">
-        <a class="icon-link" href="mailto:emma.vellard@outlook.fr" aria-label="Email">
+        <a class="icon-link" href="mailto:YOUR_EMAIL" aria-label="Email">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
           </svg>
         </a>
 
-        <a class="icon-link" href="https://github.com/EmmaVellard" target="_blank" rel="noopener" aria-label="GitHub">
+        <a class="icon-link" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 .5C5.73.5.75 5.62.75 12c0 5.1 3.29 9.42 7.86 10.95.58.11.8-.26.8-.58 0-.28-.01-1.02-.02-2-3.2.71-3.88-1.58-3.88-1.58-.53-1.38-1.3-1.75-1.3-1.75-1.06-.75.08-.74.08-.74 1.17.08 1.78 1.23 1.78 1.23 1.04 1.82 2.72 1.29 3.38.99.1-.77.41-1.29.74-1.58-2.55-.3-5.23-1.31-5.23-5.82 0-1.29.45-2.34 1.19-3.17-.12-.3-.52-1.53.11-3.19 0 0 .97-.32 3.18 1.21.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.21-1.53 3.18-1.21 3.18-1.21.63 1.66.23 2.89.11 3.19.74.83 1.19 1.88 1.19 3.17 0 4.52-2.69 5.52-5.25 5.81.42.37.79 1.1.79 2.22 0 1.6-.02 2.89-.02 3.28 0 .32.21.69.81.58A11.3 11.3 0 0 0 23.25 12C23.25 5.62 18.27.5 12 .5z"/>
+            <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.41 6.84 9.77.5.1.68-.22.68-.48 0-.24-.01-.86-.01-1.69-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.25 9.25 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.38-.01 2.49-.01 2.83 0 .26.18.58.69.48A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path>
           </svg>
         </a>
 
-        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a class="icon-link" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4.98 3.5C3.88 3.5 3 4.4 3 5.5S3.88 7.5 4.98 7.5c1.09 0 1.97-.9 1.97-2S6.07 3.5 4.98 3.5zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04c.4-.76 1.38-1.56 2.84-1.56C17.7 9.08 19 10.4 19 13.2V21h-3v-6.72c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.74-2.57 3.54V21H9V9z"/>
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45V9h3.56v11.45H3.56z"></path>
           </svg>
         </a>
       </div>
@@ -62,21 +39,28 @@ const pathname = Astro.url.pathname;
   </div>
 </header>
 
-
 <script>
-  const navbar = document.querySelector(".navbar");
-  let isScrolled = false;
+  const applyNavbarState = () => {
+    const nav = document.getElementById("site-navbar");
+    if (!nav) return;
 
-  const update = () => {
-    if (window.scrollY > 20 && !isScrolled) {
-      navbar.classList.add("scrolled");
-      isScrolled = true;
-    } else if (window.scrollY <= 20 && isScrolled) {
-      navbar.classList.remove("scrolled");
-      isScrolled = false;
-    }
+    const y = window.scrollY || 0;
+    if (y > 10) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
   };
 
-  update();
-  window.addEventListener("scroll", update, { passive: true });
+  const bindNavbar = () => {
+    applyNavbarState();
+    window.removeEventListener("scroll", applyNavbarState);
+    window.addEventListener("scroll", applyNavbarState, { passive: true });
+  };
+
+  document.addEventListener("astro:page-load", bindNavbar);
+  document.addEventListener("astro:after-swap", bindNavbar);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bindNavbar);
+  } else {
+    bindNavbar();
+  }
 </script>
