@@ -1,15 +1,155 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContainerCard from "../components/ContainerCard.astro";
+import Navbar from "../components/NavBar.astro";
 ---
 
-<BaseLayout title="About | Emma Vellard">
+<BaseLayout title="Emma Vellard | About">
   <Navbar />
-  <main class="px-4">
-    <ContainerCard>
-      <h1 class="text-2xl font-semibold tracking-tight">About</h1>
-      <p class="mt-4 text-slate-700">Content coming next.</p>
-    </ContainerCard>
+
+  <main class="page page-about">
+    <div class="about-bg"></div>
+
+    <section class="about-shell">
+      <div class="container">
+        <div class="about-hero">
+          <!-- LEFT -->
+          <div>
+            <h1 class="about-hello">
+              Hello,<br />
+              I’m <span class="about-name">Emma</span>!
+            </h1>
+
+            <div class="about-prose">
+              <p>
+                I am a planetary scientist and space systems engineer currently conducting research at
+                <span class="highlight">NASA Jet Propulsion Laboratory</span> on the interiors of icy moons.
+              </p>
+              <p>
+                My current work focuses on modeling the internal structures of Europa and Ganymede to support the
+                interpretation of data from Europa Clipper and <span class="highlight">JUICE</span>, with an emphasis on
+                subsurface ocean chemistry and potential habitability.
+              </p>
+              <p>
+                Previously, I worked for two years at the <span class="highlight">European Space Agency (ESA)</span> on
+                the JUICE and BepiColombo missions, contributing to mission analysis and coordinated multi-spacecraft
+                observations.
+              </p>
+              <p>
+                I completed the TAS ASTRO Advanced Master’s in Space Systems Engineering at ISAE-SUPAERO and hold an MSc
+                in Planetary Sciences and Space Exploration from the Observatoire de Paris.
+              </p>
+            </div>
+
+            <!-- CTA: same style as home (link-btn) -->
+            <a class="link-btn" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener">
+              View my LinkedIn
+            </a>
+          </div>
+
+          <!-- RIGHT (photo + info card, unchanged “front block”) -->
+          <div class="about-hero-right">
+            <div class="photo-stage">
+              <!-- no shapes behind -->
+              <img class="photo-cutout" src="/images/portrait.png" alt="Portrait of Emma Vellard" />
+
+              <div class="photo-info">
+                <div class="photo-info-title">Now</div>
+
+                <div class="photo-info-row">
+                  <div class="photo-info-label">Location</div>
+                  <div class="photo-info-value">NASA JPL, Pasadena</div>
+                </div>
+
+                <div class="photo-info-row">
+                  <div class="photo-info-label">Current focus</div>
+                  <div class="photo-info-value">Interiors of icy moons: Europa and Ganymede</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESEARCH INTERESTS (with explanatory text) -->
+        <section class="about-research">
+          <header class="about-section-head">
+            <h2 class="about-h2">Research interests</h2>
+            <p class="about-muted">Themes I enjoy working on across science, engineering, and mission operations.</p>
+          </header>
+
+          <div class="interest-grid-minimal">
+            <div class="interest-min">
+              <span class="interest-min-title">Human exploration of the Moon and Mars</span>
+              <span class="interest-min-text">
+                Mission design constraints, ISRU-driven infrastructure concepts, and systems-level trade-offs for sustainable exploration.
+              </span>
+            </div>
+
+            <div class="interest-min">
+              <span class="interest-min-title">Planetary habitability and ocean worlds</span>
+              <span class="interest-min-text">
+                Interior structure and subsurface ocean environments, with a focus on Europa and Ganymede.
+              </span>
+            </div>
+
+            <div class="interest-min">
+              <span class="interest-min-title">Scientific software and modeling</span>
+              <span class="interest-min-text">
+                Reproducible tools and pipelines to support interpretation of mission measurements and scientific decision-making.
+              </span>
+            </div>
+
+            <div class="interest-min">
+              <span class="interest-min-title">Mission analysis and multi-spacecraft coordination</span>
+              <span class="interest-min-text">
+                Geometry-based observation strategies and coordinated datasets across multiple missions and instruments.
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- LANGUAGES (back to the previous minimal text style) -->
+        <section class="about-languages">
+          <header class="about-section-head">
+            <h2 class="about-h2">Languages</h2>
+            <p class="about-muted">Comfortable working in international research environments.</p>
+          </header>
+
+          <div class="language-grid-minimal" role="list">
+            <div class="language-min" role="listitem">
+              <span class="language-min-title">French</span>
+              <span class="language-min-text">Native</span>
+            </div>
+
+            <div class="language-min" role="listitem">
+              <span class="language-min-title">English</span>
+              <span class="language-min-text">Fluent</span>
+            </div>
+
+            <div class="language-min" role="listitem">
+              <span class="language-min-title">Spanish</span>
+              <span class="language-min-text">Intermediate</span>
+            </div>
+
+            <div class="language-min" role="listitem">
+              <span class="language-min-title">Japanese</span>
+              <span class="language-min-text">Beginner</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="about-cta">
+          <div class="about-cta-inner">
+            <a class="link-btn" href="/projects">View my research projects</a>
+            <a class="link-btn link-btn--secondary" href="/cv-emma-vellard.pdf" target="_blank">
+              Download CV
+            </a>
+            <a class="link-btn link-btn--secondary" href="/contact">
+              Contact me
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 </BaseLayout>

@@ -1,16 +1,46 @@
+---
+const pathname = Astro.url.pathname;
+---
+
 <header class="navbar">
   <div class="navbar-inner">
+
+    <!-- LEFT -->
     <a class="navbar-brand" href="/">Emma Vellard</a>
 
+    <!-- RIGHT -->
     <div class="navbar-right">
-      <nav class="navbar-links" aria-label="Primary">
-        <a class="nav-link" href="/about">About Me</a>
-        <a class="nav-link" href="/projects">Projects</a>
-        <a class="nav-link" href="/experience">Experience</a>
+
+      <nav class="navbar-links">
+
+        <a class={`nav-link ${pathname.startsWith("/about") ? "active" : ""}`} href="/about">
+          About
+        </a>
+
+        <a class={`nav-link ${pathname.startsWith("/projects") ? "active" : ""}`} href="/projects">
+          Projects
+        </a>
+
+        <a class={`nav-link ${pathname.startsWith("/experience") ? "active" : ""}`} href="/experience">
+          Experience
+        </a>
+
+        <a class={`nav-link ${pathname.startsWith("/education") ? "active" : ""}`} href="/education">
+          Education
+        </a>
+
+        <a class={`nav-link ${pathname.startsWith("/conferences") ? "active" : ""}`} href="/conferences">
+          Conferences
+        </a>
+
+        <a class={`nav-link ${pathname.startsWith("/contact") ? "active" : ""}`} href="/contact">
+          Contact
+        </a>
+
       </nav>
 
       <div class="nav-icons" aria-label="Social links">
-        <a class="icon-link" href="mailto:emma.vellard@outlook.fr.fr" aria-label="Email">
+        <a class="icon-link" href="mailto:emma.vellard@outlook.fr" aria-label="Email">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
           </svg>
@@ -22,7 +52,7 @@
           </svg>
         </a>
 
-        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard-702852204/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4.98 3.5C3.88 3.5 3 4.4 3 5.5S3.88 7.5 4.98 7.5c1.09 0 1.97-.9 1.97-2S6.07 3.5 4.98 3.5zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04c.4-.76 1.38-1.56 2.84-1.56C17.7 9.08 19 10.4 19 13.2V21h-3v-6.72c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.74-2.57 3.54V21H9V9z"/>
           </svg>
