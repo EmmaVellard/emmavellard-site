@@ -1,15 +1,60 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContainerCard from "../components/ContainerCard.astro";
+import Navbar from "../components/NavBar.astro";
+import "../styles/contact.css";
 ---
 
 <BaseLayout title="Contact | Emma Vellard">
   <Navbar />
-  <main class="px-4">
-    <ContainerCard>
-      <h1 class="text-2xl font-semibold tracking-tight">Contact</h1>
-      <p class="mt-4 text-slate-700">Content coming next.</p>
-    </ContainerCard>
+
+  <main class="page page-contact">
+    <div class="contact-bg" aria-hidden="true"></div>
+
+    <section class="contact-shell">
+      <div class="container">
+        <header class="contact-head">
+          <h1 class="contact-title">Contact</h1>
+          <p class="contact-sub">
+            For collaborations, research discussions, or opportunities, email is the best way to reach me.
+          </p>
+        </header>
+
+        <section class="contact-grid" aria-label="Contact details">
+          <div class="contact-main">
+            <div class="contact-kicker">Email</div>
+            <a class="contact-email" href="mailto:emma.vellard@outlook.fr">
+              emma.vellard@outlook.fr
+            </a>
+
+            <div class="contact-lines">
+              <div class="contact-line">
+                <span class="contact-label">Location</span>
+                <span class="contact-value"><span class="highlight">NASA JPL</span>, Pasadena</span>
+              </div>
+
+              <div class="contact-line">
+                <span class="contact-label">Availability</span>
+                <span class="contact-value">
+                  Open to research collaborations and mission-science opportunities.
+                </span>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="link-btn" href="mailto:emma.vellard@outlook.fr">Send an email</a>
+              <a class="link-btn link-btn--secondary" href="/public/CV_vellard.pdf" target="_blank" rel="noopener">
+                Download CV
+              </a>
+            </div>
+
+            <div class="contact-links" aria-label="Social links">
+              <a class="contact-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener">LinkedIn</a>
+              <span class="contact-sep">·</span>
+              <a class="contact-link" href="https://github.com/EmmaVellard" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 </BaseLayout>

@@ -8,6 +8,7 @@ const { pathname } = Astro.url;
 
     <div class="navbar-right">
       <nav class="navbar-links" aria-label="Main navigation">
+        <a class={`nav-link ${pathname === "/" ? "active" : ""}`} href="/">Home</a>
         <a class={`nav-link ${pathname === "/about" ? "active" : ""}`} href="/about">About</a>
         <a class={`nav-link ${pathname === "/projects" ? "active" : ""}`} href="/projects">Projects</a>
         <a class={`nav-link ${pathname === "/experience" ? "active" : ""}`} href="/experience">Experience</a>
@@ -17,23 +18,24 @@ const { pathname } = Astro.url;
       </nav>
 
       <div class="nav-icons" aria-label="Social links">
-        <a class="icon-link" href="mailto:YOUR_EMAIL" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
-          </svg>
-        </a>
-
-        <a class="icon-link" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener" aria-label="GitHub">
+        <a class="icon-link" href="https://github.com/EmmaVellard" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.41 6.84 9.77.5.1.68-.22.68-.48 0-.24-.01-.86-.01-1.69-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.25 9.25 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.38-.01 2.49-.01 2.83 0 .26.18.58.69.48A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path>
           </svg>
         </a>
 
-        <a class="icon-link" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45V9h3.56v11.45H3.56z"></path>
           </svg>
         </a>
+        
+        <a class="icon-link" href="mailto:emma.vellard@outlook.fr" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+          </svg>
+        </a>
+
       </div>
     </div>
   </div>

@@ -1,15 +1,132 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContainerCard from "../components/ContainerCard.astro";
+import Navbar from "../components/NavBar.astro";
+import "../styles/conferences.css";
 ---
 
 <BaseLayout title="Conferences | Emma Vellard">
   <Navbar />
-  <main class="px-4">
-    <ContainerCard>
-      <h1 class="text-2xl font-semibold tracking-tight">Conferences</h1>
-      <p class="mt-4 text-slate-700">Content coming next.</p>
-    </ContainerCard>
+
+  <main class="page page-conferences">
+    <div class="conf-bg" aria-hidden="true"></div>
+
+    <section class="conf-shell">
+      <div class="container">
+        <header class="conf-head">
+          <h1 class="conf-title">Conferences</h1>
+          <p class="conf-sub">
+            Selected meetings and talks, presented as a constellation of milestones.
+          </p>
+        </header>
+
+        <section class="conf-orbit" aria-label="Conference constellation">
+          <div class="conf-orbit-line" aria-hidden="true"></div>
+
+          <!-- Dots placed on the orbit line (desktop) -->
+          <span class="conf-dot" style="--x: 14%;" aria-hidden="true"></span>
+          <span class="conf-dot" style="--x: 40%;" aria-hidden="true"></span>
+          <span class="conf-dot" style="--x: 58%;" aria-hidden="true"></span>
+          <span class="conf-dot" style="--x: 86%;" aria-hidden="true"></span>
+
+          <!-- 2025 -->
+          <article class="conf-node conf-node--top" style="--x: 14%;">
+            <!-- Mobile dot (on vertical line) -->
+            <span class="conf-node-dot" aria-hidden="true"></span>
+
+            <div class="conf-content conf-glass">
+              <div class="conf-meta">
+                <span class="conf-year">2025</span>
+                <span class="conf-sep">·</span>
+                <span class="conf-place">Italy</span>
+              </div>
+
+              <h2 class="conf-h2">BepiColombo Science Working Team</h2>
+
+              <p class="conf-text">
+                <span class="conf-label">Talk</span><br />
+                <strong>SolarConflux: A Multi-Spacecraft Alignment Tool for Solar Event Analysis</strong>
+              </p>
+            </div>
+          </article>
+
+          <!-- 2024 ASE -->
+          <article class="conf-node conf-node--bottom" style="--x: 40%;">
+            <span class="conf-node-dot" aria-hidden="true"></span>
+
+            <div class="conf-content conf-glass">
+              <div class="conf-meta">
+                <span class="conf-year">2024</span>
+                <span class="conf-sep">·</span>
+                <span class="conf-place">Netherlands</span>
+              </div>
+
+              <h2 class="conf-h2">ASE Planetary Congress</h2>
+
+              <p class="conf-text">
+                <span class="conf-label">Talk</span><br />
+                International gathering of astronauts and space experts focused on exploration, innovation, and science outreach.
+              </p>
+
+              <div class="conf-links">
+                <a class="link-btn link-btn--secondary" href="https://ase2024.nl/en/" target="_blank" rel="noopener">
+                  Visit ASE website
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2024 EPSC -->
+          <article class="conf-node conf-node--top" style="--x: 58%;">
+            <span class="conf-node-dot" aria-hidden="true"></span>
+
+            <div class="conf-content conf-glass">
+              <div class="conf-meta">
+                <span class="conf-year">2024</span>
+                <span class="conf-sep">·</span>
+                <span class="conf-place">Germany</span>
+              </div>
+
+              <h2 class="conf-h2">Europlanet Science Congress (EPSC)</h2>
+
+              <p class="conf-text">
+                <span class="conf-label">Poster</span><br />
+                <strong>Empowering researchers with comprehensive data access for ESA’s Juice Mission.</strong>
+              </p>
+
+              <div class="conf-links">
+                <a
+                  class="link-btn link-btn--secondary"
+                  href="https://drive.google.com/file/d/1lIqulZTHfis1ZvMJH2dE2uSm3sPnqAGj/view"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View participation certificate
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2024 JUICE SWT -->
+          <article class="conf-node conf-node--bottom" style="--x: 86%;">
+            <span class="conf-node-dot" aria-hidden="true"></span>
+
+            <div class="conf-content conf-glass">
+              <div class="conf-meta">
+                <span class="conf-year">2024</span>
+                <span class="conf-sep">·</span>
+                <span class="conf-place">Netherlands</span>
+              </div>
+
+              <h2 class="conf-h2">JUICE Science Working Team</h2>
+
+              <p class="conf-text">
+                <span class="conf-label">Talk</span><br />
+                <strong>Empowering researchers with comprehensive data access for ESA’s Juice Mission.</strong>
+              </p>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
   </main>
 </BaseLayout>
