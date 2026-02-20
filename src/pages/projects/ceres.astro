@@ -1,0 +1,312 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/NavBar.astro";
+import "../../styles/projects.css";
+
+const title = "DIPLONA (Ceres) | Project";
+---
+
+<BaseLayout title={title}>
+  <Navbar />
+
+  <main class="page page-project">
+    <div class="project-bg" aria-hidden="true"></div>
+
+    <section class="project-shell">
+      <div class="container">
+        <header class="project-head">
+          <a class="project-back" href="/projects">← Back to projects</a>
+
+          <div class="project-kicker">Contribution</div>
+          <h1 class="project-title">Diplona: A mission to Ceres</h1>
+
+          <div class="project-subtle">
+            Mission concept · CubeSat architecture · Radar feasibility
+          </div>
+
+          <p class="project-lede">
+            A mission concept study to investigate <span class="hl">Ceres</span> cryovolcanism and subsurface structure using a compact
+            <span class="hl">radar sounder</span> approach and science-driven target selection.
+          </p>
+
+          <div class="project-actions">
+            <a class="link-btn" href="/public/files/ceresreport.pdf">Technical Report</a>
+            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+          </div>
+        </header>
+
+        <div class="project-layout">
+          <!-- Main content -->
+          <article class="project-card project-main" id="top">
+            <section class="project-section" id="overview">
+              <h2 class="project-h2">Overview</h2>
+              <p class="project-p">
+                DIPLONA is a concept for a small spacecraft mission to Ceres, designed to complement Dawn-era surface discoveries by adding
+                a subsurface perspective. The central idea is to use radar sounding to connect <span class="hl">surface morphology</span> with
+                <span class="hl">near-subsurface structure</span> in key regions linked to cryovolcanism and brine-related deposits.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Mission type</div>
+                  <div class="project-highlight-v"><span class="hl">3U CubeSat</span> concept study with a focused payload</div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Instrument</div>
+                  <div class="project-highlight-v"><span class="hl">Radar sounder</span> to probe tens of meters with meter-scale vertical resolution</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="problem">
+              <h2 class="project-h2">Problem</h2>
+              <p class="project-p">
+                Dawn revealed evidence for cryovolcanism, carbonates, organics, and possible brines on Ceres, but the internal context of many
+                features remains uncertain. The key challenge is to constrain how observed deposits and morphologies relate to
+                <span class="hl">subsurface layering</span>, fracture systems, and the evolution of cryovolcanic or impact-driven processes.
+              </p>
+            </section>
+
+            <section class="project-section" id="approach">
+              <h2 class="project-h2">Approach</h2>
+              <p class="project-p">
+                The mission concept narrows the science scope to what a small platform can realistically support, then ties objectives to an
+                instrument and an operations plan. Radar sounding was selected as the most valuable “new dimension” relative to Dawn,
+                because it directly informs <span class="hl">structure</span>, <span class="hl">interfaces</span>, and <span class="hl">subsurface continuity</span>.
+              </p>
+            </section>
+
+            <section class="project-section" id="deliverables">
+              <h2 class="project-h2">Deliverables</h2>
+              <ul class="project-list">
+                <li><span class="hl">Science motivation</span> and focused questions tailored to a CubeSat-scale mission</li>
+                <li>Target shortlist and rationale for primary observation regions</li>
+                <li>Concept payload definition and feasibility framing for radar sounding</li>
+                <li>Trade-off logic linking scientific objectives to engineering constraints</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="usage">
+              <h2 class="project-h2">Targets & rationale</h2>
+              <p class="project-p">
+                The concept emphasizes regions where radar profiling could clarify formation mechanisms:
+                carbonates and brine-related deposits (e.g., Occator), young crater contexts (e.g., Haulani and Urvara),
+                and cryovolcanic dome structure (Ahuna Mons).
+              </p>
+
+              <div class="project-callout">
+                <div class="project-callout-k">Why radar here?</div>
+                <div class="project-callout-v">
+                  To test whether surface units extend in depth, identify subsurface contacts, and constrain fracture or layering patterns that
+                  control emplacement and evolution of observed features.
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="outputs">
+              <h2 class="project-h2">Expected outputs</h2>
+              <ul class="project-list">
+                <li>Subsurface profiles over primary targets to constrain <span class="hl">layering</span> and <span class="hl">interfaces</span></li>
+                <li>Structure-focused interpretation framework to connect radar signatures with geomorphology</li>
+                <li>Comparative context across target types: cryovolcanic, impact, tectonic, slope processes</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="stack">
+                <h2 class="project-h2">Technical implementation</h2>
+
+                <div class="project-tags">
+                    <span class="project-tag">Geomorphological analysis</span>
+                    <span class="project-tag">Dawn data interpretation</span>
+                    <span class="project-tag">Target selection logic</span>
+                    <span class="project-tag">Radar feasibility framing</span>
+                    <span class="project-tag">Mission trade-off analysis</span>
+                    <span class="project-tag">Science-to-engineering translation</span>
+                </div>
+
+            </section>
+
+            <section class="project-section" id="links">
+              <h2 class="project-h2">Links</h2>
+              <div class="project-links">
+                <a class="link-btn" href="/public/files/ceresreport.pdf">Technical Report</a>
+                <a class="link-btn link-btn--secondary" href="/experience/#latmos">Related experience</a>
+              </div>
+            </section>
+          </article>
+
+          <!-- Right sticky table of contents -->
+          <aside class="project-toc" aria-label="On this page">
+            <div class="project-toc-title">On this page</div>
+
+            <nav class="project-toc-list">
+              <a class="project-toc-item" href="#overview" data-target="overview">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Overview</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#problem" data-target="problem">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Problem</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#approach" data-target="approach">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Approach</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#deliverables" data-target="deliverables">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Deliverables</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#usage" data-target="usage">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Targets & rationale</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#outputs" data-target="outputs">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Expected outputs</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#stack" data-target="stack">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">What I worked on</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#links" data-target="links">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Links</span></span>
+              </a>
+            </nav>
+          </aside>
+
+          <script is:inline data-astro-rerun>
+            const initProjectTOC = () => {
+              // cleanup previous init (important with Astro client-side navigation)
+              if (window.__projectTOC_cleanup) {
+                window.__projectTOC_cleanup();
+                window.__projectTOC_cleanup = null;
+              }
+
+              const ids = ["overview","problem","approach","deliverables","usage","outputs","stack","links"];
+              const sections = ids
+                .map((id) => document.getElementById(id))
+                .filter(Boolean);
+
+              const links = Array.from(document.querySelectorAll(".project-toc-item"));
+              if (!sections.length || !links.length) return;
+
+              const setActive = (id) => {
+                links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
+              };
+
+              // stable rule: active = last section whose top is above a threshold
+              const getNavH = () => {
+                const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-h").trim();
+                const n = parseFloat(raw);
+                return Number.isFinite(n) ? n : 84;
+              };
+
+              const computeActive = () => {
+                const threshold = getNavH() + 28; // tune if needed
+                let activeId = sections[0].id;
+
+                for (const sec of sections) {
+                  const top = sec.getBoundingClientRect().top;
+                  if (top <= threshold) activeId = sec.id;
+                  else break; // sections are in DOM order
+                }
+
+                setActive(activeId);
+              };
+
+              // initial state: hash > else compute
+              const setFromHashOrCompute = () => {
+                const hash = (window.location.hash || "").replace("#", "");
+                if (hash && ids.includes(hash) && document.getElementById(hash)) {
+                  setActive(hash);
+                  return;
+                }
+                computeActive();
+              };
+
+              // click: set active immediately, then recompute after scroll settles
+              const onClick = (e) => {
+                const a = e.currentTarget;
+                const id = a?.dataset?.target;
+                if (!id) return;
+                setActive(id);
+                window.setTimeout(() => computeActive(), 220);
+              };
+
+              links.forEach((a) => a.addEventListener("click", onClick));
+
+              // rAF scroll spy (smooth + no flicker)
+              let ticking = false;
+              const onScroll = () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                  ticking = false;
+                  computeActive();
+                });
+              };
+
+              window.addEventListener("scroll", onScroll, { passive: true });
+              window.addEventListener("resize", onScroll);
+
+              // first run
+              setFromHashOrCompute();
+
+              // keep in sync with hash navigation
+              const onHash = () => setFromHashOrCompute();
+              window.addEventListener("hashchange", onHash);
+
+              // expose cleanup
+              window.__projectTOC_cleanup = () => {
+                links.forEach((a) => a.removeEventListener("click", onClick));
+                window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("resize", onScroll);
+                window.removeEventListener("hashchange", onHash);
+              };
+            };
+
+            // run now (if DOM ready) and on Astro navigations
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", initProjectTOC, { once: true });
+            } else {
+              initProjectTOC();
+            }
+            document.addEventListener("astro:page-load", initProjectTOC);
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

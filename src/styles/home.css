@@ -89,23 +89,25 @@
 
 /* Caption bottom-right over the image */
 .hero-caption{
-  position: absolute;
-  right: clamp(16px, 4vw, 40px);
-  bottom: clamp(16px, 4vh, 40px);
+  position: fixed; /* or absolute if it’s inside the hero */
+  right: clamp(14px, 2.2vw, 28px);
+  bottom: clamp(14px, 2.2vw, 28px);
   z-index: 3;
 
+  max-width: min(52ch, 46vw);
+  padding: 10px 12px;
+
   font-size: 12px;
-  letter-spacing: 0.02em;
-  color: #fff;
-  text-align: right;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.82);
 
-  padding: 10px 14px;
-  border-radius: 8px;
+  background: rgba(0,0,0,0.32);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 
-  background: linear-gradient(to left, rgba(0,0,0,0.82), rgba(0,0,0,0.55));
-  backdrop-filter: blur(6px);
-
-  max-width: min(480px, 90%);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.55);
 }
 
 @media (max-width: 768px){

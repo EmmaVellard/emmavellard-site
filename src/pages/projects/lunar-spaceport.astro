@@ -1,0 +1,384 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/NavBar.astro";
+import "../../styles/projects.css";
+
+const title = "Lunar Spaceport | Location, resources & environmental challenges";
+---
+
+<BaseLayout title={title}>
+  <Navbar />
+
+  <main class="page page-project">
+    <div class="project-bg" aria-hidden="true"></div>
+
+    <section class="project-shell">
+      <div class="container">
+        <header class="project-head">
+          <a class="project-back" href="/projects">← Back to projects</a>
+
+          <div class="project-kicker">ISU SSP · Lunar infrastructure study</div>
+          <h1 class="project-title">Lunar Spaceport</h1>
+
+          <div class="project-subtle">
+            Site selection · ISRU context · Environmental constraints
+          </div>
+
+          <p class="project-lede">
+            I contributed to the <span class="hl">analysis of site location, local resources</span>, and <span class="hl">environmental challenges</span> that drive early lunar <span class="hl">spaceport</span> design decisions.
+          </p>
+
+          <div class="project-actions">
+            <a class="link-btn" href="/public/files/isureport.pdf" target="_blank" rel="noopener">
+                  Technical Report
+            </a>
+            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+          </div>
+        </header>
+
+        <div class="project-layout">
+          <!-- Main -->
+          <article class="project-card project-main" id="top">
+            <section class="project-section" id="overview">
+              <h2 class="project-h2">Overview</h2>
+              <p class="project-p">
+                This work focuses on how a lunar spaceport site is selected when balancing
+                <span class="hl">operational constraints</span> with
+                <span class="hl">resource access</span>, especially for sustained south-polar operations.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Scope</div>
+                  <div class="project-highlight-v">Location trade-offs, resource context, environmental challenges</div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Outcome</div>
+                  <div class="project-highlight-v">Design drivers to inform early spaceport architecture choices</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="criteria">
+              <h2 class="project-h2">Site selection criteria</h2>
+              <p class="project-p">
+                Site selection is driven by a small set of coupled criteria that constrain layout,
+                power, mobility, communications, and long-term reliability.
+              </p>
+
+              <ul class="project-list">
+                <li><span class="hl-soft">Power and illumination</span> as a near-term feasibility driver.</li>
+                <li><span class="hl-soft">Landing safety</span>: terrain, slopes, hazards, approach constraints.</li>
+                <li><span class="hl-soft">Communications</span>: line of sight and relay constraints.</li>
+                <li><span class="hl-soft">Thermal environment</span>: cold traps and hardware survivability.</li>
+                <li><span class="hl-soft">Logistics</span>: mobility, transport paths, and maintainability.</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="south-pole">
+              <h2 class="project-h2">Why the South Pole</h2>
+              <p class="project-p">
+                The lunar south polar region is attractive for extended illumination on elevated terrain
+                and proximity to permanently shadowed regions where volatiles may be present.
+                This creates a strong coupling between <span class="hl">power availability</span> and <span class="hl">resource access</span>.
+              </p>
+            </section>
+
+            <section class="project-section" id="site">
+              <h2 class="project-h2">Candidate site</h2>
+              <p class="project-p">
+                A representative candidate site (for example, a south polar rim location) is evaluated to illustrate
+                how small changes in topography and illumination can cascade into spaceport layout and operations.
+              </p>
+
+              <ul class="project-list">
+                <li>Elevated terrain improves illumination and power continuity.</li>
+                <li>Nearby shadowed regions may enable volatile prospecting and ISRU demonstration.</li>
+                <li>Topography can support shielding and separation between landing and long-term assets.</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="resources">
+              <h2 class="project-h2">Resources and ISRU context</h2>
+              <p class="project-p">
+                The core resource driver is the potential presence of <span class="hl">water ice</span> in cold traps.
+                Water-derived oxygen and hydrogen can reduce Earth logistics dependency and enable scalable surface operations.
+              </p>
+
+              <p class="project-p">
+                However, extraction feasibility depends on the real distribution, form, and accessibility of deposits, which requires
+                structured prospecting and in-situ characterization.
+              </p>
+            </section>
+
+            <section class="project-section" id="environment">
+              <h2 class="project-h2">Environmental challenges</h2>
+              <p class="project-p">
+                The dominant operational risks come from the lunar environment. Regolith dust is abrasive and electrostatically adhesive,
+                and plume ejecta from repeated landings can impact nearby hardware. Thermal extremes and shadowed-region conditions further
+                constrain mobility and power.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Dust</div>
+                  <div class="project-highlight-v">Degrades optics, seals, radiators, and mechanisms; amplified by repeated landings</div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Thermal</div>
+                  <div class="project-highlight-v">Cold traps and illumination cycles drive power, reliability, and mobility constraints</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="surveys">
+              <h2 class="project-h2">Prospecting and surveys</h2>
+              <p class="project-p">
+                Early infrastructure choices depend on reducing unknowns through targeted surveys.
+                High-resolution mapping and subsurface characterization support safer landing zones and more robust foundations.
+              </p>
+
+              <ul class="project-list">
+                <li>Topography and regolith properties mapping for siting and construction decisions.</li>
+                <li>Subsurface characterization to inform foundation and excavation approaches.</li>
+                <li>Resource prospecting to constrain ISRU architecture choices.</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="takeaways">
+              <h2 class="project-h2">Key takeaways</h2>
+              <ul class="project-list">
+                <li><span class="hl">Power</span> is the first-order driver shaping site feasibility.</li>
+                <li><span class="hl">Resource access</span> motivates south-polar proximity to shadowed regions, but increases operational complexity.</li>
+                <li><span class="hl">Dust</span> requires integrated mitigation at the architecture level, not a single component fix.</li>
+                <li><span class="hl">Prospecting</span> reduces risk and prevents over-design by constraining unknowns early.</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="stack">
+              <h2 class="project-h2">Technical implementation</h2>
+              <div class="project-tags">
+                <span class="project-tag">Trade-space analysis</span>
+                <span class="project-tag">Site selection criteria</span>
+                <span class="project-tag">Environmental constraints</span>
+                <span class="project-tag">ISRU</span>
+                <span class="project-tag">Dust mitigation</span>
+                <span class="project-tag">Infrastructure planning</span>
+              </div>
+            </section>
+
+            <section class="project-section" id="links">
+              <h2 class="project-h2">Links</h2>
+              <div class="project-actions">
+                <a class="link-btn" href="/public/files/isureport.pdf" target="_blank" rel="noopener">
+                  Technical Report
+                </a>
+                <a class="link-btn link-btn--secondary" href="https://sustainablelunar.space/" target="_blank" rel="noopener">
+                  Project Website
+                </a>
+              </div>
+            </section>
+          </article>
+
+          <!-- TOC -->
+          <aside class="project-toc" aria-label="On this page">
+            <div class="project-toc-title">On this page</div>
+
+            <nav class="project-toc-list">
+              <a class="project-toc-item" href="#overview" data-target="overview">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Overview</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#criteria" data-target="criteria">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Site selection criteria</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#south-pole" data-target="south-pole">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Why the South Pole</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#site" data-target="site">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Candidate site</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#resources" data-target="resources">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Resources and ISRU</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#environment" data-target="environment">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Environmental challenges</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#surveys" data-target="surveys">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Prospecting and surveys</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#takeaways" data-target="takeaways">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Key takeaways</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#stack" data-target="stack">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Technical implementation</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item project-toc-item-last" href="#links" data-target="links">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">Links</span>
+                </span>
+              </a>
+            </nav>
+          </aside>
+
+          <script is:inline data-astro-rerun>
+            const initProjectTOC = () => {
+              if (window.__projectTOC_cleanup) {
+                window.__projectTOC_cleanup();
+                window.__projectTOC_cleanup = null;
+              }
+
+              const ids = ["overview","criteria","south-pole","site","resources","environment","surveys","takeaways","stack","links"];
+              const sections = ids
+                .map((id) => document.getElementById(id))
+                .filter(Boolean);
+
+              const links = Array.from(document.querySelectorAll(".project-toc-item"));
+              if (!sections.length || !links.length) return;
+
+              const setActive = (id) => {
+                links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
+              };
+
+              const getNavH = () => {
+                const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-h").trim();
+                const n = parseFloat(raw);
+                return Number.isFinite(n) ? n : 84;
+              };
+
+              const computeActive = () => {
+                const threshold = getNavH() + 28;
+                let activeId = sections[0].id;
+
+                for (const sec of sections) {
+                  const top = sec.getBoundingClientRect().top;
+                  if (top <= threshold) activeId = sec.id;
+                  else break;
+                }
+
+                setActive(activeId);
+              };
+
+              const setFromHashOrCompute = () => {
+                const hash = (window.location.hash || "").replace("#", "");
+                if (hash && ids.includes(hash) && document.getElementById(hash)) {
+                  setActive(hash);
+                  return;
+                }
+                computeActive();
+              };
+
+              const onClick = (e) => {
+                const a = e.currentTarget;
+                const id = a?.dataset?.target;
+                if (!id) return;
+                setActive(id);
+                window.setTimeout(() => computeActive(), 220);
+              };
+
+              links.forEach((a) => a.addEventListener("click", onClick));
+
+              let ticking = false;
+              const onScroll = () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                  ticking = false;
+                  computeActive();
+                });
+              };
+
+              window.addEventListener("scroll", onScroll, { passive: true });
+              window.addEventListener("resize", onScroll);
+
+              setFromHashOrCompute();
+
+              const onHash = () => setFromHashOrCompute();
+              window.addEventListener("hashchange", onHash);
+
+              window.__projectTOC_cleanup = () => {
+                links.forEach((a) => a.removeEventListener("click", onClick));
+                window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("resize", onScroll);
+                window.removeEventListener("hashchange", onHash);
+              };
+            };
+
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", initProjectTOC, { once: true });
+            } else {
+              initProjectTOC();
+            }
+            document.addEventListener("astro:page-load", initProjectTOC);
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,306 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/NavBar.astro";
+import "../../styles/projects.css";
+
+const title = "Phobos & Deimos | Spectral analogs and MMX preparation";
+---
+
+<BaseLayout title={title}>
+  <Navbar />
+
+  <main class="page page-project">
+    <div class="project-bg" aria-hidden="true"></div>
+
+    <section class="project-shell">
+      <div class="container">
+        <header class="project-head">
+          <a class="project-back" href="/projects">← Back to projects</a>
+
+          <div class="project-kicker">Research project</div>
+          <h1 class="project-title">Phobos &amp; Deimos</h1>
+
+          <div class="project-subtle">
+            Spectral analogs · Laboratory validation · MMX preparation
+          </div>
+
+          <p class="project-lede">
+            Laboratory validation of <span class="hl">UTPS-TB</span> simulants as spectral analogues of Phobos surface,
+            adapted to <span class="hl">MMX</span> instrument conditions (<span class="hl">OROCHI</span>, <span class="hl">MIRS</span>)
+            and compared against <span class="hl">CRISM</span> observations.
+          </p>
+
+          <div class="project-actions">
+            <a class="link-btn" href="/public/files/phobosreport.pdf">Technical Report</a>
+            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+          </div>
+        </header>
+
+        <div class="project-layout">
+          <!-- MAIN CONTENT (LEFT) -->
+          <article class="project-card project-main" id="top">
+            <section class="project-section" id="overview">
+              <h2 class="project-h2">Overview</h2>
+              <p class="project-p">
+                Phobos and Deimos origin remains debated between the <span class="hl">giant impact</span> and
+                <span class="hl">asteroid capture</span> scenarios. This work evaluates whether
+                <span class="hl">UTPS-TB</span> (Tagish Lake based) simulants reproduce key spectral behaviours of Phobos,
+                including slope trends and the hydroxyl band region around <span class="hl">2.71 µm</span>.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Problem</div>
+                  <div class="project-highlight-v">
+                    Interpreting Phobos spectra for MMX benefits from validated laboratory analogs under mission-like conditions.
+                  </div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Goal</div>
+                  <div class="project-highlight-v">
+                    Compare lab spectra to datasets and simulate OROCHI/MIRS-compatible metrics for robust discrimination.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="context">
+              <h2 class="project-h2">Scientific context</h2>
+              <ul class="project-list">
+                <li>Two dominant hypotheses: <span class="hl">impact origin</span> vs <span class="hl">capture</span>.</li>
+                <li>UTPS simulants support scenario testing and instrument preparation (Tagish Lake based variants included).</li>
+                <li>
+                  MMX interpretation relies strongly on slope and band-depth metrics derived from discrete-band (OROCHI) and NIR (MIRS) observations.
+                </li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="approach">
+              <h2 class="project-h2">Approach</h2>
+              <ul class="project-list">
+                <li>Laboratory reflectance spectroscopy across visible to IR ranges, calibrated with Spectralon and Infragold.</li>
+                <li>Grain size separation and controlled sample handling to evaluate slope and reflectance sensitivity.</li>
+                <li>Simulated band-averaged outputs matching <span class="hl">OROCHI</span> filter bands and <span class="hl">MIRS</span> resolution.</li>
+                <li>Consideration of thermal emission artefacts affecting the ~3 µm region in remote sensing comparisons.</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="results">
+              <h2 class="project-h2">Key results</h2>
+              <p class="project-p">
+                <span class="hl">Grain size</span> strongly impacts slope behaviour and reflectance. In OROCHI-band space,
+                finer grain regimes are compatible with observed unit-level trends when using normalized metrics rather than absolute reflectance.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Spectral features</div>
+                  <div class="project-highlight-v">
+                    Hydroxyl region around <span class="hl">2.71 µm</span>, plus additional signatures influenced by mineralogy and organics.
+                  </div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Instrument realism</div>
+                  <div class="project-highlight-v">
+                    OROCHI slopes remain robust; MIRS comparisons near ~3 µm can be biased by thermal emission even after correction.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="interpretation">
+              <h2 class="project-h2">Interpretation</h2>
+              <p class="project-p">
+                    The analysis shows that <span class="hl">grain size</span>, 
+                    <span class="hl">porosity</span>, and the presence of 
+                    <span class="hl">organics</span> significantly control reflectance behaviour. 
+                    This limits the reliability of spectral slope alone for compositional inference, 
+                    meaning that similarities with <span class="hl">carbonaceous asteroids</span> 
+                    cannot directly validate a <span class="hl">capture origin</span>. 
+                    Integrating slope-based diagnostics with hydroxyl-region indicators offers 
+                    a more robust framework to evaluate <span class="hl">formation scenarios</span>.
+                </p>
+            </section>
+
+            <section class="project-section" id="deliverables">
+              <h2 class="project-h2">Deliverables</h2>
+              <ul class="project-list">
+                <li>Processed laboratory spectra across visible to IR ranges for multiple grain sizes.</li>
+                <li>OROCHI band simulations (band-averaged reflectance, normalized profiles, slope metrics).</li>
+                <li>MIRS-resolution simulations with discussion of thermal emission biases.</li>
+                <li>Interpretation notes linking spectral behaviour to physical controls (grain size, porosity, organics).</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="stack">
+                <h2 class="project-h2">Technical implementation</h2>
+
+                <div class="project-tags">
+                    <span class="project-tag">Lab reflectance spectroscopy</span>
+                    <span class="project-tag">OROCHI band simulation</span>
+                    <span class="project-tag">MIRS-resolution simulation</span>
+                    <span class="project-tag">Spectral slope analysis</span>
+                    <span class="project-tag">Band-depth metrics (2.7 µm)</span>
+                    <span class="project-tag">Grain size sensitivity</span>
+                    <span class="project-tag">Thermal emission considerations</span>
+                    <span class="project-tag">CRISM comparison</span>
+                </div>
+                </section>
+
+            <section class="project-section" id="links">
+              <h2 class="project-h2">Links</h2>
+              <div class="project-actions">
+                <a class="link-btn" href="/public/files/phobosreport.pdf">Technical Report</a>
+                <a class="link-btn link-btn--secondary" href="/experience/#tohoku">Related experience</a>
+              </div>
+            </section>
+          </article>
+
+          <!-- TOC (RIGHT) — same pattern as SolarConflux -->
+          <aside class="project-toc" aria-label="On this page">
+            <div class="project-toc-title">On this page</div>
+
+            <nav class="project-toc-list">
+              <a class="project-toc-item" href="#overview" data-target="overview">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Overview</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#context" data-target="context">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Scientific context</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#approach" data-target="approach">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Approach</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#results" data-target="results">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Key results</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#interpretation" data-target="interpretation">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Interpretation</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#deliverables" data-target="deliverables">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Deliverables</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#stack" data-target="stack">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Technical implementation</span></span>
+              </a>
+
+              <a class="project-toc-item project-toc-item-last" href="#links" data-target="links">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Links</span></span>
+              </a>
+            </nav>
+          </aside>
+
+          <script is:inline data-astro-rerun>
+            const initProjectTOC = () => {
+              if (window.__projectTOC_cleanup) {
+                window.__projectTOC_cleanup();
+                window.__projectTOC_cleanup = null;
+              }
+
+              const ids = ["overview","context","approach","results","interpretation","deliverables","links"];
+              const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+              const links = Array.from(document.querySelectorAll(".project-toc-item"));
+              if (!sections.length || !links.length) return;
+
+              const setActive = (id) => {
+                links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
+              };
+
+              const getNavH = () => {
+                const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-h").trim();
+                const n = parseFloat(raw);
+                return Number.isFinite(n) ? n : 84;
+              };
+
+              const computeActive = () => {
+                const threshold = getNavH() + 28;
+                let activeId = sections[0].id;
+                for (const sec of sections) {
+                  const top = sec.getBoundingClientRect().top;
+                  if (top <= threshold) activeId = sec.id;
+                  else break;
+                }
+                setActive(activeId);
+              };
+
+              const onClick = (e) => {
+                const a = e.currentTarget;
+                const id = a?.dataset?.target;
+                if (!id) return;
+                setActive(id);
+                window.setTimeout(() => computeActive(), 220);
+              };
+
+              links.forEach((a) => a.addEventListener("click", onClick));
+
+              let ticking = false;
+              const onScroll = () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                  ticking = false;
+                  computeActive();
+                });
+              };
+
+              window.addEventListener("scroll", onScroll, { passive: true });
+              window.addEventListener("resize", onScroll);
+
+              computeActive();
+
+              window.__projectTOC_cleanup = () => {
+                links.forEach((a) => a.removeEventListener("click", onClick));
+                window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("resize", onScroll);
+              };
+            };
+
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", initProjectTOC, { once: true });
+            } else {
+              initProjectTOC();
+            }
+            document.addEventListener("astro:page-load", initProjectTOC);
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

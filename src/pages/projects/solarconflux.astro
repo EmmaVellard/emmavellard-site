@@ -1,0 +1,362 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/NavBar.astro";
+import "../../styles/projects.css";
+
+const title = "SolarConflux | Project";
+---
+
+<BaseLayout title={title}>
+  <Navbar />
+
+  <main class="page page-project">
+    <div class="project-bg" aria-hidden="true"></div>
+
+    <section class="project-shell">
+      <div class="container">
+        <header class="project-head">
+          <a class="project-back" href="/projects">← Back to projects</a>
+
+          <div class="project-kicker">Featured project</div>
+          <h1 class="project-title">SolarConflux</h1>
+
+          <div class="project-subtle">
+            Scientific software · Multi-spacecraft geometry · Observation planning
+          </div>
+
+          <p class="project-lede">
+            SolarConflux retrieves heliocentric trajectories for spacecraft and planets, then detects geometric alignments to identify time windows enabling <span class="hl">coordinated observations</span> of <span class="hl">solar events</span> and <span class="hl">space weather context</span>.
+          </p>
+
+          <div class="project-actions">
+            <a class="link-btn" href="https://github.com/EmmaVellard/SolarConflux" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+            <a class="link-btn link-btn--secondary" href="/contact">
+              Contact me
+            </a>
+          </div>
+        </header>
+
+        <div class="project-layout">
+          <!-- Right content -->
+          <article class="project-card project-main" id="top">
+            <section class="project-section" id="overview">
+              <h2 class="project-h2">Overview</h2>
+              <p class="project-p">
+                The tool supports mission analysis and research workflows by screening large time ranges and multiple assets to find moments where spacecraft configurations match science-driven constraints.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Primary use</div>
+                  <div class="project-highlight-v"><span class="hl">Coordinated observation planning</span> and contextualization of solar and heliospheric events</div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Core capability</div>
+                  <div class="project-highlight-v"><span class="hl">Alignment detection</span> between any combination of spacecraft and planets in heliocentric coordinates</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="problem">
+              <h2 class="project-h2">Problem</h2>
+              <p class="project-p">
+                Multi-spacecraft studies require identifying when distributed assets are in favorable relative geometries. Manual screening does not scale with the number of missions, targets, and configuration modes.
+              </p>
+            </section>
+
+            <section class="project-section" id="approach">
+              <h2 class="project-h2">Approach</h2>
+              <ul class="project-list">
+                <li>Retrieve ephemerides for a list of spacecraft and planets over a defined time range and time step.</li>
+                <li>Transform trajectories to a heliocentric reference frame for consistent geometry evaluation.</li>
+                <li>Evaluate alignment criteria per selected geometry mode and return matching time windows.</li>
+                <li>Export results and visualize trajectories and detected configurations.</li>
+              </ul>
+
+              <div class="project-card project-inset">
+                <div class="project-inset-kicker">Geometry modes supported</div>
+                <ul class="project-list">
+                  <li>Opposition (≈ 180°)</li>
+                  <li>Quadrature (≈ 90°)</li>
+                  <li>Cone (objects within an angular sector)</li>
+                  <li>Arbitrary angle (user-defined)</li>
+                  <li>Parker spiral alignment (solar wind connectivity)</li>
+                  <li>Cone Parker (combined criterion)</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="project-section" id="deliverables">
+              <h2 class="project-h2">Deliverables</h2>
+              <ul class="project-list">
+                <li>Reusable Python module for trajectory retrieval and geometry screening</li>
+                <li>Configurable inputs for targets, time ranges, angles, and solar wind speed</li>
+                <li>Export to <code>.csv</code> and polar trajectory visualizations for quick interpretation</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="usage">
+              <h2 class="project-h2">Installation & usage</h2>
+
+              <p class="project-p">
+                Install directly from GitHub:
+              </p>
+
+              <pre class="project-code"><code>pip install git+https://github.com/EmmaVellard/SolarConflux.git</code></pre>
+
+              <p class="project-p">
+                Launch interactively:
+              </p>
+
+              <pre class="project-code"><code>from solarconflux import SolarConflux
+SolarConflux()</code></pre>
+
+                        <p class="project-p">
+                            Example workflow (trajectory retrieval → alignment detection → export + plot):
+                        </p>
+
+                        <pre class="project-code"><code>from solarconflux import get_trajectories, matching_dates, save_match, save_plot
+
+body_list = ['BepiColombo', 'Solar Orbiter', 'PSP', 'Stereo-A', 'Earth', 'Mars', 'Jupiter']
+start_time = '2020-09-01 09:00'
+end_time   = '2020-12-31 23:00'
+step = '60m'
+
+trajectories = get_trajectories(body_list, start_time, end_time, step)
+
+geometry_choices = ['cone', 'opposition', 'quadrature', 'arbitrary', 'parker', 'coneparker']
+match = matching_dates(geometry_choices, body_list, trajectories,
+arbitrary_angle=30, u_sw=400e3)
+
+save_match(match)
+save_plot(match, trajectories)</code></pre>
+                        </section>
+
+
+            <section class="project-section" id="outputs">
+              <h2 class="project-h2">Outputs</h2>
+              <ul class="project-list">
+                <li><strong>CSV export</strong> listing detected alignment times and involved bodies</li>
+                <li><strong>Polar plots</strong> showing trajectories and configurations (cone and Parker spiral examples)</li>
+              </ul>
+            </section>
+
+            <section class="project-section" id="stack">
+              <h2 class="project-h2">Technical implementation</h2>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">SunPy</span>
+                <span class="project-tag">Astropy</span>
+                <span class="project-tag">Astroquery (JPL Horizons)</span>
+                <span class="project-tag">Heliocentric frame (HCI)</span>
+                <span class="project-tag">Matplotlib</span>
+                <span class="project-tag">CSV</span>
+              </div>
+            </section>
+
+            <section class="project-section" id="links">
+              <h2 class="project-h2">Links</h2>
+              <div class="project-actions">
+                <a class="link-btn" href="https://github.com/EmmaVellard/SolarConflux" target="_blank" rel="noopener">
+                  Git Repository
+                </a>
+                <a class="link-btn link-btn--secondary" href="/projects">
+                  All projects
+                </a>
+              </div>
+            </section>
+          </article>
+
+          <!-- Left sticky table of contents -->
+          <aside class="project-toc" aria-label="On this page">
+            <div class="project-toc-title">On this page</div>
+
+            <nav class="project-toc-list">
+                <a class="project-toc-item" href="#overview" data-target="overview">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Overview</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#problem" data-target="problem">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Problem</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#approach" data-target="approach">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Approach</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#deliverables" data-target="deliverables">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Deliverables</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#usage" data-target="usage">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Installation & usage</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#outputs" data-target="outputs">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Outputs</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#stack" data-target="stack">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Technical implementation</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item project-toc-item-last" href="#links" data-target="links">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">Links</span>
+                </span>
+                </a>
+            </nav>
+            </aside>
+
+            <script is:inline data-astro-rerun>
+                const initProjectTOC = () => {
+                    // cleanup previous init (important with Astro client-side navigation)
+                    if (window.__projectTOC_cleanup) {
+                    window.__projectTOC_cleanup();
+                    window.__projectTOC_cleanup = null;
+                    }
+
+                    const ids = ["overview","problem","approach","deliverables","usage","outputs","stack","links"];
+                    const sections = ids
+                .map((id) => document.getElementById(id))
+                .filter(Boolean);
+
+                const links = Array.from(document.querySelectorAll(".project-toc-item"));
+                if (!sections.length || !links.length) return;
+
+                const setActive = (id) => {
+                links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
+                };
+
+                // stable rule: active = last section whose top is above a threshold
+                const getNavH = () => {
+                const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-h").trim();
+                const n = parseFloat(raw);
+                return Number.isFinite(n) ? n : 84;
+                };
+
+                const computeActive = () => {
+                const threshold = getNavH() + 28; // tune if needed
+                let activeId = sections[0].id;
+
+                for (const sec of sections) {
+                    const top = sec.getBoundingClientRect().top;
+                    if (top <= threshold) activeId = sec.id;
+                    else break; // sections are in DOM order
+                }
+
+                setActive(activeId);
+                };
+
+                // initial state: hash > else compute
+                const setFromHashOrCompute = () => {
+                const hash = (window.location.hash || "").replace("#", "");
+                if (hash && ids.includes(hash) && document.getElementById(hash)) {
+                    setActive(hash);
+                    return;
+                }
+                computeActive();
+                };
+
+                // click: set active immediately, then recompute after scroll settles
+                const onClick = (e) => {
+                const a = e.currentTarget;
+                const id = a?.dataset?.target;
+                if (!id) return;
+                setActive(id);
+                window.setTimeout(() => computeActive(), 220);
+                };
+
+                links.forEach((a) => a.addEventListener("click", onClick));
+
+                // rAF scroll spy (smooth + no flicker)
+                let ticking = false;
+                const onScroll = () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    ticking = false;
+                    computeActive();
+                });
+                };
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                window.addEventListener("resize", onScroll);
+
+                // first run
+                setFromHashOrCompute();
+
+                // keep in sync with hash navigation
+                const onHash = () => setFromHashOrCompute();
+                window.addEventListener("hashchange", onHash);
+
+                // expose cleanup
+                window.__projectTOC_cleanup = () => {
+                links.forEach((a) => a.removeEventListener("click", onClick));
+                window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("resize", onScroll);
+                window.removeEventListener("hashchange", onHash);
+                };
+            };
+
+            // run now (if DOM ready) and on Astro navigations
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initProjectTOC, { once: true });
+            } else {
+                initProjectTOC();
+            }
+            document.addEventListener("astro:page-load", initProjectTOC);
+            </script>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

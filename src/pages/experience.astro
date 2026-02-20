@@ -1,15 +1,287 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContainerCard from "../components/ContainerCard.astro";
+import Navbar from "../components/NavBar.astro";
+import "../styles/experience.css";
 ---
 
 <BaseLayout title="Experience | Emma Vellard">
   <Navbar />
-  <main class="px-4">
-    <ContainerCard>
-      <h1 class="text-2xl font-semibold tracking-tight">Experience</h1>
-      <p class="mt-4 text-slate-700">Content coming next.</p>
-    </ContainerCard>
+
+  <main class="page page-experience">
+    <div class="exp-bg" aria-hidden="true"></div>
+
+    <section class="exp-shell">
+      <div class="container">
+        <header class="exp-head">
+          <h1 class="exp-title">Experience</h1>
+          <p class="exp-sub">
+            I develop <span class="hl">scientific software</span> and
+            <span class="hl">mission-oriented workflows</span> for
+            <span class="hl">multi-spacecraft analysis</span>, and model the
+            <span class="hl">interiors of icy moons</span>, with experience across
+            <span class="hl">ESA</span>, <span class="hl">NASA JPL</span>, and academia.
+          </p>
+        </header>
+
+        <div class="exp-layout">
+          <!-- Left timeline nav (no box) -->
+          <aside class="exp-nav" aria-label="Experience timeline navigation">
+            <div class="exp-nav-title">Experience</div>
+
+            <nav class="exp-nav-list">
+              <a class="exp-nav-item" href="#nasa" data-target="nasa">
+                <span class="exp-nav-rail" aria-hidden="true">
+                  <span class="exp-nav-dot"></span>
+                  <span class="exp-nav-line"></span>
+                </span>
+                <span class="exp-nav-text">
+                  <span class="exp-nav-label">NASA JPL</span>
+                  <span class="exp-nav-meta">2026</span>
+                </span>
+              </a>
+
+              <a class="exp-nav-item" href="#esa" data-target="esa">
+                <span class="exp-nav-rail" aria-hidden="true">
+                  <span class="exp-nav-dot"></span>
+                  <span class="exp-nav-line"></span>
+                </span>
+                <span class="exp-nav-text">
+                  <span class="exp-nav-label">European Space Agency</span>
+                  <span class="exp-nav-meta">2023–2025</span>
+                </span>
+              </a>
+
+              <a class="exp-nav-item" href="#tohoku" data-target="tohoku">
+                <span class="exp-nav-rail" aria-hidden="true">
+                  <span class="exp-nav-dot"></span>
+                  <span class="exp-nav-line"></span>
+                </span>
+                <span class="exp-nav-text">
+                  <span class="exp-nav-label">Tohoku University</span>
+                  <span class="exp-nav-meta">2023</span>
+                </span>
+              </a>
+
+              <a class="exp-nav-item exp-nav-item-last" href="#latmos" data-target="latmos">
+                <span class="exp-nav-rail" aria-hidden="true">
+                  <span class="exp-nav-dot"></span>
+                  <span class="exp-nav-line"></span>
+                </span>
+                <span class="exp-nav-text">
+                  <span class="exp-nav-label">LATMOS</span>
+                  <span class="exp-nav-meta">2022</span>
+                </span>
+              </a>
+
+            </nav>
+
+            <div class="exp-nav-actions">
+              <a class="link-btn" href="/projects">View projects</a>
+              <a class="link-btn link-btn--secondary" href="/public/cv_vellard.pdf" target="_blank" rel="noopener">
+                Download CV
+              </a>
+            </div>
+          </aside>
+
+          <!-- Content -->
+          <section class="exp-content" aria-label="Experience details">
+            <!-- NASA -->
+            <section class="exp-section" id="nasa" tabindex="-1">
+              <header class="exp-section-head">
+                <div>
+                  <h2 class="exp-h2">NASA Jet Propulsion Laboratory</h2>
+                  <div class="exp-meta">Visiting Student Research Program · USA · 2026</div>
+                </div>
+              </header>
+
+              <div class="exp-prose">
+                <p>
+                  Conducting research at <span class="hl">NASA JPL</span> focused on the internal structures and ocean chemistry of
+                  <span class="hl">Europa</span> and <span class="hl">Ganymede</span>, supporting interpretation of measurements from
+                  <span class="hl">Europa Clipper</span> and <span class="hl">JUICE</span>.
+                </p>
+
+                <ul class="exp-bullets">
+                  <li>Developing geophysical and geochemical models to explore a broad range of plausible <span class="hl">subsurface ocean structures</span>.</li>
+                  <li>Linking forward-modeled observables to mission measurements to improve interpretation of interior properties.</li>
+                  <li>Assessing implications for <span class="hl">habitability</span> and chemical environments in icy ocean worlds.</li>
+                </ul>
+              </div>
+
+              <div class="exp-related">
+                <div class="exp-related-title">Related projects</div>
+                <div class="exp-related-links">
+                  <a class="link-btn" href="/projects/icy-moons">Coming Soon</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- ESA -->
+            <section class="exp-section" id="esa" tabindex="-1">
+              <header class="exp-section-head">
+                <div>
+                  <h2 class="exp-h2">European Space Agency</h2>
+                  <div class="exp-meta">Young Graduate Trainee · Netherlands · 2023–2025</div>
+                </div>
+              </header>
+
+              <div class="exp-prose">
+                <p>
+                  Contributed to <span class="hl">JUICE</span> and <span class="hl">BepiColombo</span> mission analysis by developing tools and data strategies
+                  that improved coordination and science-readiness across distributed spacecraft assets.
+                </p>
+
+                <ul class="exp-bullets">
+                  <li>Designed and implemented <span class="hl">SolarConflux</span>, a Python workflow to identify multi-spacecraft geometric opportunities supporting solar event analysis and coordinated observations.</li>
+                  <li>Enabled rapid evaluation of favorable observation windows across heliophysics assets for coordinated analysis.</li>
+                  <li>Contributed to the architecture of a comprehensive <span class="hl">JUICE data environment</span> in preparation for science operations and incoming datasets.</li>
+                </ul>
+
+                <div class="exp-mini">
+                  <div class="exp-mini-row">
+                    <span class="exp-mini-label">Also</span>
+                    <span class="exp-mini-value">
+                      Embedded software contribution for <span class="hl">YPSat</span>, supporting autonomous launch-sequence detection during Ariane 6 operations.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-related">
+                <div class="exp-related-title">Related projects</div>
+                <div class="exp-related-links">
+                  <a class="link-btn" href="/projects/solarconflux">SolarConflux</a>
+                  <a class="link-btn link-btn--secondary" href="/projects/juice">JUICE</a>
+                  <a class="link-btn link-btn--secondary" href="/projects/ypsat">YPSat</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- TOHOKU -->
+            <section class="exp-section" id="tohoku" tabindex="-1">
+              <header class="exp-section-head">
+                <div>
+                  <h2 class="exp-h2">Tohoku University</h2>
+                  <div class="exp-meta">Planetary Science Research Intern · Japan · 2023</div>
+                </div>
+              </header>
+
+              <div class="exp-prose">
+                <p>
+                  Conducted planetary science research at <span class="hl">Tohoku University</span> in support of the <span class="hl">MMX</span> mission, investigating origin hypotheses
+                  of <span class="hl">Phobos</span> and <span class="hl">Deimos</span> through surface analysis and laboratory comparisons.
+                </p>
+
+                <ul class="exp-bullets">
+                  <li>Performed spectral analysis of the Martian moons’ surface to evaluate competing <span class="hl">origin scenarios</span>.</li>
+                  <li>Studied analogue samples and laboratory datasets to constrain compositional interpretations.</li>
+                  <li>Contributed to laboratory analysis of <span class="hl">Ryugu samples</span> to support comparative studies of primitive bodies.</li>
+                </ul>
+              </div>
+
+              <div class="exp-related">
+                <div class="exp-related-title">Related projects</div>
+                <div class="exp-related-links">
+                  <a class="link-btn" href="/projects/phobos-deimos">Phobos & Deimos</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- LATMOS -->
+            <section class="exp-section" id="latmos" tabindex="-1">
+              <header class="exp-section-head">
+                <div>
+                  <h2 class="exp-h2">LATMOS</h2>
+                  <div class="exp-meta">Research project · France · 2022</div>
+                </div>
+              </header>
+
+              <div class="exp-prose">
+                <p>
+                  Conducted a mission concept study focused on <span class="hl">Ceres geomorphology and cryovolcanism</span>, contributing to early-stage design decisions
+                  for a CubeSat exploration architecture.
+                </p>
+
+                <ul class="exp-bullets">
+                  <li>Analyzed surface features to define science-driven mission requirements.</li>
+                  <li>Performed preliminary sizing and feasibility assessment of a <span class="hl">sounder radar payload</span> for a 3U CubeSat platform.</li>
+                  <li>Evaluated technical trade-offs linking scientific objectives to engineering constraints.</li>
+                </ul>
+              </div>
+
+              <div class="exp-related">
+                <div class="exp-related-title">Related projects</div>
+                <div class="exp-related-links">
+                  <a class="link-btn" href="/projects/ceres">Diplona Mission</a>
+                </div>
+              </div>
+            </section>
+
+            <div class="exp-bottom-cta">
+              <a class="link-btn" href="/projects">View my research projects</a>
+              <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <script is:inline data-astro-rerun>
+      const initExpNav = () => {
+        const ids = ["nasa","esa","latmos","tohoku"];
+        const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+        const links = Array.from(document.querySelectorAll(".exp-nav-item"));
+
+        if (!sections.length || !links.length) return;
+
+        const setActive = (id) => {
+          links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
+        };
+
+        const setFromHashOrDefault = () => {
+          const hash = (window.location.hash || "").replace("#", "");
+          if (hash && ids.includes(hash)) {
+            setActive(hash);
+            return;
+          }
+          setActive("nasa"); // always default to nasa on entry
+        };
+
+        // Always active on entry
+        setFromHashOrDefault();
+
+        // Immediate feedback on click
+        links.forEach((a) => {
+          a.addEventListener("click", () => {
+            const id = a.dataset.target;
+            if (id) setActive(id);
+          });
+        });
+
+        // Scroll-follow active state
+        const io = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible?.target?.id) setActive(visible.target.id);
+        }, {
+          root: null,
+          rootMargin: "-25% 0px -60% 0px",
+          threshold: [0.08, 0.16, 0.28, 0.4]
+        });
+
+        sections.forEach((sec) => io.observe(sec));
+
+        // Re-assert after layout settles
+        requestAnimationFrame(() => setFromHashOrDefault());
+        window.addEventListener("load", () => setFromHashOrDefault());
+        window.addEventListener("hashchange", () => setFromHashOrDefault());
+      };
+
+        // Run on first load and on Astro client-side navigations
+        initExpNav();
+        document.addEventListener("astro:page-load", initExpNav);
+    </script>
   </main>
 </BaseLayout>

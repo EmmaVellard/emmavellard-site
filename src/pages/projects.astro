@@ -1,0 +1,213 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/NavBar.astro";
+import "../styles/projects.css";
+---
+
+<BaseLayout title="Projects | Emma Vellard">
+  <Navbar />
+
+  <main class="page page-projects">
+    <div class="projects-bg" aria-hidden="true"></div>
+
+    <section class="projects-shell">
+      <div class="container">
+        <header class="projects-head">
+          <h1 class="projects-title">Projects</h1>
+          <p class="projects-sub">
+            A selection of <span class="hl">scientific software</span> and <span class="hl">mission-oriented work</span>,
+            from multi-spacecraft geometry to icy moons interior modeling.
+          </p>
+
+          <!-- quick index -->
+          <nav class="projects-jump" aria-label="On this page">
+            <a class="projects-jump-link" href="#featured">Featured</a>
+            <a class="projects-jump-link" href="#current">Current research</a>
+            <a class="projects-jump-link" href="#contrib">Contributions</a>
+          </nav>
+        </header>
+
+        <!-- FEATURED -->
+        <section class="projects-featured" id="featured" aria-label="Featured project">
+          <article class="proj-card proj-featured" id="solarconflux">
+            <div class="proj-featured-grid">
+              <div class="proj-main">
+                <div class="proj-kicker">Featured</div>
+                <h2 class="proj-h2">SolarConflux</h2>
+                <div class="proj-subtle">
+                  Scientific software · Mission analysis · Observation planning
+                </div>
+                <p class="proj-desc">
+                  A Python framework to detect <span class="hl">multi-spacecraft geometric opportunities</span> to support
+                  coordinated solar event analysis and observation planning.
+                </p>
+
+                <ul class="proj-bullets">
+                  <li>Alignment detection across multiple missions over configurable time windows.</li>
+                  <li>Geometry modes including opposition, quadrature, cone, and Parker spiral configurations.</li>
+                  <li>Designed for scalability across heliocentric mission constellations.</li>
+                </ul>
+
+                <div class="proj-actions">
+                  <a class="link-btn" href="/projects/solarconflux">
+                    View project
+                  </a>
+                  <a class="link-btn link-btn--secondary" href="https://github.com/EmmaVellard/SolarConflux" target="_blank" rel="noopener">
+                    View on GitHub
+                  </a>
+                </div>
+              </div>
+
+              <aside class="proj-facts" aria-label="Project details">
+                <div class="proj-facts-title">Quick facts</div>
+
+                <div class="proj-fact">
+                  <div class="proj-fact-label">Type</div>
+                  <div class="proj-fact-value">Scientific software</div>
+                </div>
+
+                <div class="proj-fact">
+                  <div class="proj-fact-label">Focus</div>
+                  <div class="proj-fact-value">Multi-spacecraft geometry</div>
+                </div>
+
+                <div class="proj-fact">
+                  <div class="proj-fact-label">Stack</div>
+                  <div class="proj-fact-value">Python · SPICE · Trajectory analysis</div>
+                </div>
+
+                <div class="proj-fact">
+                  <div class="proj-fact-label">Context</div>
+                  <div class="proj-fact-value">Mission analysis and coordination</div>
+                </div>
+              </aside>
+            </div>
+            <div class="proj-year">2026</div>
+          </article>
+        </section>
+
+        <!-- CURRENT -->
+        <section class="projects-section" id="current" aria-label="Current research">
+          <div class="projects-section-head">
+            <h2 class="projects-h3">Current research</h2>
+            <p class="projects-muted">
+              Active research projects focused on planetary interior modeling and mission data interpretation.            
+            </p>
+          </div>
+
+          <div class="proj-list">
+            <article class="proj-card proj-item" id="icy-moons">
+              <div class="proj-kicker">Now</div>
+              <h3 class="proj-h3-item">Europa & Ganymede</h3>
+              <div class="proj-subtle">
+                Planetary modeling · Icy moon interiors · Mission data interpretation
+              </div>
+              <p class="proj-desc">
+                Modeling the internal structures of <span class="hl">Europa</span> and <span class="hl">Ganymede</span> to
+                support interpretation of mission measurements and assess subsurface ocean environments.
+              </p>
+
+              <div class="proj-actions">
+                <a class="link-btn" href="">
+                  Coming soon
+                </a>
+              </div>
+              <div class="proj-year">2026</div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTRIBUTIONS -->
+        <section class="projects-section" id="contrib" aria-label="Mission and research contributions">
+          <div class="projects-section-head">
+            <h2 class="projects-h3">Mission and research contributions</h2>
+            <p class="projects-muted">
+              Applied research and mission-focused developments.
+            </p>
+          </div>
+
+          <div class="proj-list proj-list-2">
+            <article class="proj-card proj-item" id="juice">
+              <h3 class="proj-h3-item">JUICE</h3>
+              <div class="proj-subtle">
+                Mission analysis · Data readiness · Science operations support
+              </div>
+              <p class="proj-desc">
+                Mission-facing work on <span class="hl">data readiness</span>, science workflows, and coordinated observation
+                support for an operational context.
+              </p>
+              <div class="proj-actions">
+                <a class="link-btn link-btn--secondary" href="/projects/juice">Coming soon</a>
+              </div>
+              <div class="proj-year">2025</div>
+            </article>
+
+            <article class="proj-card proj-item" id="ypsat">
+              <h3 class="proj-h3-item">YPSat</h3>
+              <div class="proj-subtle">
+                Flight software · Launch operations · Autonomous event detection
+              </div>
+              <p class="proj-desc">
+                Contribution to a technology demonstrator flown on <span class="hl">Ariane 6</span>, supporting mission context
+                and project-facing documentation and analysis.
+              </p>
+              <div class="proj-actions">
+                <a class="link-btn link-btn--secondary" href="/projects/ypsat">Coming soon</a>
+              </div>
+              <div class="proj-year">2024</div>
+            </article>
+            
+            <article class="proj-card proj-item" id="lunar-spaceport">
+              <h3 class="proj-h3-item">Lunar Spaceport</h3>
+              <div class="proj-subtle">
+                Lunar infrastructure · ISRU and sustainability
+              </div>
+              <p class="proj-desc">
+                Concept and systems-level study focusing on sustainable surface operations, dust mitigation considerations, and integrated infrastructure planning.
+              </p>
+              <div class="proj-actions">
+                <a class="link-btn link-btn--secondary" href="/projects/lunar-spaceport">View project</a>
+              </div>
+              <div class="proj-year">2025</div>
+            </article>
+
+            <article class="proj-card proj-item" id="phobos-deimos">
+              <h3 class="proj-h3-item">Phobos & Deimos</h3>
+              <div class="proj-subtle">
+                Planetary surface analysis · Origin hypotheses · Laboratory experiment
+              </div>
+              <p class="proj-desc">
+                Research on <span class="hl">origin hypotheses</span> and composition, combining surface analysis of Martian moons
+                with laboratory work on <span class="hl">Ryugu</span> samples.
+              </p>
+              <div class="proj-actions">
+                <a class="link-btn link-btn--secondary" href="/projects/phobos-deimos">View project</a>
+              </div>
+              <div class="proj-year">2023</div>
+            </article>
+
+            <article class="proj-card proj-item" id="ceres">
+              <h3 class="proj-h3-item">Diplona</h3>
+              <div class="proj-subtle">
+                Mission concept · CubeSat architecture · Radar feasibility
+              </div>
+              <p class="proj-desc">
+                Mission concept study on <span class="hl">Ceres</span> geomorphology and cryovolcanism, defining science-driven requirements and assessing radar payload feasibility within a constrained 3U CubeSat architecture.
+              </p>
+              <div class="proj-actions">
+                <a class="link-btn link-btn--secondary" href="/projects/ceres">View project</a>
+              </div>
+              <div class="proj-year">2022</div>
+            </article>
+
+          </div>
+        </section>
+
+        <div class="projects-bottom-cta" aria-label="Projects calls to action">
+          <a class="link-btn" href="/experience">View my experience</a>
+          <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
