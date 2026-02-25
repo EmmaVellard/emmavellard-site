@@ -1,4 +1,4 @@
-# 🌌 Emma Vellard — Portfolio
+<h1 align="center"> 🌌 Emma Vellard - Portfolio</h1>
 
 Personal portfolio website built with **Astro** and deployed on **Vercel**.
 
