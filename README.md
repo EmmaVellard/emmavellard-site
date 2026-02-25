@@ -1,46 +1,51 @@
-# Astro Starter Kit: Basics
+# 🌌 Emma Vellard — Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio website built with **Astro** and deployed on **Vercel**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This website presents my work in:
 
-## 🚀 Project Structure
+- Planetary science,
+- Multi-spacecraft geometry,
+- Scientific software development,
+- Mission-oriented research (ESA, NASA JPL, academia)
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## 🖼 Preview
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+<p align="center">
+  <img src="./public/images/portfolio-home.png" width="48%" />
+  <img src="./public/images/portfolio-about.png" width="48%" />
+</p>
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Tech Stack
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Astro
+- CSS (custom design system)
+- Vercel (deployment, analytics, speed insights)
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📂 Structure
+
+- `/projects` — Research and software projects (SolarConflux, Phobos & Deimos, DIPLONA etc.)
+- `/experience` — Professional and research experience
+- `/education` — Academic background and certifications
+- `/conferences` — Talks and presentations
+- `/contact` — Contact and availability
+
+---
+
+## 🌍 Deployment
+
+The site is deployed on Vercel:  
+🔗 [www.emmavellard.com](https://www.emmavellard.com)
+
+---
+
+## 📄 License
+
+This project is for personal portfolio use.
+Content and design © Emma Vellard.
