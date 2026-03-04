@@ -1,4 +1,5 @@
 ---
+// src/components/NavBar.astro
 const { pathname } = Astro.url;
 
 const links = [
@@ -19,6 +20,7 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
     <a class="navbar-brand" href="/">Emma Vellard</a>
 
     <div class="navbar-right">
+      <!-- Desktop links -->
       <nav class="navbar-links" aria-label="Main navigation">
         {links.map((l) => (
           <a class={`nav-link ${isActive(l.href) ? "active" : ""}`} href={l.href}>
@@ -27,72 +29,89 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
         ))}
       </nav>
 
+      <!-- Mobile burger -->
+      <button
+        class="nav-burger"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span class="nav-burger-lines" aria-hidden="true"></span>
+      </button>
+
+      <!-- Social icons -->
       <div class="nav-icons" aria-label="Social links">
-        <a class="icon-link" href="mailto:emma.vellard@outlook.fr" aria-label="Email">
+        <a
+          class="icon-link"
+          href="https://github.com/EmmaVellard"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+            <path
+              d="M12 .5a11.5 11.5 0 00-3.64 22.42c.58.11.8-.25.8-.56v-2.02c-3.26.71-3.95-1.39-3.95-1.39-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.21 1.79 1.21 1.04 1.78 2.73 1.27 3.39.97.1-.75.41-1.27.74-1.56-2.6-.3-5.34-1.3-5.34-5.78 0-1.28.46-2.33 1.2-3.15-.12-.3-.52-1.49.11-3.11 0 0 .98-.31 3.2 1.2a11.03 11.03 0 015.83 0c2.22-1.51 3.2-1.2 3.2-1.2.63 1.62.23 2.81.11 3.11.75.82 1.2 1.87 1.2 3.15 0 4.5-2.75 5.48-5.36 5.77.42.36.8 1.08.8 2.18v3.23c0 .31.21.68.81.56A11.5 11.5 0 0012 .5z"
+            />
           </svg>
         </a>
 
-        <a class="icon-link" href="https://github.com/EmmaVellard" target="_blank" rel="noopener" aria-label="GitHub">
+        <a
+          class="icon-link"
+          href="https://www.linkedin.com/in/emma-vellard"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.41 6.84 9.77.5.1.68-.22.68-.48 0-.24-.01-.86-.01-1.69-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.25 9.25 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.38-.01 2.49-.01 2.83 0 .26.18.58.69.48A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path>
-          </svg>
-        </a>
-
-        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45V9h3.56v11.45H3.56z"></path>
+            <path
+              d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.32 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.1 20.45H3.54V9H7.1v11.45z"
+            />
           </svg>
         </a>
       </div>
-
-      <button
-        class="nav-toggle"
-        id="navToggle"
-        type="button"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-        aria-label="Open menu"
-      >
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-      </button>
     </div>
   </div>
 
-  <!-- Mobile fullscreen menu -->
-  <div class="nav-mobile" id="mobile-menu" data-open="false" aria-hidden="true">
-    <button class="nav-mobile-backdrop" type="button" aria-label="Close menu"></button>
+  <!-- Mobile overlay menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner" role="dialog" aria-label="Mobile menu">
+      <button class="mobile-close" type="button" aria-label="Close menu">✕</button>
 
-    <div class="nav-mobile-panel" role="dialog" aria-modal="true" aria-label="Menu">
-      <button class="nav-mobile-close" type="button" aria-label="Close menu">
-        <span aria-hidden="true">✕</span>
-      </button>
-
-      <nav class="nav-mobile-links" aria-label="Mobile navigation">
+      <nav class="mobile-links" aria-label="Mobile navigation">
         {links.map((l) => (
-          <a class={`nav-mobile-link ${isActive(l.href) ? "active" : ""}`} href={l.href} data-nav-close>
+          <a class={`mobile-link ${isActive(l.href) ? "active" : ""}`} href={l.href}>
             {l.label}
           </a>
         ))}
       </nav>
 
-      <div class="nav-mobile-icons" aria-label="Mobile social links">
-        <a class="icon-link" href="mailto:emma.vellard@outlook.fr" aria-label="Email">
+      <div class="mobile-icons" aria-label="Mobile social links">
+        <a
+          class="icon-link"
+          href="https://github.com/EmmaVellard"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+            <path
+              d="M12 .5a11.5 11.5 0 00-3.64 22.42c.58.11.8-.25.8-.56v-2.02c-3.26.71-3.95-1.39-3.95-1.39-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.21 1.79 1.21 1.04 1.78 2.73 1.27 3.39.97.1-.75.41-1.27.74-1.56-2.6-.3-5.34-1.3-5.34-5.78 0-1.28.46-2.33 1.2-3.15-.12-.3-.52-1.49.11-3.11 0 0 .98-.31 3.2 1.2a11.03 11.03 0 015.83 0c2.22-1.51 3.2-1.2 3.2-1.2.63 1.62.23 2.81.11 3.11.75.82 1.2 1.87 1.2 3.15 0 4.5-2.75 5.48-5.36 5.77.42.36.8 1.08.8 2.18v3.23c0 .31.21.68.81.56A11.5 11.5 0 0012 .5z"
+            />
           </svg>
         </a>
 
-        <a class="icon-link" href="https://github.com/EmmaVellard" target="_blank" rel="noopener" aria-label="GitHub">
+        <a
+          class="icon-link"
+          href="https://www.linkedin.com/in/emma-vellard"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.41 6.84 9.77.5.1.68-.22.68-.48 0-.24-.01-.86-.01-1.69-2.78.62-3.37-1.38-3.37-1.38-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.89 1.57 2.34 1.12 2.91.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.25 9.25 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.38-.01 2.49-.01 2.83 0 .26.18.58.69.48A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path>
-          </svg>
-        </a>
-
-        <a class="icon-link" href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45V9h3.56v11.45H3.56z"></path>
+            <path
+              d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.32 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.1 20.45H3.54V9H7.1v11.45z"
+            />
           </svg>
         </a>
       </div>
@@ -100,57 +119,61 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
   </div>
 </header>
 
-<script is:inline data-astro-rerun>
-  function setupNav() {
+<script>
+  const applyNavbarState = () => {
     const nav = document.getElementById("site-navbar");
-    const toggle = document.getElementById("navToggle");
-    const mobile = document.getElementById("mobile-menu");
-    if (!nav || !toggle || !mobile) return;
+    if (!nav) return;
+    const y = window.scrollY || 0;
+    if (y > 10) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  };
 
-    if (toggle.dataset.bound === "true") return;
-    toggle.dataset.bound = "true";
-
-    const applyNavbarState = () => {
-      const y = window.scrollY || 0;
-      if (y > 10) nav.classList.add("scrolled");
-      else nav.classList.remove("scrolled");
-    };
-
-    const setOpen = (open) => {
-      mobile.dataset.open = open ? "true" : "false";
-      mobile.setAttribute("aria-hidden", open ? "false" : "true");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      nav.classList.toggle("menu-open", open);
-
-      document.documentElement.style.overflow = open ? "hidden" : "";
-      document.body.style.overflow = open ? "hidden" : "";
-    };
-
-    const close = () => setOpen(false);
-
-    const backdrop = mobile.querySelector(".nav-mobile-backdrop");
-    const closeBtn = mobile.querySelector(".nav-mobile-close");
-
-    toggle.addEventListener("click", () => {
-      const open = mobile.dataset.open !== "true";
-      setOpen(open);
-    });
-
-    backdrop?.addEventListener("click", close);
-    closeBtn?.addEventListener("click", close);
-    mobile.querySelectorAll("[data-nav-close]").forEach((a) => a.addEventListener("click", close));
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") close();
-    });
-
+  const bindNavbar = () => {
     applyNavbarState();
+
+    window.removeEventListener("scroll", applyNavbarState);
     window.addEventListener("scroll", applyNavbarState, { passive: true });
 
-    close();
-  }
+    const nav = document.getElementById("site-navbar");
+    const btn = nav?.querySelector(".nav-burger");
+    const menu = document.getElementById("mobile-menu");
+    const closeBtn = nav?.querySelector(".mobile-close");
+    if (!nav || !btn || !menu || !closeBtn) return;
 
-  setupNav();
-  document.addEventListener("astro:page-load", setupNav);
+    const close = () => {
+      nav.classList.remove("menu-open");
+      btn.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-hidden", "true");
+      document.documentElement.classList.remove("no-scroll");
+    };
+
+    const open = () => {
+      nav.classList.add("menu-open");
+      btn.setAttribute("aria-expanded", "true");
+      menu.setAttribute("aria-hidden", "false");
+      document.documentElement.classList.add("no-scroll");
+    };
+
+    btn.onclick = () => (nav.classList.contains("menu-open") ? close() : open());
+    closeBtn.onclick = close;
+
+    menu.onclick = (e) => {
+      if (e.target === menu) close();
+    };
+
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
+
+    window.onkeydown = (e) => {
+      if (e.key === "Escape") close();
+    };
+  };
+
+  document.addEventListener("astro:page-load", bindNavbar);
+  document.addEventListener("astro:after-swap", bindNavbar);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bindNavbar);
+  } else {
+    bindNavbar();
+  }
 </script>
