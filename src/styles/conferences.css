@@ -1,4 +1,6 @@
 /* ============================= */
+/* CONFERENCES PAGE */
+/* ============================= */
 
 .page-conferences{
   position: relative;
@@ -33,11 +35,6 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-}
-
-.hl{
-  color: var(--primary);
-  font-weight: 600;
 }
 
 /* ============================= */
@@ -88,7 +85,6 @@
   transform: translateY(-50%);
 }
 
-/* Dots on the orbit line (desktop) */
 .conf-dot{
   position: absolute;
   top: 50%;
@@ -103,7 +99,6 @@
   pointer-events: none;
 }
 
-/* nodes */
 .conf-node{
   position: absolute;
   left: var(--x);
@@ -112,15 +107,55 @@
   z-index: 2;
 }
 
-.conf-node--top{ top: 0; }
-.conf-node--bottom{ bottom: 0; }
+.conf-node--top{
+  top: 0;
+}
 
-/* mobile-only dot (for vertical layout) */
+.conf-node--bottom{
+  bottom: 0;
+}
+
 .conf-node-dot{
   display: none;
 }
 
-/* content */
+/* ============================= */
+/* YEAR MARKERS */
+/* ============================= */
+
+.conf-year-up,
+.conf-year-down{
+  position: absolute;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.conf-year-up{
+  top: calc(50% - 12px);
+  transform: translateY(-140%);
+}
+
+.conf-year-down{
+  top: calc(50% - 12px);
+  transform: translateY(180%);
+}
+
+.conf-year-start{
+  left: 0;
+}
+
+.conf-year-end{
+  right: 0;
+}
+
+/* ============================= */
+/* CARD CONTENT */
+/* ============================= */
+
 .conf-content{
   padding: 16px 16px 14px;
   border-radius: 18px;
@@ -129,6 +164,22 @@
   backdrop-filter: blur(12px);
   position: relative;
   z-index: 3;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.conf-content::before{
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(143,198,227,0.26), transparent);
+  opacity: 0.55;
 }
 
 .conf-meta{
@@ -164,37 +215,45 @@
 }
 
 .conf-links{
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
-/* Premium hover like Experience */
-.conf-content{
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    background 0.18s ease,
-    box-shadow 0.18s ease;
+/* ============================= */
+/* CLICKABLE CARD */
+/* ============================= */
+
+.conf-card-link{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
 }
 
-.conf-content::before{
-  content: "";
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(143,198,227,0.26), transparent);
-  opacity: 0.55;
+.conf-card-link:focus-visible{
+  outline: 2px solid rgba(143,198,227,0.55);
+  outline-offset: 3px;
 }
 
-.page-conferences .conf-node:hover .conf-content{
+.page-conferences .conf-node:hover .conf-content,
+.page-conferences .conf-card-link:hover{
   border-color: rgba(143,198,227,0.20);
   background: rgba(143,198,227,0.03);
   box-shadow: 0 22px 60px rgba(0,0,0,0.28);
 }
 
+.conf-card-link:hover .link-btn{
+  color: var(--primary);
+}
+
+.conf-card-link:hover .link-btn::after{
+  width: 100%;
+}
+
 /* ============================= */
-/* RESPONSIVE: VERTICAL TIMELINE */
+/* RESPONSIVE: TABLET / MOBILE */
 /* ============================= */
 
 @media (max-width: 980px){
@@ -205,7 +264,7 @@
   }
 
   .conf-orbit-line{
-    left: 8px;
+    left: 10px;
     top: 0;
     bottom: 0;
     right: auto;
@@ -215,7 +274,6 @@
     background: rgba(143,198,227,0.18);
   }
 
-  /* hide orbit dots on mobile */
   .conf-dot{
     display: none;
   }
@@ -224,16 +282,15 @@
     position: relative;
     left: auto;
     transform: none;
-    width: 100%;
-    margin-left: 28px;
+    width: calc(100% - 32px);
+    margin-left: 32px;
     margin-top: 18px;
   }
 
-  /* show node dot aligned on the vertical line */
   .conf-node-dot{
     display: block;
     position: absolute;
-    left: -20px;
+    left: -22px;
     top: 22px;
     width: 10px;
     height: 10px;
@@ -247,39 +304,91 @@
     top: auto;
     bottom: auto;
   }
-}
 
+  .conf-content{
+    padding: 18px 16px 16px;
+    border-radius: 16px;
+  }
+
+  .conf-h2{
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .conf-links{
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  .conf-year-up,
+  .conf-year-down{
+    position: static;
+    transform: none;
+    display: block;
+    margin-left: 32px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+  }
+
+  .conf-year-end{
+    display: none;
+  }
+}
 
 /* ============================= */
-/* YEAR MARKERS */
+/* SMALL MOBILE */
 /* ============================= */
 
-.conf-year-up{
-  position: absolute;
-  top: calc(50% - 12px);
-  transform: translateY(180%);
-  font-size: 15px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  opacity: 0.65;
-}
+@media (max-width: 560px){
+  .conf-shell{
+    padding-top: 24px;
+    padding-bottom: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-.conf-year-down{
-  position: absolute;
-  top: calc(50% - 12px);
-  transform: translateY(-140%);
-  font-size: 15px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  opacity: 0.65;
-}
+  .conf-title{
+    font-size: 34px;
+  }
 
-.conf-year-start{
-  left: 0;
-}
+  .conf-sub{
+    font-size: 14px;
+    line-height: 1.65;
+  }
 
-.conf-year-end{
-  right: 0;
+  .conf-meta{
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    flex-wrap: wrap;
+  }
+
+  .conf-h2{
+    font-size: 16px;
+  }
+
+  .conf-text{
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .conf-node{
+    width: calc(100% - 28px);
+    margin-left: 28px;
+    margin-top: 16px;
+  }
+
+  .conf-node-dot{
+    left: -20px;
+    top: 20px;
+  }
+
+  .conf-year-up,
+  .conf-year-down{
+    margin-left: 28px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
 }
