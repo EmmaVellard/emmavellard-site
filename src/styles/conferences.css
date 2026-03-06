@@ -1,5 +1,4 @@
 /* ============================= */
-/*  [oai_citation:4‡conferences.css](sediment://file_000000007c6c7243b0a2fc293ad20e54) ============================= */
 
 .page-conferences{
   position: relative;
@@ -243,4 +242,39 @@
     top: auto;
     bottom: auto;
   }
+}
+
+
+/* ============================= */
+/* YEAR MARKERS */
+/* ============================= */
+
+.conf-year-up{
+  position: absolute;
+  top: calc(50% - 12px);
+  transform: translateY(-140%);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  opacity: 0.65;
+}
+
+.conf-year-down{
+  position: absolute;
+  top: calc(50% - 12px);
+  transform: translateY(180%);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  opacity: 0.65;
+}
+
+.conf-year-start{
+  left: 0;
+}
+
+.conf-year-end{
+  right: 0;
 }
