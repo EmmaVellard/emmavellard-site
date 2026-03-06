@@ -78,12 +78,12 @@
   margin-top: 10px;
   font-size: 22px;
   font-weight: 600;
-  color: rgba(255,255,255,0.94);
+  color: var(--primary);
   text-decoration: none;
 }
 
 .contact-email:hover{
-  color: var(--primary);
+  color: rgba(255,255,255,0.94);
 }
 
 .contact-lines{
@@ -161,4 +161,9 @@
 .page-contact .contact-shell{
   min-height: calc(100vh - var(--nav-h, 84px));
   padding-bottom: 38px; /* was 84px, reduces overflow */
+}
+
+.hl{
+  color: var(--primary);
+  font-weight: 600;
 }
