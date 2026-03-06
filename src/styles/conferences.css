@@ -257,7 +257,7 @@
 .conf-year-up{
   position: absolute;
   top: calc(50% - 12px);
-  transform: translateY(-140%);
+  transform: translateY(180%);
   font-size: 15px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -268,7 +268,7 @@
 .conf-year-down{
   position: absolute;
   top: calc(50% - 12px);
-  transform: translateY(180%);
+  transform: translateY(-140%);
   font-size: 15px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
