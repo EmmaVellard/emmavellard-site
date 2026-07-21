@@ -237,36 +237,6 @@ html{
   opacity: 0.55;
 }
 
-.exp-section::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  pointer-events: none;
-  opacity: 0;
-  background: rgba(143,198,227,0.10);
-  box-shadow: 0 0 0 rgba(143,198,227,0);
-}
-
-@keyframes expTargetFlashOverlay{
-  0%{
-    opacity: 0.70;
-    box-shadow: 0 0 0 rgba(143,198,227,0);
-  }
-  45%{
-    opacity: 0.45;
-    box-shadow: 0 0 18px rgba(143,198,227,0.16);
-  }
-  100%{
-    opacity: 0;
-    box-shadow: 0 0 0 rgba(143,198,227,0);
-  }
-}
-
-.exp-section:target::after{
-  animation: expTargetFlashOverlay 1.1s ease-out both;
-}
-
 .exp-section:hover{
   transform: translateY(-2px);
   border-color: rgba(143,198,227,0.20);
@@ -420,7 +390,6 @@ html{
   .exp-content > .exp-section{ animation: none; }
   .exp-section{ transition: none; }
   .exp-section:hover{ transform: none; }
-  .exp-section:target::after{ animation: none; opacity: 0; }
   .exp-nav-item{ transition: none; }
   .exp-nav-item:hover{ transform: none; }
 }
