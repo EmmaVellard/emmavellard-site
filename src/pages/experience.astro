@@ -4,10 +4,13 @@ import Navbar from "../components/NavBar.astro";
 import "../styles/experience.css";
 ---
 
-<BaseLayout title="Experience | Emma Vellard">
+<BaseLayout
+  title="Experience | Emma Vellard"
+  description="Emma Vellard's experience across NASA JPL, ESA, Tohoku University, and LATMOS in lunar science, mission planning, instrumentation concepts, and scientific software."
+>
   <Navbar />
 
-  <main class="page page-experience">
+  <main class="page page-experience" id="main-content" tabindex="-1">
     <div class="exp-bg" aria-hidden="true"></div>
 
     <section class="exp-shell">
@@ -149,8 +152,6 @@ import "../styles/experience.css";
                 <div class="exp-related-title">Related projects</div>
                 <div class="exp-related-links">
                   <a class="link-btn" href="/projects/solarconflux">SolarConflux</a>
-                  <a class="link-btn link-btn--secondary" href="/projects/juice">JUICE</a>
-                  <a class="link-btn link-btn--secondary" href="/projects/ypsat">YPSat</a>
                 </div>
               </div>
             </section>

@@ -4,10 +4,13 @@ import Navbar from "../components/NavBar.astro";
 import "../styles/contact.css";
 ---
 
-<BaseLayout title="Contact | Emma Vellard">
+<BaseLayout
+  title="Contact | Emma Vellard"
+  description="Contact Emma Vellard for planetary science collaborations, lunar research, scientific instrumentation, mission studies, or professional opportunities."
+>
   <Navbar />
 
-  <main class="page page-contact">
+  <main class="page page-contact" id="main-content" tabindex="-1">
     <div class="contact-bg" aria-hidden="true"></div>
 
     <section class="contact-shell">

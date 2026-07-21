@@ -4,10 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/NavBar.astro";
 ---
 
-<BaseLayout title="Emma Vellard | About">
+<BaseLayout
+  title="Emma Vellard | About"
+  description="Learn about Emma Vellard's background in planetary science, space systems engineering, lunar research, scientific instrumentation, and international mission teams."
+>
   <Navbar />
 
-  <main class="page page-about">
+  <main class="page page-about" id="main-content" tabindex="-1">
     <div class="about-bg"></div>
 
     <section class="about-shell">
@@ -141,7 +144,7 @@ import Navbar from "../components/NavBar.astro";
         <section class="about-cta">
           <div class="about-cta-inner">
             <a class="link-btn" href="/projects">View my research projects</a>
-            <a class="link-btn link-btn--secondary" href="/files/cv_vellard.pdf" target="_blank">
+            <a class="link-btn link-btn--secondary" href="/files/cv_vellard.pdf" target="_blank" rel="noopener">
               Download CV
             </a>
             <a class="link-btn link-btn--secondary" href="/contact">

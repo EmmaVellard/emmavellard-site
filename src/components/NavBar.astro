@@ -23,7 +23,11 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
       <!-- Desktop links -->
       <nav class="navbar-links" aria-label="Main navigation">
         {links.map((l) => (
-          <a class={`nav-link ${isActive(l.href) ? "active" : ""}`} href={l.href}>
+          <a
+            class={`nav-link ${isActive(l.href) ? "active" : ""}`}
+            href={l.href}
+            aria-current={isActive(l.href) ? "page" : undefined}
+          >
             {l.label}
           </a>
         ))}
@@ -75,10 +79,14 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
 
   <!-- Mobile overlay menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <div class="mobile-menu-inner" role="dialog" aria-label="Mobile menu">
+    <div class="mobile-menu-inner" role="dialog" aria-modal="true" aria-label="Mobile menu" tabindex="-1">
       <nav class="mobile-links" aria-label="Mobile navigation">
         {links.map((l) => (
-          <a class={`mobile-link ${isActive(l.href) ? "active" : ""}`} href={l.href}>
+          <a
+            class={`mobile-link ${isActive(l.href) ? "active" : ""}`}
+            href={l.href}
+            aria-current={isActive(l.href) ? "page" : undefined}
+          >
             {l.label}
           </a>
         ))}
@@ -136,8 +144,11 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
     const nav = document.getElementById("site-navbar");
     const btn = nav?.querySelector(".nav-burger");
     const menu = document.getElementById("mobile-menu");
+    const dialog = menu?.querySelector(".mobile-menu-inner");
 
-    if (!nav || !btn || !menu) return;
+    if (!nav || !btn || !menu || !dialog) return;
+
+    let restoreFocus = null;
 
     const setA11y = (isOpen) => {
       btn.setAttribute("aria-expanded", String(isOpen));
@@ -145,18 +156,28 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
       menu.setAttribute("aria-hidden", String(!isOpen));
     };
 
-    const close = () => {
+    const close = ({ returnFocus = true } = {}) => {
+      const wasOpen = nav.classList.contains("menu-open");
       nav.classList.remove("menu-open");
       setA11y(false);
       document.documentElement.classList.remove("no-scroll");
       document.body.classList.remove("no-scroll");
+
+      if (wasOpen && returnFocus && restoreFocus instanceof HTMLElement) {
+        restoreFocus.focus();
+      }
     };
 
     const open = () => {
+      restoreFocus = document.activeElement;
       nav.classList.add("menu-open");
       setA11y(true);
       document.documentElement.classList.add("no-scroll");
       document.body.classList.add("no-scroll");
+
+      const firstLink = dialog.querySelector("a");
+      if (firstLink instanceof HTMLElement) firstLink.focus();
+      else if (dialog instanceof HTMLElement) dialog.focus();
     };
 
     btn.onclick = () => (nav.classList.contains("menu-open") ? close() : open());
@@ -165,10 +186,45 @@ const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWit
       if (e.target === menu) close();
     };
 
-    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
+    menu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => close({ returnFocus: false }))
+    );
 
     window.onkeydown = (e) => {
-      if (e.key === "Escape") close();
+      if (!nav.classList.contains("menu-open")) return;
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusable = Array.from(
+        dialog.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      ).filter((element) => element instanceof HTMLElement && element.offsetParent !== null);
+
+      if (!focusable.length) {
+        e.preventDefault();
+        dialog.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.onresize = () => {
+      if (window.innerWidth > 900) close({ returnFocus: false });
     };
   };
 

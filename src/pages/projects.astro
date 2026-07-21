@@ -4,10 +4,13 @@ import Navbar from "../components/NavBar.astro";
 import "../styles/projects.css";
 ---
 
-<BaseLayout title="Projects | Emma Vellard">
+<BaseLayout
+  title="Projects | Emma Vellard"
+  description="Explore Emma Vellard's work in lunar interiors, planetary instrumentation, scientific software, mission concepts, spectroscopy, and sustainable lunar exploration."
+>
   <Navbar />
 
-  <main class="page page-projects">
+  <main class="page page-projects" id="main-content" tabindex="-1">
     <div class="projects-bg" aria-hidden="true"></div>
 
     <section class="projects-shell">
@@ -169,7 +172,7 @@ import "../styles/projects.css";
               </div>
               <p class="proj-desc">
                 Research on <span class="hl">origin hypotheses</span> and composition, combining surface analysis of Martian moons
-                with laboratory work on <span class="hl">Ryugu</span> samples.
+                with <span class="hl">FTIR spectroscopy</span> of Phobos analogue rock samples.
               </p>
               <div class="proj-actions">
                 <a class="link-btn link-btn--secondary" href="/projects/phobos-deimos">View project</a>

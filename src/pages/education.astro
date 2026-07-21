@@ -4,10 +4,13 @@ import Navbar from "../components/NavBar.astro";
 import "../styles/education.css";
 ---
 
-<BaseLayout title="Education | Emma Vellard">
+<BaseLayout
+  title="Education | Emma Vellard"
+  description="Emma Vellard's education in space systems engineering, planetary science, space science and technology, and fundamental physics."
+>
   <Navbar />
 
-  <main class="page page-education">
+  <main class="page page-education" id="main-content" tabindex="-1">
     <div class="edu-bg" aria-hidden="true"></div>
 
     <section class="edu-shell">
@@ -30,7 +33,7 @@ import "../styles/education.css";
             <div class="edu-card">
               <div class="edu-meta">2025–2026</div>
               <h2 class="edu-h2">
-                Space Systems Engineering TAS ASTRO, Advanced MSc
+                TAS Astro Advanced Master in Space Systems Engineering
               </h2>
               <div class="edu-place">
                 <span class="highlight">ISAE-SUPAERO</span> · France
@@ -116,10 +119,9 @@ import "../styles/education.css";
           </article>
 
 
-          <article class="edu-item">
+          <article class="edu-item edu-item-last">
             <div class="edu-rail" aria-hidden="true">
               <span class="edu-dot"></span>
-              <span class="edu-line"></span>
             </div>
 
             <div class="edu-card">
@@ -137,26 +139,6 @@ import "../styles/education.css";
             </div>
           </article>
 
-
-          <article class="edu-item edu-item-last">
-            <div class="edu-rail" aria-hidden="true">
-              <span class="edu-dot"></span>
-            </div>
-
-            <div class="edu-card">
-              <div class="edu-meta">2018–2019</div>
-              <h2 class="edu-h2">
-                Mathematics & Physics, BSc
-              </h2>
-              <div class="edu-place">
-                Lycée Blaise Pascal · France
-              </div>
-              <p class="edu-text">
-                Intensive training in mathematics and physics preparing for 
-                engineering school pathways.
-              </p>
-            </div>
-          </article>
 
         </section>
 

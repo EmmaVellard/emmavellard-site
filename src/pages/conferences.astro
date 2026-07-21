@@ -4,10 +4,13 @@ import Navbar from "../components/NavBar.astro";
 import "../styles/conferences.css";
 ---
 
-<BaseLayout title="Conferences | Emma Vellard">
+<BaseLayout
+  title="Conferences | Emma Vellard"
+  description="Selected talks, posters, and submitted research by Emma Vellard at planetary science conferences and ESA science working team meetings."
+>
   <Navbar />
 
-  <main class="page page-conferences">
+  <main class="page page-conferences" id="main-content" tabindex="-1">
     <div class="conf-bg" aria-hidden="true"></div>
 
     <section class="conf-shell">

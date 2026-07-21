@@ -6,10 +6,13 @@ import "../../styles/projects.css";
 const title = "Lunar Spaceport | Location, resources & environmental challenges";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+  title={title}
+  description="A systems-level lunar spaceport study examining site selection, resources, dust, infrastructure, logistics, and sustainable lunar surface operations."
+>
   <Navbar />
 
-  <main class="page page-project">
+  <main class="page page-project" id="main-content" tabindex="-1">
     <div class="project-bg" aria-hidden="true"></div>
 
     <section class="project-shell">

@@ -6,10 +6,13 @@ import "../../styles/projects.css";
 const title = "SolarConflux | Project";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+  title={title}
+  description="SolarConflux is Emma Vellard's open-source Python tool for identifying coordinated observation opportunities across heliophysics spacecraft and missions."
+>
   <Navbar />
 
-  <main class="page page-project">
+  <main class="page page-project" id="main-content" tabindex="-1">
     <div class="project-bg" aria-hidden="true"></div>
 
     <section class="project-shell">
