@@ -643,6 +643,16 @@ pre.project-code{
   max-width: 92ch;
 }
 
+.project-inline-link{
+  color: var(--primary);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.project-inline-link:hover{
+  color: rgba(255,255,255,0.94);
+}
+
 .project-list{
   margin: 12px 0 0;
   padding-left: 18px;

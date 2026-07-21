@@ -15,45 +15,42 @@ import "../styles/projects.css";
         <header class="projects-head">
           <h1 class="projects-title">Projects</h1>
           <p class="projects-sub">
-            A selection of <span class="hl">scientific software</span> and <span class="hl">mission-oriented work</span>,
-            from multi-spacecraft geometry to icy moons interior modeling.
+            A selection of work connecting <span class="hl">planetary science</span>, <span class="hl">measurements and instrumentation</span>,
+            scientific software, and mission development.
           </p>
 
           <!-- quick index -->
           <nav class="projects-jump" aria-label="On this page">
             <a class="projects-jump-link" href="#featured">Featured</a>
-            <a class="projects-jump-link" href="#current">Current research</a>
+            <a class="projects-jump-link" href="#software">Scientific software</a>
             <a class="projects-jump-link" href="#contrib">Contributions</a>
           </nav>
         </header>
 
         <!-- FEATURED -->
         <section class="projects-featured" id="featured" aria-label="Featured project">
-          <article class="proj-card proj-featured" id="solarconflux">
+          <article class="proj-card proj-featured" id="lunar-interiors">
             <div class="proj-featured-grid">
               <div class="proj-main">
                 <div class="proj-kicker">Featured</div>
-                <h2 class="proj-h2">SolarConflux</h2>
+                <h2 class="proj-h2">Lunar interior modelling</h2>
                 <div class="proj-subtle">
-                  Scientific software · Mission analysis · Observation planning
+                  Lunar geophysics · Scientific modelling · Future measurements
                 </div>
                 <p class="proj-desc">
-                  A Python framework to detect <span class="hl">multi-spacecraft geometric opportunities</span> to support
-                  coordinated solar event analysis and observation planning.
+                  Research at NASA JPL comparing <span class="hl">bulk-silicate Moon compositions</span> and evaluating how
+                  future geophysical measurements could discriminate between interior scenarios.
                 </p>
 
                 <ul class="proj-bullets">
-                  <li>Alignment detection across multiple missions over configurable time windows.</li>
-                  <li>Geometry modes including opposition, quadrature, cone, and Parker spiral configurations.</li>
-                  <li>Designed for scalability across heliocentric mission constellations.</li>
+                  <li>Thermodynamic and geophysical models of lunar mantle structure and composition.</li>
+                  <li>Reproducible Python workflows with validation, assumptions, and limitations documented.</li>
+                  <li>Direct connection between scientific hypotheses, observable quantities, and future measurements.</li>
                 </ul>
 
                 <div class="proj-actions">
-                  <a class="link-btn" href="/projects/solarconflux">
+                  <a class="link-btn" href="/projects/lunar-interiors">
                     View project
-                  </a>
-                  <a class="link-btn link-btn--secondary" href="https://github.com/EmmaVellard/SolarConflux" target="_blank" rel="noopener">
-                    View on GitHub
                   </a>
                 </div>
               </div>
@@ -63,22 +60,22 @@ import "../styles/projects.css";
 
                 <div class="proj-fact">
                   <div class="proj-fact-label">Type</div>
-                  <div class="proj-fact-value">Scientific software</div>
+                  <div class="proj-fact-value">Planetary science research</div>
                 </div>
 
                 <div class="proj-fact">
                   <div class="proj-fact-label">Focus</div>
-                  <div class="proj-fact-value">Multi-spacecraft geometry</div>
+                  <div class="proj-fact-value">Lunar interior and geophysical measurements</div>
                 </div>
 
                 <div class="proj-fact">
                   <div class="proj-fact-label">Stack</div>
-                  <div class="proj-fact-value">Python · SPICE · Trajectory analysis</div>
+                  <div class="proj-fact-value">Python · Perple_X · PlanetProfile</div>
                 </div>
 
                 <div class="proj-fact">
                   <div class="proj-fact-label">Context</div>
-                  <div class="proj-fact-value">Mission analysis and coordination</div>
+                  <div class="proj-fact-value">NASA Jet Propulsion Laboratory</div>
                 </div>
               </aside>
             </div>
@@ -86,33 +83,33 @@ import "../styles/projects.css";
           </article>
         </section>
 
-        <!-- CURRENT -->
-        <section class="projects-section" id="current" aria-label="Current research">
+        <!-- SCIENTIFIC SOFTWARE -->
+        <section class="projects-section" id="software" aria-label="Scientific software">
           <div class="projects-section-head">
-            <h2 class="projects-h3">Current research</h2>
+            <h2 class="projects-h3">Scientific software</h2>
             <p class="projects-muted">
-              Active research projects focused on planetary interior modeling and mission data interpretation.            
+              Selected open-source work supporting scientific analysis and mission planning.
             </p>
           </div>
 
           <div class="proj-list">
-            <article class="proj-card proj-item" id="icy-moons">
-              <div class="proj-kicker">Now</div>
-              <h3 class="proj-h3-item">Europa & Ganymede</h3>
+            <article class="proj-card proj-item" id="solarconflux">
+              <div class="proj-kicker">Selected project</div>
+              <h3 class="proj-h3-item">SolarConflux</h3>
               <div class="proj-subtle">
-                Planetary modeling · Icy moon interiors · Mission data interpretation
+                Scientific software · Mission analysis · Observation planning
               </div>
               <p class="proj-desc">
-                Modeling the internal structures of <span class="hl">Europa</span> and <span class="hl">Ganymede</span> to
-                support interpretation of mission measurements and assess subsurface ocean environments.
+                Open-source Python software identifying <span class="hl">coordinated observation opportunities</span>
+                across more than 20 space missions using spacecraft geometry and configurable science scenarios.
               </p>
 
               <div class="proj-actions">
-                <a class="link-btn" href="">
-                  Coming soon
+                <a class="link-btn" href="/projects/solarconflux">
+                  View project
                 </a>
               </div>
-              <div class="proj-year">2026</div>
+              <div class="proj-year">2023–2025</div>
             </article>
           </div>
         </section>
@@ -133,12 +130,9 @@ import "../styles/projects.css";
                 Mission analysis · Data readiness · Science operations support
               </div>
               <p class="proj-desc">
-                Mission-facing work on <span class="hl">data readiness</span>, science workflows, and coordinated observation
-                support for an operational context.
+                A centralised scientific data and knowledge platform supporting mission preparation, traceability,
+                and access to information across science and operations teams.
               </p>
-              <div class="proj-actions">
-                <a class="link-btn link-btn--secondary" href="">Coming soon</a>
-              </div>
               <div class="proj-year">2025</div>
             </article>
 
@@ -151,9 +145,6 @@ import "../styles/projects.css";
                 Contribution to a technology demonstrator flown on <span class="hl">Ariane 6</span>, supporting mission context
                 and project-facing documentation and analysis.
               </p>
-              <div class="proj-actions">
-                <a class="link-btn link-btn--secondary" href="">Coming soon</a>
-              </div>
               <div class="proj-year">2024</div>
             </article>
             

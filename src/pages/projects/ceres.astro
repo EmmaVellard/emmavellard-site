@@ -3,10 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/NavBar.astro";
 import "../../styles/projects.css";
 
-const title = "DIPLONA (Ceres) | Project";
+const title = "Ceres Radar Instrument Concept | Emma Vellard";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+  title={title}
+  description="A science-driven radar sounder concept for investigating Ceres subsurface structure, linking measurement performance and payload feasibility to planetary science objectives."
+>
   <Navbar />
 
   <main class="page page-project">
@@ -30,7 +33,7 @@ const title = "DIPLONA (Ceres) | Project";
           </p>
 
           <div class="project-actions">
-            <a class="link-btn" href="/public/files/ceresreport.pdf">Technical Report</a>
+            <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener">Technical Report</a>
             <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
           </div>
         </header>
@@ -73,6 +76,31 @@ const title = "DIPLONA (Ceres) | Project";
                 The mission concept narrows the science scope to what a small platform can realistically support, then ties objectives to an
                 instrument and an operations plan. Radar sounding was selected as the most valuable “new dimension” relative to Dawn,
                 because it directly informs <span class="hl">structure</span>, <span class="hl">interfaces</span>, and <span class="hl">subsurface continuity</span>.
+              </p>
+            </section>
+
+            <section class="project-section" id="measurement">
+              <h2 class="project-h2">Measurement concept & performance</h2>
+              <p class="project-p">
+                The study translated subsurface-science questions into a preliminary radar measurement concept.
+                Instrument performance was framed around the depth and vertical resolution needed to distinguish
+                scientifically useful interfaces, while remaining compatible with a constrained 3U CubeSat architecture.
+              </p>
+
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Measurement objective</div>
+                  <div class="project-highlight-v">Detect subsurface interfaces, layering, and structural continuity beneath selected geological targets</div>
+                </div>
+                <div class="project-highlight">
+                  <div class="project-highlight-k">Performance framing</div>
+                  <div class="project-highlight-v">Tens of metres of penetration with metre-scale vertical resolution</div>
+                </div>
+              </div>
+
+              <p class="project-p">
+                This created a traceable chain from the scientific question to the observable, the selected measurement
+                technique, and the payload-level feasibility trade-offs.
               </p>
             </section>
 
@@ -129,7 +157,7 @@ const title = "DIPLONA (Ceres) | Project";
             <section class="project-section" id="links">
               <h2 class="project-h2">Links</h2>
               <div class="project-links">
-                <a class="link-btn" href="/public/files/ceresreport.pdf">Technical Report</a>
+                <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener">Technical Report</a>
                 <a class="link-btn link-btn--secondary" href="/experience/#latmos">Related experience</a>
               </div>
             </section>
@@ -162,6 +190,14 @@ const title = "DIPLONA (Ceres) | Project";
                   <span class="project-toc-line"></span>
                 </span>
                 <span class="project-toc-text"><span class="project-toc-label">Approach</span></span>
+              </a>
+
+              <a class="project-toc-item" href="#measurement" data-target="measurement">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text"><span class="project-toc-label">Measurement concept</span></span>
               </a>
 
               <a class="project-toc-item" href="#deliverables" data-target="deliverables">
@@ -214,7 +250,7 @@ const title = "DIPLONA (Ceres) | Project";
                 window.__projectTOC_cleanup = null;
               }
 
-              const ids = ["overview","problem","approach","deliverables","usage","outputs","stack","links"];
+              const ids = ["overview","problem","approach","measurement","deliverables","usage","outputs","stack","links"];
               const sections = ids
                 .map((id) => document.getElementById(id))
                 .filter(Boolean);

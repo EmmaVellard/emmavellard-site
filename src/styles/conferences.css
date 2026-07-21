@@ -103,7 +103,7 @@
   position: absolute;
   left: var(--x);
   transform: translateX(-50%);
-  width: min(390px, 44vw);
+  width: min(330px, 40vw);
   z-index: 2;
 }
 
