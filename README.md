@@ -1,51 +1,70 @@
-<h1 align="center"> 🌌 Emma Vellard - Portfolio</h1>
-
-Personal portfolio website built with **Astro** and deployed on **Vercel**.
-
-This website presents my work in:
-
-- Planetary science,
-- Multi-spacecraft geometry,
-- Scientific software development,
-- Mission-oriented research (ESA, NASA JPL, academia)
-
----
-
-## 🖼 Preview
+<h1 align="center">🌌 Emma Vellard — Planetary Science Portfolio</h1>
 
 <p align="center">
-  <img src="./public/images/portfolio-home.png" width="48%" />
-  <img src="./public/images/portfolio-about.png" width="48%" />
+  Portfolio of a planetary scientist and space systems engineer working across lunar science, scientific instrumentation, mission research, and scientific software.
 </p>
 
----
+<p align="center">
+  <a href="https://www.emmavellard.com"><strong>Visit the live portfolio</strong></a>
+</p>
 
-## 🚀 Tech Stack
+## Preview
 
-- Astro
-- CSS (custom design system)
-- Vercel (deployment, analytics, speed insights)
+<p align="center">
+  <img src="./public/images/portfolio-home.png" alt="Emma Vellard portfolio homepage" width="49%" />
+  <img src="./public/images/portfolio-projects.png" alt="Projects page featuring lunar interior modelling" width="49%" />
+</p>
 
----
+## Scientific focus
 
-## 📂 Structure
+- Lunar interiors, geophysics, and bulk-silicate Moon composition scenarios
+- Scientific instrumentation concepts, measurement performance, and mission science
+- Planetary spectroscopy, surface and subsurface processes
+- Observation planning and scientific data workflows for ESA and NASA missions
+- Reproducible Python tools for planetary modelling and mission analysis
 
-- `/projects` — Research and software projects (SolarConflux, Phobos & Deimos, DIPLONA etc.)
-- `/experience` — Professional and research experience
-- `/education` — Academic background and certifications
-- `/conferences` — Talks and presentations
-- `/contact` — Contact and availability
+## Featured work
 
----
+- **Lunar interior modelling** — thermodynamic and geophysical research at NASA JPL
+- **Planetary EOS Lab** — reproducible Perple_X workflows for planetary interior models
+- **SolarConflux** — multi-spacecraft geometry and coordinated observation planning
+- **DIPLONA** — preliminary radar sounder and payload concept for Ceres
+- **Phobos & Deimos** — spectral analysis and FTIR studies in the MMX mission context
+- **Lunar Spaceport** — sustainable lunar infrastructure, ISRU, and systems study
 
-## 🌍 Deployment
+## Site sections
 
-The site is deployed on Vercel:  
-🔗 [www.emmavellard.com](https://www.emmavellard.com)
+- `/experience` — research, mission, and engineering experience
+- `/projects` — scientific research, open-source software, and mission studies
+- `/education` — academic background and certifications
+- `/conferences` — talks, posters, and submitted research
+- `/about` — profile, skills, and languages
+- `/contact` — contact details and downloadable CV
 
----
+## Technology
 
-## 📄 License
+- [Astro](https://astro.build/) with static site generation
+- Custom responsive CSS and accessible navigation
+- Vercel Analytics and Speed Insights
+- Open Graph metadata, sitemap, and search-engine indexing support
 
-This project is for personal portfolio use.
-Content and design © Emma Vellard.
+## Local development
+
+```sh
+npm install
+npm run dev
+```
+
+Create a production build with:
+
+```sh
+npm run build
+```
+
+## Deployment
+
+The portfolio is deployed on Vercel at [www.emmavellard.com](https://www.emmavellard.com).
+
+## License
+
+This repository is for personal portfolio use. Content and design © Emma Vellard.
