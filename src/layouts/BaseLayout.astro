@@ -37,10 +37,7 @@ const personSchema = {
     name: "NASA Jet Propulsion Laboratory",
     url: "https://www.jpl.nasa.gov/",
   },
-  sameAs: [
-    "https://github.com/EmmaVellard",
-    "https://www.linkedin.com/in/emma-vellard",
-  ],
+  sameAs: ["https://github.com/EmmaVellard", "https://www.linkedin.com/in/emma-vellard"],
   knowsAbout: [
     "Lunar science",
     "Planetary science",
@@ -77,11 +74,11 @@ const personSchema = {
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -123,7 +120,9 @@ const personSchema = {
               const id = decodeURIComponent(link.hash.slice(1));
               return { link, id, section: document.getElementById(id) };
             })
-            .filter((entry): entry is { link: HTMLAnchorElement; id: string; section: HTMLElement } => Boolean(entry.section));
+            .filter((entry): entry is { link: HTMLAnchorElement; id: string; section: HTMLElement } =>
+              Boolean(entry.section),
+            );
 
           if (!entries.length) return;
 

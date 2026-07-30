@@ -1,9 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/NavBar.astro";
+import ProjectToc from "../../components/ProjectToc.astro";
 import "../../styles/projects.css";
 
 const title = "Lunar Interior Modelling | Emma Vellard";
+const tocItems = [
+  { id: "question", label: "Scientific question" },
+  { id: "contribution", label: "My contribution" },
+  { id: "approach", label: "Modelling approach" },
+  { id: "measurement", label: "Models to measurements" },
+  { id: "software", label: "Scientific software" },
+  { id: "relevance", label: "Scientific relevance" },
+  { id: "links", label: "Links" },
+] as const;
 ---
 
 <BaseLayout
@@ -28,8 +38,10 @@ const title = "Lunar Interior Modelling | Emma Vellard";
           </div>
 
           <p class="project-lede">
-            I develop and validate thermodynamic and geophysical models of the Moon to investigate how <span class="hl">interior structure and composition</span> may be constrained by future observations.
-            The work connects scientific hypotheses to observable quantities and measurement needs.
+            I develop and validate thermodynamic and geophysical models of the Moon to investigate how <span
+              class="hl">interior structure and composition</span
+            > may be constrained by future observations. The work connects scientific hypotheses to observable quantities
+            and measurement needs.
           </p>
 
           <div class="project-actions">
@@ -43,19 +55,24 @@ const title = "Lunar Interior Modelling | Emma Vellard";
             <section class="project-section" id="question">
               <h2 class="project-h2">Scientific question</h2>
               <p class="project-p">
-                Different assumptions about the Moon’s bulk-silicate composition lead to different mantle mineralogies,
-                thermodynamic properties, and interior structures. Comparing these scenarios helps identify which future
-                geophysical observations could meaningfully distinguish between competing models.
+                Different assumptions about the Moon’s bulk-silicate composition lead to different mantle
+                mineralogies, thermodynamic properties, and interior structures. Comparing these scenarios
+                helps identify which future geophysical observations could meaningfully distinguish between
+                competing models.
               </p>
 
               <div class="project-highlights">
                 <div class="project-highlight">
                   <div class="project-highlight-k">Science focus</div>
-                  <div class="project-highlight-v">Bulk-silicate Moon composition, mantle structure, and planetary evolution</div>
+                  <div class="project-highlight-v">
+                    Bulk-silicate Moon composition, mantle structure, and planetary evolution
+                  </div>
                 </div>
                 <div class="project-highlight">
                   <div class="project-highlight-k">Mission connection</div>
-                  <div class="project-highlight-v">Relating model outputs to future geophysical measurements and end-user science needs</div>
+                  <div class="project-highlight-v">
+                    Relating model outputs to future geophysical measurements and end-user science needs
+                  </div>
                 </div>
               </div>
             </section>
@@ -64,11 +81,16 @@ const title = "Lunar Interior Modelling | Emma Vellard";
               <h2 class="project-h2">My contribution</h2>
               <div class="project-contribution">
                 <p>
-                  I define and compare bulk-silicate Moon composition scenarios, develop and validate the modelling workflow, and connect changes in interior structure to quantities that future geophysical observations may constrain.
+                  I define and compare bulk-silicate Moon composition scenarios, develop and validate the
+                  modelling workflow, and connect changes in interior structure to quantities that future
+                  geophysical observations may constrain.
                 </p>
                 <ul>
                   <li>Develop thermodynamic and geophysical models of the lunar interior.</li>
-                  <li>Apply and extend PlanetProfile and develop Planetary EOS Lab for reproducible Perple_X workflows.</li>
+                  <li>
+                    Apply and extend PlanetProfile and develop Planetary EOS Lab for reproducible Perple_X
+                    workflows.
+                  </li>
                   <li>Document assumptions, limitations, validation checks, and scientific traceability.</li>
                 </ul>
               </div>
@@ -78,8 +100,12 @@ const title = "Lunar Interior Modelling | Emma Vellard";
               <h2 class="project-h2">Modelling approach</h2>
               <ul class="project-list">
                 <li>Define and compare plausible bulk-silicate Moon composition scenarios.</li>
-                <li>Generate thermodynamic and geophysical interior models using reproducible Python workflows.</li>
-                <li>Evaluate how compositional assumptions affect mantle structure and observable properties.</li>
+                <li>
+                  Generate thermodynamic and geophysical interior models using reproducible Python workflows.
+                </li>
+                <li>
+                  Evaluate how compositional assumptions affect mantle structure and observable properties.
+                </li>
                 <li>Document assumptions, limitations, validation checks, and model traceability.</li>
               </ul>
             </section>
@@ -87,19 +113,23 @@ const title = "Lunar Interior Modelling | Emma Vellard";
             <section class="project-section" id="measurement">
               <h2 class="project-h2">From models to measurements</h2>
               <p class="project-p">
-                The key objective is not modelling in isolation, but identifying how measurements can test a scientific
-                hypothesis. Forward-modelled observables provide the bridge between interior scenarios and the performance
-                expected from future investigations.
+                The key objective is not modelling in isolation, but identifying how measurements can test a
+                scientific hypothesis. Forward-modelled observables provide the bridge between interior
+                scenarios and the performance expected from future investigations.
               </p>
 
               <div class="project-highlights">
                 <div class="project-highlight">
                   <div class="project-highlight-k">Scientific need</div>
-                  <div class="project-highlight-v">Discriminate between plausible lunar composition and structure scenarios</div>
+                  <div class="project-highlight-v">
+                    Discriminate between plausible lunar composition and structure scenarios
+                  </div>
                 </div>
                 <div class="project-highlight">
                   <div class="project-highlight-k">Measurement logic</div>
-                  <div class="project-highlight-v">Determine which observable quantities are sensitive to the parameters of interest</div>
+                  <div class="project-highlight-v">
+                    Determine which observable quantities are sensitive to the parameters of interest
+                  </div>
                 </div>
               </div>
             </section>
@@ -107,8 +137,9 @@ const title = "Lunar Interior Modelling | Emma Vellard";
             <section class="project-section" id="software">
               <h2 class="project-h2">Scientific software</h2>
               <p class="project-p">
-                I apply and extend the open-source PlanetProfile framework and develop Planetary EOS Lab,
-                a Python workflow that streamlines Perple_X calculations for planetary interior modelling and integration with PlanetProfile.
+                I apply and extend the open-source PlanetProfile framework and develop Planetary EOS Lab, a
+                Python workflow that streamlines Perple_X calculations for planetary interior modelling and
+                integration with PlanetProfile.
               </p>
 
               <div class="project-tags">
@@ -119,64 +150,42 @@ const title = "Lunar Interior Modelling | Emma Vellard";
                 <span class="project-tag">Model validation</span>
                 <span class="project-tag">Reproducible research</span>
               </div>
-
             </section>
 
             <section class="project-section" id="relevance">
               <h2 class="project-h2">Scientific relevance</h2>
               <p class="project-p">
-                The work identifies which modelled properties are most sensitive to lunar composition and structure,
-                and therefore which observations would be most informative for distinguishing between interior scenarios.
-                This keeps the modelling anchored to measurable quantities and the interpretation of future geophysical data.
+                The work identifies which modelled properties are most sensitive to lunar composition and
+                structure, and therefore which observations would be most informative for distinguishing
+                between interior scenarios. This keeps the modelling anchored to measurable quantities and the
+                interpretation of future geophysical data.
               </p>
             </section>
 
             <section class="project-section" id="links">
               <h2 class="project-h2">Links</h2>
               <div class="project-actions">
-                <a class="link-btn" href="https://github.com/EmmaVellard/planetary-eos-lab" target="_blank" rel="noopener">
+                <a
+                  class="link-btn"
+                  href="https://github.com/EmmaVellard/planetary-eos-lab"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Planetary EOS Lab on GitHub
                 </a>
-                <a class="link-btn link-btn--secondary" href="https://github.com/vancesteven/PlanetProfile" target="_blank" rel="noopener">
+                <a
+                  class="link-btn link-btn--secondary"
+                  href="https://github.com/vancesteven/PlanetProfile"
+                  target="_blank"
+                  rel="noopener"
+                >
                   PlanetProfile on GitHub
                 </a>
               </div>
             </section>
           </article>
 
-          <aside class="project-toc" aria-label="On this page">
-            <div class="project-toc-title">On this page</div>
-            <nav class="project-toc-list" data-section-nav>
-              <a class="project-toc-item" href="#question">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Scientific question</span></span>
-              </a>
-              <a class="project-toc-item" href="#contribution">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">My contribution</span></span>
-              </a>
-              <a class="project-toc-item" href="#approach">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Modelling approach</span></span>
-              </a>
-              <a class="project-toc-item" href="#measurement">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Models to measurements</span></span>
-              </a>
-              <a class="project-toc-item" href="#software">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Scientific software</span></span>
-              </a>
-              <a class="project-toc-item" href="#relevance">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span><span class="project-toc-line"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Scientific relevance</span></span>
-              </a>
-              <a class="project-toc-item project-toc-item-last" href="#links">
-                <span class="project-toc-rail" aria-hidden="true"><span class="project-toc-dot"></span></span>
-                <span class="project-toc-text"><span class="project-toc-label">Links</span></span>
-              </a>
-            </nav>
-          </aside>
+          <ProjectToc items={tocItems} />
         </div>
       </div>
     </section>

@@ -2,36 +2,36 @@
 /* CONFERENCES PAGE */
 /* ============================= */
 
-.page-conferences{
+.page-conferences {
   position: relative;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.conf-bg{
+.conf-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(70% 60% at 18% 12%, rgba(143,198,227,0.28), transparent 62%),
-    radial-gradient(55% 55% at 82% 18%, rgba(111,174,209,0.22), transparent 60%),
-    radial-gradient(70% 60% at 50% 92%, rgba(143,198,227,0.12), transparent 60%),
+    radial-gradient(70% 60% at 18% 12%, rgba(143, 198, 227, 0.28), transparent 62%),
+    radial-gradient(55% 55% at 82% 18%, rgba(111, 174, 209, 0.22), transparent 60%),
+    radial-gradient(70% 60% at 50% 92%, rgba(143, 198, 227, 0.12), transparent 60%),
     linear-gradient(to bottom, #070b14 0%, #0b1a2e 55%, #070b14 100%);
 }
 
-.conf-shell{
+.conf-shell {
   padding-top: 38px;
   padding-bottom: 82px;
   padding-left: clamp(28px, 8vw, 110px);
   padding-right: clamp(20px, 5vw, 80px);
 }
 
-.page-conferences .container{
+.page-conferences .container {
   padding-left: 0;
   padding-right: 0;
 }
 
-@media (max-width: 860px){
-  .conf-shell{
+@media (max-width: 860px) {
+  .conf-shell {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -41,22 +41,22 @@
 /* HEADER */
 /* ============================= */
 
-.conf-head{
+.conf-head {
   max-width: 100%;
 }
 
-.conf-title{
+.conf-title {
   margin: 0;
   font-family: "Playfair Display", serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   font-size: clamp(42px, 4.6vw, 64px);
-  color: rgba(255,255,255,0.94);
+  color: rgba(255, 255, 255, 0.94);
 }
 
-.conf-sub{
+.conf-sub {
   margin-top: 14px;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255, 255, 255, 0.74);
   line-height: 1.7;
   font-size: 15px;
   max-width: 72ch;
@@ -66,7 +66,7 @@
 /* ORBIT / CONSTELLATION */
 /* ============================= */
 
-.conf-orbit{
+.conf-orbit {
   position: relative;
   margin-top: 44px;
   padding-top: 64px;
@@ -74,32 +74,32 @@
   min-height: 430px;
 }
 
-.conf-orbit-line{
+.conf-orbit-line {
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   height: 1px;
   z-index: 1;
-  background: linear-gradient(to right, transparent, rgba(143,198,227,0.22), transparent);
+  background: linear-gradient(to right, transparent, rgba(143, 198, 227, 0.22), transparent);
   transform: translateY(-50%);
 }
 
-.conf-dot{
+.conf-dot {
   position: absolute;
   top: 50%;
   left: var(--x);
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(143,198,227,0.95);
-  box-shadow: 0 0 18px rgba(143,198,227,0.35);
+  background: rgba(143, 198, 227, 0.95);
+  box-shadow: 0 0 18px rgba(143, 198, 227, 0.35);
   transform: translate(-50%, -50%);
   z-index: 4;
   pointer-events: none;
 }
 
-.conf-node{
+.conf-node {
   position: absolute;
   left: var(--x);
   transform: translateX(-50%);
@@ -107,15 +107,15 @@
   z-index: 2;
 }
 
-.conf-node--top{
+.conf-node--top {
   top: 0;
 }
 
-.conf-node--bottom{
+.conf-node--bottom {
   bottom: 0;
 }
 
-.conf-node-dot{
+.conf-node-dot {
   display: none;
 }
 
@@ -124,31 +124,31 @@
 /* ============================= */
 
 .conf-year-up,
-.conf-year-down{
+.conf-year-down {
   position: absolute;
   font-size: 15px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   opacity: 0.65;
   pointer-events: none;
 }
 
-.conf-year-up{
+.conf-year-up {
   top: calc(50% - 12px);
   transform: translateY(-140%);
 }
 
-.conf-year-down{
+.conf-year-down {
   top: calc(50% - 12px);
   transform: translateY(180%);
 }
 
-.conf-year-start{
+.conf-year-start {
   left: 0;
 }
 
-.conf-year-end{
+.conf-year-end {
   right: 0;
 }
 
@@ -156,11 +156,11 @@
 /* CARD CONTENT */
 /* ============================= */
 
-.conf-content{
+.conf-content {
   padding: 16px 16px 14px;
   border-radius: 18px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(143,198,227,0.16);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(143, 198, 227, 0.16);
   backdrop-filter: blur(12px);
   position: relative;
   z-index: 3;
@@ -171,60 +171,60 @@
     box-shadow 0.18s ease;
 }
 
-.conf-content::before{
+.conf-content::before {
   content: "";
   position: absolute;
   left: 16px;
   right: 16px;
   top: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(143,198,227,0.26), transparent);
+  background: linear-gradient(to right, transparent, rgba(143, 198, 227, 0.26), transparent);
   opacity: 0.55;
 }
 
-.conf-meta{
+.conf-meta {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.62);
+  color: rgba(255, 255, 255, 0.62);
 }
 
-.conf-h2{
+.conf-h2 {
   margin: 10px 0 0;
   font-size: 18px;
   font-weight: 600;
-  color: rgba(255,255,255,0.94);
+  color: rgba(255, 255, 255, 0.94);
   line-height: 1.25;
 }
 
-.conf-text{
+.conf-text {
   margin-top: 10px;
   font-size: 14px;
   line-height: 1.65;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.conf-inline-link{
+.conf-inline-link {
   color: var(--primary);
   font-weight: 600;
   text-decoration: none;
 }
 
-.conf-inline-link:hover{
-  color: rgba(255,255,255,0.94);
+.conf-inline-link:hover {
+  color: rgba(255, 255, 255, 0.94);
 }
 
-.conf-label{
+.conf-label {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.62);
+  color: rgba(255, 255, 255, 0.62);
 }
 
-.conf-links{
+.conf-links {
   margin-top: auto;
   padding-top: 16px;
 }
@@ -233,7 +233,7 @@
 /* CLICKABLE CARD */
 /* ============================= */
 
-.conf-card-link{
+.conf-card-link {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -242,23 +242,23 @@
   color: inherit;
 }
 
-.conf-card-link:focus-visible{
-  outline: 2px solid rgba(143,198,227,0.55);
+.conf-card-link:focus-visible {
+  outline: 2px solid rgba(143, 198, 227, 0.55);
   outline-offset: 3px;
 }
 
 .page-conferences .conf-node:hover .conf-content,
-.page-conferences .conf-card-link:hover{
-  border-color: rgba(143,198,227,0.20);
-  background: rgba(143,198,227,0.03);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.28);
+.page-conferences .conf-card-link:hover {
+  border-color: rgba(143, 198, 227, 0.2);
+  background: rgba(143, 198, 227, 0.03);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
 }
 
-.conf-card-link:hover .link-btn{
+.conf-card-link:hover .link-btn {
   color: var(--primary);
 }
 
-.conf-card-link:hover .link-btn::after{
+.conf-card-link:hover .link-btn::after {
   width: 100%;
 }
 
@@ -266,14 +266,14 @@
 /* RESPONSIVE: TABLET / MOBILE */
 /* ============================= */
 
-@media (max-width: 980px){
-  .conf-orbit{
+@media (max-width: 980px) {
+  .conf-orbit {
     padding-top: 0;
     padding-bottom: 0;
     min-height: auto;
   }
 
-  .conf-orbit-line{
+  .conf-orbit-line {
     left: 10px;
     top: 0;
     bottom: 0;
@@ -281,14 +281,14 @@
     width: 1px;
     height: auto;
     transform: none;
-    background: rgba(143,198,227,0.18);
+    background: rgba(143, 198, 227, 0.18);
   }
 
-  .conf-dot{
+  .conf-dot {
     display: none;
   }
 
-  .conf-node{
+  .conf-node {
     position: relative;
     left: auto;
     transform: none;
@@ -297,7 +297,7 @@
     margin-top: 18px;
   }
 
-  .conf-node-dot{
+  .conf-node-dot {
     display: block;
     position: absolute;
     left: -22px;
@@ -305,33 +305,33 @@
     width: 10px;
     height: 10px;
     border-radius: 999px;
-    background: rgba(143,198,227,0.95);
-    box-shadow: 0 0 18px rgba(143,198,227,0.35);
+    background: rgba(143, 198, 227, 0.95);
+    box-shadow: 0 0 18px rgba(143, 198, 227, 0.35);
   }
 
   .conf-node--top,
-  .conf-node--bottom{
+  .conf-node--bottom {
     top: auto;
     bottom: auto;
   }
 
-  .conf-content{
+  .conf-content {
     padding: 18px 16px 16px;
     border-radius: 16px;
   }
 
-  .conf-h2{
+  .conf-h2 {
     font-size: 17px;
     line-height: 1.3;
   }
 
-  .conf-links{
+  .conf-links {
     margin-top: auto;
     padding-top: 14px;
   }
 
   .conf-year-up,
-  .conf-year-down{
+  .conf-year-down {
     position: static;
     transform: none;
     display: block;
@@ -342,7 +342,7 @@
     opacity: 0.7;
   }
 
-  .conf-year-end{
+  .conf-year-end {
     display: none;
   }
 }
@@ -351,52 +351,52 @@
 /* SMALL MOBILE */
 /* ============================= */
 
-@media (max-width: 560px){
-  .conf-shell{
+@media (max-width: 560px) {
+  .conf-shell {
     padding-top: 24px;
     padding-bottom: 56px;
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .conf-title{
+  .conf-title {
     font-size: 34px;
   }
 
-  .conf-sub{
+  .conf-sub {
     font-size: 14px;
     line-height: 1.65;
   }
 
-  .conf-meta{
+  .conf-meta {
     gap: 8px;
     font-size: 11px;
     letter-spacing: 0.12em;
     flex-wrap: wrap;
   }
 
-  .conf-h2{
+  .conf-h2 {
     font-size: 16px;
   }
 
-  .conf-text{
+  .conf-text {
     font-size: 13.5px;
     line-height: 1.6;
   }
 
-  .conf-node{
+  .conf-node {
     width: calc(100% - 28px);
     margin-left: 28px;
     margin-top: 16px;
   }
 
-  .conf-node-dot{
+  .conf-node-dot {
     left: -20px;
     top: 20px;
   }
 
   .conf-year-up,
-  .conf-year-down{
+  .conf-year-down {
     margin-left: 28px;
     margin-bottom: 10px;
     font-size: 12px;

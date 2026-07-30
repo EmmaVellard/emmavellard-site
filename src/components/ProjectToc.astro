@@ -1,0 +1,37 @@
+---
+import "../styles/project-toc.css";
+
+type TocItem = {
+  id: string;
+  label: string;
+};
+
+type Props = {
+  items: readonly TocItem[];
+};
+
+const { items } = Astro.props;
+---
+
+<aside class="project-toc" aria-label="On this page">
+  <div class="project-toc-title">On this page</div>
+  <nav class="project-toc-list" data-section-nav>
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        return (
+          <a class:list={["project-toc-item", { "project-toc-item-last": isLast }]} href={`#${item.id}`}>
+            <span class="project-toc-rail" aria-hidden="true">
+              <span class="project-toc-dot" />
+              {!isLast && <span class="project-toc-line" />}
+            </span>
+            <span class="project-toc-text">
+              <span class="project-toc-label">{item.label}</span>
+            </span>
+          </a>
+        );
+      })
+    }
+  </nav>
+</aside>

@@ -2,7 +2,7 @@
 /* HOME – HERO */
 /* ============================= */
 
-.hero{
+.hero {
   position: relative;
   min-height: calc(100vh - 84px);
   display: flex;
@@ -12,7 +12,7 @@
   justify-content: flex-start;
 }
 
-.hero-bg{
+.hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -21,25 +21,20 @@
   background-size: cover;
 }
 
-.hero-bg::after{
+.hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.85) 0%,
-    rgba(0,0,0,0.6) 35%,
-    rgba(0,0,0,0) 60%
-  );
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0) 60%);
 }
 
-.hero .container{
+.hero .container {
   max-width: none;
   width: 90%;
   padding: 0;
 }
 
-.hero-content{
+.hero-content {
   position: relative;
   z-index: 2;
 
@@ -49,37 +44,37 @@
   transform: translateY(-13vh);
 }
 
-.hero-kicker{
+.hero-kicker {
   margin: 0;
   font-size: 15px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
 }
 
-.hero-title{
+.hero-title {
   margin: 14px 0 0;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   line-height: 1.02;
   font-size: clamp(48px, 5vw, 67px);
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.hero-title strong{
+.hero-title strong {
   color: var(--primary);
   font-weight: 500;
 }
 
-.hero-lead{
+.hero-lead {
   margin-top: 18px;
   font-size: clamp(16px, 1.3vw, 18px);
   line-height: 1.7;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255, 255, 255, 0.74);
   max-width: 62ch;
 }
 
-.hero-proof{
+.hero-proof {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 18px;
@@ -87,21 +82,21 @@
   max-width: 70ch;
 }
 
-.hero-proof span{
+.hero-proof span {
   position: relative;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 13px;
   letter-spacing: 0.04em;
 }
 
-.hero-proof span:not(:last-child)::after{
+.hero-proof span:not(:last-child)::after {
   content: "·";
   position: absolute;
   right: -11px;
   color: var(--primary);
 }
 
-.hero-ctas{
+.hero-ctas {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -110,11 +105,11 @@
   margin-top: 30px;
 }
 
-.hero-ctas .link-btn{
+.hero-ctas .link-btn {
   margin-top: 0;
 }
 
-.hero-caption{
+.hero-caption {
   position: absolute;
   right: clamp(14px, 2.2vw, 28px);
   bottom: clamp(14px, 2.2vw, 28px);
@@ -125,71 +120,71 @@
 
   font-size: 12px;
   line-height: 1.35;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.82);
 
-  background: rgba(0,0,0,0.32);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   backdrop-filter: blur(10px);
 
-  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
-  text-shadow: 0 1px 10px rgba(0,0,0,0.55);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
-@media (max-width: 768px){
-  .hero-content{
+@media (max-width: 768px) {
+  .hero-content {
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 0;
     transform: translateY(-6vh);
   }
 
-  .hero-title{
+  .hero-title {
     font-size: clamp(40px, 11vw, 58px);
   }
 
-  .hero-caption{
+  .hero-caption {
     max-width: min(70ch, 70vw);
   }
 
-  .hero-proof span:not(:last-child)::after{
+  .hero-proof span:not(:last-child)::after {
     display: none;
   }
 }
 
-@media (max-width: 520px), (max-height: 720px){
-  .hero{
+@media (max-width: 520px), (max-height: 720px) {
+  .hero {
     align-items: flex-start;
     overflow-y: auto;
   }
 
-  .hero-content{
+  .hero-content {
     margin-left: 20px;
     margin-right: 20px;
     padding: clamp(44px, 8vh, 72px) 0 132px;
     transform: none;
   }
 
-  .hero-title{
+  .hero-title {
     font-size: clamp(38px, 10.5vw, 48px);
   }
 
-  .hero-lead{
+  .hero-lead {
     margin-top: 14px;
     line-height: 1.55;
   }
 
-  .hero-proof{
+  .hero-proof {
     margin-top: 16px;
     gap: 7px 12px;
   }
 
-  .hero-ctas{
+  .hero-ctas {
     margin-top: 20px;
     gap: 10px 18px;
   }
 
-  .hero-caption{
+  .hero-caption {
     position: absolute;
     max-width: calc(100vw - 40px);
   }

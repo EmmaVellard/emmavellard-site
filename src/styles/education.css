@@ -2,36 +2,36 @@
 /* EDUCATION PAGE */
 /* ============================= */
 
-.page-education{
+.page-education {
   position: relative;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.edu-bg{
+.edu-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(70% 60% at 18% 12%, rgba(143,198,227,0.22), transparent 62%),
-    radial-gradient(55% 55% at 82% 18%, rgba(111,174,209,0.18), transparent 60%),
-    radial-gradient(70% 60% at 50% 92%, rgba(143,198,227,0.10), transparent 60%),
+    radial-gradient(70% 60% at 18% 12%, rgba(143, 198, 227, 0.22), transparent 62%),
+    radial-gradient(55% 55% at 82% 18%, rgba(111, 174, 209, 0.18), transparent 60%),
+    radial-gradient(70% 60% at 50% 92%, rgba(143, 198, 227, 0.1), transparent 60%),
     linear-gradient(to bottom, #070b14 0%, #0b1a2e 55%, #070b14 100%);
 }
 
-.edu-shell{
+.edu-shell {
   padding-top: 38px;
   padding-bottom: 84px;
   padding-left: clamp(28px, 8vw, 110px);
   padding-right: clamp(20px, 5vw, 80px);
 }
 
-.page-education .container{
+.page-education .container {
   padding-left: 0;
   padding-right: 0;
 }
 
-@media (max-width: 860px){
-  .edu-shell{
+@media (max-width: 860px) {
+  .edu-shell {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -41,22 +41,22 @@
 /* EDUCATION – HEADER */
 /* ============================= */
 
-.edu-head{
+.edu-head {
   max-width: 78ch;
 }
 
-.edu-title{
+.edu-title {
   margin: 0;
   font-family: "Playfair Display", serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   font-size: clamp(42px, 4.6vw, 64px);
-  color: rgba(255,255,255,0.94);
+  color: rgba(255, 255, 255, 0.94);
 }
 
-.edu-sub{
+.edu-sub {
   margin-top: 14px;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255, 255, 255, 0.74);
   line-height: 1.7;
   font-size: 15px;
 }
@@ -65,13 +65,13 @@
 /* EDUCATION – TIMELINE */
 /* ============================= */
 
-.edu-timeline{
+.edu-timeline {
   margin-top: 46px;
   display: grid;
   gap: 34px;
 }
 
-.edu-item{
+.edu-item {
   display: grid;
   grid-template-columns: 26px 1fr;
   gap: 18px;
@@ -79,65 +79,65 @@
   transition: transform 0.25s ease;
 }
 
-.edu-item:hover{
+.edu-item:hover {
   transform: translateX(4px);
 }
 
 /* Rail */
-.edu-rail{
+.edu-rail {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.edu-dot{
+.edu-dot {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(143,198,227,0.95);
-  box-shadow: 0 0 18px rgba(143,198,227,0.35);
+  background: rgba(143, 198, 227, 0.95);
+  box-shadow: 0 0 18px rgba(143, 198, 227, 0.35);
   margin-top: 10px;
 }
 
-.edu-line{
+.edu-line {
   position: absolute;
   top: 26px;
   bottom: -34px;
   width: 1px;
-  background: rgba(143,198,227,0.18);
+  background: rgba(143, 198, 227, 0.18);
 }
 
-.edu-item-last .edu-line{
+.edu-item-last .edu-line {
   display: none;
 }
 
 /* Content */
-.edu-meta{
+.edu-meta {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.edu-h2{
+.edu-h2 {
   margin: 10px 0 0;
   font-size: 20px;
   font-weight: 600;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.01em;
 }
 
-.edu-place{
+.edu-place {
   margin-top: 8px;
   font-size: 14px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.edu-text{
+.edu-text {
   margin-top: 10px;
   font-size: 14px;
   line-height: 1.65;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255, 255, 255, 0.74);
   max-width: 85ch;
 }
 
@@ -145,31 +145,31 @@
 /* EDUCATION – CERTIFICATES */
 /* ============================= */
 
-.edu-certs{
+.edu-certs {
   margin-top: 80px;
   padding-top: 34px;
-  border-top: 1px solid rgba(143,198,227,0.10);
+  border-top: 1px solid rgba(143, 198, 227, 0.1);
 }
 
-.cert-grid{
+.cert-grid {
   margin-top: 22px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-@media (max-width: 980px){
-  .cert-grid{
+@media (max-width: 980px) {
+  .cert-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.cert-card{
+.cert-card {
   border-radius: 18px;
 }
 
 /* Whole card clickable */
-.cert-card-link{
+.cert-card-link {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -180,8 +180,8 @@
 
   text-decoration: none;
 
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(143,198,227,0.12);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(143, 198, 227, 0.12);
   backdrop-filter: blur(12px);
 
   position: relative;
@@ -193,74 +193,74 @@
     box-shadow 0.18s ease;
 }
 
-.cert-card-link::before{
+.cert-card-link::before {
   content: "";
   position: absolute;
   left: 16px;
   right: 16px;
   top: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(143,198,227,0.26), transparent);
+  background: linear-gradient(to right, transparent, rgba(143, 198, 227, 0.26), transparent);
   opacity: 0.55;
 }
 
-.cert-card-link:hover{
-  border-color: rgba(143,198,227,0.20);
-  background: rgba(143,198,227,0.03);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.28);
+.cert-card-link:hover {
+  border-color: rgba(143, 198, 227, 0.2);
+  background: rgba(143, 198, 227, 0.03);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
 }
 
-.cert-card-link:focus-visible{
-  outline: 2px solid rgba(143,198,227,0.55);
+.cert-card-link:focus-visible {
+  outline: 2px solid rgba(143, 198, 227, 0.55);
   outline-offset: 3px;
 }
 
 /* Header row */
-.cert-head{
+.cert-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 14px;
 }
 
-.cert-title{
+.cert-title {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.25;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.cert-org{
+.cert-org {
   margin-top: 6px;
   font-size: 13px;
-  color: rgba(255,255,255,0.70);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Badge */
-.cert-badge{
+.cert-badge {
   flex: none;
   font-size: 12px;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 
   padding: 8px 10px;
   border-radius: 999px;
 
-  color: rgba(255,255,255,0.78);
-  border: 1px solid rgba(143,198,227,0.18);
-  background: rgba(255,255,255,0.06);
+  color: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(143, 198, 227, 0.18);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Meta text */
-.cert-meta{
+.cert-meta {
   margin-top: 10px;
   font-size: 12px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.74);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 /* Action pinned to bottom */
-.cert-action{
+.cert-action {
   margin-top: auto;
   padding-top: 10px;
   display: inline-flex;
@@ -268,26 +268,26 @@
   gap: 10px;
 }
 
-.cert-action .link-btn{
+.cert-action .link-btn {
   white-space: nowrap;
   display: inline-block;
   position: relative;
 }
 
 /* Trigger the link-btn hover style when the card is hovered */
-.cert-card-link:hover .link-btn{
+.cert-card-link:hover .link-btn {
   color: var(--primary);
 }
 
-.cert-card-link:hover .link-btn::after{
+.cert-card-link:hover .link-btn::after {
   width: 100%;
 }
 
 /* Optional arrow animation (only if you keep .cert-arrow in markup) */
-.cert-arrow{
+.cert-arrow {
   transition: transform 0.2s ease;
 }
 
-.cert-card-link:hover .cert-arrow{
+.cert-card-link:hover .cert-arrow {
   transform: translateX(3px);
 }

@@ -1,15 +1,29 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/NavBar.astro";
+import ProjectToc from "../../components/ProjectToc.astro";
 import "../../styles/projects.css";
 
 const title = "Ceres Radar Instrument Concept | Emma Vellard";
+const tocItems = [
+  { id: "overview", label: "Overview" },
+  { id: "contribution", label: "My contribution" },
+  { id: "problem", label: "Problem" },
+  { id: "approach", label: "Approach" },
+  { id: "measurement", label: "Measurement concept" },
+  { id: "figures", label: "Design figures" },
+  { id: "deliverables", label: "Deliverables" },
+  { id: "usage", label: "Targets & rationale" },
+  { id: "outputs", label: "Study outcomes" },
+  { id: "stack", label: "What I worked on" },
+  { id: "links", label: "Links" },
+] as const;
 ---
 
 <BaseLayout
   title={title}
   description="A science-driven radar sounder concept for investigating Ceres subsurface structure, linking measurement performance and payload feasibility to planetary science objectives."
-  socialImage="/images/projects/ceres/spacecraft-orientation.png"
+  socialImage="/images/projects/ceres/spacecraft-orientation.webp"
   socialImageAlt="DIPLONA spacecraft orientation and deployed radar antennas at Ceres"
   socialImageWidth={815}
   socialImageHeight={620}
@@ -27,16 +41,17 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
           <div class="project-kicker">Contribution</div>
           <h1 class="project-title">Diplona: A mission to Ceres</h1>
 
-          <div class="project-subtle">
-            Mission concept · CubeSat architecture · Radar feasibility
-          </div>
+          <div class="project-subtle">Mission concept · CubeSat architecture · Radar feasibility</div>
 
           <p class="project-lede">
-            A mission concept study to investigate <span class="hl">Ceres</span> cryovolcanism and subsurface structure using a compact <span class="hl">radar sounder</span> approach and science-driven target selection.
+            A mission concept study to investigate <span class="hl">Ceres</span> cryovolcanism and subsurface structure
+            using a compact <span class="hl">radar sounder</span> approach and science-driven target selection.
           </p>
 
           <div class="project-actions">
-            <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener">Technical report · PDF, 11 MB</a>
+            <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener"
+              >Technical report · PDF, 11 MB</a
+            >
             <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
           </div>
         </header>
@@ -47,18 +62,25 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
             <section class="project-section" id="overview">
               <h2 class="project-h2">Overview</h2>
               <p class="project-p">
-                DIPLONA is a concept for a small spacecraft mission to Ceres, designed to complement Dawn-era surface discoveries by adding
-                a subsurface perspective. The central idea is to use radar sounding to connect <span class="hl">surface morphology</span> with <span class="hl">near-subsurface structure</span> in key regions linked to cryovolcanism and brine-related deposits.
+                DIPLONA is a concept for a small spacecraft mission to Ceres, designed to complement Dawn-era
+                surface discoveries by adding a subsurface perspective. The central idea is to use radar
+                sounding to connect <span class="hl">surface morphology</span> with <span class="hl"
+                  >near-subsurface structure</span
+                > in key regions linked to cryovolcanism and brine-related deposits.
               </p>
 
               <div class="project-highlights">
                 <div class="project-highlight">
                   <div class="project-highlight-k">Mission type</div>
-                  <div class="project-highlight-v"><span class="hl">3U CubeSat</span> concept study with a focused payload</div>
+                  <div class="project-highlight-v">
+                    <span class="hl">3U CubeSat</span> concept study with a focused payload
+                  </div>
                 </div>
                 <div class="project-highlight">
                   <div class="project-highlight-k">Instrument</div>
-                  <div class="project-highlight-v"><span class="hl">Radar sounder</span> to probe tens of meters with meter-scale vertical resolution</div>
+                  <div class="project-highlight-v">
+                    <span class="hl">Radar sounder</span> to probe tens of meters with meter-scale vertical resolution
+                  </div>
                 </div>
               </div>
             </section>
@@ -67,12 +89,22 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
               <h2 class="project-h2">My contribution</h2>
               <div class="project-contribution">
                 <p>
-                  Within the team mission study, I worked on the chain connecting the Ceres science case to a preliminary radar-sounder concept and its payload constraints.
+                  Within the team mission study, I worked on the chain connecting the Ceres science case to a
+                  preliminary radar-sounder concept and its payload constraints.
                 </p>
                 <ul>
-                  <li>Defined scientific objectives and a preliminary measurement concept for subsurface structure and cryovolcanic features.</li>
-                  <li>Performed preliminary payload sizing and instrument trade-off studies for a 3U CubeSat radar sounder.</li>
-                  <li>Assessed instrument-performance needs for geomorphology, subsurface layering, and cryovolcanism.</li>
+                  <li>
+                    Defined scientific objectives and a preliminary measurement concept for subsurface
+                    structure and cryovolcanic features.
+                  </li>
+                  <li>
+                    Performed preliminary payload sizing and instrument trade-off studies for a 3U CubeSat
+                    radar sounder.
+                  </li>
+                  <li>
+                    Assessed instrument-performance needs for geomorphology, subsurface layering, and
+                    cryovolcanism.
+                  </li>
                 </ul>
               </div>
             </section>
@@ -80,69 +112,118 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
             <section class="project-section" id="problem">
               <h2 class="project-h2">Problem</h2>
               <p class="project-p">
-                Dawn revealed evidence for cryovolcanism, carbonates, organics, and possible brines on Ceres, but the internal context of many
-                features remains uncertain. The key challenge is to constrain how observed deposits and morphologies relate to <span class="hl">subsurface layering</span>, fracture systems, and the evolution of cryovolcanic or impact-driven processes.
+                Dawn revealed evidence for cryovolcanism, carbonates, organics, and possible brines on Ceres,
+                but the internal context of many features remains uncertain. The key challenge is to constrain
+                how observed deposits and morphologies relate to <span class="hl">subsurface layering</span>,
+                fracture systems, and the evolution of cryovolcanic or impact-driven processes.
               </p>
             </section>
 
             <section class="project-section" id="approach">
               <h2 class="project-h2">Approach</h2>
               <p class="project-p">
-                The mission concept narrows the science scope to what a small platform can realistically support, then ties objectives to an
-                instrument and an operations plan. Radar sounding was selected as the most valuable “new dimension” relative to Dawn,
-                because it directly informs <span class="hl">structure</span>, <span class="hl">interfaces</span>, and <span class="hl">subsurface continuity</span>.
+                The mission concept narrows the science scope to what a small platform can realistically
+                support, then ties objectives to an instrument and an operations plan. Radar sounding was
+                selected as the most valuable “new dimension” relative to Dawn, because it directly informs <span
+                  class="hl">structure</span
+                >, <span class="hl">interfaces</span>, and <span class="hl">subsurface continuity</span>.
               </p>
             </section>
 
             <section class="project-section" id="measurement">
               <h2 class="project-h2">Measurement concept & performance</h2>
               <p class="project-p">
-                The study translated subsurface-science questions into a preliminary radar measurement concept.
-                Instrument performance was framed around the depth and vertical resolution needed to distinguish
-                scientifically useful interfaces, while remaining compatible with a constrained 3U CubeSat architecture.
+                The study translated subsurface-science questions into a preliminary radar measurement
+                concept. Instrument performance was framed around the depth and vertical resolution needed to
+                distinguish scientifically useful interfaces, while remaining compatible with a constrained 3U
+                CubeSat architecture.
               </p>
 
               <div class="project-highlights">
                 <div class="project-highlight">
                   <div class="project-highlight-k">Measurement objective</div>
-                  <div class="project-highlight-v">Detect subsurface interfaces, layering, and structural continuity beneath selected geological targets</div>
+                  <div class="project-highlight-v">
+                    Detect subsurface interfaces, layering, and structural continuity beneath selected
+                    geological targets
+                  </div>
                 </div>
                 <div class="project-highlight">
                   <div class="project-highlight-k">Performance framing</div>
-                  <div class="project-highlight-v">Tens of metres of penetration with metre-scale vertical resolution</div>
+                  <div class="project-highlight-v">
+                    Tens of metres of penetration with metre-scale vertical resolution
+                  </div>
                 </div>
               </div>
 
               <p class="project-p">
-                This created a traceable chain from the scientific question to the observable, the selected measurement
-                technique, and the payload-level feasibility trade-offs.
+                This created a traceable chain from the scientific question to the observable, the selected
+                measurement technique, and the payload-level feasibility trade-offs.
               </p>
             </section>
 
             <section class="project-section" id="figures">
               <h2 class="project-h2">Selected design figures</h2>
               <p class="project-p">
-                These figures show how the science case was translated into spacecraft geometry and an initial radar-performance assessment.
+                These figures show how the science case was translated into spacecraft geometry and an initial
+                radar-performance assessment.
               </p>
 
               <div class="project-figure-grid">
                 <figure class="project-figure">
-                  <a class="project-figure-link" href="/images/projects/ceres/spacecraft-orientation.png" target="_blank" rel="noopener" aria-label="Open the DIPLONA spacecraft orientation figure at full size">
-                    <img src="/images/projects/ceres/spacecraft-orientation.png" width="815" height="620" alt="DIPLONA spacecraft concept with two long dipole antennas, solar panels and the pointing direction toward Ceres" loading="lazy" decoding="async" />
+                  <a
+                    class="project-figure-link"
+                    href="/images/projects/ceres/spacecraft-orientation.webp"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Open the DIPLONA spacecraft orientation figure at full size"
+                  >
+                    <img
+                      src="/images/projects/ceres/spacecraft-orientation.webp"
+                      width="815"
+                      height="620"
+                      alt="DIPLONA spacecraft concept with two long dipole antennas, solar panels and the pointing direction toward Ceres"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </a>
                   <figcaption>
-                    <strong>Observation geometry.</strong> DIPLONA orientation concept with the deployed dipole radar directed toward Ceres.
-                    <a class="project-figure-source" href="/files/cerereport.pdf#page=33" target="_blank" rel="noopener">DIPLONA team study · Fig. 4.4</a>
+                    <strong>Observation geometry.</strong> DIPLONA orientation concept with the deployed dipole
+                    radar directed toward Ceres.
+                    <a
+                      class="project-figure-source"
+                      href="/files/cerereport.pdf#page=33"
+                      target="_blank"
+                      rel="noopener">DIPLONA team study · Fig. 4.4</a
+                    >
                   </figcaption>
                 </figure>
 
                 <figure class="project-figure">
-                  <a class="project-figure-link" href="/images/projects/ceres/snr-surface-slope.png" target="_blank" rel="noopener" aria-label="Open the radar signal-to-noise figure at full size">
-                    <img src="/images/projects/ceres/snr-surface-slope.png" width="465" height="325" alt="Calculated radar signal-to-noise ratio decreasing with surface RMS slope for orbital altitudes of 24, 28 and 32 kilometres" loading="lazy" decoding="async" />
+                  <a
+                    class="project-figure-link"
+                    href="/images/projects/ceres/snr-surface-slope.webp"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Open the radar signal-to-noise figure at full size"
+                  >
+                    <img
+                      src="/images/projects/ceres/snr-surface-slope.webp"
+                      width="465"
+                      height="325"
+                      alt="Calculated radar signal-to-noise ratio decreasing with surface RMS slope for orbital altitudes of 24, 28 and 32 kilometres"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </a>
                   <figcaption>
-                    <strong>Performance trade-off.</strong> Calculated signal-to-noise ratio versus surface RMS slope at three candidate orbital altitudes.
-                    <a class="project-figure-source" href="/files/cerereport.pdf#page=49" target="_blank" rel="noopener">DIPLONA team study · Fig. 4.21</a>
+                    <strong>Performance trade-off.</strong> Calculated signal-to-noise ratio versus surface RMS
+                    slope at three candidate orbital altitudes.
+                    <a
+                      class="project-figure-source"
+                      href="/files/cerereport.pdf#page=49"
+                      target="_blank"
+                      rel="noopener">DIPLONA team study · Fig. 4.21</a
+                    >
                   </figcaption>
                 </figure>
               </div>
@@ -151,7 +232,9 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
             <section class="project-section" id="deliverables">
               <h2 class="project-h2">Deliverables</h2>
               <ul class="project-list">
-                <li><span class="hl">Science motivation</span> and focused questions tailored to a CubeSat-scale mission</li>
+                <li>
+                  <span class="hl">Science motivation</span> and focused questions tailored to a CubeSat-scale mission
+                </li>
                 <li>Target shortlist and rationale for primary observation regions</li>
                 <li>Concept payload definition and feasibility framing for radar sounding</li>
                 <li>Trade-off logic linking scientific objectives to engineering constraints</li>
@@ -162,15 +245,15 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
               <h2 class="project-h2">Targets & rationale</h2>
               <p class="project-p">
                 The concept emphasizes regions where radar profiling could clarify formation mechanisms:
-                carbonates and brine-related deposits (e.g., Occator), young crater contexts (e.g., Haulani and Urvara),
-                and cryovolcanic dome structure (Ahuna Mons).
+                carbonates and brine-related deposits (e.g., Occator), young crater contexts (e.g., Haulani
+                and Urvara), and cryovolcanic dome structure (Ahuna Mons).
               </p>
 
               <div class="project-callout">
                 <div class="project-callout-k">Why radar here?</div>
                 <div class="project-callout-v">
-                  To test whether surface units extend in depth, identify subsurface contacts, and constrain fracture or layering patterns that
-                  control emplacement and evolution of observed features.
+                  To test whether surface units extend in depth, identify subsurface contacts, and constrain
+                  fracture or layering patterns that control emplacement and evolution of observed features.
                 </div>
               </div>
             </section>
@@ -178,230 +261,45 @@ const title = "Ceres Radar Instrument Concept | Emma Vellard";
             <section class="project-section" id="outputs">
               <h2 class="project-h2">Study outcomes</h2>
               <ul class="project-list">
-                <li>A traceable concept linking <span class="hl">subsurface-science questions</span> to radar observables and measurement constraints</li>
-                <li>Preliminary performance analysis across orbital altitude and surface-roughness assumptions</li>
-                <li>Target and operations rationale spanning cryovolcanic, impact, tectonic, and slope-process contexts</li>
+                <li>
+                  A traceable concept linking <span class="hl">subsurface-science questions</span> to radar observables
+                  and measurement constraints
+                </li>
+                <li>
+                  Preliminary performance analysis across orbital altitude and surface-roughness assumptions
+                </li>
+                <li>
+                  Target and operations rationale spanning cryovolcanic, impact, tectonic, and slope-process
+                  contexts
+                </li>
               </ul>
             </section>
 
             <section class="project-section" id="stack">
-                <h2 class="project-h2">Technical implementation</h2>
+              <h2 class="project-h2">Technical implementation</h2>
 
-                <div class="project-tags">
-                    <span class="project-tag">Geomorphological analysis</span>
-                    <span class="project-tag">Dawn data interpretation</span>
-                    <span class="project-tag">Target selection logic</span>
-                    <span class="project-tag">Radar feasibility framing</span>
-                    <span class="project-tag">Mission trade-off analysis</span>
-                    <span class="project-tag">Science-to-engineering translation</span>
-                </div>
-
+              <div class="project-tags">
+                <span class="project-tag">Geomorphological analysis</span>
+                <span class="project-tag">Dawn data interpretation</span>
+                <span class="project-tag">Target selection logic</span>
+                <span class="project-tag">Radar feasibility framing</span>
+                <span class="project-tag">Mission trade-off analysis</span>
+                <span class="project-tag">Science-to-engineering translation</span>
+              </div>
             </section>
 
             <section class="project-section" id="links">
               <h2 class="project-h2">Links</h2>
               <div class="project-links">
-                <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener">Technical report · PDF, 11 MB</a>
+                <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener"
+                  >Technical report · PDF, 11 MB</a
+                >
                 <a class="link-btn link-btn--secondary" href="/experience/#latmos">Related experience</a>
               </div>
             </section>
           </article>
 
-          <!-- Right sticky table of contents -->
-          <aside class="project-toc" aria-label="On this page">
-            <div class="project-toc-title">On this page</div>
-
-            <nav class="project-toc-list" data-section-nav>
-              <a class="project-toc-item" href="#overview" data-target="overview">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Overview</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#contribution" data-target="contribution">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">My contribution</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#problem" data-target="problem">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Problem</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#approach" data-target="approach">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Approach</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#measurement" data-target="measurement">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Measurement concept</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#figures" data-target="figures">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Design figures</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#deliverables" data-target="deliverables">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Deliverables</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#usage" data-target="usage">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Targets & rationale</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#outputs" data-target="outputs">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Study outcomes</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#stack" data-target="stack">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">What I worked on</span></span>
-              </a>
-
-              <a class="project-toc-item" href="#links" data-target="links">
-                <span class="project-toc-rail" aria-hidden="true">
-                  <span class="project-toc-dot"></span>
-                  <span class="project-toc-line"></span>
-                </span>
-                <span class="project-toc-text"><span class="project-toc-label">Links</span></span>
-              </a>
-            </nav>
-          </aside>
-
-          <script is:inline data-astro-rerun>
-            const initProjectTOC = () => {
-              if (document.querySelector("[data-section-nav]")) return;
-              // cleanup previous init (important with Astro client-side navigation)
-              if (window.__projectTOC_cleanup) {
-                window.__projectTOC_cleanup();
-                window.__projectTOC_cleanup = null;
-              }
-
-              const ids = ["overview","problem","approach","measurement","deliverables","usage","outputs","stack","links"];
-              const sections = ids
-                .map((id) => document.getElementById(id))
-                .filter(Boolean);
-
-              const links = Array.from(document.querySelectorAll(".project-toc-item"));
-              if (!sections.length || !links.length) return;
-
-              const setActive = (id) => {
-                links.forEach((a) => a.classList.toggle("active", a.dataset.target === id));
-              };
-
-              // stable rule: active = last section whose top is above a threshold
-              const getNavH = () => {
-                const raw = getComputedStyle(document.documentElement).getPropertyValue("--nav-h").trim();
-                const n = parseFloat(raw);
-                return Number.isFinite(n) ? n : 84;
-              };
-
-              const computeActive = () => {
-                const threshold = getNavH() + 28; // tune if needed
-                let activeId = sections[0].id;
-
-                for (const sec of sections) {
-                  const top = sec.getBoundingClientRect().top;
-                  if (top <= threshold) activeId = sec.id;
-                  else break; // sections are in DOM order
-                }
-
-                setActive(activeId);
-              };
-
-              // initial state: hash > else compute
-              const setFromHashOrCompute = () => {
-                const hash = (window.location.hash || "").replace("#", "");
-                if (hash && ids.includes(hash) && document.getElementById(hash)) {
-                  setActive(hash);
-                  return;
-                }
-                computeActive();
-              };
-
-              // click: set active immediately, then recompute after scroll settles
-              const onClick = (e) => {
-                const a = e.currentTarget;
-                const id = a?.dataset?.target;
-                if (!id) return;
-                setActive(id);
-                window.setTimeout(() => computeActive(), 220);
-              };
-
-              links.forEach((a) => a.addEventListener("click", onClick));
-
-              // rAF scroll spy (smooth + no flicker)
-              let ticking = false;
-              const onScroll = () => {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(() => {
-                  ticking = false;
-                  computeActive();
-                });
-              };
-
-              window.addEventListener("scroll", onScroll, { passive: true });
-              window.addEventListener("resize", onScroll);
-
-              // first run
-              setFromHashOrCompute();
-
-              // keep in sync with hash navigation
-              const onHash = () => setFromHashOrCompute();
-              window.addEventListener("hashchange", onHash);
-
-              // expose cleanup
-              window.__projectTOC_cleanup = () => {
-                links.forEach((a) => a.removeEventListener("click", onClick));
-                window.removeEventListener("scroll", onScroll);
-                window.removeEventListener("resize", onScroll);
-                window.removeEventListener("hashchange", onHash);
-              };
-            };
-
-            // run now (if DOM ready) and on Astro navigations
-            if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", initProjectTOC, { once: true });
-            } else {
-              initProjectTOC();
-            }
-            document.addEventListener("astro:page-load", initProjectTOC);
-          </script>
+          <ProjectToc items={tocItems} />
         </div>
       </div>
     </section>

@@ -50,6 +50,8 @@
 
 ## Local development
 
+Use Node.js 22.12 or newer (the repository includes an `.nvmrc` file).
+
 ```sh
 npm install
 npm run dev
@@ -60,6 +62,15 @@ Create a production build with:
 ```sh
 npm run build
 ```
+
+Run the full local quality suite with:
+
+```sh
+npx playwright install chromium
+npm run quality
+```
+
+The quality suite checks formatting and Astro types, validates the generated pages and internal links, and runs browser interaction tests.
 
 ## Deployment
 
