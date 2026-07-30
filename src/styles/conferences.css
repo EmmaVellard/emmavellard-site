@@ -207,6 +207,16 @@
   color: rgba(255,255,255,0.72);
 }
 
+.conf-inline-link{
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.conf-inline-link:hover{
+  color: rgba(255,255,255,0.94);
+}
+
 .conf-label{
   font-size: 12px;
   letter-spacing: 0.12em;

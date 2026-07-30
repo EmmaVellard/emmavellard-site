@@ -9,6 +9,10 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
 <BaseLayout
   title={title}
   description="A systems-level lunar spaceport study examining site selection, resources, dust, infrastructure, logistics, and sustainable lunar surface operations."
+  socialImage="/images/projects/lunar-spaceport/landing-pad-concept.png"
+  socialImageAlt="Lunar landing-pad concept with plume and dust mitigation features"
+  socialImageWidth={840}
+  socialImageHeight={475}
 >
   <Navbar />
 
@@ -33,7 +37,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
 
           <div class="project-actions">
             <a class="link-btn" href="/files/isureport.pdf" target="_blank" rel="noopener">
-                  Technical Report
+                  Technical report · PDF, 5.1 MB
             </a>
             <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
           </div>
@@ -45,9 +49,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
             <section class="project-section" id="overview">
               <h2 class="project-h2">Overview</h2>
               <p class="project-p">
-                This work focuses on how a lunar spaceport site is selected when balancing
-                <span class="hl">operational constraints</span> with
-                <span class="hl">resource access</span>, especially for sustained south-polar operations.
+                This work focuses on how a lunar spaceport site is selected when balancing <span class="hl">operational constraints</span> with <span class="hl">resource access</span>, especially for sustained south-polar operations.
               </p>
 
               <div class="project-highlights">
@@ -59,6 +61,20 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
                   <div class="project-highlight-k">Outcome</div>
                   <div class="project-highlight-v">Design drivers to inform early spaceport architecture choices</div>
                 </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="contribution">
+              <h2 class="project-h2">My contribution</h2>
+              <div class="project-contribution">
+                <p>
+                  Within the multidisciplinary ISU team study, I contributed to the analysis of candidate-site location, local resources, and environmental constraints affecting early lunar-spaceport architecture.
+                </p>
+                <ul>
+                  <li>Assessed coupled site-selection drivers including illumination, terrain, resource access, and operations.</li>
+                  <li>Examined dust, thermal, and plume-ejecta constraints relevant to surface infrastructure.</li>
+                  <li>Helped translate environmental and resource considerations into systems-level design drivers.</li>
+                </ul>
               </div>
             </section>
 
@@ -110,7 +126,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
               <div class="project-figure-grid">
                 <figure class="project-figure project-figure--landscape">
                   <a class="project-figure-link" href="/images/projects/lunar-spaceport/de-gerlache-rim-2.png" target="_blank" rel="noopener" aria-label="Open the de Gerlache Rim 2 site map at full size">
-                    <img src="/images/projects/lunar-spaceport/de-gerlache-rim-2.png" alt="Topographic map and satellite mosaic of the de Gerlache Rim 2 candidate site near the lunar south pole" loading="lazy" decoding="async" />
+                    <img src="/images/projects/lunar-spaceport/de-gerlache-rim-2.png" width="750" height="460" alt="Topographic map and satellite mosaic of the de Gerlache Rim 2 candidate site near the lunar south pole" loading="lazy" decoding="async" />
                   </a>
                   <figcaption>
                     <strong>Candidate site.</strong> Topographic context of de Gerlache Rim 2 in the lunar south-polar region. Base map: ATC Lunar/LROC.
@@ -120,7 +136,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
 
                 <figure class="project-figure project-figure--landscape">
                   <a class="project-figure-link" href="/images/projects/lunar-spaceport/landing-pad-concept.png" target="_blank" rel="noopener" aria-label="Open the lunar landing-pad concept at full size">
-                    <img src="/images/projects/lunar-spaceport/landing-pad-concept.png" alt="Concept rendering of a circular lunar landing pad with an internal berm, external berm, plume redirection system and regolith brick floor" loading="lazy" decoding="async" />
+                    <img src="/images/projects/lunar-spaceport/landing-pad-concept.png" width="840" height="475" alt="Concept rendering of a circular lunar landing pad with an internal berm, external berm, plume redirection system and regolith brick floor" loading="lazy" decoding="async" />
                   </a>
                   <figcaption>
                     <strong>Dust mitigation concept.</strong> A 100 m launch-and-landing pad with internal and external berms for plume redirection.
@@ -203,7 +219,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
               <h2 class="project-h2">Links</h2>
               <div class="project-actions">
                 <a class="link-btn" href="/files/isureport.pdf" target="_blank" rel="noopener">
-                  Technical Report
+                  Technical report · PDF, 5.1 MB
                 </a>
                 <a class="link-btn link-btn--secondary" href="https://sustainablelunar.space/" target="_blank" rel="noopener">
                   Project Website
@@ -216,7 +232,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
           <aside class="project-toc" aria-label="On this page">
             <div class="project-toc-title">On this page</div>
 
-            <nav class="project-toc-list">
+            <nav class="project-toc-list" data-section-nav>
               <a class="project-toc-item" href="#overview" data-target="overview">
                 <span class="project-toc-rail" aria-hidden="true">
                   <span class="project-toc-dot"></span>
@@ -224,6 +240,16 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
                 </span>
                 <span class="project-toc-text">
                   <span class="project-toc-label">Overview</span>
+                </span>
+              </a>
+
+              <a class="project-toc-item" href="#contribution" data-target="contribution">
+                <span class="project-toc-rail" aria-hidden="true">
+                  <span class="project-toc-dot"></span>
+                  <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                  <span class="project-toc-label">My contribution</span>
                 </span>
               </a>
 
@@ -331,6 +357,7 @@ const title = "Lunar Spaceport | Location, resources & environmental challenges"
 
           <script is:inline data-astro-rerun>
             const initProjectTOC = () => {
+              if (document.querySelector("[data-section-nav]")) return;
               if (window.__projectTOC_cleanup) {
                 window.__projectTOC_cleanup();
                 window.__projectTOC_cleanup = null;

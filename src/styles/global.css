@@ -11,10 +11,9 @@
 /* ============================= */
 /* BASE */
 /* ============================= */
-html,
-body {
+html {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
 }
 
 .skip-link {
@@ -37,6 +36,11 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   background: #000;
   color: #fff;
@@ -386,6 +390,31 @@ body {
   transform: translateY(0);
 }
 
+.link-btn--primary {
+  width: fit-content;
+  margin-top: 0;
+  padding: 12px 18px;
+  color: rgba(255, 255, 255, 0.96);
+  background: linear-gradient(135deg, rgba(143, 198, 227, 0.20), rgba(7, 16, 29, 0.60));
+  border: 1px solid rgba(143, 198, 227, 0.42);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-btn--primary::after {
+  display: none;
+}
+
+.link-btn--primary:hover {
+  color: #fff;
+  border-color: rgba(143, 198, 227, 0.72);
+  background: linear-gradient(135deg, rgba(143, 198, 227, 0.28), rgba(7, 16, 29, 0.72));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.30), 0 0 22px rgba(143, 198, 227, 0.12);
+}
+
 .link-btn--secondary {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
@@ -404,11 +433,107 @@ body {
 }
 
 /* ============================= */
+/* SITE FOOTER */
+/* ============================= */
+.site-footer {
+  position: relative;
+  z-index: 2;
+  padding: 34px 0 22px;
+  color: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, rgba(7, 11, 20, 0.96), #050810);
+  border-top: 1px solid rgba(143, 198, 227, 0.14);
+}
+
+.site-footer-main {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) auto auto;
+  gap: 28px 48px;
+  align-items: center;
+}
+
+.site-footer-brand {
+  display: inline-block;
+  color: var(--primary);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.site-footer-intro p {
+  margin: 7px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.site-footer-nav,
+.site-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+}
+
+.site-footer a:not(.site-footer-brand) {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--primary);
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.site-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px 28px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .site-footer-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .site-footer-bottom {
+    flex-direction: column;
+    margin-top: 22px;
+  }
+}
+
+/* ============================= */
 /* PAGES */
 /* ============================= */
 .page {
-  min-height: 100vh;
+  flex: 1 0 auto;
+  min-height: 0;
   padding-top: 84px;
+}
+
+main:focus {
+  outline: none;
+}
+
+:where(.nav-burger, .mobile-close, .icon-link, .nav-link, .mobile-link):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 10px;
 }
 
 /* ============================= */
@@ -441,5 +566,20 @@ body {
   to {
     opacity: 0;
     filter: blur(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

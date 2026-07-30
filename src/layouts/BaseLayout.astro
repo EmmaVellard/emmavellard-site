@@ -2,19 +2,54 @@
 import "../styles/global.css";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Footer from "../components/Footer.astro";
 
 type Props = {
   title: string;
   description?: string;
+  socialImage?: string;
+  socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
 };
 
 const {
   title,
   description = "Emma Vellard is a planetary scientist and space systems engineer working across lunar science, scientific instrumentation, mission data and research software.",
+  socialImage = "/og.jpg",
+  socialImageAlt = "Emma Vellard — Lunar and planetary scientist",
+  socialImageWidth = 1200,
+  socialImageHeight = 630,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, "https://www.emmavellard.com");
-const socialImage = new URL("/og.png", canonicalURL);
+const socialImageURL = new URL(socialImage, canonicalURL);
+const showFooter = Astro.url.pathname !== "/";
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Emma Vellard",
+  url: "https://www.emmavellard.com",
+  jobTitle: "Planetary Scientist and Space Systems Engineer",
+  description,
+  affiliation: {
+    "@type": "Organization",
+    name: "NASA Jet Propulsion Laboratory",
+    url: "https://www.jpl.nasa.gov/",
+  },
+  sameAs: [
+    "https://github.com/EmmaVellard",
+    "https://www.linkedin.com/in/emma-vellard",
+  ],
+  knowsAbout: [
+    "Lunar science",
+    "Planetary science",
+    "Scientific instrumentation",
+    "Planetary geophysics",
+    "Scientific software",
+    "Space systems engineering",
+  ],
+};
 ---
 
 <!doctype html>
@@ -24,22 +59,25 @@ const socialImage = new URL("/og.png", canonicalURL);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#070b14" />
     <link rel="canonical" href={canonicalURL} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={socialImage} />
-    <meta property="og:image:alt" content="Emma Vellard — Lunar and planetary scientist" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta property="og:image:width" content={String(socialImageWidth)} />
+    <meta property="og:image:height" content={String(socialImageHeight)} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
-    <meta name="twitter:image:alt" content="Emma Vellard — Lunar and planetary scientist" />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" />
@@ -62,5 +100,98 @@ const socialImage = new URL("/og.png", canonicalURL);
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <slot />
+    {showFooter && <Footer />}
+
+    <script>
+      type SectionNavWindow = Window & { __sectionNavCleanup?: () => void };
+
+      const bindSectionNavigation = () => {
+        const sectionWindow = window as SectionNavWindow;
+        sectionWindow.__sectionNavCleanup?.();
+
+        const cleanups: Array<() => void> = [];
+        const navHeight = () => {
+          const value = getComputedStyle(document.documentElement).getPropertyValue("--nav-h");
+          const parsed = Number.parseFloat(value);
+          return Number.isFinite(parsed) ? parsed : 84;
+        };
+
+        document.querySelectorAll<HTMLElement>("[data-section-nav]").forEach((nav) => {
+          const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
+          const entries = links
+            .map((link) => {
+              const id = decodeURIComponent(link.hash.slice(1));
+              return { link, id, section: document.getElementById(id) };
+            })
+            .filter((entry): entry is { link: HTMLAnchorElement; id: string; section: HTMLElement } => Boolean(entry.section));
+
+          if (!entries.length) return;
+
+          const setActive = (activeId: string) => {
+            entries.forEach(({ link, id }) => {
+              const isActive = id === activeId;
+              link.classList.toggle("active", isActive);
+              if (isActive) link.setAttribute("aria-current", "location");
+              else link.removeAttribute("aria-current");
+            });
+          };
+
+          const update = () => {
+            const pageBottom = document.documentElement.scrollHeight - window.innerHeight;
+            if (pageBottom > 0 && window.scrollY >= pageBottom - 4) {
+              setActive(entries[entries.length - 1].id);
+              return;
+            }
+
+            const threshold = navHeight() + 32;
+            let activeId = entries[0].id;
+
+            for (const { id, section } of entries) {
+              if (section.getBoundingClientRect().top <= threshold) activeId = id;
+              else break;
+            }
+
+            setActive(activeId);
+          };
+
+          let frame = 0;
+          const requestUpdate = () => {
+            if (frame) return;
+            frame = window.requestAnimationFrame(() => {
+              frame = 0;
+              update();
+            });
+          };
+
+          const onClick = (event: Event) => {
+            const link = event.currentTarget as HTMLAnchorElement;
+            setActive(decodeURIComponent(link.hash.slice(1)));
+          };
+
+          links.forEach((link) => link.addEventListener("click", onClick));
+          window.addEventListener("scroll", requestUpdate, { passive: true });
+          window.addEventListener("resize", requestUpdate, { passive: true });
+          window.addEventListener("hashchange", requestUpdate);
+          update();
+
+          cleanups.push(() => {
+            if (frame) window.cancelAnimationFrame(frame);
+            links.forEach((link) => link.removeEventListener("click", onClick));
+            window.removeEventListener("scroll", requestUpdate);
+            window.removeEventListener("resize", requestUpdate);
+            window.removeEventListener("hashchange", requestUpdate);
+          });
+        });
+
+        sectionWindow.__sectionNavCleanup = () => cleanups.forEach((cleanup) => cleanup());
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bindSectionNavigation, { once: true });
+      } else {
+        bindSectionNavigation();
+      }
+      document.addEventListener("astro:page-load", bindSectionNavigation);
+    </script>
   </body>
 </html>

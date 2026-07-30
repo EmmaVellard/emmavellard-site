@@ -345,15 +345,6 @@ html{
   align-items: center;
 }
 
-.exp-bottom-cta{
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
 /* Focus rings */
 .exp-nav-item:focus-visible,
 .link-btn:focus-visible{

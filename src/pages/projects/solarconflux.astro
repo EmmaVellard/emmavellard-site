@@ -9,6 +9,10 @@ const title = "SolarConflux | Project";
 <BaseLayout
   title={title}
   description="SolarConflux is Emma Vellard's open-source Python tool for identifying coordinated observation opportunities across heliophysics spacecraft and missions."
+  socialImage="/images/projects/solarconflux/cone-alignments.png"
+  socialImageAlt="SolarConflux polar plots showing coordinated spacecraft observation opportunities"
+  socialImageWidth={2118}
+  socialImageHeight={740}
 >
   <Navbar />
 
@@ -59,6 +63,20 @@ const title = "SolarConflux | Project";
                   <div class="project-highlight-k">Core capability</div>
                   <div class="project-highlight-v"><span class="hl">Alignment detection</span> between any combination of spacecraft and planets in heliocentric coordinates</div>
                 </div>
+              </div>
+            </section>
+
+            <section class="project-section" id="contribution">
+              <h2 class="project-h2">My contribution</h2>
+              <div class="project-contribution">
+                <p>
+                  I designed and developed SolarConflux at ESA as an open-source scientific tool supporting coordinated-observation planning across more than 20 space missions.
+                </p>
+                <ul>
+                  <li>Implemented ephemeris retrieval, heliocentric geometry analysis, configurable alignment criteria, and result export.</li>
+                  <li>Translated mission-analysis questions into reusable Python workflows and inspection-ready visual outputs.</li>
+                  <li>Documented and presented the tool for planetary and heliophysics mission contexts.</li>
+                </ul>
               </div>
             </section>
 
@@ -155,7 +173,7 @@ save_plot(match, trajectories)</code></pre>
               <div class="project-figure-grid project-figure-grid--wide">
                 <figure class="project-figure project-figure--panoramic">
                   <a class="project-figure-link" href="/images/projects/solarconflux/cone-alignments.png" target="_blank" rel="noopener" aria-label="Open the SolarConflux cone-alignment examples at full size">
-                    <img src="/images/projects/solarconflux/cone-alignments.png" alt="Three SolarConflux polar plots showing cone-alignment opportunities involving several heliophysics spacecraft and planets" loading="lazy" decoding="async" />
+                    <img src="/images/projects/solarconflux/cone-alignments.png" width="2118" height="740" alt="Three SolarConflux polar plots showing cone-alignment opportunities involving several heliophysics spacecraft and planets" loading="lazy" decoding="async" />
                   </a>
                   <figcaption>
                     <strong>Cone alignments.</strong> Example multi-mission configurations identified within a selected angular sector.
@@ -165,7 +183,7 @@ save_plot(match, trajectories)</code></pre>
 
                 <figure class="project-figure project-figure--panoramic">
                   <a class="project-figure-link" href="/images/projects/solarconflux/parker-alignments.png" target="_blank" rel="noopener" aria-label="Open the SolarConflux Parker-spiral examples at full size">
-                    <img src="/images/projects/solarconflux/parker-alignments.png" alt="Three SolarConflux polar plots showing approximate Parker-spiral connectivity opportunities between spacecraft" loading="lazy" decoding="async" />
+                    <img src="/images/projects/solarconflux/parker-alignments.png" width="2118" height="740" alt="Three SolarConflux polar plots showing approximate Parker-spiral connectivity opportunities between spacecraft" loading="lazy" decoding="async" />
                   </a>
                   <figcaption>
                     <strong>Parker-spiral screening.</strong> Approximate solar-wind connectivity windows involving BepiColombo, Solar Orbiter, Parker Solar Probe and STEREO-A.
@@ -205,7 +223,7 @@ save_plot(match, trajectories)</code></pre>
           <aside class="project-toc" aria-label="On this page">
             <div class="project-toc-title">On this page</div>
 
-            <nav class="project-toc-list">
+            <nav class="project-toc-list" data-section-nav>
                 <a class="project-toc-item" href="#overview" data-target="overview">
                 <span class="project-toc-rail" aria-hidden="true">
                     <span class="project-toc-dot"></span>
@@ -213,6 +231,16 @@ save_plot(match, trajectories)</code></pre>
                 </span>
                 <span class="project-toc-text">
                     <span class="project-toc-label">Overview</span>
+                </span>
+                </a>
+
+                <a class="project-toc-item" href="#contribution" data-target="contribution">
+                <span class="project-toc-rail" aria-hidden="true">
+                    <span class="project-toc-dot"></span>
+                    <span class="project-toc-line"></span>
+                </span>
+                <span class="project-toc-text">
+                    <span class="project-toc-label">My contribution</span>
                 </span>
                 </a>
 
@@ -300,6 +328,7 @@ save_plot(match, trajectories)</code></pre>
 
             <script is:inline data-astro-rerun>
                 const initProjectTOC = () => {
+                    if (document.querySelector("[data-section-nav]")) return;
                     // cleanup previous init (important with Astro client-side navigation)
                     if (window.__projectTOC_cleanup) {
                     window.__projectTOC_cleanup();

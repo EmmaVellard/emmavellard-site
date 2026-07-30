@@ -25,14 +25,15 @@ import "../styles/projects.css";
           <!-- quick index -->
           <nav class="projects-jump" aria-label="On this page">
             <a class="projects-jump-link" href="#featured">Featured</a>
+            <a class="projects-jump-link" href="#lunar-science">Lunar science & instrumentation</a>
             <a class="projects-jump-link" href="#software">Scientific software</a>
-            <a class="projects-jump-link" href="#contrib">Contributions</a>
+            <a class="projects-jump-link" href="#contrib">Mission contributions</a>
           </nav>
         </header>
 
         <!-- FEATURED -->
         <section class="projects-featured" id="featured" aria-label="Featured project">
-          <article class="proj-card proj-featured" id="lunar-interiors">
+          <a class="proj-card proj-featured proj-card-link" id="lunar-interiors" href="/projects/lunar-interiors">
             <div class="proj-featured-grid">
               <div class="proj-main">
                 <div class="proj-kicker">Featured</div>
@@ -52,9 +53,9 @@ import "../styles/projects.css";
                 </ul>
 
                 <div class="proj-actions">
-                  <a class="link-btn" href="/projects/lunar-interiors">
+                  <span class="link-btn">
                     View project
-                  </a>
+                  </span>
                 </div>
               </div>
 
@@ -83,7 +84,49 @@ import "../styles/projects.css";
               </aside>
             </div>
             <div class="proj-year">2026</div>
-          </article>
+          </a>
+        </section>
+
+        <!-- LUNAR SCIENCE & INSTRUMENTATION -->
+        <section class="projects-section" id="lunar-science" aria-label="Lunar science and instrumentation">
+          <div class="projects-section-head">
+            <h2 class="projects-h3">Lunar science and instrumentation</h2>
+            <p class="projects-muted">
+              Work connecting scientific questions to laboratory measurements, payload concepts, performance assessment, and exploration needs.
+            </p>
+          </div>
+
+          <div class="proj-list proj-list-2">
+            <a class="proj-card proj-item proj-card-link" id="ceres" href="/projects/ceres">
+              <div class="proj-kicker">Instrumentation concept</div>
+              <h3 class="proj-h3-item">Diplona</h3>
+              <div class="proj-subtle">
+                Mission concept · Radar sounder · Payload feasibility
+              </div>
+              <p class="proj-desc">
+                A science-driven study translating <span class="hl">Ceres subsurface questions</span> into a radar measurement concept, preliminary payload sizing, and instrument-performance trade-offs.
+              </p>
+              <div class="proj-actions">
+                <span class="link-btn">View project</span>
+              </div>
+              <div class="proj-year">2022</div>
+            </a>
+
+            <a class="proj-card proj-item proj-card-link" id="phobos-deimos" href="/projects/phobos-deimos">
+              <div class="proj-kicker">Mission-oriented research</div>
+              <h3 class="proj-h3-item">Phobos & Deimos</h3>
+              <div class="proj-subtle">
+                Laboratory spectroscopy · OROCHI · MIRS
+              </div>
+              <p class="proj-desc">
+                Laboratory and spectral analysis of Phobos analogue samples, including outputs resampled to <span class="hl">MMX instrument conditions</span> for mission-oriented interpretation.
+              </p>
+              <div class="proj-actions">
+                <span class="link-btn">View project</span>
+              </div>
+              <div class="proj-year">2023</div>
+            </a>
+          </div>
         </section>
 
         <!-- SCIENTIFIC SOFTWARE -->
@@ -96,24 +139,23 @@ import "../styles/projects.css";
           </div>
 
           <div class="proj-list">
-            <article class="proj-card proj-item" id="solarconflux">
+            <a class="proj-card proj-item proj-card-link" id="solarconflux" href="/projects/solarconflux">
               <div class="proj-kicker">Selected project</div>
               <h3 class="proj-h3-item">SolarConflux</h3>
               <div class="proj-subtle">
                 Scientific software · Mission analysis · Observation planning
               </div>
               <p class="proj-desc">
-                Open-source Python software identifying <span class="hl">coordinated observation opportunities</span>
-                across more than 20 space missions using spacecraft geometry and configurable science scenarios.
+                Open-source Python software identifying <span class="hl">coordinated observation opportunities</span> across more than 20 space missions using spacecraft geometry and configurable science scenarios.
               </p>
 
               <div class="proj-actions">
-                <a class="link-btn" href="/projects/solarconflux">
+                <span class="link-btn">
                   View project
-                </a>
+                </span>
               </div>
               <div class="proj-year">2023–2025</div>
-            </article>
+            </a>
           </div>
         </section>
 
@@ -151,7 +193,7 @@ import "../styles/projects.css";
               <div class="proj-year">2024</div>
             </article>
             
-            <article class="proj-card proj-item" id="lunar-spaceport">
+            <a class="proj-card proj-item proj-card-link" id="lunar-spaceport" href="/projects/lunar-spaceport">
               <h3 class="proj-h3-item">Lunar Spaceport</h3>
               <div class="proj-subtle">
                 Lunar infrastructure · ISRU and sustainability
@@ -160,47 +202,14 @@ import "../styles/projects.css";
                 Concept and systems-level study focusing on sustainable surface operations, dust mitigation considerations, and integrated infrastructure planning.
               </p>
               <div class="proj-actions">
-                <a class="link-btn link-btn--secondary" href="/projects/lunar-spaceport">View project</a>
+                <span class="link-btn link-btn--secondary">View project</span>
               </div>
               <div class="proj-year">2025</div>
-            </article>
-
-            <article class="proj-card proj-item" id="phobos-deimos">
-              <h3 class="proj-h3-item">Phobos & Deimos</h3>
-              <div class="proj-subtle">
-                Planetary surface analysis · Origin hypotheses · Laboratory experiment
-              </div>
-              <p class="proj-desc">
-                Research on <span class="hl">origin hypotheses</span> and composition, combining surface analysis of Martian moons
-                with <span class="hl">FTIR spectroscopy</span> of Phobos analogue rock samples.
-              </p>
-              <div class="proj-actions">
-                <a class="link-btn link-btn--secondary" href="/projects/phobos-deimos">View project</a>
-              </div>
-              <div class="proj-year">2023</div>
-            </article>
-
-            <article class="proj-card proj-item" id="ceres">
-              <h3 class="proj-h3-item">Diplona</h3>
-              <div class="proj-subtle">
-                Mission concept · CubeSat architecture · Radar feasibility
-              </div>
-              <p class="proj-desc">
-                Mission concept study on <span class="hl">Ceres</span> geomorphology and cryovolcanism, defining science-driven requirements and assessing radar payload feasibility within a constrained 3U CubeSat architecture.
-              </p>
-              <div class="proj-actions">
-                <a class="link-btn link-btn--secondary" href="/projects/ceres">View project</a>
-              </div>
-              <div class="proj-year">2022</div>
-            </article>
+            </a>
 
           </div>
         </section>
 
-        <div class="projects-bottom-cta" aria-label="Projects calls to action">
-          <a class="link-btn" href="/experience">View my experience</a>
-          <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
-        </div>
       </div>
     </section>
   </main>

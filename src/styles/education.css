@@ -146,11 +146,13 @@
 /* ============================= */
 
 .edu-certs{
-  margin-top: 70px;
+  margin-top: 80px;
+  padding-top: 34px;
+  border-top: 1px solid rgba(143,198,227,0.10);
 }
 
 .cert-grid{
-  margin-top: 28px;
+  margin-top: 22px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -172,14 +174,14 @@
   flex-direction: column;
   height: 100%;
 
-  padding: 18px;
+  padding: 14px;
   border-radius: 18px;
   box-sizing: border-box;
 
   text-decoration: none;
 
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(143,198,227,0.16);
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(143,198,227,0.12);
   backdrop-filter: blur(12px);
 
   position: relative;
@@ -223,14 +225,14 @@
 
 .cert-title{
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: rgba(255,255,255,0.92);
 }
 
 .cert-org{
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(255,255,255,0.70);
 }
 
@@ -251,8 +253,8 @@
 
 /* Meta text */
 .cert-meta{
-  margin-top: 14px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 12px;
   line-height: 1.6;
   color: rgba(255,255,255,0.74);
 }
@@ -260,7 +262,7 @@
 /* Action pinned to bottom */
 .cert-action{
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 10px;
   display: inline-flex;
   align-items: center;
   gap: 10px;

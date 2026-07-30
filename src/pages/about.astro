@@ -5,7 +5,7 @@ import Navbar from "../components/NavBar.astro";
 ---
 
 <BaseLayout
-  title="Emma Vellard | About"
+  title="About | Emma Vellard"
   description="Learn about Emma Vellard's background in planetary science, space systems engineering, lunar research, scientific instrumentation, and international mission teams."
 >
   <Navbar />
@@ -25,8 +25,7 @@ import Navbar from "../components/NavBar.astro";
 
             <div class="about-prose">
               <p>
-                I am a planetary scientist and space systems engineer currently conducting research at
-                <span class="highlight">NASA Jet Propulsion Laboratory</span> on the interiors of the Moon and icy worlds.
+                I am a planetary scientist and space systems engineer currently conducting research at <span class="highlight">NASA Jet Propulsion Laboratory</span> on the interiors of the Moon and icy worlds.
               </p>
               <p>
                 My current work compares lunar composition scenarios and develops thermodynamic and geophysical models
@@ -53,7 +52,7 @@ import Navbar from "../components/NavBar.astro";
           <div class="about-hero-right">
             <div class="photo-stage">
               <!-- no shapes behind -->
-              <img class="photo-cutout" src="/images/portrait.png" alt="Portrait of Emma Vellard" />
+              <img class="photo-cutout" src="/images/portrait.webp" width="1290" height="1915" alt="Portrait of Emma Vellard" decoding="async" fetchpriority="high" />
 
               <div class="photo-info">
                 <div class="photo-info-title">Now</div>
@@ -76,7 +75,7 @@ import Navbar from "../components/NavBar.astro";
         <section class="about-research">
           <header class="about-section-head">
             <h2 class="about-h2">Research interests</h2>
-            <p class="about-muted">Themes I enjoy working on across science, engineering, and mission operations.</p>
+            <p class="about-muted">Research areas spanning planetary science, engineering, and mission operations.</p>
           </header>
 
           <div class="interest-grid-minimal">
@@ -140,18 +139,6 @@ import Navbar from "../components/NavBar.astro";
           </div>
         </section>
 
-        <!-- FINAL CTA -->
-        <section class="about-cta">
-          <div class="about-cta-inner">
-            <a class="link-btn" href="/projects">View my research projects</a>
-            <a class="link-btn link-btn--secondary" href="/files/cv_vellard.pdf" target="_blank" rel="noopener">
-              Download CV
-            </a>
-            <a class="link-btn link-btn--secondary" href="/contact">
-              Contact me
-            </a>
-          </div>
-        </section>
       </div>
     </section>
   </main>

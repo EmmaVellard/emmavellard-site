@@ -16,7 +16,7 @@
 
 .contact-shell{
   padding-top: 38px;
-  padding-bottom: 84px;
+  padding-bottom: 38px;
   padding-left: clamp(28px, 8vw, 110px);
   padding-right: clamp(20px, 5vw, 80px);
 }
@@ -150,17 +150,6 @@
 
 .contact-sep{
   opacity: 0.6;
-}
-
-/* Prevent scrolling on Contact when content is shorter than viewport */
-.page-contact{
-  min-height: calc(100vh - var(--nav-h, 84px));
-  overflow: hidden;
-}
-
-.page-contact .contact-shell{
-  min-height: calc(100vh - var(--nav-h, 84px));
-  padding-bottom: 38px; /* was 84px, reduces overflow */
 }
 
 .hl{
