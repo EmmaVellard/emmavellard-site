@@ -62,7 +62,8 @@
   margin-top: 26px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.44);
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.58);
   font-size: 11px;
   line-height: 1.5;
 }

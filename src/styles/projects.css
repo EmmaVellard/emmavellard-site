@@ -111,7 +111,26 @@
   cursor: pointer;
 }
 
-.proj-card-link:focus-visible {
+/* The title link stretches over the whole card, so the card stays clickable
+   while screen readers only announce the project name. */
+.proj-card-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.proj-card-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.proj-card-title-link:focus-visible {
+  outline: none;
+}
+
+.proj-card-link:has(.proj-card-title-link:focus-visible) {
   outline: 2px solid var(--primary);
   outline-offset: 4px;
 }

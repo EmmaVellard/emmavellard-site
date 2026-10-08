@@ -46,7 +46,7 @@ const isActive = (href: string) => pathname.startsWith(href);
       </button>
 
       <!-- Social icons -->
-      <div class="nav-icons" aria-label="Social links">
+      <div class="nav-icons" role="group" aria-label="Social links">
         <a
           class="icon-link"
           href="https://github.com/EmmaVellard"
@@ -99,7 +99,7 @@ const isActive = (href: string) => pathname.startsWith(href);
         }
       </nav>
 
-      <div class="mobile-icons" aria-label="Mobile social links">
+      <div class="mobile-icons" role="group" aria-label="Mobile social links">
         <a
           class="icon-link"
           href="https://github.com/EmmaVellard"
@@ -142,11 +142,17 @@ const isActive = (href: string) => pathname.startsWith(href);
     else nav.classList.remove("scrolled");
   };
 
-  const bindNavbar = () => {
-    applyNavbarState();
+  // bindNavbar can run several times (initial load and Astro page events), so each
+  // run aborts the listeners registered by the previous one.
+  let listeners: AbortController | null = null;
 
-    window.removeEventListener("scroll", applyNavbarState);
-    window.addEventListener("scroll", applyNavbarState, { passive: true });
+  const bindNavbar = () => {
+    listeners?.abort();
+    listeners = new AbortController();
+    const { signal } = listeners;
+
+    applyNavbarState();
+    window.addEventListener("scroll", applyNavbarState, { passive: true, signal });
 
     const nav = document.getElementById("site-navbar");
     const btn = nav?.querySelector<HTMLButtonElement>(".nav-burger");
@@ -188,18 +194,24 @@ const isActive = (href: string) => pathname.startsWith(href);
       else if (dialog instanceof HTMLElement) dialog.focus();
     };
 
-    btn.onclick = () => (nav.classList.contains("menu-open") ? close() : open());
-    if (closeBtn instanceof HTMLButtonElement) closeBtn.onclick = () => close();
+    btn.addEventListener("click", () => (nav.classList.contains("menu-open") ? close() : open()), {
+      signal,
+    });
+    closeBtn?.addEventListener("click", () => close(), { signal });
 
-    menu.onclick = (e) => {
-      if (e.target === menu) close();
-    };
+    menu.addEventListener(
+      "click",
+      (e) => {
+        if (e.target === menu) close();
+      },
+      { signal },
+    );
 
     menu
       .querySelectorAll("a")
-      .forEach((a) => a.addEventListener("click", () => close({ returnFocus: false })));
+      .forEach((a) => a.addEventListener("click", () => close({ returnFocus: false }), { signal }));
 
-    window.onkeydown = (e) => {
+    const onKeydown = (e: KeyboardEvent) => {
       if (!nav.classList.contains("menu-open")) return;
 
       if (e.key === "Escape") {
@@ -234,9 +246,14 @@ const isActive = (href: string) => pathname.startsWith(href);
       }
     };
 
-    window.onresize = () => {
-      if (window.innerWidth > 900) close({ returnFocus: false });
-    };
+    window.addEventListener("keydown", onKeydown, { signal });
+    window.addEventListener(
+      "resize",
+      () => {
+        if (window.innerWidth > 900) close({ returnFocus: false });
+      },
+      { signal },
+    );
   };
 
   document.addEventListener("astro:page-load", bindNavbar);

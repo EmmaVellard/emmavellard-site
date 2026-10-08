@@ -402,3 +402,20 @@
     font-size: 12px;
   }
 }
+
+/* Orbit positions (classes instead of inline styles, so the CSP can stay strict) */
+.conf-x-1 {
+  --x: 18%;
+}
+.conf-x-2 {
+  --x: 34%;
+}
+.conf-x-3 {
+  --x: 50%;
+}
+.conf-x-4 {
+  --x: 66%;
+}
+.conf-x-5 {
+  --x: 82%;
+}

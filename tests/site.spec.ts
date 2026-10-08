@@ -22,13 +22,22 @@ test("the mobile menu opens, closes, and reports its state", async ({ page }) =>
   await expect(openMenu).toHaveAttribute("aria-label", "Open menu");
 });
 
-test("every available project card is a full-card link", async ({ page }) => {
+test("every available project card is clickable and named by its title", async ({ page }) => {
   await page.goto("/projects");
 
-  const cards = page.locator("a.proj-card-link");
-  await expect(cards).toHaveCount(5);
+  const titleLinks = page.locator(".proj-card-link a.proj-card-title-link");
+  await expect(titleLinks).toHaveCount(5);
+  await expect(page.getByRole("link", { name: "Diplona", exact: true })).toHaveAttribute(
+    "href",
+    "/projects/ceres",
+  );
 
-  await page.locator('a.proj-card-link[href="/projects/ceres"]').click();
+  // Clicking the card body (not the title) still navigates thanks to the stretched link.
+  // Center the card first so the fixed navbar does not cover the click target.
+  await page.locator("#ceres").evaluate((card) => card.scrollIntoView({ block: "center" }));
+  const box = await page.locator("#ceres .proj-desc").boundingBox();
+  expect(box).not.toBeNull();
+  await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
   await expect(page).toHaveURL(/\/projects\/ceres\/?$/);
 });
 
