@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local generation outputs and source artwork
+output/
+
 # generated types
 .astro/
 
