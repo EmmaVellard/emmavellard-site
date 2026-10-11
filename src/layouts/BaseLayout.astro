@@ -11,6 +11,7 @@ import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
+import BackToTop from "../components/BackToTop.astro";
 
 type Props = {
   title: string;
@@ -107,6 +108,7 @@ const personSchema = {
     <NavBar />
     <slot />
     <Footer />
+    <BackToTop />
 
     <!-- Vercel components render custom elements, which are not allowed in <head>:
          there they would end the head early and push the CSP <meta> into the body. -->

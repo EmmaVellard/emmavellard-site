@@ -1,0 +1,93 @@
+---
+import { decorations } from "../data/decorations";
+---
+
+<button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden>
+  <img {...decorations.upArrow} alt="" aria-hidden="true" decoding="async" />
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".back-to-top");
+  if (button) {
+    let previousY = Math.max(0, window.scrollY);
+    const updateVisibility = () => {
+      const currentY = Math.max(0, window.scrollY);
+      if (currentY < 400 || currentY > previousY) {
+        button.hidden = true;
+        previousY = currentY;
+      } else if (previousY - currentY >= 6) {
+        button.hidden = false;
+        previousY = currentY;
+      }
+    };
+
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    updateVisibility();
+
+    button.addEventListener("click", () => {
+      document.querySelector<HTMLElement>("#main-content")?.focus({ preventScroll: true });
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      });
+    });
+  }
+</script>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 900;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    padding: 6px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .back-to-top[hidden] {
+    display: none;
+  }
+
+  .back-to-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.55;
+    transition:
+      opacity 0.2s ease,
+      translate 0.2s ease;
+  }
+
+  .back-to-top:hover img,
+  .back-to-top:focus-visible img {
+    opacity: 1;
+  }
+
+  .back-to-top:hover img {
+    translate: 0 -2px;
+  }
+
+  @media (max-width: 640px) {
+    .back-to-top {
+      right: max(14px, env(safe-area-inset-right));
+      bottom: max(14px, env(safe-area-inset-bottom));
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top img {
+      transition: none;
+    }
+    .back-to-top:hover img {
+      translate: none;
+    }
+  }
+</style>

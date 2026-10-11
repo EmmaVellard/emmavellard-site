@@ -7,4 +7,5 @@ export const decorations = {
   contact: { src: "/images/accents/contact.webp", width: 1254, height: 1254 },
   research: { src: "/images/accents/research-interior.webp", width: 1254, height: 1254 },
   explorer: { src: "/images/accents/footer-explorer.webp", width: 1254, height: 1254 },
+  upArrow: { src: "/images/accents/back-to-top.webp", width: 1254, height: 1254 },
 } as const;

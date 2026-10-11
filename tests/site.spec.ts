@@ -1,5 +1,63 @@
 import { expect, test } from "@playwright/test";
 
+test("Back to top appears only when scrolling up and returns every page to its beginning", async ({
+  page,
+}) => {
+  for (const path of [
+    "/",
+    "/research",
+    "/projects/solarconflux",
+    "/projects/lunar-spaceport",
+    "/projects/ypsat",
+    "/projects/phobos-deimos",
+    "/projects/ceres",
+  ]) {
+    await page.goto(path);
+    const button = page.getByRole("button", { name: "Back to top", exact: true });
+    await expect(button).toBeHidden();
+    await page.locator("footer").scrollIntoViewIfNeeded();
+    await expect(button).toBeHidden();
+    await page.mouse.wheel(0, -140);
+    await expect(button).toBeVisible();
+    await page.mouse.wheel(0, 60);
+    await expect(button).toBeHidden();
+    await page.mouse.wheel(0, -60);
+    await expect(button).toBeVisible();
+    await expect
+      .poll(() =>
+        button.locator("img").evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0),
+      )
+      .toBeTruthy();
+    await button.click();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+    await expect(button).toBeHidden();
+    await expect(page.locator("#main-content")).toBeFocused();
+  }
+});
+
+test("Back to top works with the keyboard on a narrow dark screen and respects reduced motion", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
+  await page.goto("/projects/ypsat");
+  await page.locator("footer").scrollIntoViewIfNeeded();
+  const button = page.getByRole("button", { name: "Back to top", exact: true });
+  await expect(button).toBeHidden();
+  await page.evaluate(() => window.scrollBy({ top: -140, behavior: "instant" }));
+  await expect(button).toBeVisible();
+  const bounds = await button.boundingBox();
+  expect(bounds!.x).toBeGreaterThanOrEqual(0);
+  expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(320);
+  expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(740);
+  expect(bounds!.width).toBeGreaterThanOrEqual(44);
+  await button.focus();
+  await button.press("Enter");
+  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(button).toBeHidden();
+  await expect(page.locator("#main-content")).toBeFocused();
+});
+
 test("the homepage uses the brand as its home link and ends with the contact footer", async ({ page }) => {
   await page.goto("/");
 
