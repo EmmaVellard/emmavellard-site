@@ -1,0 +1,109 @@
+instrument,panel,series,wavelength_um,reflectance,pixel_x,pixel_y,kind
+orochi,absolute,more1,0.390000,2.665000,80.100000,400.000000,band-average
+orochi,absolute,more1,0.480000,2.695000,160.200000,394.000000,band-average
+orochi,absolute,more1,0.550000,2.710000,222.500000,391.000000,band-average
+orochi,absolute,more1,0.650000,2.700000,311.500000,393.000000,band-average
+orochi,absolute,more1,0.730000,2.700000,382.700000,393.000000,band-average
+orochi,absolute,more1,0.860000,2.735000,498.400000,386.000000,band-average
+orochi,absolute,more1,0.950000,2.800000,578.500000,373.000000,band-average
+orochi,absolute,1btw250,0.390000,2.525000,80.100000,428.000000,band-average
+orochi,absolute,1btw250,0.480000,2.600000,160.200000,413.000000,band-average
+orochi,absolute,1btw250,0.550000,2.640000,222.500000,405.000000,band-average
+orochi,absolute,1btw250,0.650000,2.640000,311.500000,405.000000,band-average
+orochi,absolute,1btw250,0.730000,2.640000,382.700000,405.000000,band-average
+orochi,absolute,1btw250,0.860000,2.640000,498.400000,405.000000,band-average
+orochi,absolute,1btw250,0.950000,2.700000,578.500000,393.000000,band-average
+orochi,absolute,less1,0.390000,2.795000,80.100000,374.000000,band-average
+orochi,absolute,less1,0.480000,2.830000,160.200000,367.000000,band-average
+orochi,absolute,less1,0.550000,2.885000,222.500000,356.000000,band-average
+orochi,absolute,less1,0.650000,2.910000,311.500000,351.000000,band-average
+orochi,absolute,less1,0.730000,2.945000,382.700000,344.000000,band-average
+orochi,absolute,less1,0.860000,3.015000,498.400000,330.000000,band-average
+orochi,absolute,less1,0.950000,3.140000,578.500000,305.000000,band-average
+orochi,absolute,less250,0.390000,2.740000,80.100000,385.000000,band-average
+orochi,absolute,less250,0.480000,2.845000,160.200000,364.000000,band-average
+orochi,absolute,less250,0.550000,2.920000,222.500000,349.000000,band-average
+orochi,absolute,less250,0.650000,2.960000,311.500000,341.000000,band-average
+orochi,absolute,less250,0.730000,3.005000,382.700000,332.000000,band-average
+orochi,absolute,less250,0.860000,3.080000,498.400000,317.000000,band-average
+orochi,absolute,less250,0.950000,3.130000,578.500000,307.000000,band-average
+orochi,absolute,less125,0.390000,2.815000,80.100000,370.000000,band-average
+orochi,absolute,less125,0.480000,2.855000,160.200000,362.000000,band-average
+orochi,absolute,less125,0.550000,2.910000,222.500000,351.000000,band-average
+orochi,absolute,less125,0.650000,2.930000,311.500000,347.000000,band-average
+orochi,absolute,less125,0.730000,2.960000,382.700000,341.000000,band-average
+orochi,absolute,less125,0.860000,3.025000,498.400000,328.000000,band-average
+orochi,absolute,less125,0.950000,3.165000,578.500000,300.000000,band-average
+orochi,absolute,less53,0.390000,2.590000,80.100000,415.000000,band-average
+orochi,absolute,less53,0.480000,2.700000,160.200000,393.000000,band-average
+orochi,absolute,less53,0.550000,2.740000,222.500000,385.000000,band-average
+orochi,absolute,less53,0.650000,2.855000,311.500000,362.000000,band-average
+orochi,absolute,less53,0.730000,2.915000,382.700000,350.000000,band-average
+orochi,absolute,less53,0.860000,3.005000,498.400000,332.000000,band-average
+orochi,absolute,less53,0.950000,3.075000,578.500000,318.000000,band-average
+orochi,absolute,CRISM Phobos red,0.390000,2.950000,80.100000,343.000000,band-average
+orochi,absolute,CRISM Phobos red,0.480000,2.665000,160.200000,400.000000,band-average
+orochi,absolute,CRISM Phobos red,0.550000,2.840000,222.500000,365.000000,band-average
+orochi,absolute,CRISM Phobos red,0.730000,3.250000,382.700000,283.000000,band-average
+orochi,absolute,CRISM Phobos red,0.860000,3.665000,498.400000,200.000000,band-average
+orochi,absolute,CRISM Phobos red,0.950000,3.870000,578.500000,159.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.390000,3.795000,80.100000,174.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.480000,3.575000,160.200000,218.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.550000,3.745000,222.500000,184.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.730000,4.000000,382.700000,133.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.860000,4.190000,498.400000,95.000000,band-average
+orochi,absolute,CRISM Phobos blue,0.950000,4.270000,578.500000,79.000000,band-average
+orochi,normalised,more1,0.390000,0.982888,667.100000,345.000000,band-average
+orochi,normalised,more1,0.480000,0.994920,747.200000,336.000000,band-average
+orochi,normalised,more1,0.550000,1.004278,809.500000,329.000000,band-average
+orochi,normalised,more1,0.650000,0.994920,898.500000,336.000000,band-average
+orochi,normalised,more1,0.730000,0.993583,969.700000,337.000000,band-average
+orochi,normalised,more1,0.860000,1.014973,1085.400000,321.000000,band-average
+orochi,normalised,more1,0.950000,1.031016,1165.500000,309.000000,band-average
+orochi,normalised,1btw250,0.390000,0.970856,667.100000,354.000000,band-average
+orochi,normalised,1btw250,0.480000,0.982888,747.200000,345.000000,band-average
+orochi,normalised,1btw250,0.550000,1.000267,809.500000,332.000000,band-average-manual-overlap
+orochi,normalised,1btw250,0.650000,1.000267,898.500000,332.000000,band-average
+orochi,normalised,1btw250,0.730000,1.001604,969.700000,331.000000,band-average
+orochi,normalised,1btw250,0.860000,1.005615,1085.400000,328.000000,band-average
+orochi,normalised,1btw250,0.950000,1.025668,1165.500000,313.000000,band-average
+orochi,normalised,less1,0.390000,0.952139,667.100000,368.000000,band-average
+orochi,normalised,less1,0.480000,0.980214,747.200000,347.000000,band-average
+orochi,normalised,less1,0.550000,1.000267,809.500000,332.000000,band-average
+orochi,normalised,less1,0.650000,1.012299,898.500000,323.000000,band-average
+orochi,normalised,less1,0.730000,1.021658,969.700000,316.000000,band-average
+orochi,normalised,less1,0.860000,1.047059,1085.400000,297.000000,band-average
+orochi,normalised,less1,0.950000,1.076471,1165.500000,275.000000,band-average
+orochi,normalised,less250,0.390000,0.940107,667.100000,377.000000,band-average
+orochi,normalised,less250,0.480000,0.981551,747.200000,346.000000,band-average
+orochi,normalised,less250,0.550000,0.990909,809.500000,339.000000,band-average
+orochi,normalised,less250,0.650000,1.017647,898.500000,319.000000,band-average
+orochi,normalised,less250,0.730000,1.029679,969.700000,310.000000,band-average
+orochi,normalised,less250,0.860000,1.056417,1085.400000,290.000000,band-average
+orochi,normalised,less250,0.950000,1.064439,1165.500000,284.000000,band-average
+orochi,normalised,less125,0.390000,0.966845,667.100000,357.000000,band-average
+orochi,normalised,less125,0.480000,0.982888,747.200000,345.000000,band-average
+orochi,normalised,less125,0.550000,1.000267,809.500000,332.000000,band-average-manual-overlap
+orochi,normalised,less125,0.650000,1.005615,898.500000,328.000000,band-average
+orochi,normalised,less125,0.730000,1.016310,969.700000,320.000000,band-average
+orochi,normalised,less125,0.860000,1.043048,1085.400000,300.000000,band-average
+orochi,normalised,less125,0.950000,1.083155,1165.500000,270.000000,band-average-manual-overlap
+orochi,normalised,less53,0.390000,0.952139,667.100000,368.000000,band-average
+orochi,normalised,less53,0.480000,0.978877,747.200000,348.000000,band-average
+orochi,normalised,less53,0.550000,1.000267,809.500000,332.000000,band-average
+orochi,normalised,less53,0.650000,1.044385,898.500000,299.000000,band-average
+orochi,normalised,less53,0.730000,1.063102,969.700000,285.000000,band-average
+orochi,normalised,less53,0.860000,1.096524,1085.400000,260.000000,band-average
+orochi,normalised,less53,0.950000,1.120588,1165.500000,242.000000,band-average
+orochi,normalised,CRISM Phobos red,0.390000,1.041711,667.100000,301.000000,band-average
+orochi,normalised,CRISM Phobos red,0.480000,0.936096,747.200000,380.000000,band-average
+orochi,normalised,CRISM Phobos red,0.550000,1.000267,809.500000,332.000000,band-average-manual-overlap
+orochi,normalised,CRISM Phobos red,0.730000,1.139305,969.700000,228.000000,band-average
+orochi,normalised,CRISM Phobos red,0.860000,1.282353,1085.400000,121.000000,band-average
+orochi,normalised,CRISM Phobos red,0.950000,1.350535,1165.500000,70.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.390000,1.010963,667.100000,324.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.480000,0.952139,747.200000,368.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.550000,1.001604,809.500000,331.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.730000,1.068449,969.700000,281.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.860000,1.120588,1085.400000,242.000000,band-average
+orochi,normalised,CRISM Phobos blue,0.950000,1.137968,1165.500000,229.000000,band-average

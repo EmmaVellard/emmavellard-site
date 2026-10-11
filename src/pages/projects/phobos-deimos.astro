@@ -1,298 +1,471 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/NavBar.astro";
-import ProjectToc from "../../components/ProjectToc.astro";
+import IllustratedLink from "../../components/IllustratedLink.astro";
+import OrochiBands from "../../components/OrochiBands.astro";
+import PhobosSpectrum from "../../components/PhobosSpectrum.astro";
+import { orochiBands } from "../../data/orochi-bands";
+import { projects } from "../../data/projects";
+import "../../styles/research.css";
 import "../../styles/projects.css";
-
-const title = "Phobos & Deimos | Spectral analogs and MMX preparation";
-const tocItems = [
-  { id: "overview", label: "Overview" },
-  { id: "contribution", label: "My contribution" },
-  { id: "context", label: "Scientific context" },
-  { id: "approach", label: "Approach" },
-  { id: "results", label: "Key results" },
-  { id: "figures", label: "Instrument comparisons" },
-  { id: "interpretation", label: "Interpretation" },
-  { id: "deliverables", label: "Deliverables" },
-  { id: "stack", label: "Technical implementation" },
-  { id: "links", label: "Links" },
-] as const;
+import "../../styles/phobos-deimos.css";
+const previous = projects[2];
+const next = projects[4];
+const fractions = [
+  { size: "> 1 mm", label: "more1" },
+  { size: "250 µm–1 mm", label: "1btw250" },
+  { size: "< 1 mm", label: "less1" },
+  { size: "< 250 µm", label: "less250" },
+  { size: "< 125 µm", label: "less125" },
+  { size: "< 53 µm", label: "less53" },
+];
+const steps = [
+  { title: "Separate", text: "Sieve the UTPS-TB material into six grain-size fractions." },
+  { title: "Measure", text: "Acquire reflectance spectra with the VERTEX 70v FTIR spectrometer." },
+  {
+    title: "Calibrate",
+    text: "Apply reference standards, join spectral ranges and normalise for comparison.",
+  },
+  {
+    title: "Compare",
+    text: "Sample the spectra under OROCHI and MIRS assumptions, alongside CRISM observations.",
+  },
+];
 ---
 
 <BaseLayout
-  title={title}
-  description="Spectral analysis and FTIR laboratory studies of Phobos analogue samples, supporting origin hypotheses and scientific preparation for the MMX mission."
-  socialImage="/images/projects/phobos-deimos/orochi-band-comparison.webp"
-  socialImageAlt="OROCHI filter-band comparison of Phobos analogue and CRISM spectra"
-  socialImageWidth={1100}
-  socialImageHeight={470}
+  title="Phobos & Deimos | Emma Vellard"
+  description="Emma Vellard's 2023 master's research at AIST and Tohoku University: testing UTPS-TB laboratory analogues of Phobos through grain-size spectroscopy and OROCHI/MIRS spectral sampling."
+  socialImage="/images/projects/phobos-deimos/martian-moons.webp"
+  socialImageAlt="Blue and ivory paper illustration of the two irregular Martian moons"
+  socialImageWidth={1536}
+  socialImageHeight={1024}
 >
-  <Navbar />
-
-  <main class="page page-project" id="main-content" tabindex="-1">
-    <div class="project-bg" aria-hidden="true"></div>
-
-    <section class="project-shell">
-      <div class="container">
-        <header class="project-head">
-          <a class="project-back" href="/projects">← Back to projects</a>
-
-          <div class="project-kicker">Research project</div>
-          <h1 class="project-title">Phobos &amp; Deimos</h1>
-
-          <div class="project-subtle">Spectral analogs · Laboratory validation · MMX preparation</div>
-
-          <p class="project-lede">
-            Laboratory validation of <span class="hl">UTPS-TB</span> simulants as spectral analogues of Phobos surface,
-            adapted to <span class="hl">MMX</span> instrument conditions (<span class="hl">OROCHI</span>, <span
-              class="hl">MIRS</span
-            >) and compared against <span class="hl">CRISM</span> observations.
+  <main id="main-content" class="phobos-project" tabindex="-1">
+    <section class="container research-intro phobos-intro">
+      <a class="text-link phobos-back" href="/research#earlier">← Research</a>
+      <div class="phobos-hero">
+        <div>
+          <p class="eyebrow eyebrow--plain">Earlier work · Laboratory spectroscopy</p>
+          <h1 class="research-title">Phobos &amp; Deimos</h1>
+          <p class="phobos-question">What makes a good analogue of Phobos?</p>
+          <p class="research-intro-text muted">
+            During my master's internship in Japan, I studied <strong class="text-emphasis"
+              >laboratory-made Phobos analogues</strong
+            >: how their grain size changes the light they reflect, and how those spectra compare with
+            spacecraft observations when sampled for MMX's instruments.
           </p>
-
+          <dl class="project-facts phobos-facts">
+            <div><dt>My role</dt><dd>Master's research intern</dd></div>
+            <div><dt>Where</dt><dd>AIST &amp; Tohoku · Japan</dd></div>
+            <div><dt>When</dt><dd>2023 · Four months</dd></div>
+          </dl>
           <div class="project-actions">
-            <a class="link-btn" href="/files/phobosreport.pdf" target="_blank" rel="noopener"
-              >Technical report · PDF, 2.7 MB</a
+            <IllustratedLink href="/files/phobosreport.pdf" variant="document" external
+              >Read the report</IllustratedLink
             >
-            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+            <IllustratedLink href="/#contact" variant="contact">Ask me about it</IllustratedLink>
           </div>
-        </header>
+        </div>
+        <img
+          class="phobos-hero-art float-art"
+          src="/images/projects/phobos-deimos/martian-moons.webp"
+          width="1536"
+          height="1024"
+          alt="Conceptual blue paper illustration of Phobos with a prominent crater and the smaller, smoother Deimos"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <nav class="research-index" aria-label="On this page" data-section-nav>
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#question">The question</a>
+        <a class="text-link" href="#method">In the laboratory</a>
+        <a class="text-link" href="#instruments">Through MMX's eyes</a>
+        <a class="text-link" href="#findings">What I learned</a>
+      </nav>
+    </section>
 
-        <div class="project-layout">
-          <!-- MAIN CONTENT (LEFT) -->
-          <article class="project-card project-main" id="top">
-            <section class="project-section" id="overview">
-              <h2 class="project-h2">Overview</h2>
-              <p class="project-p">
-                Phobos and Deimos origin remains debated between the <span class="hl">giant impact</span> and <span
-                  class="hl">asteroid capture</span
-                > scenarios. This work evaluates whether <span class="hl">UTPS-TB</span> (Tagish Lake based) simulants
-                reproduce key spectral behaviours of Phobos, including slope trends and the hydroxyl band region
-                around <span class="hl">2.71 µm</span>.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Problem</div>
-                  <div class="project-highlight-v">
-                    Interpreting Phobos spectra for MMX benefits from validated laboratory analogs under
-                    mission-like conditions.
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Goal</div>
-                  <div class="project-highlight-v">
-                    Compare lab spectra to datasets and simulate OROCHI/MIRS-compatible metrics for robust
-                    discrimination.
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="contribution">
-              <h2 class="project-h2">My contribution</h2>
-              <div class="project-contribution">
-                <p>
-                  I investigated Phobos origin scenarios through laboratory spectroscopy and mission-oriented
-                  spectral analysis in the context of JAXA’s MMX mission.
-                </p>
-                <ul>
-                  <li>
-                    Conducted FTIR experiments on Phobos analogue samples and evaluated grain-size effects.
-                  </li>
-                  <li>Processed and compared laboratory and remote-sensing spectra.</li>
-                  <li>
-                    Generated OROCHI-band and MIRS-resolution simulations and interpreted them against MMX
-                    science objectives.
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="project-section" id="context">
-              <h2 class="project-h2">Scientific context</h2>
-              <ul class="project-list">
-                <li>Two dominant hypotheses: impact origin vs capture.</li>
-                <li>
-                  UTPS simulants support scenario testing and instrument preparation (Tagish Lake based
-                  variants included).
-                </li>
-                <li>
-                  MMX interpretation relies strongly on slope and band-depth metrics derived from
-                  discrete-band (OROCHI) and NIR (MIRS) observations.
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="approach">
-              <h2 class="project-h2">Approach</h2>
-              <ul class="project-list">
-                <li>
-                  Laboratory reflectance spectroscopy across visible to IR ranges, calibrated with Spectralon
-                  and Infragold.
-                </li>
-                <li>
-                  Grain size separation and controlled sample handling to evaluate slope and reflectance
-                  sensitivity.
-                </li>
-                <li>Simulated band-averaged outputs matching OROCHI filter bands and MIRS resolution.</li>
-                <li>
-                  Consideration of thermal emission artefacts affecting the ~3 µm region in remote sensing
-                  comparisons.
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="results">
-              <h2 class="project-h2">Key results</h2>
-              <p class="project-p">
-                <span class="hl">Grain size</span> strongly impacts slope behaviour and reflectance. In OROCHI-band
-                space, finer grain regimes are compatible with observed unit-level trends when using normalized
-                metrics rather than absolute reflectance.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Spectral features</div>
-                  <div class="project-highlight-v">
-                    Hydroxyl region around <span class="hl">2.71 µm</span>, plus additional signatures
-                    influenced by mineralogy and organics.
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Instrument realism</div>
-                  <div class="project-highlight-v">
-                    OROCHI slopes remain robust; MIRS comparisons near ~3 µm can be biased by thermal emission
-                    even after correction.
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="figures">
-              <h2 class="project-h2">Instrument-oriented comparisons</h2>
-              <p class="project-p">
-                Laboratory analogue spectra were resampled to the observing conditions of the two MMX
-                remote-sensing instruments, connecting sample measurements directly to mission data products.
-              </p>
-
-              <div class="project-figure-grid project-figure-grid--wide">
-                <figure class="project-figure project-figure--plot">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/phobos-deimos/orochi-band-comparison.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the OROCHI filter-band comparison at full size"
-                  >
-                    <img
-                      src="/images/projects/phobos-deimos/orochi-band-comparison.webp"
-                      width="1100"
-                      height="470"
-                      alt="UTPS-TB laboratory analogue and CRISM Phobos spectra sampled in the MMX OROCHI filter bands, shown as reflectance and normalized reflectance"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>OROCHI simulation.</strong> UTPS-TB analogue and CRISM Phobos spectra sampled in the
-                    instrument’s discrete filter bands.
-                    <a
-                      class="project-figure-source"
-                      href="/files/phobosreport.pdf#page=21"
-                      target="_blank"
-                      rel="noopener">Research report · Fig. 8</a
-                    >
-                  </figcaption>
-                </figure>
-
-                <figure class="project-figure project-figure--plot">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/phobos-deimos/mirs-spectral-comparison.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the MIRS spectral comparison at full size"
-                  >
-                    <img
-                      src="/images/projects/phobos-deimos/mirs-spectral-comparison.webp"
-                      width="1070"
-                      height="450"
-                      alt="UTPS-TB laboratory analogue and CRISM Phobos spectra resampled to MMX MIRS observing conditions across the near infrared"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>MIRS simulation.</strong> Laboratory analogue and CRISM Phobos spectra resampled to
-                    mission-like spectral conditions.
-                    <a
-                      class="project-figure-source"
-                      href="/files/phobosreport.pdf#page=23"
-                      target="_blank"
-                      rel="noopener">Research report · Fig. 10</a
-                    >
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-
-            <section class="project-section" id="interpretation">
-              <h2 class="project-h2">Interpretation</h2>
-              <p class="project-p">
-                The analysis shows that <span class="hl">grain size</span>, <span class="hl">porosity</span>,
-                and the presence of <span class="hl">organics</span> significantly control reflectance behaviour.
-                This limits the reliability of spectral slope alone for compositional inference, meaning that similarities
-                with <span class="hl">carbonaceous asteroids</span> cannot directly validate a <span
-                  class="hl">capture origin</span
-                >. Integrating slope-based diagnostics with hydroxyl-region indicators offers a more robust
-                framework to evaluate <span class="hl">formation scenarios</span>.
-              </p>
-            </section>
-
-            <section class="project-section" id="deliverables">
-              <h2 class="project-h2">Deliverables</h2>
-              <ul class="project-list">
-                <li>Processed laboratory spectra across visible to IR ranges for multiple grain sizes.</li>
-                <li>
-                  OROCHI band simulations (band-averaged reflectance, normalized profiles, slope metrics).
-                </li>
-                <li>MIRS-resolution simulations with discussion of thermal emission biases.</li>
-                <li>
-                  Interpretation notes linking spectral behaviour to physical controls (grain size, porosity,
-                  organics).
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="stack">
-              <h2 class="project-h2">Technical implementation</h2>
-
-              <div class="project-tags">
-                <span class="project-tag">Lab reflectance spectroscopy</span>
-                <span class="project-tag">OROCHI band simulation</span>
-                <span class="project-tag">MIRS-resolution simulation</span>
-                <span class="project-tag">Spectral slope analysis</span>
-                <span class="project-tag">Band-depth metrics (2.7 µm)</span>
-                <span class="project-tag">Grain size sensitivity</span>
-                <span class="project-tag">Thermal emission considerations</span>
-                <span class="project-tag">CRISM comparison</span>
-              </div>
-            </section>
-
-            <section class="project-section" id="links">
-              <h2 class="project-h2">Links</h2>
-              <div class="project-actions">
-                <a class="link-btn" href="/files/phobosreport.pdf" target="_blank" rel="noopener"
-                  >Technical report · PDF, 2.7 MB</a
-                >
-                <a class="link-btn link-btn--secondary" href="/experience/#tohoku">Related experience</a>
-              </div>
-            </section>
+    <section class="phobos-section band" id="question" aria-labelledby="question-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The question</p>
+        <h2 class="h2" id="question-title">Small moons. A larger question of origin.</h2>
+        <div class="chapter-pair phobos-pair">
+          <div>
+            <p class="phobos-lede">
+              Phobos and Deimos raise a question about the history of Mars:{" "}
+              <strong class="text-emphasis">were they captured, or did they form from impact debris?</strong>
+              {" "}Spectra offer clues about surface materials, but composition, grain size and surface
+              processing can leave overlapping signatures.
+            </p>
+            <p class="muted">
+              My study tested UTPS-TB, a Tagish Lake-based simulant developed as an analogue for the
+              asteroid-capture scenario. The aim was to evaluate its spectral behaviour and its limits as a
+              comparison material.
+            </p>
+          </div>
+          <aside class="chapter-note phobos-contribution">
+            <h3 class="chapter-note-term">What I contributed</h3>
+            <ul>
+              <li>Prepared and measured six grain-size fractions.</li>
+              <li>Compared calibrated laboratory spectra with CRISM observations of Phobos.</li>
+              <li>Adapted the spectra to the OROCHI bands and MIRS sampling used in the study.</li>
+            </ul>
+          </aside>
+        </div>
+        <div class="phobos-hypotheses">
+          <article>
+            <h3>Asteroid capture</h3><p class="muted">
+              Phobos and Deimos would originally have been asteroids orbiting the Sun, later captured by
+              Mars's gravity. Their dark, asteroid-like surfaces motivate this idea, but explaining their
+              nearly circular orbits close to Mars's equatorial plane is difficult.
+            </p>
           </article>
-
-          <ProjectToc items={tocItems} />
+          <article>
+            <h3>Giant impact</h3><p class="muted">
+              A large impact on early Mars would have launched debris from both Mars and the impactor into
+              orbit. Phobos and Deimos could then have formed as that debris accumulated into moons. This
+              scenario links their composition to a mixture of Martian and impactor material.
+            </p>
+          </article>
+        </div>
+        <p class="phobos-scope">
+          <strong class="text-emphasis">Phobos was the experimental focus.</strong> Deimos belongs to the wider
+          origin question; the spectral comparisons shown here use Phobos observations.
+        </p>
+        <div class="research-reference">
+          <span>Context</span><a
+            class="text-link"
+            href="/files/phobosreport.pdf#page=9"
+            target="_blank"
+            rel="noopener">Origin scenarios · pp. 9–10</a
+          ><a class="text-link" href="/files/phobosreport.pdf#page=12" target="_blank" rel="noopener"
+            >Simulant rationale · pp. 12–13</a
+          ><a class="text-link" href="https://www.mmx.jaxa.jp/en/science/" target="_blank" rel="noopener"
+            >JAXA · MMX science</a
+          >
         </div>
       </div>
     </section>
+
+    <section class="phobos-section" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">In the laboratory</p>
+        <h2 class="h2" id="method-title">Same material. Different grains. Different spectrum.</h2>
+        <div class="phobos-method-head">
+          <div>
+            <p class="phobos-lede">
+              Holding the mixture constant makes it possible to examine how <strong class="text-emphasis"
+                >particle size and sample preparation</strong
+              > affect reflectance and spectral slope.
+            </p>
+            <p class="muted">
+              I separated the simulant with sieves, prepared the sample holders and measured their reflectance
+              with the VERTEX 70v. The spectra were calibrated with Spectralon and Infragold, then compared in
+              absolute and normalised form.
+            </p>
+          </div>
+          <figure>
+            <img
+              class="float-art"
+              src="/images/projects/phobos-deimos/analogue-grains.webp"
+              width="1536"
+              height="1024"
+              alt="Conceptual paper illustration of coarse fragments, smaller grains and powder in sample holders beside a sieve"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Laboratory analogues · conceptual illustration</figcaption>
+          </figure>
+        </div>
+        <div class="phobos-sub">
+          <h3 class="research-h3">Six fractions, one mixture.</h3>
+          <dl class="phobos-grains">
+            {
+              fractions.map((fraction) => (
+                <div class="phobos-grain">
+                  <>
+                    <dt>{fraction.size}</dt>
+                    <dd>Report label: {fraction.label}</dd>
+                  </>
+                </div>
+              ))
+            }
+          </dl>
+          <p class="phobos-scope">
+            The “finer than” fractions are cumulative and overlap; these are not six disjoint size bins. The
+            smallest sieve used was 53 µm.
+          </p>
+        </div>
+        <div class="phobos-sub">
+          <h3 class="research-h3">From powder to a comparable observation.</h3>
+          <ol class="pipeline">
+            {
+              steps.map((step, index) => (
+                <li>
+                  <>
+                    <span class="pipeline-num">{String(index + 1).padStart(2, "0")}</span>
+                    <span class="pipeline-title">{step.title}</span>
+                    <span class="muted pipeline-text">{step.text}</span>
+                  </>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="research-reference">
+          <span>Report source</span><a
+            class="text-link"
+            href="/files/phobosreport.pdf#page=13"
+            target="_blank"
+            rel="noopener">Samples &amp; method · pp. 13–16</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="phobos-section band" id="instruments" aria-labelledby="instruments-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Through MMX's eyes</p>
+        <h2 class="h2" id="instruments-title">Compare what the instrument can see.</h2>
+        <p class="phobos-lede">
+          A laboratory spectrum contains more detail than a camera's filter bands. I sampled the laboratory
+          and CRISM spectra under the same instrument assumptions, then compared{" "}
+          <strong class="text-emphasis">brightness, spectral shape and absorption features</strong>.
+        </p>
+        <article class="phobos-instrument" aria-labelledby="orochi-heading">
+          <div class="phobos-instrument-head">
+            <div>
+              <h3 class="research-h3" id="orochi-heading">OROCHI · seven windows into colour</h3>
+              <span class="phobos-range">Band centres: 0.39–0.95 µm</span>
+              <p class="muted">
+                The report averages the spectra across seven nominal filter bands. Normalising at 0.55 µm
+                removes the overall brightness scale so that differences in spectral shape are easier to
+                compare.
+              </p>
+            </div>
+            <figure class="phobos-band-figure">
+              <OrochiBands /><figcaption>
+                Band centres and widths from Table 4, p. 21. Rectangles show nominal intervals, not measured
+                filter transmission.
+              </figcaption>
+            </figure>
+          </div>
+          <PhobosSpectrum instrument="orochi" />
+          <div class="phobos-spectrum-note">
+            <p>
+              <strong class="text-emphasis">Absolute reflectance</strong> retains brightness differences between
+              the analogue and Phobos. Those differences are not removed by choosing a grain-size fraction.
+            </p>
+            <p>
+              <strong class="text-emphasis">Normalised reflectance</strong> highlights shape. Finer analogue fractions
+              generally show redder slopes, while the Phobos curves still differ from the tested material.
+            </p>
+          </div>
+          <div class="research-reference">
+            <span>Report source</span><a
+              class="text-link"
+              href="/files/phobosreport.pdf#page=21"
+              target="_blank"
+              rel="noopener">OROCHI comparison · pp. 21–22</a
+            >
+          </div>
+        </article>
+        <article class="phobos-instrument" aria-labelledby="mirs-heading">
+          <div class="phobos-instrument-head">
+            <div>
+              <h3 class="research-h3" id="mirs-heading">MIRS · looking for mineral signatures</h3>
+              <span class="phobos-range">0.9–3.6 µm · 20 nm sampling used in the study</span>
+              <p class="muted">
+                The near-infrared comparison looks at continuum slope and the hydroxyl-related absorption in
+                the analogue near 2.7 µm. The report normalises these spectra at 2.5 µm.
+              </p>
+            </div>
+            <aside class="phobos-thermal">
+              <strong class="text-emphasis">The surface also emits light.</strong> Near 3 µm, thermal emission and
+              its correction complicate the Phobos comparison. The CRISM data used in this study do not establish
+              a secure detection of the analogue's hydroxyl band on Phobos.
+            </aside>
+          </div>
+          <PhobosSpectrum instrument="mirs" />
+          <p class="phobos-series">
+            <strong>Reading the legends.</strong> The six grain-size entries identify the UTPS-TB laboratory fractions
+            listed above. Phobos “red” and “blue” refer to spectral units on the moon, rather than grain-size classes.
+          </p>
+          <div class="research-reference">
+            <span>Report source</span><a
+              class="text-link"
+              href="/files/phobosreport.pdf#page=23"
+              target="_blank"
+              rel="noopener">MIRS comparison · pp. 23–24</a
+            >
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="phobos-section" id="findings" aria-labelledby="findings-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">What I learned</p>
+        <h2 class="h2" id="findings-title">An analogue is useful when its limits are visible.</h2>
+        <div class="phobos-results">
+          <article class="phobos-result">
+            <span>Laboratory result</span><h3>Grain size changes the signal.</h3><p>
+              The tested fractions show differences in reflectance, slope and absorption depth. Packing and
+              coarse-grain geometry also matter; brightness is not a simple grain-size ruler.
+            </p>
+          </article>
+          <article class="phobos-result">
+            <span>Comparison result</span><h3>A partial match, not a replica.</h3><p>
+              Normalisation helps compare spectral shape, but UTPS-TB does not reproduce every aspect of the
+              Phobos observations. Composition and space weathering remain possible contributors to the
+              mismatch.
+            </p>
+          </article>
+          <article class="phobos-result">
+            <span>Interpretation limit</span><h3>The origin remains open.</h3><p>
+              This study does not establish Phobos's grain size, confirm hydrated minerals on its surface, or
+              decide between the origin scenarios. It identifies comparisons and caveats for interpreting MMX
+              observations.
+            </p>
+          </article>
+        </div>
+        <div class="phobos-study-link">
+          <IllustratedLink href="/files/phobosreport.pdf" variant="document" external
+            >Read the full study</IllustratedLink
+          >
+        </div>
+        <div class="research-reference">
+          <span>Further context</span><a
+            class="text-link"
+            href="https://www.mmx.jaxa.jp/en/science/"
+            target="_blank"
+            rel="noopener">JAXA · mission instruments</a
+          ><a
+            class="text-link"
+            href="https://doi.org/10.1186/s40623-021-01423-2"
+            target="_blank"
+            rel="noopener">MIRS · instrument paper</a
+          >
+        </div>
+        <details class="project-details phobos-details">
+          <summary
+            ><span class="project-details-title">Method, band values &amp; study limits</span><span
+              class="project-details-toggle"
+              aria-hidden="true"></span></summary
+          >
+          <div class="project-details-body">
+            <div>
+              <h3>Research context</h3>
+              <p>
+                Master's internship, 2023: three months at AIST in Tsukuba with Moe Matsuoka and one month at
+                Tohoku University in Sendai with Tomoki Nakamura. The report also includes Ryugu sample work;
+                this page focuses on the UTPS-TB spectroscopy and Phobos comparison.
+              </p>
+              <h3 class="phobos-sub">Measurement conditions</h3>
+              <p>
+                The report describes a roughly 5 mm footprint, 30° incidence, 0° emission and 2,048 scans per
+                sample in the FTIR measurements. These laboratory conditions differ from spacecraft observing
+                geometry.
+              </p>
+              <div class="phobos-details-links">
+                <a class="text-link" href="/files/phobosreport.pdf#page=14" target="_blank" rel="noopener"
+                  >Laboratory setup · pp. 14–16</a
+                ><a class="text-link" href="/files/phobosreport.pdf#page=27" target="_blank" rel="noopener"
+                  >Hosts &amp; supervision · p. 27</a
+                >
+              </div>
+            </div>
+            <div>
+              <h3>Nominal OROCHI bands</h3>
+              <table class="phobos-band-table">
+                <caption>Values used in the 2023 study · Table 4</caption><thead
+                  ><tr
+                    ><th scope="col">Band</th><th scope="col">Centre · µm</th><th scope="col">Width · µm</th
+                    ></tr
+                  ></thead
+                ><tbody
+                  >{
+                    orochiBands.map((band) => (
+                      <tr>
+                        <>
+                          <th scope="row">{band.name}</th>
+                          <td>{band.centre.toFixed(2)}</td>
+                          <td>{band.width.toFixed(2)}</td>
+                        </>
+                      </tr>
+                    ))
+                  }</tbody
+                >
+              </table>
+              <p>
+                The rectangular diagram represents these nominal widths. It is not a measured
+                spectral-response curve or an end-to-end flight-instrument simulation.
+              </p>
+            </div>
+            <div>
+              <h3>What the comparisons cannot settle</h3>
+              <p>
+                The report discusses very fine grains, porosity, organic material and space weathering as
+                possible explanations. Spectral similarity alone does not uniquely recover those properties or
+                validate an origin scenario.
+              </p>
+              <p>
+                The 2.76 µm value used for one band-depth comparison is the nearest available CRISM sample to
+                the analogue's 2.71 µm feature. Thermal correction and incomplete coverage limit that
+                comparison.
+              </p>
+              <div class="phobos-details-links">
+                <a class="text-link" href="/files/phobosreport.pdf#page=24" target="_blank" rel="noopener"
+                  >Band-depth discussion · pp. 24–26</a
+                >
+              </div>
+            </div>
+            <div>
+              <h3>Figure sources &amp; digitisation</h3>
+              <p>
+                The graphs are approximate digitisations of the JPEG images embedded in the 2023 report. Both
+                panels retain their original axes and comparisons. The OROCHI redraw shows only the
+                band-average curves; MIRS retains the visible spectral traces and CRISM scatter. JPEG
+                compression and overlapping curves prevent exact recovery of coordinates or marker counts. The
+                downloadable points are for displaying these comparisons, not for new scientific inference or
+                band-depth calculations. Original numerical measurements are not available here.
+              </p>
+              <div class="phobos-details-links">
+                <a
+                  class="text-link"
+                  href="/files/phobos-deimos/digitisation-provenance.json"
+                  target="_blank"
+                  rel="noopener">Digitisation method &amp; limitations</a
+                >
+                <a
+                  class="text-link"
+                  href="/images/projects/phobos-deimos/orochi-report-full.jpg"
+                  target="_blank"
+                  rel="noopener">Original OROCHI figure · Fig. 8</a
+                ><a
+                  class="text-link"
+                  href="/images/projects/phobos-deimos/mirs-report-full.jpg"
+                  target="_blank"
+                  rel="noopener">Original MIRS figure · Fig. 10</a
+                >
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={"/projects/" + previous.slug}
+        ><img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" /><span
+          ><span class="project-pager-k">← Previous</span><span class="project-pager-v">{previous.title}</span
+          ></span
+        ></a
+      >
+      <a class="project-pager-link project-pager-link--next" href={"/projects/" + next.slug}
+        ><span
+          ><span class="project-pager-k">Next →</span><span class="project-pager-v">{next.title}</span></span
+        ><img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" /></a
+      >
+    </nav>
   </main>
 </BaseLayout>

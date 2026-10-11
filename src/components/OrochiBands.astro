@@ -1,0 +1,49 @@
+---
+import { orochiBands } from "../data/orochi-bands";
+const x = (wavelength: number) => 40 + ((wavelength - 0.35) / 0.65) * 620;
+---
+
+<svg
+  class="phobos-band-diagram"
+  viewBox="0 0 700 225"
+  role="img"
+  aria-labelledby="orochi-title"
+  aria-describedby="orochi-description"
+>
+  <title id="orochi-title">Seven OROCHI bands used in the study</title>
+  <desc id="orochi-description"
+    >Nominal centres from 0.39 to 0.95 micrometres and widths from 0.03 to 0.06 micrometres, reproduced from
+    Table 4 of the 2023 report. Rectangles show wavelength intervals, not measured filter response. Exact
+    values are available in the table below.</desc
+  >
+  <path d="M40 146H660" class="phobos-band-axis"></path>
+  {
+    orochiBands.map((band) => (
+      <g>
+        <rect
+          x={x(band.centre - band.width / 2)}
+          y="70"
+          width={(band.width / 0.65) * 620}
+          height="76"
+          rx="2"
+          class="phobos-band-window"
+        />
+        <line x1={x(band.centre)} x2={x(band.centre)} y1="62" y2="146" class="phobos-band-centre" />
+        <text x={x(band.centre)} y="45" text-anchor="middle" class="phobos-band-name">
+          {band.name}
+        </text>
+      </g>
+    ))
+  }
+  {
+    [0.4, 0.6, 0.8, 1.0].map((tick) => (
+      <g>
+        <line x1={x(tick)} x2={x(tick)} y1="146" y2="154" class="phobos-band-axis" />
+        <text x={x(tick)} y="181" text-anchor="middle" class="phobos-band-tick">
+          {tick.toFixed(1)}
+        </text>
+      </g>
+    ))
+  }
+  <text x="350" y="218" text-anchor="middle" class="phobos-band-tick">Wavelength · µm</text>
+</svg>

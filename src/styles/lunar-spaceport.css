@@ -1,0 +1,317 @@
+/* Lunar Spaceport follows Research and SolarConflux's editorial chapters. */
+.spaceport-intro {
+  gap: 36px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+.spaceport-back {
+  align-self: flex-start;
+  font-size: 15px;
+}
+.spaceport-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+.spaceport-question {
+  max-width: 24ch;
+  margin: 20px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+.spaceport-hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.spaceport-facts {
+  gap: 16px 28px;
+}
+.spaceport-section {
+  padding-top: 64px;
+  padding-bottom: 68px;
+  scroll-margin-top: var(--nav-h);
+}
+.spaceport-section .h2 {
+  margin-top: 10px;
+  max-width: 29ch;
+}
+.spaceport-pair {
+  margin-top: 28px;
+}
+.spaceport-lede {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.spaceport-contribution ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.spaceport-contribution li + li {
+  margin-top: 10px;
+}
+.spaceport-contribution li::marker {
+  color: var(--accent);
+}
+.spaceport-section-lede + .spaceport-pad-pair {
+  margin-top: 32px;
+}
+.spaceport-thread {
+  margin-top: 40px;
+  padding: 28px 0 0;
+  border-bottom: 0;
+}
+.spaceport-terrain-art img {
+  height: auto;
+  /* Trim the transparent band baked above and below the drawing (% of width). */
+  margin: -14.9% 0 -18%;
+}
+.spaceport-site-pair,
+.spaceport-pad-pair {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-top: 28px;
+}
+.spaceport-site-pair > *,
+.spaceport-pad-pair > * {
+  min-width: 0;
+}
+.spaceport-map,
+.spaceport-pad-figure {
+  margin: 0;
+}
+.spaceport-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+.spaceport-map figcaption,
+.spaceport-pad-figure figcaption {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.spaceport-site-pair p {
+  margin: 0;
+}
+.spaceport-site-pair p + p {
+  margin-top: 16px;
+}
+.spaceport-project .research-reference {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 24px;
+  margin-top: 24px;
+  font-size: 13px;
+}
+.spaceport-criteria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 36px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.spaceport-criteria li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.spaceport-criterion-num {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.spaceport-criteria h4,
+.spaceport-pad-key h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.spaceport-criteria p {
+  margin: 10px 0 0;
+  font-size: 15px;
+}
+.spaceport-section-lede {
+  max-width: 80ch;
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.spaceport-pad-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--accent);
+}
+.pad-floor {
+  fill: currentColor;
+  fill-opacity: 0.04;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-opacity: 0.4;
+}
+.pad-outer-berm {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 28;
+  stroke-opacity: 0.3;
+}
+.pad-rim-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-opacity: 0.7;
+}
+.pad-inner-berm {
+  fill: currentColor;
+  fill-opacity: 0.55;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+.pad-centre-guide {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 4 5;
+  stroke-opacity: 0.5;
+}
+.pad-caption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  fill: var(--muted);
+}
+.pad-callout circle {
+  fill: var(--accent);
+  stroke: var(--band);
+  stroke-width: 3;
+}
+.pad-callout text {
+  fill: var(--bg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+}
+.spaceport-pad-key {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.spaceport-pad-key li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 16px;
+}
+.spaceport-pad-key li + li {
+  margin-top: 22px;
+}
+.spaceport-pad-key li > span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+}
+.spaceport-pad-key p {
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+.spaceport-scope {
+  margin: 26px 0 0;
+  font-size: 14px;
+}
+.spaceport-source-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 24px;
+  margin-top: 32px;
+  font-size: 13px;
+}
+.spaceport-source-row > span {
+  color: var(--muted);
+}
+.spaceport-details {
+  margin-top: 36px;
+}
+.spaceport-archive-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+}
+@media (max-width: 1000px) {
+  .spaceport-hero {
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 24px;
+  }
+  .spaceport-criteria {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .spaceport-site-pair,
+  .spaceport-pad-pair {
+    gap: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .spaceport-hero,
+  .spaceport-site-pair,
+  .spaceport-pad-pair {
+    grid-template-columns: 1fr;
+  }
+  .spaceport-hero {
+    gap: 24px;
+  }
+  .spaceport-hero-art {
+    width: min(500px, 100%);
+    justify-self: center;
+  }
+  .spaceport-map {
+    max-width: 600px;
+  }
+  .spaceport-pad-figure {
+    max-width: 540px;
+    justify-self: center;
+  }
+}
+@media (max-width: 640px) {
+  .spaceport-intro {
+    gap: 28px;
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+  .spaceport-section {
+    padding-top: 44px;
+    padding-bottom: 48px;
+  }
+  .spaceport-pair {
+    gap: 28px;
+  }
+  .spaceport-lede {
+    font-size: 17px;
+  }
+  .spaceport-criteria {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}

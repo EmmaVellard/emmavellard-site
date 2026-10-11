@@ -1,0 +1,253 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects, type ProjectSlug } from "../data/projects";
+import "../styles/projects.css";
+import IllustratedLink from "./IllustratedLink.astro";
+import Motif from "./Motif.astro";
+
+type Fact = { label: string; value: string };
+type Action = { href: string; label: string; meta?: string; external?: boolean; primary?: boolean };
+type Figure = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  title: string;
+  caption: string;
+  source?: { href: string; label: string };
+  photo?: boolean;
+};
+
+type Props = {
+  slug: ProjectSlug;
+  metaTitle: string;
+  description: string;
+  kicker: string;
+  title: string;
+  question: string;
+  facts: Fact[];
+  actions: Action[];
+  illustrationAlt: string;
+  figure: Figure;
+  context: string;
+  did: string[];
+  outcome: string;
+  moreFigures?: Figure[];
+};
+
+const {
+  slug,
+  metaTitle,
+  description,
+  kicker,
+  title,
+  question,
+  facts,
+  actions,
+  illustrationAlt,
+  figure,
+  context,
+  did,
+  outcome,
+  moreFigures = [],
+} = Astro.props;
+
+const index = projects.findIndex((project) => project.slug === slug);
+const current = projects[index];
+const previous = projects[(index - 1 + projects.length) % projects.length];
+const next = projects[(index + 1) % projects.length];
+const hasDetails = Astro.slots.has("details");
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={description}
+  socialImage={figure.src}
+  socialImageAlt={figure.alt}
+  socialImageWidth={figure.width}
+  socialImageHeight={figure.height}
+>
+  <main id="main-content" tabindex="-1">
+    <!-- Header -->
+    <section class="container project-intro">
+      <a class="text-link" href="/research#earlier">← Research</a>
+      <div class="project-intro-grid">
+        <div class="project-intro-text">
+          <p class="eyebrow eyebrow--plain">{kicker}</p>
+          <h1 class="project-title">{title}</h1>
+          <p class="project-question">{question}</p>
+          <dl class="project-facts">
+            {
+              facts.map((fact) => (
+                <div>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          <div class="project-actions">
+            {
+              actions.map((action) => (
+                <IllustratedLink
+                  href={action.href}
+                  external={action.external}
+                  variant={
+                    action.href.startsWith("mailto:") || action.href.endsWith("#contact")
+                      ? "contact"
+                      : /\.(pdf|pptx?)(?:[?#]|$)/i.test(action.href)
+                        ? "document"
+                        : "explore"
+                  }
+                >
+                  {action.label}
+                  {action.meta && <span class="btn-meta">({action.meta})</span>}
+                </IllustratedLink>
+              ))
+            }
+          </div>
+        </div>
+        <img
+          class="project-illustration float-art"
+          {...current.illustration}
+          alt={illustrationAlt}
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <!-- Main figure -->
+    <section class="container project-figure-main">
+      <figure class:list={["project-figure", { "project-figure--photo": figure.photo }]}>
+        <a
+          class="project-figure-frame"
+          href={figure.src}
+          target="_blank"
+          rel="noopener"
+          aria-label={`Open “${figure.title}” at full size`}
+        >
+          <img
+            src={figure.src}
+            width={figure.width}
+            height={figure.height}
+            alt={figure.alt}
+            decoding="async"
+          />
+        </a>
+        <figcaption>
+          <span><strong>{figure.title}</strong> {figure.caption}</span>
+          {
+            figure.source && (
+              <a class="text-link" href={figure.source.href} target="_blank" rel="noopener">
+                {figure.source.label}
+              </a>
+            )
+          }
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Three fixed blocks -->
+    <section class="container project-blocks">
+      <article class="project-block">
+        <div class="project-block-heading">
+          <h2 class="project-block-title">The question</h2>
+          <Motif kind="orbit" />
+        </div>
+        <p>{context}</p>
+      </article>
+      <article class="project-block">
+        <div class="project-block-heading">
+          <h2 class="project-block-title">What I did</h2>
+          <Motif kind="document" />
+        </div>
+        <ul>
+          {did.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="project-block project-block--outcome">
+        <div class="project-block-heading">
+          <h2 class="project-block-title">What came out</h2>
+          <Motif kind="strata" />
+        </div>
+        <p>{outcome}</p>
+      </article>
+    </section>
+
+    <!-- More figures -->
+    {
+      moreFigures.length > 0 && (
+        <section class="container project-gallery">
+          <h2 class="project-h2">More figures</h2>
+          <div class="project-gallery-grid">
+            {moreFigures.map((item) => (
+              <figure class="project-figure project-figure--small">
+                <a
+                  class="project-figure-frame"
+                  href={item.src}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Open “${item.title}” at full size`}
+                >
+                  <img
+                    src={item.src}
+                    width={item.width}
+                    height={item.height}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <span>
+                    <strong>{item.title}</strong> {item.caption}
+                  </span>
+                  {item.source && (
+                    <a class="text-link" href={item.source.href} target="_blank" rel="noopener">
+                      {item.source.label}
+                    </a>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Technical details, folded -->
+    {
+      hasDetails && (
+        <section class="container project-details-wrap">
+          <details class="project-details">
+            <summary>
+              <span class="project-details-title">Technical details</span>
+              <span class="project-details-toggle" aria-hidden="true" />
+            </summary>
+            <div class="project-details-body">
+              <slot name="details" />
+            </div>
+          </details>
+        </section>
+      )
+    }
+
+    <!-- Previous / next -->
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={`/projects/${previous.slug}`}>
+        <img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" />
+        <span>
+          <span class="project-pager-k">← Previous</span>
+          <span class="project-pager-v">{previous.title}</span>
+        </span>
+      </a>
+      <a class="project-pager-link project-pager-link--next" href={`/projects/${next.slug}`}>
+        <span>
+          <span class="project-pager-k">Next →</span>
+          <span class="project-pager-v">{next.title}</span>
+        </span>
+        <img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" />
+      </a>
+    </nav>
+  </main>
+</BaseLayout>

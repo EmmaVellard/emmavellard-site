@@ -1,0 +1,344 @@
+.ypsat-intro {
+  gap: 36px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+.ypsat-back {
+  align-self: flex-start;
+  font-size: 15px;
+}
+.ypsat-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.ypsat-question {
+  margin: 20px 0 0;
+  max-width: 25ch;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+.ypsat-hero-figure,
+.ypsat-board-figure {
+  margin: 0;
+}
+.ypsat-hero-art,
+.ypsat-board-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Trim the transparent band baked above and below the drawing (% of width). */
+.ypsat-board-figure img {
+  margin: -6.7% 0 -2.1%;
+}
+.ypsat-hero-figure figcaption,
+.ypsat-board-figure figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+}
+.ypsat-facts {
+  gap: 16px 28px;
+}
+.ypsat-section {
+  padding: 64px 0 68px;
+  scroll-margin-top: var(--nav-h);
+}
+.ypsat-section .h2 {
+  margin-top: 10px;
+  max-width: 29ch;
+}
+.ypsat-lede {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.ypsat-section-lede {
+  max-width: 80ch;
+  margin: 24px 0 0;
+}
+.ypsat-mission-pair {
+  margin-top: 28px;
+  align-items: center;
+}
+.ypsat-mission-pair p {
+  margin: 16px 0 0;
+}
+.ypsat-mission-pair p:first-child {
+  margin-top: 0;
+}
+.ypsat-moments {
+  display: grid;
+  gap: 24px;
+  padding-left: 30px;
+  border-left: 1px solid var(--line);
+}
+.ypsat-moments > div {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+.ypsat-number {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+}
+.ypsat-moments h3 {
+  font-family: var(--font-display);
+  font-size: 25px;
+  margin: 0;
+  line-height: 1.15;
+}
+.ypsat-moments p.muted {
+  font-size: 14px;
+  margin-top: 8px;
+}
+.ypsat-project .research-reference {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: baseline;
+  font-size: 13px;
+  margin-top: 24px;
+}
+.ypsat-pair {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 28px;
+}
+.ypsat-pair > * {
+  min-width: 0;
+}
+.ypsat-pair p {
+  margin: 16px 0 0;
+}
+.ypsat-pair p:first-child {
+  margin-top: 0;
+}
+.ypsat-sequence-head {
+  margin-top: 36px;
+}
+.ypsat-sequence {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  padding: 0;
+  margin: 28px 0 0;
+}
+.ypsat-sequence li {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.ypsat-sequence li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  transform: rotate(45deg);
+  right: -14px;
+  top: -6px;
+}
+.ypsat-sequence-mark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ypsat-state {
+  font-size: 12px;
+  color: var(--muted);
+}
+.ypsat-sequence h4,
+.ypsat-contribution-grid h3 {
+  font-family: var(--font-display);
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 14px 0 0;
+}
+.ypsat-sequence p,
+.ypsat-contribution-grid p {
+  font-size: 15px;
+  margin: 12px 0 0;
+}
+.ypsat-backup {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: baseline;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+  margin-top: 28px;
+}
+.ypsat-backup-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.ypsat-backup p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 80ch;
+}
+.ypsat-contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+.ypsat-contribution-grid article {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.ypsat-contribution-grid h3 {
+  margin-top: 0;
+}
+.ypsat-perspective {
+  max-width: 78ch;
+  border-left: 2px solid var(--accent);
+  padding-left: 24px;
+  margin-top: 38px;
+}
+.ypsat-perspective p {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
+.ypsat-flight-head {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 28px;
+}
+.ypsat-flight-head p {
+  margin: 0;
+}
+.ypsat-flight-head p.muted {
+  font-size: 15px;
+}
+.ypsat-flight-figure {
+  margin: 28px 0 0;
+}
+.ypsat-flight-figure > a {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #050c1a;
+}
+.ypsat-flight-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ypsat-flight-figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 14px;
+}
+.ypsat-flight-actions {
+  margin-top: 28px;
+}
+.ypsat-details {
+  margin-top: 36px;
+}
+@media (max-width: 1000px) {
+  .ypsat-hero,
+  .ypsat-pair,
+  .ypsat-flight-head {
+    gap: 28px;
+  }
+  .ypsat-sequence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 32px;
+  }
+  .ypsat-sequence li:nth-child(2)::after {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .ypsat-hero,
+  .ypsat-pair,
+  .ypsat-flight-head {
+    grid-template-columns: 1fr;
+  }
+  .ypsat-hero-figure,
+  .ypsat-board-figure {
+    max-width: 540px;
+    justify-self: center;
+  }
+  .ypsat-moments {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 24px 0 0;
+  }
+  .ypsat-contribution-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ypsat-backup {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .ypsat-intro {
+    padding-top: 28px;
+    padding-bottom: 32px;
+    gap: 28px;
+  }
+  .ypsat-section {
+    padding: 44px 0 48px;
+  }
+  .ypsat-lede {
+    font-size: 17px;
+  }
+  .ypsat-sequence {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ypsat-sequence li {
+    border-top: 0;
+    border-left: 1px solid var(--line);
+    margin-left: 10px;
+    padding: 0 0 24px 24px;
+  }
+  .ypsat-sequence li:last-child {
+    padding-bottom: 0;
+  }
+  .ypsat-sequence li::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    top: 10px;
+    left: -4px;
+  }
+  .ypsat-sequence li:not(:last-child)::after {
+    display: none;
+  }
+  .ypsat-sequence h4 {
+    margin-top: 8px;
+  }
+  .ypsat-flight-figure > a {
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,360 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import IllustratedLink from "../../components/IllustratedLink.astro";
+import { projects } from "../../data/projects";
+import "../../styles/research.css";
+import "../../styles/projects.css";
+import "../../styles/ypsat.css";
+
+const previous = projects[1];
+const next = projects[3];
+const sources = {
+  mission:
+    "https://www.esa.int/Enabling_Support/Space_Engineering_Technology/ESA_Young_Professionals_Satellites/Young_Professionals_YPSat-1_headed_to_Ariane_6",
+  wakeup: "https://www.esa.int/ESA_Multimedia/Images/2024/06/Wake-up_subsystem",
+  systems:
+    "https://www.esa.int/ESA_Multimedia/Videos/2024/07/The_Young_Professional_Satellite_-_From_Theory_to_Reality_episode_2/(lang)",
+  image: "https://www.esa.int/ESA_Multimedia/Images/2024/07/YPSat_looks_back_to_Earth_from_atop_Ariane_6",
+  flight: "https://www.esa.int/Enabling_Support/Space_Transportation/Ariane/Ariane_6_post-launch_update",
+};
+const moments = [
+  {
+    title: "Fairing separation",
+    text: "The protective shells open and the cameras get their first view of space.",
+  },
+  {
+    title: "Satellite deployment",
+    text: "Other passengers leave the upper stage while YPSat remains on board.",
+  },
+  {
+    title: "Earth from orbit",
+    text: "The imaging payload looks back at our planet from the rocket's upper stage.",
+  },
+];
+const sequence = [
+  { title: "Wait", state: "Hibernation", text: "Keep most of the payload off to conserve battery power." },
+  {
+    title: "Sense",
+    state: "Acceleration",
+    text: "Monitor motion for the acceleration associated with lift-off.",
+  },
+  { title: "Confirm", state: "Pressure", text: "Assess barometric pressure to confirm the launch event." },
+  { title: "Wake", state: "Power-up", text: "Activate the electrical power system to start the payload." },
+];
+const contributions = [
+  {
+    title: "Detection logic",
+    text: "Worked on improving the wake-up subsystem's launch-detection logic.",
+  },
+  {
+    title: "Test & integration",
+    text: "Contributed to the test and integration phase, alongside technical coordination across the project.",
+  },
+  { title: "Documentation", text: "Wrote technical documentation for an operational payload." },
+];
+---
+
+<BaseLayout
+  title="YPSat | Emma Vellard"
+  description="Emma Vellard's work on YPSat's wake-up subsystem: improving launch-detection logic and contributing to test and integration for Ariane 6's first flight."
+  socialImage="/images/projects/ypsat/ariane-six-launch.webp"
+  socialImageAlt="Blue and ivory paper illustration of Ariane 6 ascending above Earth"
+  socialImageWidth={1536}
+  socialImageHeight={1024}
+>
+  <main id="main-content" class="ypsat-project" tabindex="-1">
+    <section class="container research-intro ypsat-intro">
+      <a class="text-link ypsat-back" href="/research#earlier">← Research</a>
+      <div class="ypsat-hero">
+        <div>
+          <p class="eyebrow eyebrow--plain">Earlier work · Embedded flight software</p>
+          <h1 class="research-title">YPSat</h1>
+          <p class="ypsat-question">How does a payload know that it is time to wake up?</p>
+          <p class="research-intro-text muted">
+            I worked on YPSat's wake-up subsystem, <strong class="text-emphasis"
+              >improving its detection logic and contributing to tests and integration</strong
+            >. The ESA payload flew on Ariane 6's first launch, recording key moments of the flight and views
+            of Earth from orbit.
+          </p>
+          <dl class="project-facts ypsat-facts">
+            <div><dt>My role</dt><dd>Software · Test &amp; integration</dd></div>
+            <div><dt>Where</dt><dd>ESA · Netherlands</dd></div>
+            <div><dt>When</dt><dd>2023–2024 · Part-time</dd></div>
+          </dl>
+          <div class="project-actions">
+            <IllustratedLink href={sources.mission} external>Explore the mission</IllustratedLink>
+            <IllustratedLink href="/#contact" variant="contact">Ask me about it</IllustratedLink>
+          </div>
+        </div>
+        <figure class="ypsat-hero-figure">
+          <img
+            class="ypsat-hero-art float-art"
+            src="/images/projects/ypsat/ariane-six-launch.webp"
+            width="1536"
+            height="1024"
+            alt="Conceptual cut-paper illustration of Ariane 6 ascending above the curved Earth"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption>Ariane 6's first launch · conceptual illustration</figcaption>
+        </figure>
+      </div>
+      <nav class="research-index" aria-label="On this page" data-section-nav>
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#mission">The mission</a>
+        <a class="text-link" href="#wakeup">Waking up</a>
+        <a class="text-link" href="#contribution">My contribution</a>
+        <a class="text-link" href="#flight">In flight</a>
+      </nav>
+    </section>
+
+    <section class="ypsat-section band" id="mission" aria-labelledby="mission-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The mission</p>
+        <h2 class="h2" id="mission-title">Be ready before the view appears.</h2>
+        <div class="chapter-pair ypsat-mission-pair">
+          <div>
+            <p class="ypsat-lede">
+              YPSat was built by ESA's Young Professionals to witness Ariane 6's inaugural flight. Its imaging
+              mission covered <strong class="text-emphasis"
+                >fairing separation, satellite deployment and Earth from orbit</strong
+              >.
+            </p>
+            <p class="muted">
+              The payload stayed fixed to the launcher's upper stage throughout its mission. To catch the
+              opening of the fairing, its systems had to become ready during ascent, while conserving battery
+              power before launch.
+            </p>
+          </div>
+          <aside class="ypsat-moments" aria-label="Imaging objectives">
+            {
+              moments.map((moment, index) => (
+                <div>
+                  <>
+                    <span class="ypsat-number" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                    <div>
+                      <>
+                        <h3>{moment.title}</h3>
+                        <p class="muted">{moment.text}</p>
+                      </>
+                    </div>
+                  </>
+                </div>
+              ))
+            }
+          </aside>
+        </div>
+        <div class="research-reference">
+          <span>Mission context</span><a
+            class="text-link"
+            href={sources.mission}
+            target="_blank"
+            rel="noopener">ESA · payload &amp; objectives</a
+          ><a class="text-link" href={sources.systems} target="_blank" rel="noopener"
+            >ESA · from theory to reality</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="ypsat-section" id="wakeup" aria-labelledby="wakeup-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Waking up</p>
+        <h2 class="h2" id="wakeup-title">From a physical event to a software decision.</h2>
+        <div class="ypsat-pair">
+          <div>
+            <p class="ypsat-lede">
+              The wake-up subsystem monitors sensor readings autonomously. It looks for launch-related
+              acceleration, then uses pressure measurements to confirm the event: <strong
+                class="text-emphasis">a change in the environment becomes a decision to power up</strong
+              >.
+            </p>
+            <p class="muted">
+              Once the rest of the payload is on, the onboard computer coordinates the mission sequence,
+              including image acquisition. Wake-up detection is one part of that larger chain, linking
+              sensors, power and operations.
+            </p>
+          </div>
+          <figure class="ypsat-board-figure">
+            <img
+              class="float-art"
+              src="/images/projects/ypsat/wake-up-board.webp"
+              width="1536"
+              height="1024"
+              alt="Conceptual blue paper electronics board with a controller, sensor chips and connecting traces"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Embedded electronics · conceptual illustration, not the flight PCB</figcaption>
+          </figure>
+        </div>
+        <div class="ypsat-sequence-head">
+          <h3 class="h3">The wake-up sequence, at a glance.</h3>
+        </div>
+        <ol class="ypsat-sequence" aria-label="Simplified YPSat wake-up sequence">
+          {
+            sequence.map((step, index) => (
+              <li>
+                <>
+                  <div class="ypsat-sequence-mark">
+                    <>
+                      <span class="ypsat-number" aria-hidden="true">
+                        0{index + 1}
+                      </span>
+                      <span class="ypsat-state">{step.state}</span>
+                    </>
+                  </div>
+                  <h4>{step.title}</h4>
+                  <p class="muted">{step.text}</p>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+        <aside class="ypsat-backup">
+          <span class="ypsat-backup-label">Independent backup</span><p>
+            A separate circuit monitors the launcher's deployment signal, providing a later wake-up route to
+            the onboard computer. This signal also synchronises the mission timeline.
+          </p>
+        </aside>
+        <div class="research-reference">
+          <span>System sources</span><a class="text-link" href={sources.wakeup} target="_blank" rel="noopener"
+            >ESA · wake-up subsystem</a
+          ><a class="text-link" href={sources.systems} target="_blank" rel="noopener"
+            >ESA · power, computer &amp; communications</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="ypsat-section band" id="contribution" aria-labelledby="contribution-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">My contribution</p>
+        <h2 class="h2" id="contribution-title">Software within a flight system.</h2>
+        <p class="ypsat-lede ypsat-section-lede">
+          I worked on improving the detection logic and contributed to the test and integration phase. <strong
+            class="text-emphasis"
+            >The software had to work as part of the payload, within its interfaces and mission sequence.</strong
+          >
+        </p>
+        <div class="ypsat-contribution-grid">
+          {
+            contributions.map((item) => (
+              <article>
+                <>
+                  <h3>{item.title}</h3>
+                  <p class="muted">{item.text}</p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+        <div class="ypsat-perspective">
+          <span class="eyebrow eyebrow--plain">Why it belongs here</span><p>
+            This project connects instrument software to the observation it enables. A useful measurement
+            depends on the instrument becoming ready at the right moment, as well as on what it can measure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ypsat-section" id="flight" aria-labelledby="flight-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">In flight</p>
+        <h2 class="h2" id="flight-title">The view that came back.</h2>
+        <div class="ypsat-flight-head">
+          <p class="ypsat-lede">
+            YPSat flew on <strong class="text-emphasis"
+              >9 July 2024, aboard Ariane 6's inaugural launch</strong
+            >. The mission returned images and video of fairing separation, satellite deployment and Earth
+            from orbit.
+          </p>
+          <p class="muted">
+            This is the team mission's outcome. My part was in the detection logic, tests and integration
+            behind the payload's wake-up subsystem.
+          </p>
+        </div>
+        <figure class="ypsat-flight-figure">
+          <a
+            href="/images/earth.webp"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Earth image captured by YPSat"
+            ><img
+              src="/images/earth.webp"
+              width="1920"
+              height="1080"
+              alt="Earth's curved blue horizon and clouds photographed by YPSat from Ariane 6's upper stage"
+              loading="lazy"
+              decoding="async"
+            /></a
+          >
+          <figcaption>
+            <span>Earth from YPSat · flight image, 9 July 2024 · © ESA–YPSat</span><a
+              class="text-link"
+              href={sources.image}
+              target="_blank"
+              rel="noopener">ESA · original image &amp; credit</a
+            >
+          </figcaption>
+        </figure>
+        <div class="project-actions ypsat-flight-actions">
+          <a class="text-link" href={sources.flight} target="_blank" rel="noopener noreferrer"
+            >See the flight results</a
+          >
+        </div>
+        <details class="project-details ypsat-details">
+          <summary
+            ><span class="project-details-title">System context, sources &amp; illustration notes</span><span
+              class="project-details-toggle"
+              aria-hidden="true"></span></summary
+          >
+          <div class="project-details-body">
+            <div>
+              <h3>Reading the sequence</h3><p>
+                The sequence above summarises ESA's public description of the wake-up subsystem. It explains
+                the functional chain rather than reproducing the flight firmware, thresholds, timing constants
+                or measured sensor data.
+              </p><a class="text-link" href={sources.wakeup} target="_blank" rel="noopener"
+                >Public subsystem description</a
+              >
+            </div>
+            <div>
+              <h3>Mission outcome &amp; personal scope</h3><p>
+                ESA documents the flight and returned imagery. These mission-level results do not reconstruct
+                the subsystem's in-flight sensor readings or trigger path. My contribution concerned embedded
+                detection logic, tests and integration, alongside technical coordination and documentation.
+              </p><a class="text-link" href={sources.flight} target="_blank" rel="noopener"
+                >ESA · post-launch update</a
+              >
+            </div>
+            <div>
+              <h3>Conceptual drawings &amp; flight image</h3><p>
+                The generated paper drawings introduce the payload and its electronics. Their geometry is
+                illustrative, not a reproduction of the flight hardware. The Earth photograph is actual YPSat
+                mission imagery, credited to ESA–YPSat.
+              </p><a class="text-link" href={sources.image} target="_blank" rel="noopener"
+                >Image source &amp; licence</a
+              >
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={"/projects/" + previous.slug}
+        ><img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" /><span
+          ><span class="project-pager-k">← Previous</span><span class="project-pager-v">{previous.title}</span
+          ></span
+        ></a
+      >
+      <a class="project-pager-link project-pager-link--next" href={"/projects/" + next.slug}
+        ><span
+          ><span class="project-pager-k">Next →</span><span class="project-pager-v">{next.title}</span></span
+        ><img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" /></a
+      >
+    </nav>
+  </main>
+</BaseLayout>

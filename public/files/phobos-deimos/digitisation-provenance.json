@@ -1,0 +1,28 @@
+{
+  "status": "Approximate pixel digitisation; NOT original numerical measurements or uncertainty estimates.",
+  "source": "/files/phobosreport.pdf",
+  "figure_pages": {
+    "orochi": 21,
+    "mirs": 23
+  },
+  "source_sha256": {
+    "orochi": "8be4ff39ace2ff97874e8e7d6a5363d6d5fad5b03cb5e84c7a9c52621521283b",
+    "mirs": "fa7d4b9a710b32cb5b3f7e8e516c2070acb110bf3ec82182801f23ab4e464fc1"
+  },
+  "method": "Calibrated JPEG axes; colour-matched source pixels within visually identified trace corridors. OROCHI overlapping markers use manual pixel guides where JPEG colour matching fails, flagged in CSV kind. Both panels digitised independently. No spectral fit or invented missing values.",
+  "OROCHI": "Seven nominal band centres. Only band-average lines are redrawn; faint underlying spectra are omitted. CRISM has no d-band value; no connection is drawn across it.",
+  "MIRS": "Laboratory trace sampled every 3 image pixels (about 0.016 micrometres), not a fresh 20 nm instrument simulation. CRISM source-pixel clusters retained as approximate scatter, including visible outliers. No extrapolation beyond the observed coverage.",
+  "resolution": "One vertical pixel is 0.005 reflectance percentage points for OROCHI absolute, 0.00134 for OROCHI normalised, 0.0183 percentage points for MIRS absolute and 0.00222 for MIRS normalised. Extraction/overlap may introduce larger errors; pixel resolution is not measurement uncertainty.",
+  "limitations": "JPEG compression, antialiasing, overlapping traces and finite source resolution prevent exact recovery. Marker count and coordinates may differ from original data. Do not use these CSVs for scientific inference or band-depth calculations; consult original measurements.",
+  "renderer": "scripts/build-phobos-figures.py",
+  "series_labels": {
+    "more1": "> 1 mm",
+    "1btw250": "250 µm–1 mm",
+    "less1": "< 1 mm",
+    "less250": "< 250 µm",
+    "less125": "< 125 µm",
+    "less53": "< 53 µm",
+    "CRISM Phobos red": "Phobos · red unit",
+    "CRISM Phobos blue": "Phobos · blue unit"
+  }
+}

@@ -1,0 +1,102 @@
+---
+interface Props {
+  instrument: "orochi" | "mirs";
+}
+const { instrument } = Astro.props;
+const name = instrument.toUpperCase();
+const figure = instrument === "orochi" ? 8 : 10;
+const anchor = instrument === "orochi" ? "0.55" : "2.5";
+const series = [
+  "> 1 mm",
+  "250 µm–1 mm",
+  "< 1 mm",
+  "< 250 µm",
+  "< 125 µm",
+  "< 53 µm",
+  "Phobos · red unit",
+  "Phobos · blue unit",
+];
+const panels = [
+  { id: "absolute", title: "Brightness", note: "Absolute reflectance · %" },
+  { id: "normalised", title: "Spectral shape", note: `Normalised at ${anchor} µm` },
+];
+---
+
+<figure class:list={["phobos-spectrum", `phobos-spectrum--${instrument}`]}>
+  <div class="phobos-spectrum-panels" role="group" aria-label={`${name} redrawn comparison`}>
+    {
+      panels.map((panel) => (
+        <div class="phobos-spectrum-panel">
+          <h4>{panel.title}</h4>
+          <p class="phobos-spectrum-unit">{panel.note}</p>
+          {(["light", "dark"] as const).map((theme) => (
+            <a
+              class={`phobos-chart phobos-chart--${theme}`}
+              href={`/images/projects/phobos-deimos/${instrument}-${panel.id}-${theme}.svg`}
+              target="_blank"
+              rel="noopener"
+              aria-label={`Open the ${name} ${panel.id} comparison at full size`}
+            >
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcset={`/images/projects/phobos-deimos/${instrument}-${panel.id}-${theme}-mobile.svg`}
+                  width="440"
+                  height="410"
+                />
+                <img
+                  src={`/images/projects/phobos-deimos/${instrument}-${panel.id}-${theme}.svg`}
+                  width="640"
+                  height="460"
+                  alt={`${name} ${panel.note.toLowerCase()}: six UTPS-TB grain-size fractions compared with CRISM Phobos red and blue spectral units; approximate digitisation of Figure ${figure}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+  <ul class="phobos-spectrum-legend" aria-label={`${name} series legend`}>
+    {
+      series.map((label, index) => (
+        <li class={`phobos-series-${index + 1}`}>
+          <span
+            class:list={[
+              "phobos-legend-symbol",
+              { "phobos-legend-symbol--dashed": index < 6 && index % 2 === 1 },
+              { "phobos-legend-symbol--crism": index >= 6 },
+            ]}
+            aria-hidden="true"
+          >
+            {instrument === "mirs" ? (index >= 6 ? "+" : "•") : ""}
+          </span>
+          <span>{label}</span>
+        </li>
+      ))
+    }
+  </ul>
+  <figcaption>
+    Redrawn from Fig. {figure} · approximate digitisation, not original numerical data.{" "}
+    {
+      instrument === "orochi" ? (
+        <>Band-average curves only; the faint underlying spectra are omitted.</>
+      ) : (
+        <>Dots show laboratory fractions; crosses show CRISM observations. Missing coverage is preserved.</>
+      )
+    }
+    <span class="phobos-figure-links">
+      <a
+        class="text-link"
+        href={`/images/projects/phobos-deimos/${instrument}-report-full.jpg`}
+        target="_blank"
+        rel="noopener">Original Fig. {figure}</a
+      >
+      <a class="text-link" href={`/files/phobos-deimos/${instrument}-digitised.csv`} download
+        >Digitised points · CSV</a
+      >
+    </span>
+  </figcaption>
+</figure>

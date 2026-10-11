@@ -1,0 +1,407 @@
+.diplona-intro {
+  gap: 36px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+.diplona-back {
+  align-self: flex-start;
+  font-size: 15px;
+}
+.diplona-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.diplona-question {
+  margin: 20px 0 0;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+.diplona-hero-figure,
+.diplona-terrain-figure,
+.diplona-sounder-pair figure {
+  margin: 0;
+}
+.diplona-hero-art,
+.diplona-terrain-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Trim the transparent band baked above and below the drawing (% of width). */
+.diplona-terrain-figure img {
+  margin: -13.7% 0 -12.1%;
+}
+.diplona-hero-figure figcaption,
+.diplona-terrain-figure figcaption,
+.diplona-sounder-pair figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+}
+.diplona-facts {
+  gap: 16px 28px;
+}
+.diplona-section {
+  padding: 64px 0 68px;
+  scroll-margin-top: var(--nav-h);
+}
+.diplona-section .h2 {
+  margin-top: 10px;
+  max-width: 29ch;
+}
+.diplona-lede {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.diplona-section-lede {
+  max-width: 80ch;
+  margin: 24px 0 0;
+}
+.diplona-pair {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 28px;
+}
+.diplona-pair > * {
+  min-width: 0;
+}
+.diplona-pair p {
+  margin: 16px 0 0;
+}
+.diplona-pair p:first-child {
+  margin-top: 0;
+}
+.diplona-targets {
+  margin-top: 40px;
+}
+.diplona-target-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+.diplona-target-grid article,
+.diplona-trade-grid article,
+.diplona-study-pair > div {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.diplona-target-number {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+.diplona-target-grid h4,
+.diplona-trade-grid h3 {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-size: 27px;
+  line-height: 1.15;
+}
+.diplona-target-type {
+  color: var(--accent);
+  font-size: 12px;
+  margin: 10px 0 0;
+}
+.diplona-target-grid p.muted,
+.diplona-trade-grid p {
+  font-size: 15px;
+  margin: 14px 0 0;
+}
+.diplona-project .research-reference {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: baseline;
+  font-size: 13px;
+  margin-top: 24px;
+}
+.diplona-sounder {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--accent);
+}
+.dr-ground {
+  fill: currentColor;
+  fill-opacity: 0.07;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+.dr-layer {
+  fill: currentColor;
+  fill-opacity: 0.16;
+}
+.dr-boundary {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.dr-antenna {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.dr-bus {
+  fill: var(--bg);
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.dr-bus-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+.dr-transmit {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+.dr-echo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-dasharray: 5 4;
+}
+.dr-deep-echo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-dasharray: 2 4;
+}
+.dr-guide {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 0.7;
+}
+.dr-label {
+  fill: var(--ink);
+  font-family: var(--font-body);
+  font-size: 19px;
+}
+.dr-caption {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.diplona-specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 36px;
+}
+.diplona-specs > div {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.diplona-specs strong {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.2;
+}
+.diplona-specs span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+.diplona-note {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 20px 0 0;
+}
+.diplona-trade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+.diplona-trade-grid h3 {
+  margin-top: 0;
+}
+.diplona-chart-head {
+  margin-top: 44px;
+}
+.diplona-chart-head p {
+  max-width: 85ch;
+  font-size: 15px;
+  margin: 14px 0 0;
+}
+.diplona-chart {
+  margin: 18px 0 0;
+  --curve-1: #2a62b8;
+  --curve-2: #287b80;
+  --curve-3: #8567b0;
+}
+.diplona-chart a {
+  display: block;
+}
+.diplona-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.diplona-chart .diplona-chart-dark {
+  display: none;
+}
+html[data-theme="dark"] .diplona-chart .diplona-chart-light {
+  display: none;
+}
+html[data-theme="dark"] .diplona-chart .diplona-chart-dark {
+  display: block;
+}
+html[data-theme="dark"] .diplona-chart {
+  --curve-1: #8fc6e3;
+  --curve-2: #77cbc5;
+  --curve-3: #baa1dd;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .diplona-chart .diplona-chart-light {
+    display: none;
+  }
+  html:not([data-theme="light"]) .diplona-chart .diplona-chart-dark {
+    display: block;
+  }
+  html:not([data-theme="light"]) .diplona-chart {
+    --curve-1: #8fc6e3;
+    --curve-2: #77cbc5;
+    --curve-3: #baa1dd;
+  }
+}
+.diplona-chart-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  padding: 16px 0 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+.diplona-chart-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.diplona-chart-legend span {
+  width: 28px;
+  border-top: 2px solid var(--curve-1);
+}
+.diplona-chart-legend li:nth-child(2) span {
+  border-color: var(--curve-2);
+  border-top-style: dashed;
+}
+.diplona-chart-legend li:nth-child(3) span {
+  border-color: var(--curve-3);
+  border-top-style: dotted;
+}
+.diplona-chart figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 16px;
+}
+.diplona-figure-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 12px;
+}
+.diplona-chart-reading,
+.diplona-study-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 28px;
+}
+.diplona-chart-reading p,
+.diplona-study-pair p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+}
+.diplona-study-pair p {
+  margin-top: 16px;
+}
+.diplona-pipeline {
+  margin-top: 32px;
+}
+.diplona-study-pair {
+  margin-top: 36px;
+}
+.diplona-study-actions {
+  margin-top: 28px;
+}
+.diplona-details {
+  margin-top: 36px;
+}
+.diplona-details .project-details-body {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 1000px) {
+  .diplona-hero,
+  .diplona-pair {
+    gap: 28px;
+  }
+  .diplona-target-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .diplona-hero,
+  .diplona-pair,
+  .diplona-chart-reading,
+  .diplona-study-pair,
+  .diplona-details .project-details-body {
+    grid-template-columns: 1fr;
+  }
+  .diplona-hero-figure,
+  .diplona-terrain-figure {
+    max-width: 540px;
+    justify-self: center;
+  }
+  .diplona-trade-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .diplona-intro {
+    padding-top: 28px;
+    padding-bottom: 32px;
+    gap: 28px;
+  }
+  .diplona-section {
+    padding: 44px 0 48px;
+  }
+  .diplona-lede {
+    font-size: 17px;
+  }
+  .diplona-specs {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .diplona-target-grid {
+    gap: 24px 20px;
+  }
+  .diplona-target-grid h4 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 360px) {
+  .diplona-target-grid {
+    grid-template-columns: 1fr;
+  }
+}

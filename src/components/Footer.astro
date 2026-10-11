@@ -1,32 +1,46 @@
 ---
-import "../styles/footer.css";
-
+import { decorations } from "../data/decorations";
+import IllustratedLink from "./IllustratedLink.astro";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" id="contact">
   <div class="container site-footer-main">
-    <div class="site-footer-intro">
-      <a class="site-footer-brand" href="/">Emma Vellard</a>
-      <p>Planetary scientist · Space systems engineer</p>
+    <div class="site-footer-text">
+      <h2 class="site-footer-title">Let's talk about the Moon.</h2>
+      <p class="site-footer-lede">
+        Collaborations, research discussions, or a question about this work — email is the best way to reach
+        me.
+      </p>
+      <p class="site-footer-links">
+        <IllustratedLink variant="contact" class="site-footer-email" href="mailto:emma.vellard@outlook.fr"
+          >emma.vellard@outlook.fr</IllustratedLink
+        >
+        <a
+          class="hover-ul"
+          href="https://www.linkedin.com/in/emma-vellard"
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
+        >
+        <a class="hover-ul" href="https://github.com/EmmaVellard" target="_blank" rel="noopener noreferrer"
+          >GitHub</a
+        >
+      </p>
     </div>
-
-    <nav class="site-footer-nav" aria-label="Footer navigation">
-      <a href="/contact">Contact</a>
-    </nav>
-
-    <nav class="site-footer-social" aria-label="Social links">
-      <a href="https://github.com/EmmaVellard" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/emma-vellard" target="_blank" rel="noopener noreferrer">LinkedIn</a
-      >
-    </nav>
+    <div class="site-footer-mark">
+      <img
+        class="site-footer-character"
+        {...decorations.explorer}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+      <p class="site-footer-signature" aria-hidden="true">Emma</p>
+    </div>
   </div>
 
   <div class="container site-footer-bottom">
     <span>© {currentYear} Emma Vellard</span>
-    <span>Lunar science · Planetary instrumentation · Scientific software</span>
-    <span class="site-footer-disclaimer">
-      Personal website. Views are my own and do not represent NASA, JPL, Caltech or ESA.
-    </span>
   </div>
 </footer>

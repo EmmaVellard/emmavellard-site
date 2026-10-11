@@ -11,40 +11,63 @@
 ## Preview
 
 <p align="center">
-  <img src="./public/images/portfolio-home.png" alt="Emma Vellard portfolio homepage" width="49%" />
-  <img src="./public/images/portfolio-projects.png" alt="Projects page featuring lunar interior modelling" width="49%" />
+  <img src="./docs/screenshots/home.png" alt="Home page: “Exploring how the Moon is built, and how it has evolved”, with portrait and introduction" width="49%" />
+  <img src="./docs/screenshots/home-dark.png" alt="Home page in dark mode" width="49%" />
+</p>
+
+<p align="center">
+  <img src="./docs/screenshots/research.png" alt="Research page introduction" width="49%" />
+  <img src="./docs/screenshots/research-detail.png" alt="Research page, NASA JPL chapter on the composition of the lunar mantle" width="49%" />
+</p>
+
+<p align="center">
+  <img src="./docs/screenshots/solarconflux.png" alt="SolarConflux project page introduction" width="49%" />
+  <img src="./docs/screenshots/solarconflux-detail.png" alt="SolarConflux worked example with positions and longitude-separation charts" width="49%" />
 </p>
 
 ## Scientific focus
 
-- Lunar interiors, geophysics, and bulk-silicate Moon composition scenarios
-- Scientific instrumentation concepts, measurement performance, and mission science
-- Planetary spectroscopy, surface and subsurface processes
-- Observation planning and scientific data workflows for ESA and NASA missions
-- Reproducible Python tools for planetary modelling and mission analysis
-
-## Featured work
-
-- **Lunar interior modelling** — thermodynamic and geophysical research at NASA JPL
-- **Planetary EOS Lab** — reproducible Perple_X workflows for planetary interior models
-- **SolarConflux** — multi-spacecraft geometry and coordinated observation planning
-- **DIPLONA** — preliminary radar sounder and payload concept for Ceres
-- **Phobos & Deimos** — spectral analysis and FTIR studies in the MMX mission context
-- **Lunar Spaceport** — sustainable lunar infrastructure, ISRU, and systems study
+- The Moon's interior: how bulk silicate Moon composition and temperature shape the mantle's mineralogy, density, seismic velocities and rigidity
+- Interior models tested against mass, moment of inertia, Apollo seismic data and GRAIL's tidal response
+- Lunar geodynamics from gravity and topography: maria, impact basins, ridges and rifts, mantle viscosity
+- Reproducible scientific software for planetary modelling and observation planning
 
 ## Site sections
 
-- `/experience` — research, mission, and engineering experience
-- `/projects` — scientific research, open-source software, and mission studies
-- `/education` — academic background and certifications
-- `/conferences` — talks, posters, and submitted research
-- `/about` — profile, skills, and languages
-- `/contact` — contact details and downloadable CV
+### Home — `/`
+
+- **Introduction**: portrait, short bio and links to the research and CV
+- **One Moon, two timescales**: the current NASA JPL work and the PhD at DLR, each asked as a question
+- **The Moon, layer by layer**: a numbered cross-section (crust & surface, mantle, core) mapping where each project sits
+- **Earlier work**: SolarConflux, Lunar Spaceport, YPSat, Phobos & Deimos, Diplona
+- **Path**: institution, role and country, from DLR to the degrees in France and South Korea
+- **Papers & talks**: papers in preparation, then talks and posters
+- **Contact**: in the footer, on every page
+
+### Research — `/research`
+
+A continuous story in two chapters, alternating with the tinted background used on the home page:
+
+- **Now — NASA JPL (2026)**: what the Moon is made of, deep inside; why it matters, the four-step approach (compositions → mineralogy & properties → interior models → tidal response), status and tools
+- **One interior, different timescales**: the link between today's rigidity and the interior's evolution
+- **Next — PhD at DLR Berlin (January 2027)**: how the interior has shaped the surface; planned research threads (maria, basins, ridges & rifts, mantle)
+- **Earlier work**: links to each project page
+
+### Projects — `/projects/*`
+
+- **SolarConflux** (`/projects/solarconflux`): the question, approach, six screening geometries, a worked January 2025 example with downloadable samples and provenance, and the current web explorer
+- **Lunar Spaceport**, **YPSat**, **Phobos & Deimos**, **Diplona**: shared template with the question, what I did, what came out, figures and technical details
+
+Every project page links to the previous and next project, in the same order as the home page.
+
+Old URLs (`/experience`, `/education`, `/conferences`, `/about`, `/contact`, `/projects`) redirect to the matching section (see `vercel.json`).
+
+Screenshots live in `docs/screenshots/` and are not published with the site.
 
 ## Technology
 
 - [Astro](https://astro.build/) with static site generation
-- Custom responsive CSS and accessible navigation
+- Custom responsive CSS with light and dark themes, accessible navigation and transparent hand-drawn illustrations
 - Vercel Analytics and Speed Insights
 - Open Graph metadata, sitemap, and search-engine indexing support
 

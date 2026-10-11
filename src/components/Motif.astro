@@ -1,0 +1,19 @@
+---
+import { decorations } from "../data/decorations";
+
+type Props = {
+  kind?: "strata" | "orbit" | "document";
+  class?: string;
+};
+
+const { kind = "strata", class: className } = Astro.props;
+---
+
+<img
+  class:list={["paper-motif", className]}
+  {...decorations[kind]}
+  alt=""
+  aria-hidden="true"
+  loading="lazy"
+  decoding="async"
+/>

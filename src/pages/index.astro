@@ -1,48 +1,333 @@
 ---
 import "../styles/home.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/NavBar.astro";
+import { illustrations } from "../data/illustrations";
+import { decorations } from "../data/decorations";
+import IllustratedLink from "../components/IllustratedLink.astro";
+import Motif from "../components/Motif.astro";
+
+const earlierWork = [
+  {
+    href: "/projects/solarconflux",
+    art: illustrations.solarconflux,
+    alt: "Illustration of spacecraft around the Sun linked by observation lines",
+    meta: "ESA · 2023–2025",
+    title: "SolarConflux",
+    text: "Open-source tool for planning coordinated observations across spacecraft.",
+  },
+  {
+    href: "/projects/lunar-spaceport",
+    art: illustrations.lunarSpaceport,
+    alt: "Illustration of a rocket on a landing pad near a lunar base",
+    meta: "ISU · 2025",
+    title: "Lunar Spaceport",
+    text: "Team study of lunar resources, logistics and infrastructure for sustained operations.",
+  },
+  {
+    href: "/projects/ypsat",
+    art: illustrations.ypsat,
+    alt: "Illustration of the YPSat camera in orbit above Earth",
+    meta: "ESA · 2023–2024",
+    title: "YPSat",
+    text: "Embedded software for the wake-up subsystem of a payload flown on Ariane 6's first launch.",
+  },
+  {
+    href: "/projects/phobos-deimos",
+    art: illustrations.phobosDeimos,
+    alt: "Illustration of Phobos and Deimos above spectral waves",
+    meta: "Tohoku University · 2023",
+    title: "Phobos & Deimos",
+    text: "Visible–near-infrared laboratory spectroscopy of analogue samples in the MMX mission context.",
+  },
+  {
+    href: "/projects/ceres",
+    art: illustrations.diplona,
+    alt: "Illustration of a CubeSat sounding the layered subsurface of Ceres by radar",
+    meta: "LATMOS · 2022",
+    title: "Diplona",
+    text: "Radar sounder concept for Ceres' subsurface on a 3U CubeSat.",
+  },
+];
+
+const path = [
+  { institution: "DLR", role: "Upcoming PhD · January 2027", country: "Germany" },
+  { institution: "NASA JPL", role: "Visiting researcher · 2026", country: "United States" },
+  {
+    institution: "ESA",
+    role: "Young Graduate Trainee · 2023–2025",
+    country: "Netherlands",
+  },
+  { institution: "Tohoku University", role: "Research intern · 2023", country: "Japan" },
+  { institution: "ESA", role: "Intern · 2022", country: "Spain" },
+  {
+    institution: "ISAE-SUPAERO · ISU · Observatoire de Paris",
+    role: "Degrees & training",
+    country: "France · South Korea",
+  },
+];
+
+const papers = [
+  {
+    year: "2027",
+    title: "Thermochemical models of the lunar mantle and implications for geophysical observations",
+    kind: "In preparation",
+  },
+];
+
+const talks = [
+  {
+    year: "2026",
+    title:
+      "AAS DPS — Thermochemical models of the lunar mantle and implications for geophysical observations",
+    kind: "Upcoming poster",
+  },
+  { year: "2025", title: "BepiColombo Science Working Team — SolarConflux", kind: "Talk" },
+  { year: "2024", title: "Europlanet Science Congress — JUICE mission preparation", kind: "Poster" },
+  { year: "2024", title: "ASE Planetary Congress — The future of space exploration", kind: "Talk" },
+  { year: "2024", title: "JUICE Science Working Team — JUICE mission preparation", kind: "Poster" },
+];
 ---
 
 <BaseLayout
   title="Emma Vellard | Lunar & Planetary Scientist"
-  description="Planetary scientist and space systems engineer working across lunar science, scientific instrumentation, mission data and research software at NASA JPL and ESA."
+  description="Emma Vellard is a planetary scientist studying the Moon's interior at NASA JPL, starting a PhD at DLR Berlin in January 2027 on the geodynamic history of the Moon."
 >
-  <Navbar />
-
-  <main class="hero" id="main-content" tabindex="-1">
-    <div class="hero-bg"></div>
-
-    <div class="container hero-content">
-      <p class="hero-kicker">Currently at NASA JPL · Previously at ESA</p>
-
-      <h1 class="hero-title">
-        <strong>Lunar & Planetary Scientist</strong> and
-        <br />
-        <strong>Space Systems Engineer</strong>.
-      </h1>
-
-      <p class="hero-lead">
-        I connect planetary science questions with mission-relevant measurements, scientific instrumentation,
-        data, and research software.
-      </p>
-
-      <div class="hero-proof" aria-label="Professional focus">
-        <span>NASA JPL</span>
-        <span>ESA</span>
-        <span>Lunar science</span>
-        <span>Scientific instrumentation</span>
+  <main id="main-content" tabindex="-1">
+    <!-- HERO -->
+    <section class="container hero">
+      <div class="hero-text">
+        <p class="hero-hello">Hi, I am Emma!</p>
+        <h1 class="hero-title">
+          Exploring how the <span class="hero-accent">Moon</span> is built, and how it has evolved.
+        </h1>
       </div>
-
-      <div class="hero-ctas">
-        <a class="link-btn link-btn--primary" href="/experience">View my experience</a>
-        <a class="link-btn" href="/projects">Selected projects</a>
-        <a class="link-btn link-btn--secondary" href="/files/cv_vellard.pdf" download="Emma-Vellard-CV.pdf"
-          >Download CV <span class="file-meta">(PDF, 270 KB)</span></a
-        >
+      <div class="hero-introduction">
+        <figure class="hero-portrait">
+          <div class="hero-portrait-window">
+            <img
+              src="/images/portrait-nasa-3x4.webp"
+              width="1200"
+              height="1600"
+              alt="Emma Vellard smiling at NASA JPL"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </figure>
+        <div class="hero-bio">
+          <p class="hero-lead">
+            I'm a planetary scientist studying the Moon, from its <strong class="text-emphasis"
+              >deep interior</strong
+            > to the history preserved at its surface. At NASA JPL, I compare interior models to explore how composition
+            and temperature affect the mantle and the <strong class="text-emphasis"
+              >Moon's response to tides</strong
+            >. In January 2027, I will begin a PhD at DLR Berlin, using <strong class="text-emphasis"
+              >gravity and topography</strong
+            > to investigate how the interior has shaped the surface over geological time.
+          </p>
+          <div class="hero-ctas">
+            <IllustratedLink href="/research" illustration={decorations.research} class="home-research-link"
+              >Explore my research</IllustratedLink
+            >
+            <IllustratedLink variant="document" href="/files/cv_vellard.pdf" download="Emma-Vellard-CV.pdf"
+              >Download CV <span class="file-meta">(PDF)</span></IllustratedLink
+            >
+          </div>
+        </div>
+        <Motif kind="strata" class="hero-note-art" />
       </div>
-    </div>
+    </section>
 
-    <p class="hero-caption">Earth image captured by YPSat during Ariane 6’s maiden flight.</p>
+    <!-- RESEARCH THREAD -->
+    <section class="band">
+      <div class="container section">
+        <p class="eyebrow">From the inside out</p>
+        <h2 class="h2 thread-title">One Moon, two timescales.</h2>
+        <p class="thread-lede muted">
+          My current work asks how <strong class="text-emphasis">composition and temperature</strong> affect the
+          mantle today. The PhD will use the surface record to investigate its evolution over <strong
+            class="text-emphasis">geological time</strong
+          >.
+        </p>
+
+        <div class="thread-cards">
+          <a class="card" href="/research#jpl">
+            <p class="card-meta card-meta--caps">Now — NASA JPL · 2026</p>
+            <img
+              class="card-art card-art--tall float-art"
+              {...illustrations.lunarInterior}
+              alt="Illustration of the Moon's layered interior"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="card-body card-body--roomy">
+              <h3 class="card-title card-title--large">What is the Moon made of, deep inside?</h3>
+              <p class="card-text">
+                Comparing <strong class="text-emphasis">plausible interior models</strong> to understand how composition,
+                temperature and material behaviour affect the Moon's response to tides.
+              </p>
+            </div>
+          </a>
+          <a class="card" href="/research#phd">
+            <p class="card-meta card-meta--caps">Next — PhD, DLR Berlin · January 2027</p>
+            <img
+              class="card-art card-art--tall float-art"
+              {...illustrations.lunarGeodynamics}
+              alt="Illustration of a lunar mare basin with its layered rim"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="card-body card-body--roomy">
+              <h3 class="card-title card-title--large">How has the Moon's interior shaped its surface?</h3>
+              <p class="card-text">
+                I will use gravity and topography to investigate what <strong class="text-emphasis"
+                  >volcanic plains and impact basins</strong
+                > reveal about the interior's history.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE THE WORK SITS -->
+    <section class="container section sits" id="inside-the-moon" aria-labelledby="sits-title">
+      <div class="sits-heading">
+        <p class="eyebrow eyebrow--plain">A map of the research</p>
+        <h2 class="h2" id="sits-title">The Moon, layer by layer.</h2>
+        <p class="muted sits-lede">
+          Surface features preserve clues to processes deeper inside. This is where the two research questions
+          meet.
+        </p>
+      </div>
+      <div class="sits-layout">
+        <figure class="sits-figure">
+          <img
+            class="float-art"
+            {...illustrations.whereTheWorkSits}
+            alt="Illustration of a half cross-section of the Moon, numbered 1 for the crust, 2 for the mantle and 3 for the core"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="sits-note muted">
+            Conceptual cross-section, not to scale. Numbers identify the layers.
+          </figcaption>
+        </figure>
+        <div class="sits-text">
+          <ol class="sits-list">
+            <li>
+              <span class="sits-num" aria-hidden="true">1</span>
+              <div class="sits-entry">
+                <p class="sits-role">Surface record</p>
+                <h3 class="sits-name">Crust &amp; surface</h3>
+                <p class="muted">
+                  Volcanic plains (maria), impact basins, ridges and rifts record <strong
+                    class="text-emphasis">volcanism and deformation</strong
+                  >. I will use gravity and topography to investigate that history.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="sits-num" aria-hidden="true">2</span>
+              <div class="sits-entry">
+                <p class="sits-role">Interior properties</p>
+                <h3 class="sits-name">Mantle</h3>
+                <p class="muted">
+                  My models link composition and temperature to <strong class="text-emphasis"
+                    >mineralogy, density and rigidity</strong
+                  >. The PhD will investigate its <strong class="text-emphasis">viscosity</strong> through the surface
+                  deformation it helps produce.
+                </p>
+              </div>
+            </li>
+            <li class="sits-context">
+              <span class="sits-num" aria-hidden="true">3</span>
+              <div class="sits-entry">
+                <p class="sits-role">Model context</p>
+                <h3 class="sits-name">Core</h3>
+                <p class="muted">
+                  The core is included in the interior models. Its properties are considered together with the
+                  crust and mantle when evaluating the Moon's <strong class="text-emphasis"
+                    >mass and moment of inertia</strong
+                  >.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- EARLIER WORK -->
+    <section class="container earlier">
+      <h2 class="h2">Earlier work</h2>
+      <div class="earlier-grid">
+        {
+          earlierWork.map((item) => (
+            <a class="card" href={item.href}>
+              <img class="card-art float-art" {...item.art} alt={item.alt} loading="lazy" decoding="async" />
+              <div class="card-body">
+                <p class="card-meta">{item.meta}</p>
+                <h3 class="card-title">{item.title}</h3>
+                <p class="card-text card-text--small">{item.text}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- PATH -->
+    <section class="band" id="path">
+      <div class="container section">
+        <div class="illustrated-heading">
+          <h2 class="h2">Path</h2>
+          <Motif kind="orbit" />
+        </div>
+        <ol class="path-list">
+          {
+            path.map((step) => (
+              <li class="path-step">
+                <span class="path-institution">{step.institution}</span>
+                <span class="path-role">{step.role}</span>
+                <span class="path-country">{step.country}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- TALKS -->
+    <section class="container section" id="talks">
+      <div class="illustrated-heading">
+        <h2 class="h2">Papers &amp; talks</h2>
+        <Motif kind="document" class="heading-document" />
+      </div>
+      <h3 class="talks-sub">Papers</h3>
+      <ul class="talks-list">
+        {
+          papers.map((paper) => (
+            <li class="talk">
+              <span class="talk-year">{paper.year}</span>
+              <span class="talk-title">{paper.title}</span>
+              <span class="talk-kind">{paper.kind}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <h3 class="talks-sub">Talks &amp; posters</h3>
+      <ul class="talks-list">
+        {
+          talks.map((talk) => (
+            <li class="talk">
+              <span class="talk-year">{talk.year}</span>
+              <span class="talk-title">{talk.title}</span>
+              <span class="talk-kind">{talk.kind}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
 </BaseLayout>

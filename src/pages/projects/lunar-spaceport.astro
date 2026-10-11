@@ -1,335 +1,418 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/NavBar.astro";
-import ProjectToc from "../../components/ProjectToc.astro";
+import IllustratedLink from "../../components/IllustratedLink.astro";
+import LunarPadDiagram from "../../components/LunarPadDiagram.astro";
+import { projects } from "../../data/projects";
+import "../../styles/research.css";
 import "../../styles/projects.css";
+import "../../styles/lunar-spaceport.css";
 
-const title = "Lunar Spaceport | Location, resources & environmental challenges";
-const tocItems = [
-  { id: "overview", label: "Overview" },
-  { id: "contribution", label: "My contribution" },
-  { id: "criteria", label: "Site selection criteria" },
-  { id: "south-pole", label: "Why the South Pole" },
-  { id: "site", label: "Candidate site" },
-  { id: "figures", label: "Design figures" },
-  { id: "resources", label: "Resources and ISRU" },
-  { id: "environment", label: "Environmental challenges" },
-  { id: "surveys", label: "Prospecting and surveys" },
-  { id: "takeaways", label: "Key takeaways" },
-  { id: "stack", label: "Technical implementation" },
-  { id: "links", label: "Links" },
-] as const;
+const previous = projects[0];
+const next = projects[2];
+const criteria = [
+  {
+    title: "Light & power",
+    text: "Evaluate illumination through time, storage needs and periods without sunlight.",
+  },
+  {
+    title: "Resource access",
+    text: "Connect potential volatile deposits to prospecting, extraction and transport requirements.",
+  },
+  {
+    title: "Landing terrain",
+    text: "Consider slopes, surface roughness and ground suitable for construction.",
+  },
+  { title: "Communications", text: "Assess Earth visibility, local terrain masking and the role of relays." },
+  {
+    title: "Thermal conditions",
+    text: "Account for cold shadowed terrain and temperature changes during operations.",
+  },
+  {
+    title: "Surface logistics",
+    text: "Place routes, power systems and habitats around the constraints of the landing zone.",
+  },
+];
+const steps = [
+  {
+    title: "Survey the ground",
+    text: "Characterise terrain, regolith and the shallow subsurface before committing to a layout.",
+  },
+  {
+    title: "Prepare the surface",
+    text: "Excavate and grade the site, while assessing locally available construction material.",
+  },
+  {
+    title: "Build the pad",
+    text: "Develop regolith pavement and berms as elements of a dust-mitigation concept.",
+  },
+  {
+    title: "Test & maintain",
+    text: "Validate plume interactions, material durability and protection of nearby systems.",
+  },
+];
 ---
 
 <BaseLayout
-  title={title}
-  description="A systems-level lunar spaceport study examining site selection, resources, dust, infrastructure, logistics, and sustainable lunar surface operations."
-  socialImage="/images/projects/lunar-spaceport/landing-pad-concept.webp"
-  socialImageAlt="Lunar landing-pad concept with plume and dust mitigation features"
-  socialImageWidth={840}
-  socialImageHeight={475}
+  title="Lunar Spaceport | Emma Vellard"
+  description="Emma Vellard's contribution to the ISU SSP 2025 lunar spaceport team study: translating site, resource and environmental constraints into early infrastructure requirements."
+  socialImage="/images/projects/lunar-spaceport/spaceport-hero.webp"
+  socialImageAlt="Paper illustration of a rocket on a lunar pad with a separate research outpost"
+  socialImageWidth={1536}
+  socialImageHeight={1024}
 >
-  <Navbar />
-
-  <main class="page page-project" id="main-content" tabindex="-1">
-    <div class="project-bg" aria-hidden="true"></div>
-
-    <section class="project-shell">
-      <div class="container">
-        <header class="project-head">
-          <a class="project-back" href="/projects">← Back to projects</a>
-
-          <div class="project-kicker">ISU SSP · Lunar infrastructure study</div>
-          <h1 class="project-title">Lunar Spaceport</h1>
-
-          <div class="project-subtle">Site selection · ISRU context · Environmental constraints</div>
-
-          <p class="project-lede">
-            I contributed to the <span class="hl">analysis of site location, local resources</span>, and <span
-              class="hl">environmental challenges</span
-            > that drive early lunar <span class="hl">spaceport</span> design decisions.
+  <main id="main-content" class="spaceport-project" tabindex="-1">
+    <section class="container research-intro spaceport-intro">
+      <a class="text-link spaceport-back" href="/research#earlier">← Research</a>
+      <div class="spaceport-hero">
+        <div>
+          <p class="eyebrow eyebrow--plain">Earlier work · Interdisciplinary team study</p>
+          <h1 class="research-title">Lunar Spaceport</h1>
+          <p class="spaceport-question">Where do you land — and what does the Moon demand?</p>
+          <p class="research-intro-text muted">
+            At ISU's Space Studies Program, I contributed to a team study of a lunar spaceport near the south
+            pole. My focus was on <strong class="text-emphasis"
+              >site selection, local resources and environmental constraints</strong
+            >: how the ground and its surroundings shape the infrastructure you can propose.
           </p>
-
+          <dl class="project-facts spaceport-facts">
+            <div><dt>My role</dt><dd>Team member</dd></div>
+            <div><dt>Project context</dt><dd>ISU · SSP 2025</dd></div>
+            <div><dt>Output</dt><dd>Concept study &amp; team report</dd></div>
+          </dl>
           <div class="project-actions">
-            <a class="link-btn" href="/files/isureport.pdf" target="_blank" rel="noopener">
-              Technical report · PDF, 5.1 MB
-            </a>
-            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+            <IllustratedLink href="/files/isureport.pdf" variant="document" external
+              >Read the team study</IllustratedLink
+            >
+            <IllustratedLink href="/#contact" variant="contact">Ask me about it</IllustratedLink>
           </div>
-        </header>
+        </div>
+        <img
+          class="spaceport-hero-art float-art"
+          src="/images/projects/lunar-spaceport/spaceport-hero.webp"
+          width="1536"
+          height="1024"
+          alt="Conceptual paper illustration of a lunar rocket standing inside a landing-pad berm, with a research outpost beyond a ridge"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <nav class="research-index" aria-label="On this page" data-section-nav>
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#question">The question</a>
+        <a class="text-link" href="#site">Site selection</a>
+        <a class="text-link" href="#pad">Landing pad</a>
+        <a class="text-link" href="#study">The study</a>
+      </nav>
+    </section>
 
-        <div class="project-layout">
-          <!-- Main -->
-          <article class="project-card project-main" id="top">
-            <section class="project-section" id="overview">
-              <h2 class="project-h2">Overview</h2>
-              <p class="project-p">
-                This work focuses on how a lunar spaceport site is selected when balancing <span class="hl"
-                  >operational constraints</span
-                > with <span class="hl">resource access</span>, especially for sustained south-polar
-                operations.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Scope</div>
-                  <div class="project-highlight-v">
-                    Location trade-offs, resource context, environmental challenges
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Outcome</div>
-                  <div class="project-highlight-v">
-                    Design drivers to inform early spaceport architecture choices
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="contribution">
-              <h2 class="project-h2">My contribution</h2>
-              <div class="project-contribution">
-                <p>
-                  Within the multidisciplinary ISU team study, I contributed to the analysis of candidate-site
-                  location, local resources, and environmental constraints affecting early lunar-spaceport
-                  architecture.
-                </p>
-                <ul>
-                  <li>
-                    Assessed coupled site-selection drivers including illumination, terrain, resource access,
-                    and operations.
-                  </li>
-                  <li>
-                    Examined dust, thermal, and plume-ejecta constraints relevant to surface infrastructure.
-                  </li>
-                  <li>
-                    Helped translate environmental and resource considerations into systems-level design
-                    drivers.
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="project-section" id="criteria">
-              <h2 class="project-h2">Site selection criteria</h2>
-              <p class="project-p">
-                Site selection is driven by a small set of coupled criteria that constrain layout, power,
-                mobility, communications, and long-term reliability.
-              </p>
-
-              <ul class="project-list">
-                <li>
-                  <span class="hl-soft">Power and illumination</span> as a near-term feasibility driver.
-                </li>
-                <li>
-                  <span class="hl-soft">Landing safety</span>: terrain, slopes, hazards, approach constraints.
-                </li>
-                <li><span class="hl-soft">Communications</span>: line of sight and relay constraints.</li>
-                <li>
-                  <span class="hl-soft">Thermal environment</span>: cold traps and hardware survivability.
-                </li>
-                <li>
-                  <span class="hl-soft">Logistics</span>: mobility, transport paths, and maintainability.
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="south-pole">
-              <h2 class="project-h2">Why the South Pole</h2>
-              <p class="project-p">
-                The lunar south polar region is attractive for extended illumination on elevated terrain and
-                proximity to permanently shadowed regions where volatiles may be present. This creates a
-                strong coupling between <span class="hl">power availability</span> and <span class="hl"
-                  >resource access</span
-                >.
-              </p>
-            </section>
-
-            <section class="project-section" id="site">
-              <h2 class="project-h2">Candidate site</h2>
-              <p class="project-p">
-                A representative candidate site (for example, a south polar rim location) is evaluated to
-                illustrate how small changes in topography and illumination can cascade into spaceport layout
-                and operations.
-              </p>
-
-              <ul class="project-list">
-                <li>Elevated terrain improves illumination and power continuity.</li>
-                <li>Nearby shadowed regions may enable volatile prospecting and ISRU demonstration.</li>
-                <li>Topography can support shielding and separation between landing and long-term assets.</li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="figures">
-              <h2 class="project-h2">Site and infrastructure concepts</h2>
-              <p class="project-p">
-                The study connected regional site constraints to a concrete infrastructure concept, from local
-                topography to plume and dust mitigation around the landing zone.
-              </p>
-
-              <div class="project-figure-grid">
-                <figure class="project-figure project-figure--landscape">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/lunar-spaceport/de-gerlache-rim-2.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the de Gerlache Rim 2 site map at full size"
-                  >
-                    <img
-                      src="/images/projects/lunar-spaceport/de-gerlache-rim-2.webp"
-                      width="750"
-                      height="460"
-                      alt="Topographic map and satellite mosaic of the de Gerlache Rim 2 candidate site near the lunar south pole"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Candidate site.</strong> Topographic context of de Gerlache Rim 2 in the lunar south-polar
-                    region. Base map: ATC Lunar/LROC.
-                    <a
-                      class="project-figure-source"
-                      href="/files/isureport.pdf#page=27"
-                      target="_blank"
-                      rel="noopener">ISU team study · Fig. 1.4</a
-                    >
-                  </figcaption>
-                </figure>
-
-                <figure class="project-figure project-figure--landscape">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/lunar-spaceport/landing-pad-concept.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the lunar landing-pad concept at full size"
-                  >
-                    <img
-                      src="/images/projects/lunar-spaceport/landing-pad-concept.webp"
-                      width="840"
-                      height="475"
-                      alt="Concept rendering of a circular lunar landing pad with an internal berm, external berm, plume redirection system and regolith brick floor"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Dust mitigation concept.</strong> A 100 m launch-and-landing pad with internal and external
-                    berms for plume redirection.
-                    <a
-                      class="project-figure-source"
-                      href="/files/isureport.pdf#page=38"
-                      target="_blank"
-                      rel="noopener">ISU team study · Fig. 1.9</a
-                    >
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-
-            <section class="project-section" id="resources">
-              <h2 class="project-h2">Resources and ISRU context</h2>
-              <p class="project-p">
-                The core resource driver is the potential presence of <span class="hl">water ice</span> in cold
-                traps. Water-derived oxygen and hydrogen can reduce Earth logistics dependency and enable scalable
-                surface operations.
-              </p>
-
-              <p class="project-p">
-                However, extraction feasibility depends on the real distribution, form, and accessibility of
-                deposits, which requires structured prospecting and in-situ characterization.
-              </p>
-            </section>
-
-            <section class="project-section" id="environment">
-              <h2 class="project-h2">Environmental challenges</h2>
-              <p class="project-p">
-                The dominant operational risks come from the lunar environment. Regolith dust is abrasive and
-                electrostatically adhesive, and plume ejecta from repeated landings can impact nearby
-                hardware. Thermal extremes and shadowed-region conditions further constrain mobility and
-                power.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Dust</div>
-                  <div class="project-highlight-v">
-                    Degrades optics, seals, radiators, and mechanisms; amplified by repeated landings
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Thermal</div>
-                  <div class="project-highlight-v">
-                    Cold traps and illumination cycles drive power, reliability, and mobility constraints
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="surveys">
-              <h2 class="project-h2">Prospecting and surveys</h2>
-              <p class="project-p">
-                Early infrastructure choices depend on reducing unknowns through targeted surveys.
-                High-resolution mapping and subsurface characterization support safer landing zones and more
-                robust foundations.
-              </p>
-
-              <ul class="project-list">
-                <li>Topography and regolith properties mapping for siting and construction decisions.</li>
-                <li>Subsurface characterization to inform foundation and excavation approaches.</li>
-                <li>Resource prospecting to constrain ISRU architecture choices.</li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="takeaways">
-              <h2 class="project-h2">Key takeaways</h2>
-              <ul class="project-list">
-                <li>Power is the first-order driver shaping site feasibility.</li>
-                <li>
-                  Resource access motivates south-polar proximity to shadowed regions, but increases
-                  operational complexity.
-                </li>
-                <li>
-                  Dust requires integrated mitigation at the architecture level, not a single component fix.
-                </li>
-                <li>Prospecting reduces risk and prevents over-design by constraining unknowns early.</li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="stack">
-              <h2 class="project-h2">Technical implementation</h2>
-              <div class="project-tags">
-                <span class="project-tag">Trade-space analysis</span>
-                <span class="project-tag">Site selection criteria</span>
-                <span class="project-tag">Environmental constraints</span>
-                <span class="project-tag">ISRU</span>
-                <span class="project-tag">Dust mitigation</span>
-                <span class="project-tag">Infrastructure planning</span>
-              </div>
-            </section>
-
-            <section class="project-section" id="links">
-              <h2 class="project-h2">Links</h2>
-              <div class="project-actions">
-                <a class="link-btn" href="/files/isureport.pdf" target="_blank" rel="noopener">
-                  Technical report · PDF, 5.1 MB
-                </a>
-                <a
-                  class="link-btn link-btn--secondary"
-                  href="https://sustainablelunar.space/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Project Website
-                </a>
-              </div>
-            </section>
-          </article>
-
-          <ProjectToc items={tocItems} />
+    <section class="spaceport-section band" id="question" aria-labelledby="question-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The question</p>
+        <h2 class="h2" id="question-title">A landing site is part of a larger system.</h2>
+        <div class="chapter-pair spaceport-pair">
+          <div>
+            <p class="spaceport-lede">
+              At the lunar south pole, <strong class="text-emphasis"
+                >light and shadow sit close together</strong
+              >. Elevated terrain can offer useful solar illumination, while nearby permanently shadowed
+              regions are targets for volatile prospecting. Reaching those resources also means dealing with
+              difficult terrain, extreme cold and demanding surface operations.
+            </p>
+            <p class="muted">
+              The study connects those conditions to an early spaceport: where to land, how to construct the
+              surface, and how to protect the systems that support repeated visits.
+            </p>
+          </div>
+          <aside class="chapter-note spaceport-contribution">
+            <h3 class="chapter-note-term">What I contributed</h3>
+            <ul>
+              <li>Analysed candidate-site location and local resources.</li>
+              <li>Examined dust, thermal and plume-ejecta constraints.</li>
+              <li>Translated these into infrastructure design drivers.</li>
+            </ul>
+          </aside>
+        </div>
+        <div class="model-comparison spaceport-thread">
+          <div class="model-comparison-copy">
+            <p class="eyebrow eyebrow--plain">From terrain to requirements</p>
+            <p class="chapter-quote">Choose the site.<br />Design for what it asks of you.</p>
+            <p class="muted model-comparison-detail">
+              A promising location is a starting point. <strong class="text-emphasis"
+                >Illumination, resource access and operational safety</strong
+              > have to work together in a feasible layout.
+            </p>
+          </div>
+          <figure class="model-comparison-art spaceport-terrain-art">
+            <img
+              src="/images/projects/lunar-spaceport/polar-conditions.webp"
+              width="1536"
+              height="1024"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Illuminated ridge · shadowed terrain</span><small
+                >Conceptual illustration, not a site map</small
+              >
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
+
+    <section class="spaceport-section" id="site" aria-labelledby="site-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Site selection</p>
+        <h2 class="h2" id="site-title">Why consider de Gerlache Rim 2?</h2>
+        <div class="spaceport-site-pair">
+          <figure class="spaceport-map">
+            <a
+              href="/images/projects/lunar-spaceport/de-gerlache-rim-2.webp"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the de Gerlache Rim 2 map at full size"
+            >
+              <img
+                src="/images/projects/lunar-spaceport/de-gerlache-rim-2.webp"
+                width="750"
+                height="460"
+                alt="LROC terrain mosaic with the de Gerlache Rim 2 study region outlined and topographic contours"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <figcaption>
+              Map reproduced in the team report, Fig. 1.4. Orthographic south-pole view; base map and credit:
+              ATC Lunar/LROC.
+            </figcaption>
+          </figure>
+          <div>
+            <p class="spaceport-lede">
+              The team selected <strong class="text-emphasis">de Gerlache Rim 2</strong> as a representative south-polar
+              site for the case study. The report considers elevated terrain, illumination, proximity to shadowed
+              regions and opportunities for communications with Earth.
+            </p>
+            <p class="muted">
+              The choice still needs local surveys. A regional indication of volatiles does not establish an
+              accessible deposit at a particular construction site, and useful sunlight does not imply
+              uninterrupted power throughout the year.
+            </p>
+            <p class="research-reference">
+              <span>Report source</span>
+              <a class="text-link" href="/files/isureport.pdf#page=26" target="_blank" rel="noopener"
+                >Site rationale · pp. 9–11</a
+              >
+            </p>
+          </div>
+        </div>
+        <h3 class="research-h3 chapter-sub">Six conditions to consider together.</h3>
+        <ol class="spaceport-criteria">
+          {
+            criteria.map((criterion, index) => (
+              <li>
+                <span class="spaceport-criterion-num" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <>
+                    <h4>{criterion.title}</h4>
+                    <p class="muted">{criterion.text}</p>
+                  </>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="spaceport-section band" id="pad" aria-labelledby="pad-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Landing infrastructure</p>
+        <h2 class="h2" id="pad-title">Design around the dust.</h2>
+        <p class="spaceport-section-lede muted">
+          Rocket exhaust can mobilise regolith and threaten nearby hardware. The report explores both
+          crater-adapted pads and an engineered planar pad. Its <strong class="text-emphasis"
+            >approximately 100 m circular-pad concept</strong
+          > combines regolith pavement with internal and external berms.
+        </p>
+        <div class="spaceport-pad-pair">
+          <figure class="spaceport-pad-figure">
+            <LunarPadDiagram />
+            <figcaption>
+              Simplified layout adapted from the team's New Era Nexus LLP concept, Fig. 1.9. Berm geometry is
+              schematic. No exhaust flow or mitigation performance is simulated.
+            </figcaption>
+          </figure>
+          <div>
+            <ol class="spaceport-pad-key">
+              <li>
+                <span aria-hidden="true">1</span><div>
+                  <h3>External berm</h3>
+                  <p class="muted">
+                    A surrounding barrier proposed to help manage plume and ejecta exposure. Its shape and
+                    behaviour require further modelling.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span aria-hidden="true">2</span><div>
+                  <h3>Internal berms</h3>
+                  <p class="muted">
+                    Four curved elements form part of the proposed plume-redirection concept. The sketch
+                    illustrates their arrangement.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span aria-hidden="true">3</span><div>
+                  <h3>Regolith pavement</h3>
+                  <p class="muted">
+                    Processed local material is proposed for a hardened surface. Durability, thermal loading
+                    and pavement erosion remain engineering questions.
+                  </p>
+                </div>
+              </li>
+            </ol>
+            <p class="spaceport-scope muted">
+              <strong class="text-emphasis">A concept to evaluate.</strong> Berms and pavement do not establish
+              that dust is contained or nearby equipment is safe. Plume–surface interactions and repeated operations
+              need dedicated modelling and testing.
+            </p>
+            <p class="research-reference">
+              <span>Report source</span>
+              <a class="text-link" href="/files/isureport.pdf#page=36" target="_blank" rel="noopener"
+                >Pad concepts · pp. 19–21</a
+              >
+            </p>
+          </div>
+        </div>
+        <h3 class="research-h3 chapter-sub">From a candidate site to an operating surface.</h3>
+        <ol class="pipeline">
+          {
+            steps.map((step, index) => (
+              <li>
+                <span class="pipeline-num" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <>
+                  <span class="pipeline-title">{step.title}</span>
+                  <span class="pipeline-text muted">{step.text}</span>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="spaceport-section" id="study" aria-labelledby="study-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">What came out</p>
+        <h2 class="h2" id="study-title">Environmental constraints become design drivers.</h2>
+        <div class="chapter-pair spaceport-pair">
+          <div>
+            <p class="spaceport-lede">
+              My contribution links <strong class="text-emphasis"
+                >lunar environmental knowledge to early infrastructure choices</strong
+              >. The outcome is a set of considerations for siting, material use, surface preparation and
+              protection of nearby systems, within the wider team architecture.
+            </p>
+            <p class="muted">
+              The SSP 2025 report also covers power, communications, logistics, governance and a longer-term
+              vision. This page focuses on the site and environmental work I contributed to that study.
+            </p>
+            <div class="project-actions">
+              <IllustratedLink href="/files/isureport.pdf" variant="document" external
+                >Read the full report</IllustratedLink
+              >
+            </div>
+          </div>
+          <aside class="chapter-note">
+            <h3 class="chapter-note-term">What still needs evidence</h3>
+            <p class="muted">
+              Site-specific illumination and ground conditions; accessible resource quantities;
+              construction-material performance; and plume behaviour around the proposed pad and neighbouring
+              assets.
+            </p>
+          </aside>
+        </div>
+        <div class="spaceport-source-row">
+          <span>Further context</span>
+          <a
+            class="text-link"
+            href="https://www.nasa.gov/reference/moonbase-environment/"
+            target="_blank"
+            rel="noopener">NASA · south-pole environment</a
+          >
+          <a
+            class="text-link"
+            href="https://www.nasa.gov/missions/artemis/nasa-begins-moon-mission-plume-surface-interaction-tests/"
+            target="_blank"
+            rel="noopener">NASA · plume–surface testing</a
+          >
+        </div>
+        <details class="project-details spaceport-details">
+          <summary
+            ><span class="project-details-title">Study assumptions &amp; original figures</span>
+            <span class="project-details-toggle" aria-hidden="true"></span></summary
+          >
+          <div class="project-details-body">
+            <div>
+              <h3>Assumptions, not certified requirements</h3>
+              <p>
+                The short-term study assumes a small research base with a rotating crew. It considers
+                separating the habitat from the landing area and using terrain for shielding. An approximate
+                500 m separation is a study assumption, not a validated safety distance.
+              </p>
+              <p>
+                Detailed surveys and testing would be needed before adopting the site, pad dimensions or
+                layout. The longer-term scale described in the report is a scenario rather than a forecast.
+              </p>
+            </div>
+            <div>
+              <h3>Original report figures</h3>
+              <p>
+                The terrain map and original landing-pad rendering remain available alongside the source
+                report.
+              </p>
+              <div class="spaceport-archive-links">
+                <a
+                  class="text-link"
+                  href="/images/projects/lunar-spaceport/de-gerlache-rim-2.webp"
+                  target="_blank"
+                  rel="noopener">Original site map · Fig. 1.4</a
+                >
+                <a
+                  class="text-link"
+                  href="/images/projects/lunar-spaceport/landing-pad-concept.webp"
+                  target="_blank"
+                  rel="noopener">Original pad rendering · Fig. 1.9</a
+                >
+                <a class="text-link" href="/files/isureport.pdf#page=38" target="_blank" rel="noopener"
+                  >Rendering &amp; cross-section in the report</a
+                >
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={"/projects/" + previous.slug}>
+        <img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" />
+        <span
+          ><span class="project-pager-k">← Previous</span><span class="project-pager-v">{previous.title}</span
+          ></span
+        >
+      </a>
+      <a class="project-pager-link project-pager-link--next" href={"/projects/" + next.slug}>
+        <span
+          ><span class="project-pager-k">Next →</span><span class="project-pager-v">{next.title}</span></span
+        >
+        <img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" />
+      </a>
+    </nav>
   </main>
 </BaseLayout>

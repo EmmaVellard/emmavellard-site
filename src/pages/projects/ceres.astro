@@ -1,305 +1,443 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/NavBar.astro";
-import ProjectToc from "../../components/ProjectToc.astro";
+import IllustratedLink from "../../components/IllustratedLink.astro";
+import DiplonaSounder from "../../components/DiplonaSounder.astro";
+import { projects } from "../../data/projects";
+import "../../styles/research.css";
 import "../../styles/projects.css";
-
-const title = "Ceres Radar Instrument Concept | Emma Vellard";
-const tocItems = [
-  { id: "overview", label: "Overview" },
-  { id: "contribution", label: "My contribution" },
-  { id: "problem", label: "Problem" },
-  { id: "approach", label: "Approach" },
-  { id: "measurement", label: "Measurement concept" },
-  { id: "figures", label: "Design figures" },
-  { id: "deliverables", label: "Deliverables" },
-  { id: "usage", label: "Targets & rationale" },
-  { id: "outputs", label: "Study outcomes" },
-  { id: "stack", label: "What I worked on" },
-  { id: "links", label: "Links" },
-] as const;
+import "../../styles/diplona.css";
+const previous = projects[3];
+const next = projects[0];
+const targets = [
+  {
+    name: "Occator",
+    type: "Bright deposits & fractures",
+    question: "How do the deposits and surface structures extend beneath the crater floor?",
+  },
+  {
+    name: "Ahuna Mons",
+    type: "Cryovolcanic dome",
+    question: "What contacts and internal structures could help reconstruct the dome's formation?",
+  },
+  {
+    name: "Haulani",
+    type: "Young impact crater",
+    question: "What is the geometry of crater-floor units and material moved down its slopes?",
+  },
+  {
+    name: "Urvara",
+    type: "Complex impact basin",
+    question: "How are its deposits, central structures and varied surface materials arranged in depth?",
+  },
+];
+const steps = [
+  { title: "Ask", text: "Identify a geological question and a candidate site." },
+  { title: "Observe", text: "Translate it into interfaces, layering or deposit thickness." },
+  { title: "Measure", text: "Define radar sounding and the resolution needed." },
+  { title: "Constrain", text: "Check orbit, antenna, power and spacecraft limits." },
+];
 ---
 
 <BaseLayout
-  title={title}
-  description="A science-driven radar sounder concept for investigating Ceres subsurface structure, linking measurement performance and payload feasibility to planetary science objectives."
-  socialImage="/images/projects/ceres/spacecraft-orientation.webp"
-  socialImageAlt="DIPLONA spacecraft orientation and deployed radar antennas at Ceres"
-  socialImageWidth={815}
-  socialImageHeight={620}
+  title="Diplona | Emma Vellard"
+  description="Diplona: a student mission concept for a CubeSat radar sounder at Ceres, connecting surface geology to shallow subsurface structure and spacecraft constraints."
+  socialImage="/images/projects/ceres/ceres-orbiter-v2.webp"
+  socialImageAlt="Blue and ivory paper illustration of a CubeSat above Ceres"
+  socialImageWidth={1536}
+  socialImageHeight={1024}
 >
-  <Navbar />
-
-  <main class="page page-project" id="main-content" tabindex="-1">
-    <div class="project-bg" aria-hidden="true"></div>
-
-    <section class="project-shell">
-      <div class="container">
-        <header class="project-head">
-          <a class="project-back" href="/projects">← Back to projects</a>
-
-          <div class="project-kicker">Contribution</div>
-          <h1 class="project-title">Diplona: A mission to Ceres</h1>
-
-          <div class="project-subtle">Mission concept · CubeSat architecture · Radar feasibility</div>
-
-          <p class="project-lede">
-            A mission concept study to investigate <span class="hl">Ceres</span> cryovolcanism and subsurface structure
-            using a compact <span class="hl">radar sounder</span> approach and science-driven target selection.
+  <main id="main-content" class="diplona-project" tabindex="-1">
+    <section class="container research-intro diplona-intro">
+      <a class="text-link diplona-back" href="/research#earlier">← Research</a>
+      <div class="diplona-hero">
+        <div>
+          <p class="eyebrow eyebrow--plain">Earlier work · Student mission concept</p>
+          <h1 class="research-title">Diplona</h1>
+          <p class="diplona-question">What lies beneath Ceres' surface clues?</p>
+          <p class="research-intro-text muted">
+            I worked on a team concept for a <strong class="text-emphasis"
+              >CubeSat radar sounder at Ceres</strong
+            >. Our aim was to connect the craters, bright deposits and cryovolcanic features seen by Dawn to
+            the structures beneath them — and translate that science into an instrument a small spacecraft
+            could carry.
           </p>
-
+          <dl class="project-facts diplona-facts">
+            <div><dt>My role</dt><dd>Student team member · report co-author</dd></div>
+            <div><dt>Team context</dt><dd>ESTACA &amp; Planetary Science MSc</dd></div>
+            <div><dt>Report</dt><dd>February 2023</dd></div>
+          </dl>
           <div class="project-actions">
-            <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener"
-              >Technical report · PDF, 11 MB</a
+            <IllustratedLink href="/files/cerereport.pdf" variant="document" external
+              >Read the team study</IllustratedLink
             >
-            <a class="link-btn link-btn--secondary" href="/contact">Contact me</a>
+            <IllustratedLink href="/#contact" variant="contact">Ask me about it</IllustratedLink>
           </div>
-        </header>
+        </div>
+        <figure class="diplona-hero-figure">
+          <img
+            class="diplona-hero-art float-art"
+            src="/images/projects/ceres/ceres-orbiter-v2.webp"
+            width="1536"
+            height="1024"
+            alt="Conceptual paper illustration of a CubeSat with a deployed dipole antenna above cratered Ceres"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption>Proposed mission · conceptual illustration</figcaption>
+        </figure>
+      </div>
+      <nav class="research-index" aria-label="On this page" data-section-nav>
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#question">The question</a>
+        <a class="text-link" href="#sounder">Below the surface</a>
+        <a class="text-link" href="#tradeoffs">The trade-offs</a>
+        <a class="text-link" href="#study">The study</a>
+      </nav>
+    </section>
 
-        <div class="project-layout">
-          <!-- Main content -->
-          <article class="project-card project-main" id="top">
-            <section class="project-section" id="overview">
-              <h2 class="project-h2">Overview</h2>
-              <p class="project-p">
-                DIPLONA is a concept for a small spacecraft mission to Ceres, designed to complement Dawn-era
-                surface discoveries by adding a subsurface perspective. The central idea is to use radar
-                sounding to connect <span class="hl">surface morphology</span> with <span class="hl"
-                  >near-subsurface structure</span
-                > in key regions linked to cryovolcanism and brine-related deposits.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Mission type</div>
-                  <div class="project-highlight-v">
-                    <span class="hl">3U CubeSat</span> concept study with a focused payload
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Instrument</div>
-                  <div class="project-highlight-v">
-                    <span class="hl">Radar sounder</span> to probe tens of meters with meter-scale vertical resolution
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="contribution">
-              <h2 class="project-h2">My contribution</h2>
-              <div class="project-contribution">
-                <p>
-                  Within the team mission study, I worked on the chain connecting the Ceres science case to a
-                  preliminary radar-sounder concept and its payload constraints.
-                </p>
-                <ul>
-                  <li>
-                    Defined scientific objectives and a preliminary measurement concept for subsurface
-                    structure and cryovolcanic features.
-                  </li>
-                  <li>
-                    Performed preliminary payload sizing and instrument trade-off studies for a 3U CubeSat
-                    radar sounder.
-                  </li>
-                  <li>
-                    Assessed instrument-performance needs for geomorphology, subsurface layering, and
-                    cryovolcanism.
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="project-section" id="problem">
-              <h2 class="project-h2">Problem</h2>
-              <p class="project-p">
-                Dawn revealed evidence for cryovolcanism, carbonates, organics, and possible brines on Ceres,
-                but the internal context of many features remains uncertain. The key challenge is to constrain
-                how observed deposits and morphologies relate to <span class="hl">subsurface layering</span>,
-                fracture systems, and the evolution of cryovolcanic or impact-driven processes.
-              </p>
-            </section>
-
-            <section class="project-section" id="approach">
-              <h2 class="project-h2">Approach</h2>
-              <p class="project-p">
-                The mission concept narrows the science scope to what a small platform can realistically
-                support, then ties objectives to an instrument and an operations plan. Radar sounding was
-                selected as the most valuable “new dimension” relative to Dawn, because it directly informs <span
-                  class="hl">structure</span
-                >, <span class="hl">interfaces</span>, and <span class="hl">subsurface continuity</span>.
-              </p>
-            </section>
-
-            <section class="project-section" id="measurement">
-              <h2 class="project-h2">Measurement concept & performance</h2>
-              <p class="project-p">
-                The study translated subsurface-science questions into a preliminary radar measurement
-                concept. Instrument performance was framed around the depth and vertical resolution needed to
-                distinguish scientifically useful interfaces, while remaining compatible with a constrained 3U
-                CubeSat architecture.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Measurement objective</div>
-                  <div class="project-highlight-v">
-                    Detect subsurface interfaces, layering, and structural continuity beneath selected
-                    geological targets
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Performance framing</div>
-                  <div class="project-highlight-v">
-                    Tens of metres of penetration with metre-scale vertical resolution
-                  </div>
-                </div>
-              </div>
-
-              <p class="project-p">
-                This created a traceable chain from the scientific question to the observable, the selected
-                measurement technique, and the payload-level feasibility trade-offs.
-              </p>
-            </section>
-
-            <section class="project-section" id="figures">
-              <h2 class="project-h2">Selected design figures</h2>
-              <p class="project-p">
-                These figures show how the science case was translated into spacecraft geometry and an initial
-                radar-performance assessment.
-              </p>
-
-              <div class="project-figure-grid">
-                <figure class="project-figure">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/ceres/spacecraft-orientation.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the DIPLONA spacecraft orientation figure at full size"
-                  >
-                    <img
-                      src="/images/projects/ceres/spacecraft-orientation.webp"
-                      width="815"
-                      height="620"
-                      alt="DIPLONA spacecraft concept with two long dipole antennas, solar panels and the pointing direction toward Ceres"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Observation geometry.</strong> DIPLONA orientation concept with the deployed dipole
-                    radar directed toward Ceres.
-                    <a
-                      class="project-figure-source"
-                      href="/files/cerereport.pdf#page=33"
-                      target="_blank"
-                      rel="noopener">DIPLONA team study · Fig. 4.4</a
-                    >
-                  </figcaption>
-                </figure>
-
-                <figure class="project-figure">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/ceres/snr-surface-slope.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the radar signal-to-noise figure at full size"
-                  >
-                    <img
-                      src="/images/projects/ceres/snr-surface-slope.webp"
-                      width="465"
-                      height="325"
-                      alt="Calculated radar signal-to-noise ratio decreasing with surface RMS slope for orbital altitudes of 24, 28 and 32 kilometres"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Performance trade-off.</strong> Calculated signal-to-noise ratio versus surface RMS
-                    slope at three candidate orbital altitudes.
-                    <a
-                      class="project-figure-source"
-                      href="/files/cerereport.pdf#page=49"
-                      target="_blank"
-                      rel="noopener">DIPLONA team study · Fig. 4.21</a
-                    >
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-
-            <section class="project-section" id="deliverables">
-              <h2 class="project-h2">Deliverables</h2>
-              <ul class="project-list">
-                <li>Science motivation and focused questions tailored to a CubeSat-scale mission</li>
-                <li>Target shortlist and rationale for primary observation regions</li>
-                <li>Concept payload definition and feasibility framing for radar sounding</li>
-                <li>Trade-off logic linking scientific objectives to engineering constraints</li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="usage">
-              <h2 class="project-h2">Targets & rationale</h2>
-              <p class="project-p">
-                The concept emphasizes regions where radar profiling could clarify formation mechanisms:
-                carbonates and brine-related deposits (e.g., Occator), young crater contexts (e.g., Haulani
-                and Urvara), and cryovolcanic dome structure (Ahuna Mons).
-              </p>
-
-              <div class="project-callout">
-                <div class="project-callout-k">Why radar here?</div>
-                <div class="project-callout-v">
-                  To test whether surface units extend in depth, identify subsurface contacts, and constrain
-                  fracture or layering patterns that control emplacement and evolution of observed features.
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="outputs">
-              <h2 class="project-h2">Study outcomes</h2>
-              <ul class="project-list">
-                <li>
-                  A traceable concept linking subsurface-science questions to radar observables and
-                  measurement constraints
-                </li>
-                <li>
-                  Preliminary performance analysis across orbital altitude and surface-roughness assumptions
-                </li>
-                <li>
-                  Target and operations rationale spanning cryovolcanic, impact, tectonic, and slope-process
-                  contexts
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="stack">
-              <h2 class="project-h2">Technical implementation</h2>
-
-              <div class="project-tags">
-                <span class="project-tag">Geomorphological analysis</span>
-                <span class="project-tag">Dawn data interpretation</span>
-                <span class="project-tag">Target selection logic</span>
-                <span class="project-tag">Radar feasibility framing</span>
-                <span class="project-tag">Mission trade-off analysis</span>
-                <span class="project-tag">Science-to-engineering translation</span>
-              </div>
-            </section>
-
-            <section class="project-section" id="links">
-              <h2 class="project-h2">Links</h2>
-              <div class="project-links">
-                <a class="link-btn" href="/files/cerereport.pdf" target="_blank" rel="noopener"
-                  >Technical report · PDF, 11 MB</a
-                >
-                <a class="link-btn link-btn--secondary" href="/experience/#latmos">Related experience</a>
-              </div>
-            </section>
-          </article>
-
-          <ProjectToc items={tocItems} />
+    <section class="diplona-section band" id="question" aria-labelledby="question-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The question</p>
+        <h2 class="h2" id="question-title">The surface tells part of the story.</h2>
+        <div class="diplona-pair">
+          <div>
+            <p class="diplona-lede">
+              Dawn revealed a world shaped by impacts and water-related processes: bright salt deposits,
+              fractures and the cryovolcanic dome of Ahuna Mons. These surface clues raise another question: <strong
+                class="text-emphasis">how do surface geology and shallow subsurface structure connect?</strong
+              >
+            </p>
+            <p class="muted">
+              The proposed radar profiles would complement images and spectra. Interfaces, layering and
+              deposit thickness could help test interpretations of how these features formed, and how material
+              moved through or across the shallow crust.
+            </p>
+          </div>
+          <figure class="diplona-terrain-figure">
+            <img
+              class="float-art"
+              src="/images/projects/ceres/shallow-terrain-v2.webp"
+              width="1536"
+              height="1024"
+              alt="Conceptual blue paper landscape with a dome, bright crater deposits and an exposed shallow layered edge"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Surface clues and imagined shallow layering · not mapped subsurface structure
+            </figcaption>
+          </figure>
+        </div>
+        <div class="diplona-targets">
+          <h3 class="h3">Four places to ask the question.</h3>
+          <div class="diplona-target-grid">
+            {
+              targets.map((target, index) => (
+                <article>
+                  <>
+                    <span class="diplona-target-number">0{index + 1}</span>
+                    <h4>{target.name}</h4>
+                    <p class="diplona-target-type">{target.type}</p>
+                    <p class="muted">{target.question}</p>
+                  </>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+        <div class="research-reference">
+          <span>Context</span><a
+            class="text-link"
+            href="/files/cerereport.pdf#page=28"
+            target="_blank"
+            rel="noopener">Science objectives · pp. 16–18</a
+          ><a class="text-link" href="/files/cerereport.pdf#page=77" target="_blank" rel="noopener"
+            >Target rationale · pp. 65–73</a
+          ><a
+            class="text-link"
+            href="https://www.nasa.gov/centers-and-facilities/jpl/mystery-solved-bright-areas-on-ceres-come-from-salty-water-below/"
+            target="_blank"
+            rel="noopener">NASA · Dawn's surface clues</a
+          >
         </div>
       </div>
     </section>
+
+    <section class="diplona-section" id="sounder" aria-labelledby="sounder-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Below the surface</p>
+        <h2 class="h2" id="sounder-title">Send a signal. Read the echoes.</h2>
+        <div class="diplona-pair diplona-sounder-pair">
+          <div>
+            <p class="diplona-lede">
+              A radar sounder transmits an electromagnetic signal towards the ground. Part returns from the
+              surface; part can penetrate and reflect where electrical properties change. <strong
+                class="text-emphasis"
+                >The timing and strength of the echoes reveal possible interfaces.</strong
+              >
+            </p>
+            <p class="muted">
+              A sequence of profiles along the orbit builds a radargram. Converting delay into depth requires
+              an assumed wave speed in the material. Off-nadir surface echoes can also mimic deeper returns,
+              so interpretation needs terrain information.
+            </p>
+            <p class="diplona-note">
+              An interface is a structural clue: an echo alone does not uniquely identify composition or prove
+              the presence of brines.
+            </p>
+          </div>
+          <figure>
+            <DiplonaSounder /><figcaption>
+              Radar sounding principle · adapted from Fig. 4.1. The ground layers are illustrative.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="diplona-specs">
+          <div><strong>3U</strong><span>Proposed spacecraft format</span></div>
+          <div><strong>7.3 m</strong><span>Deployed dipole · end to end</span></div>
+          <div><strong>10–50 MHz</strong><span>Proposed frequency range</span></div>
+        </div>
+        <p class="diplona-note">
+          The study targeted sounding to tens of metres at metre-scale vertical resolution. Its design summary
+          reports about 2.1 m vertical resolution under the assumed dielectric properties; achievable depth
+          would depend on attenuation, terrain and signal detectability.
+        </p>
+        <div class="research-reference">
+          <span>Design basis</span><a
+            class="text-link"
+            href="/files/cerereport.pdf#page=31"
+            target="_blank"
+            rel="noopener">Sounding principle · p. 19</a
+          ><a class="text-link" href="/files/cerereport.pdf#page=34" target="_blank" rel="noopener"
+            >Antenna concept · p. 22</a
+          ><a class="text-link" href="/files/cerereport.pdf#page=52" target="_blank" rel="noopener"
+            >Radar summary · Table 4.6</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="diplona-section band" id="tradeoffs" aria-labelledby="tradeoffs-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The trade-offs</p>
+        <h2 class="h2" id="tradeoffs-title">A small spacecraft. Connected constraints.</h2>
+        <p class="diplona-lede diplona-section-lede">
+          Resolution, penetration and instrument size belong to the same problem. <strong
+            class="text-emphasis">A useful measurement has to fit both the geology and the spacecraft.</strong
+          >
+        </p>
+        <div class="diplona-trade-grid">
+          <article>
+            <h3>Resolution &amp; depth</h3><p class="muted">
+              Bandwidth sets the ability to separate nearby interfaces. Frequency and material attenuation
+              influence how far the signal can penetrate.
+            </p>
+          </article>
+          <article>
+            <h3>Terrain &amp; orbit</h3><p class="muted">
+              Altitude and surface slopes change the echo geometry, signal strength and surface clutter. They
+              also shape the timing of the observation.
+            </p>
+          </article>
+          <article>
+            <h3>Deployment &amp; power</h3><p class="muted">
+              A long antenna must fit into a small spacecraft, then deploy reliably. Radar transmission and
+              processing share its limited power and data budget.
+            </p>
+          </article>
+        </div>
+        <div class="diplona-chart-head">
+          <h3 class="h3">How much signal remains as the terrain gets rougher?</h3>
+          <p class="muted">
+            Figure 4.21 compares the reported signal-to-noise ratio at three orbital altitudes as surface RMS
+            slope increases. It uses a modelled interface at 60 m depth and fixed assumptions for
+            reflectivity, attenuation and receiver noise.
+          </p>
+        </div>
+        <figure class="diplona-chart">
+          {
+            (["light", "dark"] as const).map((theme) => (
+              <a
+                class={"diplona-chart-" + theme}
+                href={"/images/projects/ceres/snr-surface-slope-" + theme + ".svg"}
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the redrawn Diplona signal-to-noise comparison"
+              >
+                <picture>
+                  <>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset={"/images/projects/ceres/snr-surface-slope-" + theme + "-mobile.svg"}
+                      width="440"
+                      height="420"
+                    />
+                    <img
+                      src={"/images/projects/ceres/snr-surface-slope-" + theme + ".svg"}
+                      width="720"
+                      height="460"
+                      alt="Approximate redraw of reported signal-to-noise curves: SNR decreases with surface RMS slope, with lower reported SNR at 32 km than at 24 km altitude"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </>
+                </picture>
+              </a>
+            ))
+          }
+          <ul class="diplona-chart-legend" aria-label="Orbital altitudes in the reported calculation">
+            <li><span aria-hidden="true"></span>24 km</li><li><span aria-hidden="true"></span>28 km</li><li>
+              <span aria-hidden="true"></span>32 km
+            </li>
+          </ul>
+          <figcaption>
+            Approximate digitisation of Fig. 4.21 · reported model curves, not measured performance.<span
+              class="diplona-figure-links"
+              ><a
+                class="text-link"
+                href="/images/projects/ceres/snr-report-original.jpg"
+                target="_blank"
+                rel="noopener">Original report figure</a
+              ><a class="text-link" href="/files/diplona/snr-digitised.csv" download
+                >Approximate plotted points · CSV</a
+              ></span
+            >
+          </figcaption>
+        </figure>
+        <div class="diplona-chart-reading">
+          <p>
+            <strong class="text-emphasis">The trend is a design driver.</strong> In the report's calculation, increasing
+            roughness and altitude reduces the reported signal-to-noise ratio: terrain selection and orbit design
+            matter together.
+          </p>
+          <p>
+            <strong class="text-emphasis">The numbers remain conditional.</strong> The original calculation and
+            dB conversion have not been independently reproduced; this comparison does not establish an achievable
+            sounding depth or flight readiness.
+          </p>
+        </div>
+        <div class="research-reference">
+          <span>Source</span><a
+            class="text-link"
+            href="/files/cerereport.pdf#page=48"
+            target="_blank"
+            rel="noopener">Radar equation &amp; assumptions · pp. 36–37</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="diplona-section" id="study" aria-labelledby="study-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The study</p>
+        <h2 class="h2" id="study-title">From a geological question to a mission concept.</h2>
+        <p class="diplona-lede diplona-section-lede">
+          Diplona was an early student feasibility study. Its value lies in <strong class="text-emphasis"
+            >making the chain from science objectives to instrument requirements explicit</strong
+          > — and documenting the choices in a shared team report.
+        </p>
+        <ol class="pipeline diplona-pipeline">
+          {
+            steps.map((step, index) => (
+              <li>
+                <>
+                  <span class="pipeline-num" aria-hidden="true">
+                    0{index + 1}
+                  </span>
+                  <span class="pipeline-title">{step.title}</span>
+                  <span class="pipeline-text muted">{step.text}</span>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="diplona-study-pair">
+          <div>
+            <h3 class="h3">What the team produced</h3><p>
+              A science rationale and target shortlist, a radar payload concept, spacecraft sizing, observing
+              orbits and an operations concept connecting the measurement to mission constraints.
+            </p>
+          </div>
+          <div>
+            <h3 class="h3">What would need validation</h3><p>
+              Antenna deployment, instrument performance, clutter rejection, power and thermal budgets,
+              navigation and transfer architecture would need further engineering and testing.
+            </p>
+          </div>
+        </div>
+        <div class="diplona-study-actions">
+          <IllustratedLink href="/files/cerereport.pdf" variant="document" external
+            >Read the full team study</IllustratedLink
+          >
+        </div>
+        <details class="project-details diplona-details">
+          <summary
+            ><span class="project-details-title">Assumptions, sources &amp; study limits</span><span
+              class="project-details-toggle"
+              aria-hidden="true"></span></summary
+          >
+          <div class="project-details-body">
+            <div>
+              <h3>Research context</h3><p>
+                The February 2023 report lists twelve co-authors, including Emma Vellard, from ESTACA and the
+                Planetary Science and Space Exploration MSc. It presents an early mission concept and a
+                potential Phase 0 study. The outputs described here belong to the team; the report does not
+                assign named individual responsibilities.
+              </p><a class="text-link" href="/files/cerereport.pdf#page=108" target="_blank" rel="noopener"
+                >Study conclusion · p. 96</a
+              >
+            </div>
+            <div>
+              <h3>Design values, not demonstrated performance</h3><p>
+                Table 4.6 summarises a 7.3 m dipole, 30 MHz centre frequency, 40 MHz bandwidth, 1 W
+                instantaneous transmit power and about 2.1 m vertical resolution. These are proposed design
+                values; penetration and resolution depend on assumed dielectric properties and attenuation.
+              </p><a class="text-link" href="/files/cerereport.pdf#page=52" target="_blank" rel="noopener"
+                >Design summary · Table 4.6</a
+              >
+            </div>
+            <div>
+              <h3>Figure source &amp; digitisation</h3><p>
+                The graph was redrawn from the JPEG embedded in the report, without original numerical
+                outputs. Compression, overlapping traces and limited resolution near zero slope prevent exact
+                coordinate recovery. The downloadable points reproduce the visible comparison; they are not
+                suitable for engineering calculations. The underlying radar calculation and dB conversion were
+                not independently validated.
+              </p><a
+                class="text-link"
+                href="/files/diplona/snr-provenance.json"
+                target="_blank"
+                rel="noopener">Digitisation method &amp; limitations</a
+              >
+            </div>
+            <div>
+              <h3>Illustrations &amp; original geometry</h3><p>
+                The paper illustrations explain the mission idea; they are not spacecraft drawings or
+                observations of the subsurface. The radar diagram shows hypothetical interfaces, which would
+                not uniquely establish composition or brines.
+              </p><a
+                class="text-link"
+                href="/images/projects/ceres/spacecraft-orientation.webp"
+                target="_blank"
+                rel="noopener">Original spacecraft geometry · Fig. 4.4</a
+              >
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={"/projects/" + previous.slug}
+        ><img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" /><span
+          ><span class="project-pager-k">← Previous</span><span class="project-pager-v">{previous.title}</span
+          ></span
+        ></a
+      >
+      <a class="project-pager-link project-pager-link--next" href={"/projects/" + next.slug}
+        ><span
+          ><span class="project-pager-k">Next →</span><span class="project-pager-v">{next.title}</span></span
+        ><img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" /></a
+      >
+    </nav>
   </main>
 </BaseLayout>

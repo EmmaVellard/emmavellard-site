@@ -1,313 +1,433 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navbar from "../../components/NavBar.astro";
-import ProjectToc from "../../components/ProjectToc.astro";
+import IllustratedLink from "../../components/IllustratedLink.astro";
+import SolarGeometry from "../../components/SolarGeometry.astro";
+import { projects } from "../../data/projects";
+import "../../styles/research.css";
 import "../../styles/projects.css";
+import "../../styles/solarconflux.css";
 
-const title = "SolarConflux | Project";
-const tocItems = [
-  { id: "overview", label: "Overview" },
-  { id: "contribution", label: "My contribution" },
-  { id: "problem", label: "Problem" },
-  { id: "approach", label: "Approach" },
-  { id: "deliverables", label: "Deliverables" },
-  { id: "usage", label: "Installation & usage" },
-  { id: "outputs", label: "Outputs" },
-  { id: "figures", label: "Example outputs" },
-  { id: "stack", label: "Technical implementation" },
-  { id: "links", label: "Links" },
+const sourceRevision = "bcca574095b0a95733295e1937775e6380dd36d8";
+const dataSource = `https://github.com/EmmaVellard/SolarConflux/blob/${sourceRevision}/web/example.json`;
+const previous = projects[projects.length - 1];
+const next = projects[1];
+const steps = [
+  {
+    title: "Retrieve trajectories",
+    text: "Choose spacecraft, planets, dates and sampling. Express the ephemerides in a common Sun-centred frame.",
+  },
+  {
+    title: "Compare geometries",
+    text: "Screen circular longitude separations or ballistic Parker footpoints, with an optional group latitude filter.",
+  },
+  {
+    title: "Find windows",
+    text: "Group successive matching samples into candidate intervals. Their boundaries follow the sampling cadence.",
+  },
+  {
+    title: "Keep the context",
+    text: "Export the windows, settings and data provenance alongside plots for further investigation.",
+  },
+];
+const geometries = [
+  { mode: "cone", title: "Cone", text: "When are observers close in longitude to an anchor body?" },
+  { mode: "opposition", title: "Opposition", text: "When are two observers about 180° apart in longitude?" },
+  { mode: "quadrature", title: "Quadrature", text: "When are two observers about 90° apart in longitude?" },
+  { mode: "arbitrary", title: "Custom angle", text: "When does their separation approach a chosen angle?" },
+  { mode: "parker", title: "Parker spiral", text: "When do approximate ballistic source longitudes agree?" },
+  { mode: "coneparker", title: "Cone + Parker", text: "When do the sector and Parker criteria both hold?" },
 ] as const;
 ---
 
 <BaseLayout
-  title={title}
-  description="SolarConflux is Emma Vellard's open-source Python tool for identifying coordinated observation opportunities across heliophysics spacecraft and missions."
-  socialImage="/images/projects/solarconflux/cone-alignments.webp"
-  socialImageAlt="SolarConflux polar plots showing coordinated spacecraft observation opportunities"
-  socialImageWidth={2118}
-  socialImageHeight={740}
+  title="SolarConflux | Emma Vellard"
+  description="SolarConflux is Emma Vellard's open-source research tool for finding candidate coordinated-observation windows from spacecraft ephemerides and approximate heliocentric geometries."
+  socialImage="/images/projects/solarconflux/solar-viewpoints.webp"
+  socialImageAlt="Paper illustration of the Sun seen from three spacecraft viewpoints"
+  socialImageWidth={1536}
+  socialImageHeight={1024}
 >
-  <Navbar />
-
-  <main class="page page-project" id="main-content" tabindex="-1">
-    <div class="project-bg" aria-hidden="true"></div>
-
-    <section class="project-shell">
-      <div class="container">
-        <header class="project-head">
-          <a class="project-back" href="/projects">← Back to projects</a>
-
-          <div class="project-kicker">Featured project</div>
-          <h1 class="project-title">SolarConflux</h1>
-
-          <div class="project-subtle">
-            Scientific software · Multi-spacecraft geometry · Observation planning
-          </div>
-
-          <p class="project-lede">
-            SolarConflux retrieves heliocentric trajectories for spacecraft and planets, then detects
-            geometric alignments to identify time windows enabling <span class="hl"
-              >coordinated observations</span
-            > of <span class="hl">solar events</span> and <span class="hl">space weather context</span>.
+  <main id="main-content" class="solar-project" tabindex="-1">
+    <section class="container research-intro solar-intro">
+      <a class="text-link solar-back" href="/research#earlier">← Research</a>
+      <div class="solar-hero">
+        <div>
+          <p class="eyebrow eyebrow--plain">Earlier work · Research software</p>
+          <h1 class="research-title">SolarConflux</h1>
+          <p class="solar-question">One Sun. Several spacecraft. When do their viewpoints align?</p>
+          <p class="research-intro-text muted">
+            I built SolarConflux to turn spacecraft trajectories into <strong class="text-emphasis"
+              >candidate observation windows</strong
+            >. It screens useful geometries for coordinated solar and heliospheric observations, then keeps
+            the dates and assumptions together for follow-up analysis.
           </p>
-
+          <dl class="project-facts solar-facts">
+            <div><dt>My role</dt><dd>Designer &amp; developer</dd></div>
+            <div><dt>Project context</dt><dd>ESA · 2023–2025</dd></div>
+            <div><dt>Today</dt><dd>Open-source Python &amp; web explorer</dd></div>
+          </dl>
           <div class="project-actions">
-            <a
-              class="link-btn"
-              href="https://github.com/EmmaVellard/SolarConflux"
-              target="_blank"
-              rel="noopener"
+            <IllustratedLink href="https://emmavellard.github.io/SolarConflux/" external
+              >Open the explorer</IllustratedLink
             >
-              View on GitHub
-            </a>
-            <a class="link-btn link-btn--secondary" href="/contact"> Contact me </a>
+            <IllustratedLink
+              href="https://github.com/EmmaVellard/SolarConflux"
+              variant="document"
+              illustration={{
+                src: "/images/projects/solarconflux/github-cat.webp",
+                width: 240,
+                height: 240,
+              }}
+              external>View on GitHub</IllustratedLink
+            >
           </div>
-        </header>
+        </div>
+        <img
+          class="solar-hero-art float-art"
+          src="/images/projects/solarconflux/solar-viewpoints.webp"
+          width="1536"
+          height="1024"
+          alt="Conceptual paper illustration of the Sun surrounded by three spacecraft at different viewpoints"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <nav class="research-index" aria-label="On this page" data-section-nav>
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#question">The question</a>
+        <a class="text-link" href="#approach">Approach</a>
+        <a class="text-link" href="#example">Worked example</a>
+        <a class="text-link" href="#use">Explore the tool</a>
+      </nav>
+    </section>
 
-        <div class="project-layout">
-          <!-- Right content -->
-          <article class="project-card project-main" id="top">
-            <section class="project-section" id="overview">
-              <h2 class="project-h2">Overview</h2>
-              <p class="project-p">
-                The tool supports mission analysis and research workflows by screening large time ranges and
-                multiple assets to find moments where spacecraft configurations match science-driven
-                constraints.
-              </p>
-
-              <div class="project-highlights">
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Primary use</div>
-                  <div class="project-highlight-v">
-                    <span class="hl">Coordinated observation planning</span> and contextualization of solar and
-                    heliospheric events
-                  </div>
-                </div>
-                <div class="project-highlight">
-                  <div class="project-highlight-k">Core capability</div>
-                  <div class="project-highlight-v">
-                    <span class="hl">Alignment detection</span> between any combination of spacecraft and planets
-                    in heliocentric coordinates
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-section" id="contribution">
-              <h2 class="project-h2">My contribution</h2>
-              <div class="project-contribution">
-                <p>
-                  I designed and developed SolarConflux at ESA as an open-source scientific tool supporting
-                  coordinated-observation planning across more than 20 space missions.
-                </p>
-                <ul>
-                  <li>
-                    Implemented ephemeris retrieval, heliocentric geometry analysis, configurable alignment
-                    criteria, and result export.
-                  </li>
-                  <li>
-                    Translated mission-analysis questions into reusable Python workflows and inspection-ready
-                    visual outputs.
-                  </li>
-                  <li>Documented and presented the tool for planetary and heliophysics mission contexts.</li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="project-section" id="problem">
-              <h2 class="project-h2">Problem</h2>
-              <p class="project-p">
-                Multi-spacecraft studies require identifying when distributed assets are in favorable relative
-                geometries. Manual screening does not scale with the number of missions, targets, and
-                configuration modes.
-              </p>
-            </section>
-
-            <section class="project-section" id="approach">
-              <h2 class="project-h2">Approach</h2>
-              <ul class="project-list">
-                <li>
-                  Retrieve ephemerides for a list of spacecraft and planets over a defined time range and time
-                  step.
-                </li>
-                <li>
-                  Transform trajectories to a heliocentric reference frame for consistent geometry evaluation.
-                </li>
-                <li>
-                  Evaluate alignment criteria per selected geometry mode and return matching time windows.
-                </li>
-                <li>Export results and visualize trajectories and detected configurations.</li>
-              </ul>
-
-              <div class="project-card project-inset">
-                <div class="project-inset-kicker">Geometry modes supported</div>
-                <ul class="project-list">
-                  <li>Opposition (≈ 180°)</li>
-                  <li>Quadrature (≈ 90°)</li>
-                  <li>Cone (objects within an angular sector)</li>
-                  <li>Arbitrary angle (user-defined)</li>
-                  <li>Parker spiral alignment (solar wind connectivity)</li>
-                  <li>Cone Parker (combined criterion)</li>
-                </ul>
-              </div>
-            </section>
-
-            <section class="project-section" id="deliverables">
-              <h2 class="project-h2">Deliverables</h2>
-              <ul class="project-list">
-                <li>Reusable Python module for trajectory retrieval and geometry screening</li>
-                <li>Configurable inputs for targets, time ranges, angles, and solar wind speed</li>
-                <li>
-                  Export to <code>.csv</code> and polar trajectory visualizations for quick interpretation
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="usage">
-              <h2 class="project-h2">Installation & usage</h2>
-
-              <p class="project-p">Install directly from GitHub:</p>
-
-              <pre
-                class="project-code"><code>pip install git+https://github.com/EmmaVellard/SolarConflux.git</code></pre>
-
-              <p class="project-p">Launch interactively:</p>
-
-              <pre class="project-code"><code>from solarconflux import SolarConflux
-SolarConflux()</code></pre>
-
-              <p class="project-p">
-                Example workflow (trajectory retrieval → alignment detection → export + plot):
-              </p>
-
-              <pre
-                class="project-code"><code>from solarconflux import get_trajectories, matching_dates, save_match, save_plot
-
-body_list = ['BepiColombo', 'Solar Orbiter', 'PSP', 'Stereo-A', 'Earth', 'Mars', 'Jupiter']
-start_time = '2020-09-01 09:00'
-end_time   = '2020-12-31 23:00'
-step = '60m'
-
-trajectories = get_trajectories(body_list, start_time, end_time, step)
-
-geometry_choices = ['cone', 'opposition', 'quadrature', 'arbitrary', 'parker', 'coneparker']
-match = matching_dates(geometry_choices, body_list, trajectories,
-arbitrary_angle=30, u_sw=400e3)
-
-save_match(match)
-save_plot(match, trajectories)</code></pre>
-            </section>
-
-            <section class="project-section" id="outputs">
-              <h2 class="project-h2">Outputs</h2>
-              <ul class="project-list">
-                <li><strong>CSV export</strong> listing detected alignment times and involved bodies</li>
-                <li>
-                  <strong>Polar plots</strong> showing trajectories and configurations (cone and Parker spiral examples)
-                </li>
-              </ul>
-            </section>
-
-            <section class="project-section" id="figures">
-              <h2 class="project-h2">Example outputs</h2>
-              <p class="project-p">
-                SolarConflux produces inspection-ready polar plots alongside tabular exports, making candidate
-                observing windows quick to review before deeper mission analysis.
-              </p>
-
-              <div class="project-figure-grid project-figure-grid--wide">
-                <figure class="project-figure project-figure--panoramic">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/solarconflux/cone-alignments.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the SolarConflux cone-alignment examples at full size"
-                  >
-                    <img
-                      src="/images/projects/solarconflux/cone-alignments.webp"
-                      width="2118"
-                      height="740"
-                      alt="Three SolarConflux polar plots showing cone-alignment opportunities involving several heliophysics spacecraft and planets"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Cone alignments.</strong> Example multi-mission configurations identified within a selected
-                    angular sector.
-                    <a
-                      class="project-figure-source"
-                      href="https://github.com/EmmaVellard/SolarConflux/blob/main/images/cone.png"
-                      target="_blank"
-                      rel="noopener">View source on GitHub</a
-                    >
-                  </figcaption>
-                </figure>
-
-                <figure class="project-figure project-figure--panoramic">
-                  <a
-                    class="project-figure-link"
-                    href="/images/projects/solarconflux/parker-alignments.webp"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open the SolarConflux Parker-spiral examples at full size"
-                  >
-                    <img
-                      src="/images/projects/solarconflux/parker-alignments.webp"
-                      width="2118"
-                      height="740"
-                      alt="Three SolarConflux polar plots showing approximate Parker-spiral connectivity opportunities between spacecraft"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    <strong>Parker-spiral screening.</strong> Approximate solar-wind connectivity windows involving
-                    BepiColombo, Solar Orbiter, Parker Solar Probe and STEREO-A.
-                    <a
-                      class="project-figure-source"
-                      href="https://github.com/EmmaVellard/SolarConflux/blob/main/images/parker.png"
-                      target="_blank"
-                      rel="noopener">View source on GitHub</a
-                    >
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-
-            <section class="project-section" id="stack">
-              <h2 class="project-h2">Technical implementation</h2>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">SunPy</span>
-                <span class="project-tag">Astropy</span>
-                <span class="project-tag">Astroquery (JPL Horizons)</span>
-                <span class="project-tag">Heliocentric frame (HCI)</span>
-                <span class="project-tag">Matplotlib</span>
-                <span class="project-tag">CSV</span>
-              </div>
-            </section>
-
-            <section class="project-section" id="links">
-              <h2 class="project-h2">Links</h2>
-              <div class="project-actions">
-                <a
-                  class="link-btn"
-                  href="https://github.com/EmmaVellard/SolarConflux"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Git Repository
-                </a>
-                <a class="link-btn link-btn--secondary" href="/projects"> All projects </a>
-              </div>
-            </section>
-          </article>
-
-          <ProjectToc items={tocItems} />
+    <section class="solar-chapter band" id="question" aria-labelledby="question-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The question</p>
+        <h2 class="h2" id="question-title">A shared view starts with geometry.</h2>
+        <div class="chapter-pair solar-question-pair">
+          <div>
+            <p class="solar-lede">
+              Spacecraft sample the heliosphere from different places. Their <strong class="text-emphasis"
+                >relative positions</strong
+              > help determine which measurements may be useful together, whether for comparing viewpoints or investigating
+              how solar-wind structures evolve with distance.
+            </p>
+            <p class="muted">
+              Searching many trajectories by hand quickly becomes cumbersome. SolarConflux asks a simpler
+              first question: when do the selected bodies satisfy a geometry worth investigating?
+            </p>
+          </div>
+          <aside class="chapter-note solar-contribution">
+            <h3 class="chapter-note-term">What I contributed</h3>
+            <ul>
+              <li>Designed the workflow from ephemeris retrieval to export.</li>
+              <li>Implemented six geometric and Parker screening modes.</li>
+              <li>Presented the tool to the BepiColombo Science Working Team.</li>
+            </ul>
+          </aside>
+        </div>
+        <div class="model-comparison solar-thread">
+          <div class="model-comparison-copy">
+            <p class="eyebrow eyebrow--plain">From positions to possibilities</p>
+            <p class="chapter-quote">Find the geometry first. Interpret it with the observations.</p>
+            <p class="muted model-comparison-detail">
+              An alignment is a <strong class="text-emphasis">starting point for analysis</strong>. It helps
+              shortlist dates; measurements and physical models are needed to establish what the spacecraft
+              actually share.
+            </p>
+          </div>
+          <figure class="model-comparison-art solar-window-art">
+            <img
+              src="/images/projects/solarconflux/observation-windows.webp"
+              width="1916"
+              height="821"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Trajectories → candidate windows</span><small>Conceptual illustration</small>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
+
+    <section class="solar-chapter" id="approach" aria-labelledby="approach-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">Approach</p>
+        <h2 class="h2" id="approach-title">From ephemerides to a shortlist.</h2>
+        <ol class="pipeline">
+          {
+            steps.map((step, index) => (
+              <li>
+                <>
+                  <span class="pipeline-num" aria-hidden="true">
+                    {index + 1}
+                  </span>
+                  <span class="pipeline-title">{step.title}</span>
+                  <span class="pipeline-text muted">{step.text}</span>
+                </>
+              </li>
+            ))
+          }
+        </ol>
+        <h3 class="research-h3 chapter-sub">Different geometries, different questions.</h3>
+        <ul class="solar-geometries">
+          {
+            geometries.map((geometry) => (
+              <li>
+                <>
+                  <SolarGeometry mode={geometry.mode} />
+                  <div>
+                    <>
+                      <h4>{geometry.title}</h4>
+                      <p class="muted">{geometry.text}</p>
+                    </>
+                  </div>
+                </>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="solar-small-note muted">
+          Diagrams are conceptual. The geometric modes compare longitude; latitude can be filtered separately.
+          Groups share an anchor body; not every pair in a group necessarily meets the criterion. Parker modes
+          use a simplified ballistic approximation.
+        </p>
+      </div>
+    </section>
+
+    <section class="solar-chapter band" id="example" aria-labelledby="example-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">A worked example · January 2025</p>
+        <h2 class="h2" id="example-title">What does a candidate window look like?</h2>
+        <p class="solar-section-lede muted">
+          The bundled example contains <strong class="text-emphasis"
+            >Earth, Solar Orbiter and BepiColombo</strong
+          >. Here, a 15° cone criterion with a 10° latitude-span limit selects one interval for Earth and
+          Solar Orbiter. BepiColombo is shown for context and does not belong to that matched pair.
+        </p>
+        <dl class="solar-example-facts">
+          <div><dt>Matching pair</dt><dd>Earth + Solar Orbiter</dd></div>
+          <div><dt>Candidate interval · UTC</dt><dd>1 Jan 00:00 → 7 Jan 18:00</dd></div>
+          <div><dt>Sample spacing</dt><dd>6 hours</dd></div>
+          <div><dt>Sampled duration</dt><dd>162 hours</dd></div>
+        </dl>
+        <div class="solar-charts">
+          <figure>
+            <h3 class="research-h3">Where the observers are</h3>
+            <div class="solar-chart">
+              <a
+                class="solar-chart-light"
+                href="/images/projects/solarconflux/january-2025-positions-light.svg"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the positions figure at full size"
+                ><img
+                  src="/images/projects/solarconflux/january-2025-positions-light.svg"
+                  width="650"
+                  height="460"
+                  alt="Sun-centred positions on 1 January 2025, with a 15-degree longitude sector containing Earth and Solar Orbiter; BepiColombo lies outside it"
+                  loading="lazy"
+                /></a
+              >
+              <a
+                class="solar-chart-dark"
+                href="/images/projects/solarconflux/january-2025-positions-dark.svg"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the positions figure at full size"
+                ><img
+                  src="/images/projects/solarconflux/january-2025-positions-dark.svg"
+                  width="650"
+                  height="460"
+                  alt="Sun-centred positions on 1 January 2025, with a 15-degree longitude sector containing Earth and Solar Orbiter; BepiColombo lies outside it"
+                  loading="lazy"
+                /></a
+              >
+            </div>
+            <figcaption>
+              Markers show 1 January, 00:00 UTC. Lines join the retrieved samples through 15 January.
+              Heliocentric inertial coordinates, projected into the solar equatorial plane; distances in AU.
+              Select the figure to open it at full size.
+            </figcaption>
+          </figure>
+          <figure>
+            <h3 class="research-h3">When the criterion holds</h3>
+            <div class="solar-chart">
+              <a
+                class="solar-chart-light"
+                href="/images/projects/solarconflux/january-2025-separation-light.svg"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the longitude-separation figure at full size"
+                ><img
+                  src="/images/projects/solarconflux/january-2025-separation-light.svg"
+                  width="650"
+                  height="460"
+                  alt="Earth–Solar Orbiter circular longitude separation crosses the 15-degree criterion after 7 January at 18:00 UTC; 28 samples meet the criterion"
+                  loading="lazy"
+                /></a
+              >
+              <a
+                class="solar-chart-dark"
+                href="/images/projects/solarconflux/january-2025-separation-dark.svg"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open the longitude-separation figure at full size"
+                ><img
+                  src="/images/projects/solarconflux/january-2025-separation-dark.svg"
+                  width="650"
+                  height="460"
+                  alt="Earth–Solar Orbiter circular longitude separation crosses the 15-degree criterion after 7 January at 18:00 UTC; 28 samples meet the criterion"
+                  loading="lazy"
+                /></a
+              >
+            </div>
+            <figcaption>
+              The shaded interval spans the first to last matching sample. All 28 matching samples also meet
+              the latitude-span limit. The next sample, on 8 January at 00:00 UTC, lies outside the cone.
+              Select the figure to open it at full size.
+            </figcaption>
+          </figure>
+        </div>
+        <p class="research-scope muted solar-cadence-note">
+          These are <strong class="text-emphasis">sampled boundaries</strong>, not exact entry and exit times.
+          The interval begins at the first requested sample, so an earlier start is not inferred. The plots
+          illustrate a geometry, not confirmed shared plasma or magnetic connectivity.
+        </p>
+        <div class="solar-data-links">
+          <span>Inspect the example</span>
+          <a class="text-link" href={dataSource} target="_blank" rel="noopener">Source ephemerides</a>
+          <a class="text-link" href="/files/solarconflux/january-2025-samples.csv" download
+            >Sample values · CSV</a
+          >
+          <a class="text-link" href="/files/solarconflux/january-2025-provenance.json" download
+            >Provenance · JSON</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="solar-chapter" id="use" aria-labelledby="use-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--plain">The tool today</p>
+        <h2 class="h2" id="use-title">Explore, inspect, keep the context.</h2>
+        <div class="chapter-pair solar-use-pair">
+          <div>
+            <p class="solar-lede">
+              The web explorer makes the workflow visible: configure observation periods, follow trajectories,
+              inspect matching intervals and export the results. Saved runs can be reopened in{" "}
+              <strong class="text-emphasis">History</strong> on the same browser.
+            </p>
+            <p class="muted">
+              The bundled example and imported trajectories can be screened without live retrieval. Live
+              ephemerides are retrieved through a separate service; availability depends on the selected
+              bodies, dates and data source.
+            </p>
+            <div class="project-actions">
+              <IllustratedLink href="https://emmavellard.github.io/SolarConflux/" external
+                >Try the January example</IllustratedLink
+              >
+            </div>
+          </div>
+          <aside class="chapter-note">
+            <h3 class="chapter-note-term">A shortlist for follow-up</h3>
+            <p class="muted">
+              Parker screening maps approximate source longitudes using an assumed uniform solar-wind speed.
+              Its results depend on those assumptions; they do not establish magnetic connectivity.
+              SolarConflux remains a <strong class="text-emphasis">research prototype</strong>.
+            </p>
+          </aside>
+        </div>
+        <dl class="chapter-facts">
+          <div><dt>Tools</dt><dd>Python · SunPy · Astropy · Astroquery · NumPy · Matplotlib</dd></div>
+          <div>
+            <dt>Data</dt><dd>JPL Horizons · SPICE kernels where available · imported trajectories</dd>
+          </div>
+          <div>
+            <dt>Outputs</dt><dd>Candidate-window CSVs · run metadata · plots · browser run backups</dd>
+          </div>
+        </dl>
+        <div class="solar-data-links solar-sources">
+          <span>Method notes</span>
+          <a
+            class="text-link"
+            href="https://github.com/EmmaVellard/SolarConflux/blob/main/docs/scientific_validation.md"
+            target="_blank"
+            rel="noopener">Scientific assumptions</a
+          >
+          <a
+            class="text-link"
+            href="https://github.com/EmmaVellard/SolarConflux/blob/main/docs/parker_spiral_convention.md"
+            target="_blank"
+            rel="noopener">Parker convention</a
+          >
+        </div>
+        <details class="project-details solar-details">
+          <summary
+            ><span class="project-details-title">Python usage &amp; original quick-look figures</span><span
+              class="project-details-toggle"
+              aria-hidden="true"></span></summary
+          >
+          <div class="project-details-body">
+            <div>
+              <h3>Use the Python package</h3>
+              <pre
+                class="project-code"><code>pip install git+https://github.com/EmmaVellard/SolarConflux.git</code></pre>
+              <p>
+                The command-line workflow exposes the same screening modes and exports CSVs, run metadata and
+                optional polar plots.
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/EmmaVellard/SolarConflux#cli-quickstart"
+                target="_blank"
+                rel="noopener">Installation &amp; examples</a
+              >
+            </div>
+            <div>
+              <h3>Earlier output figures</h3>
+              <p>
+                The original cone and Parker quick-look plots remain available. The figures above use the
+                documented January dataset so their inputs and styling can be reproduced.
+              </p>
+              <div class="solar-archive-links">
+                <a
+                  class="text-link"
+                  href="/images/projects/solarconflux/cone-alignments.webp"
+                  target="_blank"
+                  rel="noopener">Original cone plots</a
+                >
+                <a
+                  class="text-link"
+                  href="/images/projects/solarconflux/parker-alignments.webp"
+                  target="_blank"
+                  rel="noopener">Original Parker plots</a
+                >
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <nav class="container project-pager" aria-label="More projects">
+      <a class="project-pager-link" href={`/projects/${previous.slug}`}>
+        <img class="float-art" {...previous.illustration} alt="" loading="lazy" decoding="async" />
+        <span
+          ><span class="project-pager-k">← Previous</span><span class="project-pager-v">{previous.title}</span
+          ></span
+        >
+      </a>
+      <a class="project-pager-link project-pager-link--next" href={`/projects/${next.slug}`}>
+        <span
+          ><span class="project-pager-k">Next →</span><span class="project-pager-v">{next.title}</span></span
+        >
+        <img class="float-art" {...next.illustration} alt="" loading="lazy" decoding="async" />
+      </a>
+    </nav>
   </main>
 </BaseLayout>

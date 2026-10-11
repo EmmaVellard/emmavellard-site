@@ -63,10 +63,7 @@ for (const file of htmlFiles) {
   }
 
   const footerCount = (html.match(/<footer\b/gi) ?? []).length;
-  const expectedFooters = relativePath === "index.html" ? 0 : 1;
-  if (footerCount !== expectedFooters) {
-    errors.push(`${relativePath}: expected ${expectedFooters} footer, found ${footerCount}`);
-  }
+  if (footerCount !== 1) errors.push(`${relativePath}: expected 1 footer, found ${footerCount}`);
 }
 
 if (errors.length) {

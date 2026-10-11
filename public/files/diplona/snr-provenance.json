@@ -1,0 +1,14 @@
+{
+  "status": "Approximate digitisation of reported model curves, NOT raw simulation output or flight measurements.",
+  "report": "/files/cerereport.pdf",
+  "pdf_page": 49,
+  "printed_page": 37,
+  "figure": "4.21",
+  "source_image": "/images/projects/ceres/snr-report-original.jpg",
+  "source_sha256": "663d644cee46ebcb611508bdc36d8a273ddb5d20bb04573860c5e3555ec28c1c",
+  "method": "JPEG colour traces sampled by image column. A nine-column median defines a narrow search corridor to avoid neighbouring traces; all exported coordinates are matching source pixels, not the median-filtered guide. Calibrated ticks: x=62/367 at slope 0/25 degrees; y=215/16 at SNR 10/130 dB. No fitted or extrapolated curves.",
+  "limitations": "JPEG compression, overlaps and finite pixel resolution prevent exact recovery. The original radar-equation implementation, dB conversion, stretch-processing assumptions and noise budget were not independently reproduced. This redraw does not validate the reported SNR magnitudes or flight feasibility. Near-zero slope behaviour belongs to the reported idealised model.",
+  "resolution": "Approximately 0.082 degrees horizontally and 0.603 dB vertically per source pixel. This is image resolution, not a scientific uncertainty estimate.",
+  "model_context": "Table 4.4 uses 1 W emitted power, gain 1.5, wavelength 10 m, transmissivity 0.9, reflectivity 0.1, 60 m depth, attenuation 0.14, refractive index sqrt(3), noise temperature 290 K, noise factor 10, and altitudes 24/28/32 km. These are study assumptions, not observed properties.",
+  "renderer": "scripts/build-diplona-figures.py"
+}

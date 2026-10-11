@@ -1,0 +1,514 @@
+.phobos-intro {
+  gap: 36px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+.phobos-back {
+  align-self: flex-start;
+  font-size: 15px;
+}
+.phobos-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.phobos-question {
+  margin: 20px 0 0;
+  max-width: 25ch;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+.phobos-hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.phobos-facts {
+  gap: 16px 28px;
+}
+.phobos-section {
+  padding: 64px 0 68px;
+  scroll-margin-top: var(--nav-h);
+}
+.phobos-section .h2 {
+  margin-top: 10px;
+  max-width: 29ch;
+}
+.phobos-pair {
+  margin-top: 28px;
+}
+.phobos-lede {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.phobos-contribution ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.phobos-contribution li + li {
+  margin-top: 10px;
+}
+.phobos-contribution li::marker {
+  color: var(--accent);
+}
+.phobos-hypotheses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 38px;
+}
+.phobos-hypotheses article {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.phobos-hypotheses h3,
+.phobos-result h3 {
+  font-family: var(--font-display);
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 0;
+}
+.phobos-hypotheses p {
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+.phobos-section .research-reference {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: baseline;
+  margin-top: 24px;
+  font-size: 13px;
+}
+.phobos-method-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 28px;
+}
+.phobos-method-head figure {
+  margin: 0;
+}
+.phobos-method-head img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Trim the transparent band baked above and below the drawing (% of width). */
+  margin: -9% 0 -11.7%;
+}
+.phobos-method-head figcaption {
+  margin-top: 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+.phobos-method-head p {
+  margin: 16px 0 0;
+}
+.phobos-method-head p:first-child {
+  margin-top: 0;
+}
+.phobos-grains {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 32px;
+  margin-top: 24px;
+}
+.phobos-grain {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.phobos-grain dt {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.phobos-grain dd {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.phobos-sub {
+  margin-top: 56px;
+}
+#instruments .phobos-lede {
+  max-width: 80ch;
+  margin: 24px 0 0;
+}
+.phobos-scope {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 16px 0 0;
+}
+.phobos-instrument {
+  margin-top: 32px;
+}
+.phobos-instrument + .phobos-instrument {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+  margin-top: 56px;
+}
+.phobos-instrument-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.phobos-instrument-head p {
+  margin: 16px 0 0;
+}
+.phobos-range {
+  color: var(--accent);
+  font-size: 13px;
+  margin-top: 8px;
+  display: block;
+}
+.phobos-band-figure {
+  margin: 0;
+}
+.phobos-band-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--accent);
+}
+.phobos-band-window {
+  fill: currentColor;
+  fill-opacity: 0.22;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+.phobos-band-axis {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.2;
+}
+.phobos-band-centre {
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 4;
+}
+.phobos-band-name {
+  fill: currentColor;
+  font-family: var(--font-body);
+  font-size: 26px;
+  font-weight: 500;
+}
+.phobos-band-tick {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 22px;
+}
+.phobos-band-figure figcaption {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.phobos-spectrum {
+  margin: 28px 0 0;
+}
+.phobos-spectrum-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.phobos-spectrum-panel {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.phobos-spectrum-panel h4 {
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+}
+.phobos-spectrum-unit {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 5px 0 4px;
+}
+.phobos-chart {
+  display: block;
+}
+.phobos-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.phobos-chart--dark {
+  display: none;
+}
+html[data-theme="dark"] .phobos-chart--light {
+  display: none;
+}
+html[data-theme="dark"] .phobos-chart--dark {
+  display: block;
+}
+.phobos-spectrum {
+  --series-1: #287b80;
+  --series-2: #b86777;
+  --series-3: #8567b0;
+  --series-4: #628566;
+  --series-5: #a77a42;
+  --series-6: #5d83bf;
+  --series-7: #c05c3f;
+  --series-8: #2a55a1;
+}
+html[data-theme="dark"] .phobos-spectrum {
+  --series-1: #77cbc5;
+  --series-2: #e39aa9;
+  --series-3: #baa1dd;
+  --series-4: #a4c69d;
+  --series-5: #dbb17d;
+  --series-6: #9bbbe5;
+  --series-7: #f3a086;
+  --series-8: #7ca6ee;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .phobos-chart--light {
+    display: none;
+  }
+  html:not([data-theme="light"]) .phobos-chart--dark {
+    display: block;
+  }
+  html:not([data-theme="light"]) .phobos-spectrum {
+    --series-1: #77cbc5;
+    --series-2: #e39aa9;
+    --series-3: #baa1dd;
+    --series-4: #a4c69d;
+    --series-5: #dbb17d;
+    --series-6: #9bbbe5;
+    --series-7: #f3a086;
+    --series-8: #7ca6ee;
+  }
+}
+.phobos-spectrum-legend {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 20px;
+  padding: 16px 0 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+.phobos-spectrum-legend li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.phobos-series-1 {
+  --series-colour: var(--series-1);
+}
+.phobos-series-2 {
+  --series-colour: var(--series-2);
+}
+.phobos-series-3 {
+  --series-colour: var(--series-3);
+}
+.phobos-series-4 {
+  --series-colour: var(--series-4);
+}
+.phobos-series-5 {
+  --series-colour: var(--series-5);
+}
+.phobos-series-6 {
+  --series-colour: var(--series-6);
+}
+.phobos-series-7 {
+  --series-colour: var(--series-7);
+}
+.phobos-series-8 {
+  --series-colour: var(--series-8);
+}
+.phobos-legend-symbol {
+  color: var(--series-colour);
+  width: 24px;
+  flex: 0 0 24px;
+  height: 0;
+  border-top: 2px solid currentColor;
+}
+.phobos-legend-symbol--dashed {
+  border-top-style: dashed;
+}
+.phobos-spectrum--mirs .phobos-legend-symbol {
+  border: 0;
+  height: auto;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1;
+}
+.phobos-figure-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 10px;
+}
+.phobos-details h3.phobos-sub {
+  margin-top: 24px;
+}
+.phobos-spectrum figcaption {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.phobos-spectrum-note {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 24px;
+}
+.phobos-spectrum-note p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+.phobos-series {
+  font-size: 13px;
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+.phobos-series strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.phobos-thermal {
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+  font-size: 15px;
+}
+.phobos-results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 28px;
+}
+.phobos-result {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.phobos-result p {
+  font-size: 15px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+.phobos-result > span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.phobos-study-link {
+  margin-top: 28px;
+}
+.phobos-details {
+  margin-top: 36px;
+}
+.phobos-details .project-details-body {
+  grid-template-columns: 1fr 1fr;
+}
+.phobos-band-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.phobos-band-table th,
+.phobos-band-table td {
+  text-align: left;
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.phobos-band-table caption {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.phobos-details-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+@media (max-width: 1000px) {
+  .phobos-hero {
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 24px;
+  }
+  .phobos-method-head,
+  .phobos-instrument-head {
+    gap: 28px;
+  }
+  .phobos-results {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+@media (max-width: 760px) {
+  .phobos-hero,
+  .phobos-method-head,
+  .phobos-instrument-head,
+  .phobos-spectrum-note,
+  .phobos-details .project-details-body {
+    grid-template-columns: 1fr;
+  }
+  .phobos-hero-art {
+    width: min(500px, 100%);
+    justify-self: center;
+  }
+  .phobos-method-head figure {
+    max-width: 500px;
+    justify-self: center;
+  }
+  .phobos-sub {
+    margin-top: 40px;
+  }
+  .phobos-band-figure {
+    max-width: 600px;
+  }
+}
+@media (max-width: 640px) {
+  .phobos-intro {
+    padding-top: 28px;
+    padding-bottom: 32px;
+    gap: 28px;
+  }
+  .phobos-section {
+    padding: 44px 0 48px;
+  }
+  .phobos-hypotheses {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .phobos-grains {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .phobos-lede {
+    font-size: 17px;
+  }
+  .phobos-spectrum-panels {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .phobos-spectrum-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 16px;
+  }
+  .phobos-spectrum figcaption {
+    min-width: 0;
+  }
+}

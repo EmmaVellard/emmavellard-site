@@ -1,0 +1,340 @@
+---
+import "../styles/research.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Motif from "../components/Motif.astro";
+import { illustrations } from "../data/illustrations";
+
+const jplSteps = [
+  {
+    title: "Compositions",
+    text: "Compare published bulk-silicate Moon compositions in one thermodynamic framework, distinguishing the total silicate inventory from the mantle left after crust formation.",
+  },
+  {
+    title: "Mineralogy & properties",
+    text: "Compute equilibrium mineralogy and equations of state — density, Vp, Vs, bulk and shear modulus — over lunar mantle pressures and temperatures.",
+  },
+  {
+    title: "Interior models",
+    text: "Build self-consistent 1D models of crust, mantle and core, evaluated against mass, radius, moment of inertia, plausible core properties and Apollo seismic constraints.",
+  },
+  {
+    title: "Tidal response",
+    text: "Track how composition and temperature change rigidity with depth, then explore how lateral structure and rheological assumptions affect the predicted tidal response.",
+  },
+];
+
+const phdThreads = [
+  {
+    title: "Maria",
+    text: "Use gravity–topography inversions to constrain mare thickness and reconstruct the crust before mare formation. Crater statistics will help estimate surface ages and reconstruct the volcanic history.",
+  },
+  {
+    title: "Basins",
+    text: "Model the viscoelastic relaxation of large impact basins, and use crater-floor slopes from elevation models as a record of post-impact deformation.",
+  },
+  {
+    title: "Ridges & rifts",
+    text: "Use that relaxation to constrain how wrinkle ridges and rift systems formed at the margins of large basins.",
+  },
+  {
+    title: "Mantle",
+    text: "Compare predicted and observed crustal structures to constrain plausible mantle viscosities, accounting for the assumed loading and thermal history.",
+  },
+];
+
+const earlierWork = [
+  {
+    href: "/projects/solarconflux",
+    art: illustrations.solarconflux,
+    title: "SolarConflux",
+    text: "ESA, 2023–2025 · open-source multi-spacecraft observation planning",
+  },
+  {
+    href: "/projects/lunar-spaceport",
+    art: illustrations.lunarSpaceport,
+    title: "Lunar Spaceport",
+    text: "ISU, 2025 · team study of sustainable lunar infrastructure",
+  },
+  {
+    href: "/projects/ypsat",
+    art: illustrations.ypsat,
+    title: "YPSat",
+    text: "ESA, 2023–2024 · wake-up subsystem software, flown on Ariane 6",
+  },
+  {
+    href: "/projects/phobos-deimos",
+    art: illustrations.phobosDeimos,
+    title: "Phobos & Deimos",
+    text: "Tohoku University, 2023 · laboratory spectroscopy for MMX",
+  },
+  {
+    href: "/projects/ceres",
+    art: illustrations.diplona,
+    title: "Diplona",
+    text: "LATMOS, 2022 · Ceres radar sounder concept",
+  },
+];
+---
+
+<BaseLayout
+  title="Research | Emma Vellard"
+  description="Emma Vellard's research on the Moon: thermochemical models of the lunar mantle at NASA JPL, and a PhD at DLR Berlin on the Moon's geodynamic history from gravity and topography."
+  socialImage={illustrations.lunarInterior.src}
+  socialImageAlt="Illustration of the Moon's layered interior"
+  socialImageWidth={1400}
+  socialImageHeight={illustrations.lunarInterior.height}
+>
+  <main id="main-content" tabindex="-1">
+    <!-- INTRO -->
+    <section class="container research-intro">
+      <div class="research-intro-copy">
+        <p class="eyebrow">Research</p>
+        <h1 class="research-title">From what the Moon is made of to how it has changed.</h1>
+        <p class="research-lede">
+          Which interiors are consistent with lunar observations — from seismic records and tides to gravity
+          and topography?
+        </p>
+        <p class="research-intro-text muted">
+          My work follows one thread through the Moon's interior. At NASA JPL, I ask what the mantle is made
+          of and how <strong class="text-emphasis">composition and temperature</strong> shape its rigidity today.
+          In my PhD at DLR, I will ask how that interior has flowed and deformed over <strong
+            class="text-emphasis">billions of years</strong
+          >, as recorded at the surface.
+        </p>
+      </div>
+      <nav class="research-index" aria-label="On this page">
+        <span class="research-index-label">On this page</span>
+        <a class="text-link" href="#jpl">Now — NASA JPL</a>
+        <a class="text-link" href="#phd">Next — PhD at DLR</a>
+        <a class="text-link" href="#earlier">Earlier work</a>
+      </nav>
+    </section>
+
+    <!-- CHAPTER 1 — JPL -->
+    <section class="band" id="jpl">
+      <div class="container chapter">
+        <div class="chapter-head">
+          <div class="chapter-head-text">
+            <p class="eyebrow eyebrow--plain">Now — NASA JPL · 2026</p>
+            <h2 class="h2 chapter-title">What is the Moon made of, deep inside?</h2>
+            <p class="chapter-lede">
+              <strong class="text-emphasis">No single composition</strong> of the Moon is agreed on. Published estimates
+              of the bulk silicate Moon differ in their <strong class="text-emphasis"
+                >iron-to-magnesium ratio</strong
+              > and in refractory elements such as aluminium and calcium. Each one builds a different mantle: different
+              minerals, density, <strong class="text-emphasis">seismic velocities and rigidity</strong>.
+            </p>
+          </div>
+          <!-- Replace this illustration with the first science figure once it is presented at AAS DPS 2026. -->
+          <img
+            class="chapter-art float-art"
+            {...illustrations.lunarInterior}
+            alt="Illustration of the Moon's layered interior"
+            decoding="async"
+          />
+        </div>
+
+        <div class="chapter-pair">
+          <div>
+            <h3 class="research-h3">Why it matters</h3>
+            <p class="muted">
+              We read the Moon's interior through a handful of observations: its mass, radius and moment of
+              inertia, the Apollo seismic records, and its tidal response measured by GRAIL. An analysis of
+              GRAIL's monthly tides points to <strong class="text-emphasis"
+                >lateral differences in mantle rigidity</strong
+              >. Interpreting that signal in terms of temperature and composition depends on the <strong
+                class="text-emphasis">reference interior and its rheology</strong
+              > — how it deforms and dissipates energy.
+            </p>
+            <div class="research-reference">
+              <span>Scientific context</span>
+              <a class="text-link" href="https://doi.org/10.1038/s41586-025-08949-5">Park et al. (2025)</a>
+              <a class="text-link" href="https://doi.org/10.1029/2024AV001285">Goossens et al. (2024)</a>
+            </div>
+          </div>
+          <aside class="chapter-note">
+            <p class="chapter-note-term">Bulk silicate Moon</p>
+            <p class="muted">
+              The Moon's <strong class="text-emphasis">crust and mantle together</strong>, excluding the
+              metallic core. Turning this global inventory into a present-day mantle model requires
+              assumptions about crust extraction and differentiation.
+            </p>
+          </aside>
+        </div>
+
+        <h3 class="research-h3 chapter-sub">Approach</h3>
+        <ol class="pipeline">
+          {
+            jplSteps.map((step, index) => (
+              <li>
+                <span class="pipeline-num" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <span class="pipeline-title">{step.title}</span>
+                <span class="pipeline-text muted">{step.text}</span>
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="model-comparison" id="comparison">
+          <div class="model-comparison-copy">
+            <p class="eyebrow eyebrow--plain">Several interiors, one question</p>
+            <p class="chapter-quote">
+              Rather than choosing one preferred interior, I compare several plausible ones — to tell robust
+              predictions apart from model-dependent ones.
+            </p>
+            <p class="muted model-comparison-detail">
+              My contribution is a <strong class="text-emphasis">traceable workflow</strong> linking published compositions,
+              mineral physics and geophysical predictions, with assumptions made explicit at each step.
+            </p>
+          </div>
+          <figure class="model-comparison-art">
+            <img
+              src="/images/accents/research-comparison.webp"
+              width="1200"
+              height="514"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Different reference interiors</span>
+              <span>Compared with the same observations</span>
+              <small>Conceptual illustration</small>
+            </figcaption>
+          </figure>
+        </div>
+
+        <dl class="chapter-facts">
+          <div>
+            <dt>Status</dt>
+            <dd>
+              Poster at AAS DPS 2026: “Thermochemical models of the lunar mantle and implications for
+              geophysical observations”. A paper on this work is in preparation. Figures will be added after
+              the meeting.
+            </dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Python · Perple_X · PlanetProfile · LOV3D · PyALMA3 · Planetary EOS Lab</dd>
+          </div>
+        </dl>
+        <p class="research-scope muted">
+          Interpretation remains conditional on the crustal structure, thermal fields and rheological
+          assumptions. The tidal comparisons are <strong class="text-emphasis">exploratory</strong>; they do
+          not yet establish a unique lunar interior or a statistically preferred model.
+        </p>
+      </div>
+    </section>
+
+    <!-- BRIDGE -->
+    <div class="container">
+      <aside class="story-bridge" aria-labelledby="bridge-title">
+        <p class="eyebrow eyebrow--plain">The thread between the two</p>
+        <h2 id="bridge-title">One interior, different timescales.</h2>
+        <div class="bridge-scales">
+          <div class="bridge-scale">
+            <p class="bridge-time">Monthly tides</p>
+            <h3>How it responds today</h3>
+            <p class="muted">
+              Composition and temperature shape the mantle's <strong class="text-emphasis"
+                >elastic properties</strong
+              >. Rheology determines its response at the timescale of the forcing.
+            </p>
+            <span class="bridge-source">Current work · NASA JPL</span>
+          </div>
+          <div class="bridge-art" aria-hidden="true"><Motif kind="strata" /></div>
+          <div class="bridge-scale">
+            <p class="bridge-time">Geological time</p>
+            <h3>How it has evolved</h3>
+            <p class="muted">
+              <strong class="text-emphasis">Viscosity</strong> helps govern how the interior flows and relaxes.
+              Gravity and topography preserve clues to that history.
+            </p>
+            <span class="bridge-source">Upcoming PhD · DLR</span>
+          </div>
+        </div>
+        <p class="bridge-footnote muted">
+          These are connected views of the same interior. The PhD follows that connection from the mantle to
+          the surface record.
+        </p>
+      </aside>
+    </div>
+
+    <!-- CHAPTER 2 — PHD -->
+    <section class="band" id="phd">
+      <div class="container chapter">
+        <div class="chapter-head chapter-head--reverse">
+          <div class="chapter-head-text">
+            <p class="eyebrow eyebrow--plain">Next — PhD · DLR Berlin · January 2027</p>
+            <h2 class="h2 chapter-title">How has the Moon's interior shaped its surface?</h2>
+            <p class="chapter-lede">
+              The Moon's surface is a <strong class="text-emphasis">record of its interior</strong>. Mare
+              lavas, the slow sagging of impact basins, wrinkle ridges and rifts reflect its thermal and
+              mechanical evolution, alongside the properties of the crust and lithosphere. With <strong
+                class="text-emphasis">gravity and topography</strong
+              > from orbit, I will investigate which <strong class="text-emphasis">interior histories</strong> are
+              consistent with that surface record.
+            </p>
+          </div>
+          <img
+            class="chapter-art float-art"
+            {...illustrations.lunarGeodynamics}
+            alt="Illustration of a lunar mare basin with its layered rim"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <h3 class="research-h3 chapter-sub">Planned research threads</h3>
+        <ul class="threads">
+          {
+            phdThreads.map((thread) => (
+              <li>
+                <span class="threads-title">{thread.title}</span>
+                <span class="muted">{thread.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <dl class="chapter-facts">
+          <div>
+            <dt>Where</dt>
+            <dd>Department of Planetary Physics, DLR Institute of Space Research, Berlin</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>
+              Python · spectral gravity–topography inversion · ALMA (viscoelastic relaxation) · crater
+              statistics
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- EARLIER -->
+    <section id="earlier">
+      <div class="container research-block">
+        <h2 class="h2">Earlier work</h2>
+        <ul class="earlier-rows">
+          {
+            earlierWork.map((item) => (
+              <li>
+                <a class="earlier-row" href={item.href}>
+                  <img class="float-art" {...item.art} alt="" loading="lazy" decoding="async" />
+                  <span class="earlier-row-text">
+                    <span class="earlier-row-title">{item.title}</span>
+                    <span class="earlier-row-meta">{item.text}</span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

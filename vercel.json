@@ -1,4 +1,41 @@
 {
+  "redirects": [
+    {
+      "source": "/experience",
+      "destination": "/#path",
+      "permanent": true
+    },
+    {
+      "source": "/education",
+      "destination": "/#path",
+      "permanent": true
+    },
+    {
+      "source": "/conferences",
+      "destination": "/#talks",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/research",
+      "permanent": true
+    },
+    {
+      "source": "/projects/lunar-interiors",
+      "destination": "/research#jpl",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

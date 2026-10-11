@@ -1,0 +1,32 @@
+---
+import { decorations } from "../data/decorations";
+
+type Props = {
+  href: string;
+  variant?: "explore" | "document" | "contact";
+  illustration?: { src: string; width: number; height: number };
+  external?: boolean;
+  download?: string;
+  class?: string;
+};
+
+const { href, variant = "explore", illustration, external, download, class: className } = Astro.props;
+const art =
+  illustration ??
+  (variant === "document"
+    ? decorations.document
+    : variant === "contact"
+      ? decorations.contact
+      : decorations.arrow);
+---
+
+<a
+  class:list={["art-link", `art-link--${variant}`, className]}
+  href={href}
+  download={download}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <img class="art-link-icon" {...art} alt="" aria-hidden="true" decoding="async" />
+  <span class="art-link-label"><slot /></span>
+</a>

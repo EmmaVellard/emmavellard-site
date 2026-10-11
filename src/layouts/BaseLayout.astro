@@ -1,11 +1,16 @@
 ---
-import "@fontsource-variable/inter";
-import "@fontsource/playfair-display/400.css";
-import "@fontsource/playfair-display/500.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/700.css";
+import "@fontsource/cormorant-upright/600.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
 import "../styles/global.css";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
 
 type Props = {
   title: string;
@@ -18,7 +23,7 @@ type Props = {
 
 const {
   title,
-  description = "Emma Vellard is a planetary scientist and space systems engineer working across lunar science, scientific instrumentation, mission data and research software.",
+  description = "Emma Vellard is a planetary scientist studying the interior of the Moon, from its composition and tides to its gravity and topography.",
   socialImage = "/og.jpg",
   socialImageAlt = "Emma Vellard — Lunar and planetary scientist",
   socialImageWidth = 1200,
@@ -27,13 +32,12 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, "https://www.emmavellard.com");
 const socialImageURL = new URL(socialImage, canonicalURL);
-const showFooter = Astro.url.pathname !== "/";
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Emma Vellard",
   url: "https://www.emmavellard.com",
-  jobTitle: "Planetary Scientist and Space Systems Engineer",
+  jobTitle: "Planetary Scientist",
   description,
   affiliation: {
     "@type": "Organization",
@@ -43,9 +47,9 @@ const personSchema = {
   sameAs: ["https://github.com/EmmaVellard", "https://www.linkedin.com/in/emma-vellard"],
   knowsAbout: [
     "Lunar science",
-    "Planetary science",
-    "Scientific instrumentation",
     "Planetary geophysics",
+    "Planetary interiors",
+    "Gravity and topography",
     "Scientific software",
     "Space systems engineering",
   ],
@@ -56,10 +60,24 @@ const personSchema = {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Apply the saved or system theme before first paint to avoid a flash of the wrong theme.
+      (() => {
+        let theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#070b14" />
+    <meta name="theme-color" content="#eef5fc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#07111f" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonicalURL} />
 
     <meta property="og:type" content="website" />
@@ -79,113 +97,20 @@ const personSchema = {
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="icon" href="/favicon.ico?v=ev-ribbons-20261008" sizes="16x16 32x32 48x48 64x64" />
+    <link rel="icon" href="/favicon.png?v=ev-ribbons-20261008" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ev-ribbons-20261008" sizes="180x180" />
   </head>
 
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
+    <NavBar />
     <slot />
-    {showFooter && <Footer />}
+    <Footer />
 
     <!-- Vercel components render custom elements, which are not allowed in <head>:
          there they would end the head early and push the CSP <meta> into the body. -->
     <Analytics />
     <SpeedInsights />
-
-    <script>
-      type SectionNavWindow = Window & { __sectionNavCleanup?: () => void };
-
-      const bindSectionNavigation = () => {
-        const sectionWindow = window as SectionNavWindow;
-        sectionWindow.__sectionNavCleanup?.();
-
-        const cleanups: Array<() => void> = [];
-        const navHeight = () => {
-          const value = getComputedStyle(document.documentElement).getPropertyValue("--nav-h");
-          const parsed = Number.parseFloat(value);
-          return Number.isFinite(parsed) ? parsed : 84;
-        };
-
-        document.querySelectorAll<HTMLElement>("[data-section-nav]").forEach((nav) => {
-          const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
-          const entries = links
-            .map((link) => {
-              const id = decodeURIComponent(link.hash.slice(1));
-              return { link, id, section: document.getElementById(id) };
-            })
-            .filter((entry): entry is { link: HTMLAnchorElement; id: string; section: HTMLElement } =>
-              Boolean(entry.section),
-            );
-
-          if (!entries.length) return;
-
-          const setActive = (activeId: string) => {
-            entries.forEach(({ link, id }) => {
-              const isActive = id === activeId;
-              link.classList.toggle("active", isActive);
-              if (isActive) link.setAttribute("aria-current", "location");
-              else link.removeAttribute("aria-current");
-            });
-          };
-
-          const update = () => {
-            const pageBottom = document.documentElement.scrollHeight - window.innerHeight;
-            if (pageBottom > 0 && window.scrollY >= pageBottom - 4) {
-              setActive(entries[entries.length - 1].id);
-              return;
-            }
-
-            const threshold = navHeight() + 32;
-            let activeId = entries[0].id;
-
-            for (const { id, section } of entries) {
-              if (section.getBoundingClientRect().top <= threshold) activeId = id;
-              else break;
-            }
-
-            setActive(activeId);
-          };
-
-          let frame = 0;
-          const requestUpdate = () => {
-            if (frame) return;
-            frame = window.requestAnimationFrame(() => {
-              frame = 0;
-              update();
-            });
-          };
-
-          const onClick = (event: Event) => {
-            const link = event.currentTarget as HTMLAnchorElement;
-            setActive(decodeURIComponent(link.hash.slice(1)));
-          };
-
-          links.forEach((link) => link.addEventListener("click", onClick));
-          window.addEventListener("scroll", requestUpdate, { passive: true });
-          window.addEventListener("resize", requestUpdate, { passive: true });
-          window.addEventListener("hashchange", requestUpdate);
-          update();
-
-          cleanups.push(() => {
-            if (frame) window.cancelAnimationFrame(frame);
-            links.forEach((link) => link.removeEventListener("click", onClick));
-            window.removeEventListener("scroll", requestUpdate);
-            window.removeEventListener("resize", requestUpdate);
-            window.removeEventListener("hashchange", requestUpdate);
-          });
-        });
-
-        sectionWindow.__sectionNavCleanup = () => cleanups.forEach((cleanup) => cleanup());
-      };
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", bindSectionNavigation, { once: true });
-      } else {
-        bindSectionNavigation();
-      }
-      document.addEventListener("astro:page-load", bindSectionNavigation);
-    </script>
   </body>
 </html>

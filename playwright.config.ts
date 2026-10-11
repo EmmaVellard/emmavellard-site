@@ -17,7 +17,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run preview -- --host 127.0.0.1 --port 4322",
+    // --ignore-lock keeps the server in the foreground: Astro otherwise backgrounds it when an
+    // AI coding agent is detected, and Playwright then sees the process exit early.
+    command: "npm run preview -- --host 127.0.0.1 --port 4322 --ignore-lock",
     url: "http://127.0.0.1:4322",
     reuseExistingServer: !process.env.CI,
   },

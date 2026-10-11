@@ -1,0 +1,61 @@
+---
+type Mode = "cone" | "opposition" | "quadrature" | "arbitrary" | "parker" | "coneparker";
+const { mode } = Astro.props as { mode: Mode };
+const spiral = mode === "parker" || mode === "coneparker";
+const cone = mode === "cone" || mode === "coneparker";
+const spiralObservers =
+  mode === "coneparker"
+    ? [
+        [80, 35],
+        [70, 37],
+      ]
+    : [
+        [76, 58],
+        [67, 49],
+      ];
+const second =
+  mode === "opposition"
+    ? [17, 50]
+    : mode === "quadrature"
+      ? [50, 17]
+      : mode === "arbitrary"
+        ? [26, 27]
+        : [78, 33];
+---
+
+<svg class="solar-geometry" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <circle class="geometry-guide" cx="50" cy="50" r="33"></circle>
+  {cone && <path class="geometry-sector" d="M50 50 L89 21 A49 49 0 0 1 98 50 Z" />}
+  {
+    spiral ? (
+      <g class="geometry-lines">
+        {mode === "coneparker" ? (
+          <>
+            <path d="M54 45 C60 37 71 34 80 35" />
+            <path d="M54 45 C59 39 65 36 70 37" />
+          </>
+        ) : (
+          <>
+            <path d="M54 45 C60 31 75 30 81 41 C86 50 81 57 76 58" />
+            <path d="M54 45 C61 40 67 42 67 49" />
+          </>
+        )}
+      </g>
+    ) : (
+      <g class="geometry-lines">
+        <path d={`M83 50 L50 50 L${second[0]} ${second[1]}`} />
+      </g>
+    )
+  }
+  <circle class="geometry-sun" cx="50" cy="50" r="6"></circle>
+  <circle
+    class="geometry-observer"
+    cx={spiral ? spiralObservers[0][0] : 83}
+    cy={spiral ? spiralObservers[0][1] : 50}
+    r="4"></circle>
+  <circle
+    class="geometry-observer geometry-observer--second"
+    cx={spiral ? spiralObservers[1][0] : second[0]}
+    cy={spiral ? spiralObservers[1][1] : second[1]}
+    r="4"></circle>
+</svg>
