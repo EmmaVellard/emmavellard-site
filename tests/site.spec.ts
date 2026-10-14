@@ -101,6 +101,62 @@ test("the mobile menu opens, closes, and reports its state", async ({ page }) =>
   await expect(openMenu).toHaveAttribute("aria-label", "Open menu");
 });
 
+test("the mobile menu covers the viewport with an opaque panel in both themes", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/#path");
+  for (const theme of ["light", "dark"]) {
+    if (theme === "dark")
+      await page.getByRole("button", { name: "Switch to dark mode", exact: true }).click();
+    await page.getByRole("button", { name: "Open menu", exact: true }).click();
+    const overlay = page.locator("#mobile-menu");
+    const panel = page.getByRole("dialog", { name: "Menu", exact: true });
+    await expect(overlay).toHaveCSS("opacity", "1");
+    const rect = await overlay.boundingBox();
+    expect(rect!.x).toBe(0);
+    expect(rect!.y).toBe(0);
+    expect(rect!.width).toBe(390);
+    expect(rect!.height).toBe(844);
+    await expect(panel).toHaveCSS(
+      "background-color",
+      theme === "light" ? "rgb(238, 245, 252)" : "rgb(7, 17, 31)",
+    );
+    await expect(page.locator("#site-navbar")).toHaveCSS(
+      "background-color",
+      theme === "light" ? "rgb(238, 245, 252)" : "rgb(7, 17, 31)",
+    );
+    const lastLink = panel.getByRole("link", { name: "Download CV", exact: true });
+    await expect(lastLink).toBeInViewport();
+    await page.keyboard.press("Escape");
+    await expect(panel).toBeHidden();
+    await expect(page.getByRole("button", { name: "Open menu", exact: true })).toBeFocused();
+  }
+});
+
+test("opening the mobile menu near the bottom preserves the page and sticky navbar", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.locator("footer").scrollIntoViewIfNeeded();
+  const before = await page.evaluate(() => window.scrollY);
+  expect(before).toBeGreaterThan(1000);
+  const burger = await page.getByRole("button", { name: "Open menu", exact: true }).boundingBox();
+  await page.mouse.click(burger!.x + burger!.width / 2, burger!.y + burger!.height / 2);
+  const panel = page.getByRole("dialog", { name: "Menu", exact: true });
+  await expect(panel).toBeVisible();
+  await expect(page.locator(".navbar")).toBeInViewport();
+  expect((await page.locator(".navbar").boundingBox())!.y).toBe(0);
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  await page.mouse.wheel(0, 400);
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  await panel.getByRole("button", { name: "Close menu", exact: true }).click();
+  await expect(panel).toBeHidden();
+  await expect(page.locator("#mobile-menu")).toHaveCSS("visibility", "hidden");
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  await page.mouse.move(150, 400);
+  await page.mouse.wheel(0, -200);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(before);
+});
+
 test("every earlier-work card opens its project page", async ({ page }) => {
   await page.goto("/");
 

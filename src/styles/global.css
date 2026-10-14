@@ -572,7 +572,7 @@ main:focus {
     visibility 0.2s ease;
 }
 
-.navbar.menu-open .mobile-menu {
+.mobile-menu[aria-hidden="false"] {
   opacity: 1;
   visibility: visible;
 }
@@ -580,6 +580,8 @@ main:focus {
 .mobile-menu-inner {
   width: min(320px, 86vw);
   height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   box-sizing: border-box;
   padding: 20px 24px;
   background: var(--bg);
@@ -619,6 +621,12 @@ main:focus {
 }
 
 @media (max-width: 860px) {
+  .navbar {
+    background: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .navbar-links {
     display: none;
   }
