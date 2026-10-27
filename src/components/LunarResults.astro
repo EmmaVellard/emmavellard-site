@@ -1,0 +1,198 @@
+<section class="lunar-results" aria-labelledby="lunar-results-title" id="results">
+  <p class="eyebrow eyebrow--plain">Results at a glance · DPS 2026</p>
+  <h3 class="research-h3" id="lunar-results-title">
+    Testing lunar interiors against independent observations.
+  </h3>
+  <p class="lunar-results-lede muted">
+    The forward-model grid contains 1,425 interiors that match the Moon's mass. Additional observations narrow
+    the possibilities and connect their internal structure to measurable tidal signals.
+  </p>
+  <ol class="lunar-findings">
+    <li>
+      <strong>19 interiors retained</strong><p>
+        These also match the moment of inertia and core-radius constraints. Homogeneous, layered and FeO-rich
+        mantles remain possible.
+      </p>
+    </li>
+    <li>
+      <strong>GRAIL measurements within the model range</strong><p>
+        The measured tidal response falls within the range predicted by the 19 interiors in all four degree-3
+        orders.
+      </p>
+    </li>
+    <li>
+      <strong>Thermal geometry matters</strong><p>
+        Across the 19 interiors, k<sub>3m</sub> varies by 2.5–2.8×. Where the mantle is warm matters more than thermal
+        amplitude alone.
+      </p>
+    </li>
+  </ol>
+  <div class="lunar-result-figures">
+    <figure>
+      <h4>Which interiors remain?</h4>
+      <img
+        class="lunar-selection-light"
+        src="/images/research/model-selection-light.svg"
+        width="740"
+        height="300"
+        alt="19 of 1,425 interiors match mass, moment of inertia and core radius: 7 homogeneous, 5 layered and 7 FeO-rich mantles"
+        loading="lazy"
+      />
+      <img
+        class="lunar-selection-dark"
+        src="/images/research/model-selection-dark.svg"
+        width="740"
+        height="300"
+        alt="19 of 1,425 interiors match mass, moment of inertia and core radius: 7 homogeneous, 5 layered and 7 FeO-rich mantles"
+        loading="lazy"
+      />
+      <figcaption>
+        Mass, moment of inertia and core radius retain three mantle families: homogeneous, layered and
+        FeO-rich. Counts from the DPS poster.
+      </figcaption>
+    </figure>
+    <figure>
+      <h4>Predicted tides span the GRAIL measurements</h4>
+      <a
+        class="lunar-tidal-figure lunar-figure-light"
+        href="/images/research/grail-tidal-response-light.svg"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open the tidal-response comparison at full size"
+      >
+        <img
+          src="/images/research/grail-tidal-response-light.svg"
+          width="740"
+          height="420"
+          alt="Predictions from 19 elastic lunar interiors span the GRAIL measurements of k30, k31, k32 and k33; Park et al. error bars are 15 times the formal uncertainty"
+          loading="lazy"
+        />
+      </a>
+      <a
+        class="lunar-tidal-figure lunar-figure-dark"
+        href="/images/research/grail-tidal-response-dark.svg"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open the tidal-response comparison at full size"
+      >
+        <img
+          src="/images/research/grail-tidal-response-dark.svg"
+          width="740"
+          height="420"
+          alt="Predictions from 19 elastic lunar interiors span the GRAIL measurements of k30, k31, k32 and k33; Park et al. error bars are 15 times the formal uncertainty"
+          loading="lazy"
+        />
+      </a>
+      <figcaption>
+        The time-variable tide for the 2012 GRAIL orbit, redrawn from the original data behind panel 6.
+        Overlap in each order does not establish a simultaneous fit by one interior.
+      </figcaption>
+    </figure>
+  </div>
+  <p class="lunar-results-scope muted">
+    These results apply to the tested compositions and prescribed temperature fields. They do not identify a
+    unique lunar interior: the Apollo-based seismic profiles remain unexplained, and the two interiors that
+    match GRAIL's degree-1 structure do not also match the Apollo heat flow.
+  </p>
+  <div class="lunar-results-links">
+    <a class="text-link" href="/files/posters/VELLARD_PosterDPS58.pdf" target="_blank" rel="noopener"
+      >Read the DPS poster (PDF)</a
+    >
+  </div>
+</section>
+
+<style>
+  .lunar-results {
+    margin-top: 48px;
+  }
+  .lunar-results h3 {
+    margin: 8px 0 0;
+  }
+  .lunar-results-lede {
+    max-width: 76ch;
+    margin: 14px 0 0;
+  }
+  .lunar-findings {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 32px;
+    padding: 0;
+    margin: 28px 0;
+    list-style: none;
+  }
+  .lunar-findings li {
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+  }
+  .lunar-findings strong {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .lunar-findings p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .lunar-result-figures {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+  figure {
+    margin: 0;
+    min-width: 0;
+  }
+  h4 {
+    margin: 0 0 16px;
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+  }
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .lunar-tidal-figure {
+    display: block;
+  }
+  figcaption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .lunar-results-scope {
+    margin: 24px 0 0;
+    font-size: 14px;
+  }
+  .lunar-results-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 18px;
+    font-size: 15px;
+  }
+  .lunar-result-figures .lunar-selection-dark,
+  .lunar-result-figures .lunar-figure-dark {
+    display: none;
+  }
+  :global(:root[data-theme="dark"]) .lunar-result-figures .lunar-selection-dark,
+  :global(:root[data-theme="dark"]) .lunar-result-figures .lunar-figure-dark {
+    display: block;
+  }
+  :global(:root[data-theme="dark"]) .lunar-result-figures .lunar-selection-light,
+  :global(:root[data-theme="dark"]) .lunar-result-figures .lunar-figure-light {
+    display: none;
+  }
+  @media (max-width: 760px) {
+    .lunar-findings,
+    .lunar-result-figures {
+      grid-template-columns: 1fr;
+    }
+    .lunar-result-figures {
+      gap: 28px;
+    }
+  }
+</style>

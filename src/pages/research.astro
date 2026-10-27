@@ -3,6 +3,8 @@ import "../styles/research.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Motif from "../components/Motif.astro";
 import { illustrations } from "../data/illustrations";
+import LunarResults from "../components/LunarResults.astro";
+import IllustratedLink from "../components/IllustratedLink.astro";
 
 const jplSteps = [
   {
@@ -124,8 +126,12 @@ const earlierWork = [
               > and in refractory elements such as aluminium and calcium. Each one builds a different mantle: different
               minerals, density, <strong class="text-emphasis">seismic velocities and rigidity</strong>.
             </p>
+            <div class="jpl-poster">
+              <IllustratedLink href="/files/posters/VELLARD_PosterDPS58.pdf" variant="document" external
+                >Read the DPS poster <span class="file-meta">(PDF)</span></IllustratedLink
+              >
+            </div>
           </div>
-          <!-- Replace this illustration with the first science figure once it is presented at AAS DPS 2026. -->
           <img
             class="chapter-art float-art"
             {...illustrations.lunarInterior}
@@ -206,13 +212,14 @@ const earlierWork = [
           </figure>
         </div>
 
+        <LunarResults />
+
         <dl class="chapter-facts">
           <div>
             <dt>Status</dt>
             <dd>
               Poster at AAS DPS 2026: “Thermochemical models of the lunar mantle and implications for
-              geophysical observations”. A paper on this work is in preparation. Figures will be added after
-              the meeting.
+              geophysical observations”. A paper on this work is in preparation.
             </dd>
           </div>
           <div>

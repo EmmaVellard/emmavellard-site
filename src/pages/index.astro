@@ -59,32 +59,81 @@ const path = [
   },
   { institution: "Tohoku University", role: "Research intern · 2023", country: "Japan" },
   { institution: "ESA", role: "Intern · 2022", country: "Spain" },
+];
+
+const education = [
   {
-    institution: "ISAE-SUPAERO · ISU · Observatoire de Paris",
-    role: "Degrees & training",
-    country: "France · South Korea",
+    years: "2025–2026",
+    degree: "Advanced Master in Space Systems Engineering · TAS Astro",
+    institution: "ISAE-SUPAERO · France",
+  },
+  {
+    years: "2025",
+    degree: "Space Studies Program · SSP",
+    institution: "International Space University · South Korea",
+  },
+  {
+    years: "2022–2023",
+    degree: "MSc Planetary Sciences and Space Exploration",
+    institution: "Université Paris-Saclay · France",
+  },
+  {
+    years: "2021–2022",
+    degree: "MSc Space Science and Technology",
+    institution: "Observatoire de Paris · France",
+  },
+  {
+    years: "2019–2021",
+    degree: "BSc Fundamental Physics",
+    institution: "Clermont Auvergne University · France",
   },
 ];
 
 const papers = [
   {
-    year: "2027",
+    status: "In preparation",
     title: "Thermochemical models of the lunar mantle and implications for geophysical observations",
-    kind: "In preparation",
   },
 ];
 
+// Add a public URL in `href` to make the entire presentation row clickable.
 const talks = [
   {
     year: "2026",
-    title:
-      "AAS DPS — Thermochemical models of the lunar mantle and implications for geophysical observations",
-    kind: "Upcoming poster",
+    title: "Thermochemical models of the lunar mantle and implications for geophysical observations",
+    conference: "AAS DPS",
+    kind: "Poster",
+    href: "/files/posters/VELLARD_PosterDPS58.pdf",
   },
-  { year: "2025", title: "BepiColombo Science Working Team — SolarConflux", kind: "Talk" },
-  { year: "2024", title: "Europlanet Science Congress — JUICE mission preparation", kind: "Poster" },
-  { year: "2024", title: "ASE Planetary Congress — The future of space exploration", kind: "Talk" },
-  { year: "2024", title: "JUICE Science Working Team — JUICE mission preparation", kind: "Poster" },
+  {
+    year: "2025",
+    title: "SolarConflux: a multi-spacecraft alignment tool for solar event analysis",
+    conference: "BepiColombo SWT",
+    kind: "Talk",
+    href: "/projects/solarconflux",
+    linkLabel: "Explore the SolarConflux project",
+  },
+  {
+    year: "2024",
+    title: "Empowering researchers with comprehensive data access for ESA’s Juice Mission",
+    conference: "EPSC",
+    kind: "Poster",
+    href: "", // EPSC poster URL
+  },
+  {
+    year: "2024",
+    title: "The future of space exploration",
+    conference: "ASE Planetary Congress",
+    kind: "Talk",
+    href: "https://vimeo.com/1017116228",
+  },
+  {
+    year: "2024",
+    title: "Empowering researchers with comprehensive data access for ESA’s Juice Mission",
+    conference: "ESA SSW",
+    kind: "Talk",
+    href: "/files/talks/SSW_Talk_Vellard.pdf",
+  },
 ];
 ---
 
@@ -284,6 +333,7 @@ const talks = [
           <h2 class="h2">Path</h2>
           <Motif kind="orbit" />
         </div>
+        <h3 class="path-section-label">Research &amp; experience</h3>
         <ol class="path-list">
           {
             path.map((step) => (
@@ -295,6 +345,27 @@ const talks = [
             ))
           }
         </ol>
+        <details class="education-path">
+          <summary class="education-summary">
+            <h3 class="education-heading">
+              Education &amp; training
+              <svg class="education-chevron" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true">
+                <path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+              </svg>
+            </h3>
+          </summary>
+          <ul class="education-list">
+            {
+              education.map((item) => (
+                <li class="education-entry">
+                  <span class="education-years">{item.years}</span>
+                  <p class="education-institution">{item.institution}</p>
+                  <p class="education-degree">{item.degree}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -309,9 +380,9 @@ const talks = [
         {
           papers.map((paper) => (
             <li class="talk">
-              <span class="talk-year">{paper.year}</span>
+              <span class="talk-year" aria-hidden="true" />
               <span class="talk-title">{paper.title}</span>
-              <span class="talk-kind">{paper.kind}</span>
+              <span class="talk-kind">{paper.status}</span>
             </li>
           ))
         }
@@ -319,13 +390,42 @@ const talks = [
       <h3 class="talks-sub">Talks &amp; posters</h3>
       <ul class="talks-list">
         {
-          talks.map((talk) => (
-            <li class="talk">
-              <span class="talk-year">{talk.year}</span>
-              <span class="talk-title">{talk.title}</span>
-              <span class="talk-kind">{talk.kind}</span>
-            </li>
-          ))
+          talks.map((talk) => {
+            const Row = talk.href ? "a" : "div";
+            const external = Boolean(
+              talk.href && (!talk.href.startsWith("/") || /\.pdf(?:[?#]|$)/i.test(talk.href)),
+            );
+            return (
+              <li>
+                <Row
+                  class="talk"
+                  href={talk.href || undefined}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  title={
+                    talk.linkLabel ??
+                    (talk.href
+                      ? `View ${talk.kind.toLowerCase()}${external ? " (opens in a new tab)" : ""}`
+                      : undefined)
+                  }
+                >
+                  <span class="talk-year">{talk.year}</span>
+                  <span class="talk-title">
+                    <span class="talk-name">{talk.title}</span>{" "}
+                    <span class="talk-conference">{talk.conference}</span>
+                  </span>
+                  <span class="talk-kind">
+                    {talk.href && (
+                      <span class="talk-link-icon" aria-hidden="true">
+                        ↗
+                      </span>
+                    )}
+                    {talk.kind}
+                  </span>
+                </Row>
+              </li>
+            );
+          })
         }
       </ul>
     </section>

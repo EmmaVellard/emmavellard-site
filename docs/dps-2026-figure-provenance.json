@@ -1,0 +1,39 @@
+{
+  "source": "/files/posters/VELLARD_PosterDPS58.pdf",
+  "source_sha256": "926ba916b2c4e38e06f7165d00ddd1d4b9aac62ba9e43cbc2d6c4a166f813356",
+  "source_panels": [2, 6, 9],
+  "mass_matching_interiors": 1425,
+  "admissible_interiors": 19,
+  "admissibility": "Mass, moment of inertia and core radius; not an all-observations fit",
+  "mantle_families": [
+    {
+      "name": "Homogeneous",
+      "count": 7
+    },
+    {
+      "name": "Layered",
+      "count": 5
+    },
+    {
+      "name": "FeO-rich",
+      "count": 7
+    }
+  ],
+  "grail_degree_1_matches": 2,
+  "grail_degree_1_and_apollo_heat_flow_matches": 0,
+  "scope": "Only the compositions, assumptions and prescribed temperature fields tested in this poster.",
+  "tidal_figure": {
+    "files": [
+      "/images/research/grail-tidal-response-light.svg",
+      "/images/research/grail-tidal-response-dark.svg"
+    ],
+    "method": "Panel 6 redrawn from 76 original values, 19 elastic interiors × 4 orders. Transparent SVG; no digitisation or model rerun.",
+    "pinned_data": "data/lunar/dps-2026-tides.csv",
+    "pinned_data_sha256": "02493de454ed50a45c351a145810f6cebef25efbf41213a7284e0327480297a7",
+    "original_data": "lunar-bsm-interior-models/results/dps_2026_followup/N4/G1_19_4PI/G1_APPARENT_K3M.csv",
+    "original_generator": "lunar-bsm-interior-models/conference/preparation_2026-10-08/make_poster_v41_figures.py",
+    "quantity": "k_ts_PM+XM_intercept, K_set=ELASTIC; time-variable tide, 2012 GRAIL orbit",
+    "park_error_bars": "±15 × formal uncertainty, as in panel 6; not labelled as 1σ",
+    "scope": "Range overlap separately in each order is not a simultaneous fit by one model."
+  }
+}

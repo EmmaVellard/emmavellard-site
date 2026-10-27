@@ -1,5 +1,9 @@
 /* src/styles/research.css */
 
+.jpl-poster {
+  margin-top: 22px;
+}
+
 .research-intro {
   display: flex;
   flex-direction: column;
